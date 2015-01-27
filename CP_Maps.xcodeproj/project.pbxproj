@@ -65,7 +65,9 @@
 				B23536F71A709D7500E4391B /* CP_MapsTests */,
 				B23536DD1A709D7500E4391B /* Products */,
 			);
+			indentWidth = 3;
 			sourceTree = "<group>";
+			tabWidth = 3;
 		};
 		B23536DD1A709D7500E4391B /* Products */ = {
 			isa = PBXGroup;
@@ -409,6 +411,7 @@
 				B23537001A709D7500E4391B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B23537011A709D7500E4391B /* Build configuration list for PBXNativeTarget "CP_MapsTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				B23537031A709D7500E4391B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
