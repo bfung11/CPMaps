@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1167C1CE1A783FB600E6C780 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1CD1A783FB600E6C780 /* UIKit.framework */; };
+		1167C1CF1A783FC600E6C780 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C81A783EF200E6C780 /* CoreGraphics.framework */; };
+		1167C1D01A783FD000E6C780 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C91A783EF200E6C780 /* CoreLocation.framework */; };
+		1167C1D11A783FDE00E6C780 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C61A783B6D00E6C780 /* GoogleMaps.framework */; };
+		1167C1D31A78403C00E6C780 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1167C1D21A78403C00E6C780 /* GoogleMaps.bundle */; };
+		1185CBB51A797B1900987018 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1185CBB41A797B1900987018 /* .gitignore */; };
 		B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536E11A709D7500E4391B /* AppDelegate.swift */; };
 		B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */; };
 		B23536E71A709D7500E4391B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536E61A709D7500E4391B /* ViewController.swift */; };
@@ -27,6 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1167C1C61A783B6D00E6C780 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		1167C1C81A783EF200E6C780 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1167C1C91A783EF200E6C780 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1167C1CD1A783FB600E6C780 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1167C1D21A78403C00E6C780 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleMaps.bundle; sourceTree = "<group>"; };
+		1185CBB41A797B1900987018 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B23536DC1A709D7500E4391B /* CP_Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP_Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536E01A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536E11A709D7500E4391B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +57,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1167C1D01A783FD000E6C780 /* CoreLocation.framework in Frameworks */,
+				1167C1CF1A783FC600E6C780 /* CoreGraphics.framework in Frameworks */,
+				1167C1D11A783FDE00E6C780 /* GoogleMaps.framework in Frameworks */,
+				1167C1CE1A783FB600E6C780 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +74,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1167C1CC1A783F3200E6C780 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1167C1D21A78403C00E6C780 /* GoogleMaps.bundle */,
+				1167C1C81A783EF200E6C780 /* CoreGraphics.framework */,
+				1167C1C91A783EF200E6C780 /* CoreLocation.framework */,
+				1167C1C61A783B6D00E6C780 /* GoogleMaps.framework */,
+				1167C1CD1A783FB600E6C780 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B23536D31A709D7500E4391B = {
 			isa = PBXGroup;
 			children = (
+				1185CBB41A797B1900987018 /* .gitignore */,
 				B23536DE1A709D7500E4391B /* CP_Maps */,
 				B23536F71A709D7500E4391B /* CP_MapsTests */,
 				B23536DD1A709D7500E4391B /* Products */,
+				1167C1CC1A783F3200E6C780 /* Frameworks */,
 			);
 			indentWidth = 3;
 			sourceTree = "<group>";
@@ -197,9 +227,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1185CBB51A797B1900987018 /* .gitignore in Resources */,
 				B23536EA1A709D7500E4391B /* Main.storyboard in Resources */,
 				B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */,
 				B23536EC1A709D7500E4391B /* Images.xcassets in Resources */,
+				1167C1D31A78403C00E6C780 /* GoogleMaps.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +374,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/carllindiii/Desktop/CP,
+					"Maps/GoogleMaps-iOS-1.9.1",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CP_Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +390,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/carllindiii/Desktop/CP,
+					"Maps/GoogleMaps-iOS-1.9.1",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = CP_Maps/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
