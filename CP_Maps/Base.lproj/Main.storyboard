@@ -51,7 +51,7 @@
                         <viewControllerLayoutGuide type="top" id="4p9-oM-ASQ"/>
                         <viewControllerLayoutGuide type="bottom" id="VYY-34-U93"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0VS-GR-yxu">
+                    <view key="view" contentMode="scaleToFill" id="0VS-GR-yxu" customClass="GoogleMapsView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
