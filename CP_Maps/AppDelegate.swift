@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  CP_Maps
 //
-//  Created by Brian Fung on 1/21/15.
+//  Created by Carl Lind III, Brian Fung on 1/21/15.
 //  Copyright (c) 2015 Carl-Brian. All rights reserved.
 //
 
