@@ -19,6 +19,7 @@
 		B23536EC1A709D7500E4391B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23536EB1A709D7500E4391B /* Images.xcassets */; };
 		B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23536ED1A709D7500E4391B /* LaunchScreen.xib */; };
 		B23536FB1A709D7500E4391B /* CP_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536FA1A709D7500E4391B /* CP_MapsTests.swift */; };
+		B2AF97991A79DAF200CDCA38 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF97981A79DAF200CDCA38 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		B23536F41A709D7500E4391B /* CP_MapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP_MapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536F91A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536FA1A709D7500E4391B /* CP_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CP_MapsTests.swift; sourceTree = "<group>"; };
+		B2AF97981A79DAF200CDCA38 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		11FFA9F91A79D1AA007BBBF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B2AF97981A79DAF200CDCA38 /* File.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */,
+				B2AF97991A79DAF200CDCA38 /* File.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
