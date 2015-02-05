@@ -19,6 +19,7 @@
 		B23536EC1A709D7500E4391B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23536EB1A709D7500E4391B /* Images.xcassets */; };
 		B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23536ED1A709D7500E4391B /* LaunchScreen.xib */; };
 		B23536FB1A709D7500E4391B /* CP_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536FA1A709D7500E4391B /* CP_MapsTests.swift */; };
+		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		B23536F41A709D7500E4391B /* CP_MapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP_MapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536F91A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536FA1A709D7500E4391B /* CP_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CP_MapsTests.swift; sourceTree = "<group>"; };
+		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */,
 				1167C1D01A783FD000E6C780 /* CoreLocation.framework in Frameworks */,
 				1167C1CF1A783FC600E6C780 /* CoreGraphics.framework in Frameworks */,
 				11FFA9F81A79CE05007BBBF1 /* GoogleMaps.framework in Frameworks */,
@@ -110,6 +113,7 @@
 		B23536D31A709D7500E4391B = {
 			isa = PBXGroup;
 			children = (
+				B29C14CC1A831E26000759CC /* CoreData.framework */,
 				1185CBB41A797B1900987018 /* .gitignore */,
 				B23536DE1A709D7500E4391B /* CP_Maps */,
 				B23536F71A709D7500E4391B /* CP_MapsTests */,
