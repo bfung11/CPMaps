@@ -47,4 +47,23 @@ class LocationsViewController: UITableViewController {
       cell.classTitleLabel.text = location.classTitle
       return cell
    }
+   
+   @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
+   }
+   
+   @IBAction func saveLocationDetails(segue:UIStoryboardSegue) {
+      /*
+      let locationDetailsViewController = segue.sourceViewController as LocationDetailsViewController
+      
+      //add the new player to the players array
+      locations.append(locationDetailsViewController.location)
+      
+      //update the tableView
+      let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
+      tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+      
+      //hide the detail view controller
+      dismissViewControllerAnimated(true, completion: nil)
+*/
+   }
 }

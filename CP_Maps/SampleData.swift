@@ -8,10 +8,10 @@
 
 import Foundation
 
-let locationsData = [
-    Location(buildingName:"Frank E. Pilling", buildingNum:"14", roomNum:"256",
+var locationsData = [
+    Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"256",
       className: "CPE-102", classDays: "MWF", classTimes: "9:10 - 9:20"),
-    Location(buildingName:"Fischer Science", buildingNum:"14", roomNum:"258",
+    Location(buildingName:"Fischer Science", buildingNumber:"14", roomNumber:"258",
       className: "CPE-102", classDays: "MWF", classTimes: "9:10 - 9:20"),
-    Location(buildingName:"Frank E. Pilling", buildingNum:"14", roomNum:"251",
+    Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"251",
       className: "CPE-102", classDays: "MWF", classTimes: "9:10 - 9:20")]

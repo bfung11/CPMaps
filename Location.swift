@@ -10,8 +10,8 @@ import UIKit
 
 class Location: NSObject {
    var buildingName : String
-   var buildingNum : String
-   var roomNum : String
+   var buildingNumber : String
+   var roomNumber : String
    var buildingTitle : String
    var roomTitle : String
    var className : String
@@ -19,13 +19,13 @@ class Location: NSObject {
    var classTimes : String
    var classTitle : String
    
-   init(buildingName: String, buildingNum: String, roomNum: String,
+   init(buildingName: String, buildingNumber: String, roomNumber: String,
       className: String, classDays: String, classTimes: String){
       self.buildingName = buildingName
-      self.buildingNum = buildingNum
-      self.roomNum = roomNum
-      self.buildingTitle = "Building " + buildingNum + " (" + buildingName + ")"
-      self.roomTitle = "Room " + roomNum
+      self.buildingNumber = buildingNumber
+      self.roomNumber = roomNumber
+      self.buildingTitle = "Building " + buildingNumber + " (" + buildingName + ")"
+      self.roomTitle = "Room " + roomNumber
       self.className = className
       self.classDays = classDays
       self.classTimes = classTimes
