@@ -44,13 +44,13 @@ class LocationsViewController: UITableViewController {
       let location = locations[indexPath.row] as Location
       
       if let locationTitleLabel = cell.viewWithTag(100) as? UILabel {
-         locationTitleLabel.text = location.locationTitle
+         locationTitleLabel.text = location.buildingTitle
       }
       if let roomNumberLabel = cell.viewWithTag(101) as? UILabel {
          roomNumberLabel.text = location.roomNum
       }
       if let classInfoLabel = cell.viewWithTag(102) as? UILabel {
-         classInfoLabel.text = location.classInfo
+         classInfoLabel.text = location.classTitle
       }
       return cell
    }
