@@ -49,14 +49,18 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
+      dismissViewControllerAnimated(true, completion: nil)
    }
    
    @IBAction func saveLocationDetails(segue:UIStoryboardSegue) {
-      /*
       let locationDetailsViewController = segue.sourceViewController as LocationDetailsViewController
+      var lastLoc: Location!
       
       //add the new player to the players array
       locations.append(locationDetailsViewController.location)
+      
+      //lastLoc = locations.removeLast()
+      //println("location \(lastLoc.className)")
       
       //update the tableView
       let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
@@ -64,6 +68,5 @@ class LocationsViewController: UITableViewController {
       
       //hide the detail view controller
       dismissViewControllerAnimated(true, completion: nil)
-*/
    }
 }

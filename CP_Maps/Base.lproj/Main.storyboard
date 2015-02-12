@@ -197,12 +197,12 @@
                     <navigationItem key="navigationItem" title="Add New Location" id="Nwf-FL-NmI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT">
                             <connections>
-                                <segue destination="R2J-hs-uon" kind="unwind" unwindAction="cancelToLocationsViewController:" id="YPU-Xf-wgq"/>
+                                <segue destination="R2J-hs-uon" kind="unwind" identifier="cancelToLocationsViewController" unwindAction="cancelToLocationsViewController:" id="tyc-RO-mdj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr">
                             <connections>
-                                <segue destination="R2J-hs-uon" kind="unwind" unwindAction="saveLocationDetails:" id="Lqr-Gd-kx6"/>
+                                <segue destination="R2J-hs-uon" kind="unwind" identifier="saveLocationDetails" unwindAction="saveLocationDetails:" id="zl6-wF-w02"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

@@ -19,7 +19,7 @@ class LocationDetailsViewController: UITableViewController {
    @IBOutlet weak var classTimesTextField: UITextField!
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == "SavePlayerDetail" {
+      if segue.identifier == "saveLocationDetails" {
          location = Location(buildingName: "Frank E. Pilling", buildingNumber: "14",
             roomNumber: "259", className: self.classNameTextField.text,
             classDays: self.classDaysTextField.text, classTimes: self.classTimesTextField.text)
