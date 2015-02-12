@@ -39,19 +39,12 @@ class LocationsViewController: UITableViewController {
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
    -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath)
-      as UITableViewCell
+      as LocationCell
 
       let location = locations[indexPath.row] as Location
-      
-      if let locationTitleLabel = cell.viewWithTag(100) as? UILabel {
-         locationTitleLabel.text = location.buildingTitle
-      }
-      if let roomNumberLabel = cell.viewWithTag(101) as? UILabel {
-         roomNumberLabel.text = location.roomNum
-      }
-      if let classInfoLabel = cell.viewWithTag(102) as? UILabel {
-         classInfoLabel.text = location.classTitle
-      }
+      cell.buildingTitleLabel.text = location.buildingTitle
+      cell.roomTitleLabel.text = location.roomTitle
+      cell.classTitleLabel.text = location.classTitle
       return cell
    }
 }
