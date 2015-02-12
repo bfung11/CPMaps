@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iZX-kO-JQk">
     <dependencies>
-        <deployment version="1808" identifier="iOS"/>
+        <deployment version="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
@@ -18,21 +18,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cM2-fL-eXT">
-                                <rect key="frame" x="153" y="491" width="108" height="30"/>
-                                <state key="normal" title="Our StoryBoard">
+                                <rect key="frame" x="126" y="353" width="163" height="30"/>
+                                <state key="normal" title="This is for Google Maps">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="sIM-1p-SCP" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="ack-aL-teD"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E4d-s6-FT0">
-                                <rect key="frame" x="159" y="146" width="96" height="30"/>
-                                <state key="normal" title="Google Maps!">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="4IY-B4-7mr" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="09I-XJ-7A0"/>
+                                    <segue destination="raf-V2-o3H" kind="show" id="vGn-cP-U4y"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,119 +34,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Map View-->
-        <scene sceneID="LCm-4x-r0f">
+        <!--View Controller-->
+        <scene sceneID="PCf-ht-fGN">
             <objects>
-                <viewController id="4IY-B4-7mr" customClass="GMSMapView" sceneMemberID="viewController">
+                <viewController id="iZX-kO-JQk" customClass="ViewController" customModule="CP_Maps" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4p9-oM-ASQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="VYY-34-U93"/>
+                        <viewControllerLayoutGuide type="top" id="5c5-kr-zzD"/>
+                        <viewControllerLayoutGuide type="bottom" id="fKs-QT-86s"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0VS-GR-yxu" customClass="GoogleMapsView">
+                    <view key="view" contentMode="scaleToFill" id="aEO-0p-fJU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyk-Lv-y1O">
-                                <rect key="frame" x="138" y="353" width="138" height="30"/>
-                                <state key="normal" title="Back to Home Page">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="KMo-6m-1pJ"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="qg0-81-aOx">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cq3-SE-YtU"/>
+                    <connections>
+                        <outlet property="tableView" destination="qg0-81-aOx" id="LUR-rg-fCh"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sj3-iK-cRG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSl-kA-PPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="-237"/>
-        </scene>
-        <!--Locations-->
-        <scene sceneID="DM2-k6-5tj">
-            <objects>
-                <tableViewController id="atD-H1-k4j" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="z5S-gU-DHC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="var-Tn-XPf">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="var-Tn-XPf" id="ZXI-ap-9X4">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="location" textLabel="E3u-H5-xAU" style="IBUITableViewCellStyleDefault" id="Sdh-uI-5fU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sdh-uI-5fU" id="cyw-Ep-4hq">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E3u-H5-xAU">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="atD-H1-k4j" id="3G0-ua-ytK"/>
-                            <outlet property="delegate" destination="atD-H1-k4j" id="3dR-Of-yVt"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Locations" id="fLS-KO-0e8">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="j3w-th-DDw"/>
-                        <barButtonItem key="rightBarButtonItem" title="Add New Item" id="FFu-HJ-znq">
-                            <connections>
-                                <segue destination="aXa-gq-Y5U" kind="show" id="kPQ-nx-bzG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HBB-dT-Gu6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1829" y="860"/>
-        </scene>
-        <!--Add New Item-->
-        <scene sceneID="LoS-Ha-q7I">
-            <objects>
-                <viewController title="Add New Item" id="aXa-gq-Y5U" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eD3-1P-siK"/>
-                        <viewControllerLayoutGuide type="bottom" id="qyP-X1-8am"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zqg-Hm-ZSq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zbi-3S-JMB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2515" y="860"/>
+            <point key="canvasLocation" x="1656" y="350"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="HpM-zA-aaY">
+        <scene sceneID="MMB-ng-TFh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sIM-1p-SCP" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="raf-V2-o3H" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qpw-A1-VPN">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kfE-C8-U6k">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="atD-H1-k4j" kind="relationship" relationship="rootViewController" id="Ys0-Ox-5yU"/>
+                        <segue destination="iZX-kO-JQk" kind="relationship" relationship="rootViewController" id="pJN-Nz-zgm"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9IK-vW-q4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LeC-21-mKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="860"/>
+            <point key="canvasLocation" x="1030" y="350"/>
         </scene>
     </scenes>
 </document>
