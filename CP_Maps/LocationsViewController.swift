@@ -52,8 +52,6 @@ class LocationsViewController: UITableViewController {
       if let classInfoLabel = cell.viewWithTag(102) as? UILabel {
          classInfoLabel.text = location.classInfo
       }
-      cell.textLabel?.text = location.buildingName
-      cell.detailTextLabel?.text = location.roomTitle
       return cell
    }
 }
