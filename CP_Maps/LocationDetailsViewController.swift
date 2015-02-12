@@ -9,6 +9,7 @@
 import UIKit
 
 class LocationDetailsViewController: UITableViewController {
+    @IBOutlet weak var classNameTextField: UITextField!
     @IBAction func cancelToPlayersViewController(segue:UIStoryboardSegue) {
 
     }
