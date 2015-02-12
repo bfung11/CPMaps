@@ -113,7 +113,10 @@
                             <outlet property="delegate" destination="Agc-E3-Fux" id="6ZY-Gi-0J1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Nwf-FL-NmI"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Nwf-FL-NmI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,6 +155,47 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-Xe-cBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1110" y="232"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="HRf-bR-XuS">
+            <objects>
+                <tableViewController id="b99-ua-Xsh" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xeo-zf-MK7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="XZa-9s-5XU">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XZa-9s-5XU" id="PgH-0h-OPa">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="b99-ua-Xsh" id="9PM-kN-Neu"/>
+                            <outlet property="delegate" destination="b99-ua-Xsh" id="Ib2-7M-2M2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Hjx-mo-xpI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="raZ-21-JIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Lj3-vI-VLf">
+            <objects>
+                <navigationController id="qbY-7V-joK" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ffj-TN-MV4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="b99-ua-Xsh" kind="relationship" relationship="rootViewController" id="Tsf-7h-o3V"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TX2-bC-oGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
