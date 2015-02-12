@@ -114,11 +114,20 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Root View Controller" id="Nwf-FL-NmI">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT">
+                            <connections>
+                                <segue destination="R2J-hs-uon" kind="unwind" unwindAction="cancelToPlayersViewController:" id="tHJ-Iv-39j"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr">
+                            <connections>
+                                <segue destination="R2J-hs-uon" kind="unwind" unwindAction="savePlayerDetail:" id="yze-pd-sKq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="R2J-hs-uon" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2813" y="229"/>
         </scene>
