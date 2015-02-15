@@ -56,14 +56,19 @@ class LocationsViewController: UITableViewController {
       let addNewLocationViewController = segue.sourceViewController as AddNewLocationViewController
       
       //add the new player to the players array
-      println(addNewLocationViewController.location)
-      locations.append(addNewLocationViewController.location)
-      
+      addNewLocationToArray(addNewLocationViewController.location)
+
       //update the tableView
       let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
       tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
       
       //hide the detail view controller
       dismissViewControllerAnimated(true, completion: nil)
+   }
+   
+   func addNewLocationToArray(location: Location){
+      //question: why do we need both to add?
+      locations.append(location)
+      locationsData.append(location)
    }
 }
