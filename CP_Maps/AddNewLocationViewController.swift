@@ -14,11 +14,10 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var buildingNameDetail: UILabel!
    @IBOutlet weak var roomNumberDetail: UILabel!
    @IBOutlet weak var classNameTextField: UITextField!
-   @IBOutlet weak var classDaysTextField: UITextField!
    @IBOutlet weak var classTimesTextField: UITextField!
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == "saveLocationDetails" {
+      if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: "Frank E. Pilling", buildingNumber: "14",
             roomNumber: "259", className: self.classNameTextField.text,
             classDays: "MWF", classTimes: self.classTimesTextField.text)

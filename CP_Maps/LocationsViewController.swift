@@ -54,9 +54,9 @@ class LocationsViewController: UITableViewController {
    
    @IBAction func saveNewLocation(segue:UIStoryboardSegue) {
       let addNewLocationViewController = segue.sourceViewController as AddNewLocationViewController
-      var lastLoc: Location!
       
       //add the new player to the players array
+      println(addNewLocationViewController.location)
       locations.append(addNewLocationViewController.location)
       
       //update the tableView
