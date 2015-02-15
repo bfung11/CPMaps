@@ -300,6 +300,9 @@
                             <outlet property="delegate" destination="N4W-Rq-hDV" id="nbO-67-Si4"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Choose Room" id="dtr-qv-Ddm">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="34f-ot-uOp"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bba-u7-Lqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
