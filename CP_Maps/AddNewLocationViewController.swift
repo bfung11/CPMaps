@@ -21,7 +21,7 @@ class AddNewLocationViewController: UITableViewController {
       if segue.identifier == "saveLocationDetails" {
          location = Location(buildingName: "Frank E. Pilling", buildingNumber: "14",
             roomNumber: "259", className: self.classNameTextField.text,
-            classDays: self.classDaysTextField.text, classTimes: self.classTimesTextField.text)
+            classDays: "MWF", classTimes: self.classTimesTextField.text)
       }
    }
    
