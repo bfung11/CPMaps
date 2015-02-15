@@ -263,6 +263,9 @@
                             <outlet property="delegate" destination="reh-xF-wIR" id="6Ac-jt-OjZ"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Choose Building" id="vAl-71-3Ga">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="tWx-2P-1iW"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
