@@ -15,3 +15,6 @@ var locationsData = [
       className: "CPE-102", classDays: "MWF", classTimes: "9:10 - 9:20"),
     Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"251",
       className: "CPE-102", classDays: "MWF", classTimes: "9:10 - 9:20")]
+
+var buildingsData = ["1 Administration", "14 Frank E. Pilling"]
+var daysData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]

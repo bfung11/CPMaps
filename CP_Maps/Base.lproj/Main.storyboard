@@ -103,7 +103,7 @@
                         <sections>
                             <tableViewSection headerTitle="Building Name and Room Number" id="BxF-9O-Pci">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hph-aE-5pB" detailTextLabel="y5E-L4-tpG" style="IBUITableViewCellStyleValue1" id="tGD-g0-6rT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ChooseBuilding" textLabel="hph-aE-5pB" detailTextLabel="y5E-L4-tpG" style="IBUITableViewCellStyleValue1" id="tGD-g0-6rT">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGD-g0-6rT" id="8T3-Hm-fAJ">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -122,8 +122,11 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="reh-xF-wIR" kind="show" id="81M-DC-qz1"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zvX-AB-pa3" detailTextLabel="NX5-Cm-ga8" style="IBUITableViewCellStyleValue1" id="bzK-OV-31z">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zvX-AB-pa3" detailTextLabel="NX5-Cm-ga8" style="IBUITableViewCellStyleValue1" id="bzK-OV-31z">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzK-OV-31z" id="P8o-YS-XED">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -228,6 +231,40 @@
             </objects>
             <point key="canvasLocation" x="2684" y="967"/>
         </scene>
+        <!--Choose Building View Controller-->
+        <scene sceneID="wca-wQ-xqa">
+            <objects>
+                <tableViewController id="reh-xF-wIR" customClass="ChooseBuildingViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s3D-UV-dVW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuildingCell" textLabel="UDb-dV-IAv" style="IBUITableViewCellStyleDefault" id="fCd-FV-pah">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCd-FV-pah" id="RRf-Vr-3Gb">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UDb-dV-IAv">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="reh-xF-wIR" id="C6n-BB-PT6"/>
+                            <outlet property="delegate" destination="reh-xF-wIR" id="6Ac-jt-OjZ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3202" y="678"/>
+        </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
             <objects>
@@ -260,7 +297,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3279" y="967"/>
+            <point key="canvasLocation" x="3337" y="1535"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X0J-Vu-GCL">
