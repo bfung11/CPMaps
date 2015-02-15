@@ -51,7 +51,6 @@ class LocationsViewController: UITableViewController {
    @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
       //dismissViewControllerAnimated(true, completion: nil)
       //performSegueWithIdentifier("cancelToMyLocations", sender: self)
-
    }
    
    @IBAction func saveNewLocation(segue:UIStoryboardSegue) {

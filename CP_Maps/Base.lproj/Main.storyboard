@@ -264,10 +264,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Building" id="vAl-71-3Ga">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="tWx-2P-1iW"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="tWx-2P-1iW">
+                            <connections>
+                                <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveNewLocationDetails:" id="qAq-uT-egw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3306" y="163"/>
         </scene>
@@ -301,10 +306,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Room" id="dtr-qv-Ddm">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="34f-ot-uOp"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="34f-ot-uOp">
+                            <connections>
+                                <segue destination="vtI-Bz-Bwg" kind="unwind" identifier="saveRoom" unwindAction="saveNewLocationDetails:" id="mz0-vN-Fs9"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bba-u7-Lqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vtI-Bz-Bwg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3306" y="959"/>
         </scene>
@@ -338,10 +348,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Days" id="f4Q-Ml-Pjc">
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t">
+                            <connections>
+                                <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="saveNewLocationDetails:" id="FZl-Gr-Una"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="CM4-5w-lzu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3306" y="1776"/>
         </scene>
