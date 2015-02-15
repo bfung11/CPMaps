@@ -52,7 +52,7 @@ class LocationsViewController: UITableViewController {
       dismissViewControllerAnimated(true, completion: nil)
    }
    
-   @IBAction func saveLocationDetails(segue:UIStoryboardSegue) {
+   @IBAction func saveNewLocation(segue:UIStoryboardSegue) {
       let addNewLocationViewController = segue.sourceViewController as AddNewLocationViewController
       var lastLoc: Location!
       
