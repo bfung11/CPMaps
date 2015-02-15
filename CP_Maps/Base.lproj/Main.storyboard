@@ -337,6 +337,9 @@
                             <outlet property="delegate" destination="g60-TJ-JGu" id="yDb-rx-XDT"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Choose Days" id="f4Q-Ml-Pjc">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
