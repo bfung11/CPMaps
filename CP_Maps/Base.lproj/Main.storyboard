@@ -103,7 +103,7 @@
                         <sections>
                             <tableViewSection headerTitle="Building Name and Room Number" id="BxF-9O-Pci">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hph-aE-5pB" detailTextLabel="y5E-L4-tpG" style="IBUITableViewCellStyleValue1" id="tGD-g0-6rT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="hph-aE-5pB" detailTextLabel="y5E-L4-tpG" style="IBUITableViewCellStyleValue1" id="tGD-g0-6rT">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tGD-g0-6rT" id="8T3-Hm-fAJ">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -123,7 +123,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zvX-AB-pa3" detailTextLabel="NX5-Cm-ga8" style="IBUITableViewCellStyleValue1" id="bzK-OV-31z">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zvX-AB-pa3" detailTextLabel="NX5-Cm-ga8" style="IBUITableViewCellStyleValue1" id="bzK-OV-31z">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bzK-OV-31z" id="P8o-YS-XED">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -160,7 +160,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="og7-kH-CrW" detailTextLabel="k4I-xT-gm0" style="IBUITableViewCellStyleValue1" id="mXa-x4-qle">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="og7-kH-CrW" detailTextLabel="k4I-xT-gm0" style="IBUITableViewCellStyleValue1" id="mXa-x4-qle">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mXa-x4-qle" id="kFx-Gn-XKi">
                                             <autoresizingMask key="autoresizingMask"/>
