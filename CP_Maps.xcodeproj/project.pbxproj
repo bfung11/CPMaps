@@ -23,11 +23,11 @@
 		B2372FA91A8C5BA1006EA3C9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FA81A8C5BA1006EA3C9 /* Location.swift */; };
 		B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */; };
 		B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */; };
-		B2372FB71A8C7F32006EA3C9 /* LocationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FB61A8C7F32006EA3C9 /* LocationDetailsViewController.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
 		B2E763BA1A9042C4000D93E5 /* ChooseBuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B91A9042C4000D93E5 /* ChooseBuildingViewController.swift */; };
 		B2E763BC1A9045AB000D93E5 /* ChooseRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BB1A9045AB000D93E5 /* ChooseRoomViewController.swift */; };
+		B2E763BE1A9049D5000D93E5 /* AddNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddNewLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,11 +61,11 @@
 		B2372FA81A8C5BA1006EA3C9 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ../Location.swift; sourceTree = "<group>"; };
 		B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
-		B2372FB61A8C7F32006EA3C9 /* LocationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationDetailsViewController.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
 		B2E763B91A9042C4000D93E5 /* ChooseBuildingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingViewController.swift; sourceTree = "<group>"; };
 		B2E763BB1A9045AB000D93E5 /* ChooseRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRoomViewController.swift; sourceTree = "<group>"; };
+		B2E763BD1A9049D5000D93E5 /* AddNewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
-				B2372FB61A8C7F32006EA3C9 /* LocationDetailsViewController.swift */,
+				B2E763BD1A9049D5000D93E5 /* AddNewLocationViewController.swift */,
 				B2E763B91A9042C4000D93E5 /* ChooseBuildingViewController.swift */,
 				B2E763BB1A9045AB000D93E5 /* ChooseRoomViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
@@ -300,12 +300,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2E763BC1A9045AB000D93E5 /* ChooseRoomViewController.swift in Sources */,
-				B2372FB71A8C7F32006EA3C9 /* LocationDetailsViewController.swift in Sources */,
 				B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */,
 				B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */,
 				B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */,
 				B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
+				B2E763BE1A9049D5000D93E5 /* AddNewLocationViewController.swift in Sources */,
 				B2372FA91A8C5BA1006EA3C9 /* Location.swift in Sources */,
 				B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */,
 				B2E763BA1A9042C4000D93E5 /* ChooseBuildingViewController.swift in Sources */,

@@ -1,15 +1,14 @@
 //
-//  LocationDetailsViewController.swift
+//  AddNewLocationViewController.swift
 //  CP_Maps
 //
-//  Created by Brian Fung on 2/11/15.
+//  Created by Brian Fung on 2/14/15.
 //  Copyright (c) 2015 Carl-Brian. All rights reserved.
 //
 
 import UIKit
 
-class LocationDetailsViewController: UITableViewController {
-   
+class AddNewLocationViewController: UITableViewController {
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    
    @IBOutlet weak var buildingNameDetail: UILabel!
@@ -25,7 +24,7 @@ class LocationDetailsViewController: UITableViewController {
             classDays: self.classDaysTextField.text, classTimes: self.classTimesTextField.text)
       }
    }
-  
+   
    //Allows user to tap anywhere in cell to bring up keyboard
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       if indexPath.section == 0 {
