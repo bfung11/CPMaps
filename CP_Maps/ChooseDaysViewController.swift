@@ -44,12 +44,6 @@ class ChooseDaysViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       
-      //Other row is selected - need to deselect it
-      if let index = selectedDaysIndex {
-         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-         cell?.accessoryType = .None
-      }
-      
       selectedDaysIndex = indexPath.row
       selectedDays = days[indexPath.row]
       
