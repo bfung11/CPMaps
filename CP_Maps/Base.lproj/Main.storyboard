@@ -218,7 +218,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr">
                             <connections>
-                                <segue destination="R2J-hs-uon" kind="unwind" identifier="saveLocationDetails" unwindAction="saveLocationDetails:" id="zl6-wF-w02"/>
+                                <segue destination="R2J-hs-uon" kind="unwind" identifier="saveNewLocation" unwindAction="saveLocationDetails:" id="zl6-wF-w02"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
