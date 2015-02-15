@@ -62,7 +62,7 @@ class Location: NSObject {
    }
    
    func getClassTitle() -> String{
-      shorthandDays()
+      self.shorthandDays()
       self.classTitle = self.className + " " + self.classDays + " " + self.classTimes
       return self.classTitle
    }
