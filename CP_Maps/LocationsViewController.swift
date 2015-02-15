@@ -53,14 +53,11 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func saveLocationDetails(segue:UIStoryboardSegue) {
-      let locationDetailsViewController = segue.sourceViewController as AddNewLocationViewController
+      let addNewLocationViewController = segue.sourceViewController as AddNewLocationViewController
       var lastLoc: Location!
       
       //add the new player to the players array
-      locations.append(locationDetailsViewController.location)
-      
-      //lastLoc = locations.removeLast()
-      //println("location \(lastLoc.className)")
+      locations.append(addNewLocationViewController.location)
       
       //update the tableView
       let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
