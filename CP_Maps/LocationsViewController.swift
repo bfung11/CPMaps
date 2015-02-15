@@ -49,7 +49,9 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
-      dismissViewControllerAnimated(true, completion: nil)
+      //dismissViewControllerAnimated(true, completion: nil)
+      //performSegueWithIdentifier("cancelToMyLocations", sender: self)
+
    }
    
    @IBAction func saveNewLocation(segue:UIStoryboardSegue) {
@@ -61,9 +63,6 @@ class LocationsViewController: UITableViewController {
       //update the tableView
       let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
       tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-      
-      //hide the detail view controller
-      dismissViewControllerAnimated(true, completion: nil)
    }
    
    func addNewLocationToArray(location: Location){
