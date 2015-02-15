@@ -40,11 +40,11 @@ class LocationsViewController: UITableViewController {
    -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath)
       as LocationCell
-
+      
       let location = locations[indexPath.row] as Location
       cell.buildingTitleLabel.text = location.buildingTitle
       cell.roomTitleLabel.text = location.roomTitle
-      cell.classTitleLabel.text = location.classTitle
+      cell.classTitleLabel.text = location.getClassTitle()
       return cell
    }
    

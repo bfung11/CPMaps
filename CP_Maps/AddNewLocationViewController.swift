@@ -40,7 +40,7 @@ class AddNewLocationViewController: UITableViewController {
       if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: building, buildingNumber: "14",
             roomNumber: room, className: self.classNameTextField.text,
-            classDays: "MWF",
+            classDaysArray: ["Monday", "Wednesday", "Friday"],
             classTimes: self.classTimesTextField.text)
       }
    }
