@@ -17,4 +17,5 @@ var locationsData = [
       className: "CPE-102", classDays: "MWF", classTimes: "9:10 - 9:20")]
 
 var buildingsData = ["1 Administration", "14 Frank E. Pilling"]
+var roomsData = ["Room 251", "Room 252", "Room 253", "Room 254", "Room 255", "Room 256"]
 var daysData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]

@@ -27,6 +27,7 @@
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
 		B2E763BA1A9042C4000D93E5 /* ChooseBuildingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B91A9042C4000D93E5 /* ChooseBuildingViewController.swift */; };
+		B2E763BC1A9045AB000D93E5 /* ChooseRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BB1A9045AB000D93E5 /* ChooseRoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
 		B2E763B91A9042C4000D93E5 /* ChooseBuildingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingViewController.swift; sourceTree = "<group>"; };
+		B2E763BB1A9045AB000D93E5 /* ChooseRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseRoomViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
 				B2372FB61A8C7F32006EA3C9 /* LocationDetailsViewController.swift */,
 				B2E763B91A9042C4000D93E5 /* ChooseBuildingViewController.swift */,
+				B2E763BB1A9045AB000D93E5 /* ChooseRoomViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
 			);
 			name = Controllers;
@@ -296,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E763BC1A9045AB000D93E5 /* ChooseRoomViewController.swift in Sources */,
 				B2372FB71A8C7F32006EA3C9 /* LocationDetailsViewController.swift in Sources */,
 				B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */,
 				B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */,

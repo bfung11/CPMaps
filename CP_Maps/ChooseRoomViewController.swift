@@ -1,5 +1,5 @@
 //
-//  ChooseDaysViewController.swift
+//  ChooseRoomViewController.swift
 //  CP_Maps
 //
 //  Created by Brian Fung on 2/14/15.
@@ -8,14 +8,13 @@
 
 import UIKit
 
-class ChooseDaysViewController: UITableViewController {
-   var days: [String] = daysData
-   var selectedDays: String? = nil
-   var selectedDaysIndex: Int? = nil
+class ChooseRoomViewController: UITableViewController {
+   var rooms: [String] = roomsData
+   var selectedRoom: String? = nil
+   var selectedRoomIndex:Int? = nil
    
    override func viewDidLoad() {
       super.viewDidLoad()
-
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -23,14 +22,14 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return days.count
+      return rooms.count
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as UITableViewCell
-      cell.textLabel?.text = days[indexPath.row]
+      let cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as UITableViewCell
+      cell.textLabel?.text = rooms[indexPath.row]
       
-      if indexPath.row == selectedDaysIndex {
+      if indexPath.row == selectedRoomIndex {
          cell.accessoryType = .Checkmark
       } else {
          cell.accessoryType = .None
@@ -43,8 +42,14 @@ class ChooseDaysViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       
-      selectedDaysIndex = indexPath.row
-      selectedDays = days[indexPath.row]
+      //Other row is selected - need to deselect it
+      if let index = selectedRoomIndex {
+         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+         cell?.accessoryType = .None
+      }
+      
+      selectedRoomIndex = indexPath.row
+      selectedRoom = rooms[indexPath.row]
       
       //update the checkmark for the current row
       let cell = tableView.cellForRowAtIndexPath(indexPath)
