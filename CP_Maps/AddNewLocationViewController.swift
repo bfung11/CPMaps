@@ -12,7 +12,7 @@ class AddNewLocationViewController: UITableViewController {
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    var building: String!
    var room: String!
-   var days: String!
+   var days = [String]()
    
    @IBOutlet weak var buildingNameDetail: UILabel!
    @IBOutlet weak var roomNumberDetail: UILabel!
@@ -28,20 +28,17 @@ class AddNewLocationViewController: UITableViewController {
          let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
          room = chooseRoomViewController.selectedRoom
       }
-      /*
       if segue.identifier == "saveDays" {
          let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
          days = chooseDaysViewController.selectedDays
       }
-*/
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: building, buildingNumber: "14",
             roomNumber: room, className: self.classNameTextField.text,
-            classDaysArray: ["Monday", "Wednesday", "Friday"],
-            classTimes: self.classTimesTextField.text)
+            classDaysArray: days, classTimes: self.classTimesTextField.text)
       }
    }
    

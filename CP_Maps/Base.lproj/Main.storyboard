@@ -350,7 +350,7 @@
                     <navigationItem key="navigationItem" title="Choose Days" id="f4Q-Ml-Pjc">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t">
                             <connections>
-                                <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="saveNewLocationDetails:" id="FZl-Gr-Una"/>
+                                <segue destination="CM4-5w-lzu" kind="unwind" identifier="saveDays" unwindAction="saveNewLocationDetails:" id="FZl-Gr-Una"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
