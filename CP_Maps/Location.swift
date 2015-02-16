@@ -12,26 +12,20 @@ class Location: NSObject {
    var buildingName : String
    var buildingNumber : String
    var roomNumber : String
-   var buildingTitle : String
-   var roomTitle : String
    var className : String
    var classDaysArray = [String]()
    var classDays : String
    var classTimes : String
-   var classTitle : String
    
    init(buildingName: String, buildingNumber: String, roomNumber: String,
       className: String, classDaysArray: [String], classTimes: String){
          self.buildingName = buildingName
          self.buildingNumber = buildingNumber
          self.roomNumber = roomNumber
-         self.buildingTitle = "Building " + buildingNumber + " (" + buildingName + ")"
-         self.roomTitle = "Room " + roomNumber
          self.className = className
          self.classDaysArray = classDaysArray
          self.classDays = ""
          self.classTimes = classTimes
-         self.classTitle = ""
          super.init()
    }
    
@@ -61,9 +55,8 @@ class Location: NSObject {
       }
    }
    
-   func getClassTitle() -> String{
+   func getClassDetails() -> String{
       self.shorthandDays()
-      self.classTitle = self.className + " " + self.classDays + " " + self.classTimes
-      return self.classTitle
+      return self.className + " " + self.classDays + " " + self.classTimes
    }
 }

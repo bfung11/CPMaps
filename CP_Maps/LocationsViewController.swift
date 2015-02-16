@@ -42,9 +42,12 @@ class LocationsViewController: UITableViewController {
       as LocationCell
       
       let location = locations[indexPath.row] as Location
-      cell.buildingTitleLabel.text = location.buildingTitle
-      cell.roomTitleLabel.text = location.roomTitle
-      cell.classTitleLabel.text = location.getClassTitle()
+      cell.buildingTitleLabel.text =
+        "Building " + location.buildingNumber +
+        " (" + location.buildingName + ")"
+      cell.roomTitleLabel.text =
+        "Room " + location.roomNumber
+      cell.classTitleLabel.text = location.getClassDetails()
       return cell
    }
    
