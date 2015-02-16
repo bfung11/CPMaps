@@ -10,8 +10,8 @@ import UIKit
 
 class ChooseDaysViewController: UITableViewController {
    var days: [String] = daysData
-   var selectedDays: String? = nil
-   var selectedDaysIndex: Int? = nil
+   var selectedDay: String? = nil
+   var selectedDayIndex: Int? = nil
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -30,7 +30,7 @@ class ChooseDaysViewController: UITableViewController {
       let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as UITableViewCell
       cell.textLabel?.text = days[indexPath.row]
       
-      if indexPath.row == selectedDaysIndex {
+      if indexPath.row == selectedDayIndex {
          cell.accessoryType = .Checkmark
       } else {
          cell.accessoryType = .None
@@ -41,11 +41,23 @@ class ChooseDaysViewController: UITableViewController {
    //MARK: - Table view delegate
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      selectedDaysIndex = indexPath.row
-      selectedDays = days[indexPath.row]
-      selectedDays = days[indexPath.row]
+      var i : Int
+      var count : Int
+      var day : String
       
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      selectedDayIndex = indexPath.row
+      selectedDay = days[indexPath.row]
+      selectedDay = days[indexPath.row]
+      
+      /*
+      count = days.count
+      for (i = 0; i < count; ++i) {
+         if days[i] == selectedDay {
+
+         }
+      }
+*/
       //update the checkmark for the current row
       let cell = tableView.cellForRowAtIndexPath(indexPath)
       cell?.accessoryType = .Checkmark
