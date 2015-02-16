@@ -264,6 +264,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Building" id="vAl-71-3Ga">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="BBh-DU-ilA">
+                            <connections>
+                                <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelAddDetails:" id="0Ep-nR-c36"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="tWx-2P-1iW">
                             <connections>
                                 <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveNewLocationDetails:" id="qAq-uT-egw"/>
@@ -306,6 +311,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Room" id="dtr-qv-Ddm">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="Mq3-cn-Xay">
+                            <connections>
+                                <segue destination="vtI-Bz-Bwg" kind="unwind" unwindAction="cancelAddDetails:" id="asf-ts-OLC"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="34f-ot-uOp">
                             <connections>
                                 <segue destination="vtI-Bz-Bwg" kind="unwind" identifier="saveRoom" unwindAction="saveNewLocationDetails:" id="mz0-vN-Fs9"/>
@@ -348,6 +358,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Choose Days" id="f4Q-Ml-Pjc">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="F1r-hx-RUO">
+                            <connections>
+                                <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="cancelAddDetails:" id="iHu-IF-uqo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t">
                             <connections>
                                 <segue destination="CM4-5w-lzu" kind="unwind" identifier="saveDays" unwindAction="saveNewLocationDetails:" id="FZl-Gr-Una"/>

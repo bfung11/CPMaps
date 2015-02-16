@@ -19,6 +19,9 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var classNameTextField: UITextField!
    @IBOutlet weak var classTimesTextField: UITextField!
 
+   @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
+   }
+   
    @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {
       if segue.identifier == "saveBuilding" {
          let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
