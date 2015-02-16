@@ -36,10 +36,14 @@ class AddNewLocationViewController: UITableViewController {
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       var tempClassName = self.classNameTextField.text
+      var tempDays = days
       var tempClassTimes = self.classTimesTextField.text
       
       if self.classNameTextField.text.isEmpty {
          tempClassName = ""
+      }
+      if days.isEmpty {
+         tempDays = [String]()
       }
       if self.classTimesTextField.text.isEmpty{
          tempClassTimes = ""
@@ -48,7 +52,7 @@ class AddNewLocationViewController: UITableViewController {
       if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: building, buildingNumber: "14",
             roomNumber: room, className: tempClassName,
-            classDaysArray: days, classTimes: tempClassTimes)
+            classDaysArray: tempDays, classTimes: tempClassTimes)
       }
    }
    
