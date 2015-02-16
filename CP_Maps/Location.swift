@@ -31,26 +31,23 @@ class Location: NSObject {
    
    private func shorthandDays() {
       for day in self.classDaysArray {
-         if day == "Sunday" {
+         switch day {
+         case "Sunday":
             self.classDays += "Su"
-         }
-         else if day == "Monday" {
+         case "Monday":
             self.classDays += "M"
-         }
-         else if day == "Tuesday" {
+         case "Tuesday":
             self.classDays += "Tu"
-         }
-         else if day == "Wednesday" {
+         case "Wednesday":
             self.classDays += "W"
-         }
-         else if day == "Thursday" {
+         case "Thursday":
             self.classDays += "Th"
-         }
-         else if day == "Friday" {
+         case "Friday":
             self.classDays += "F"
-         }
-         else if day == "Saturday" {
+         case "Saturday":
             self.classDays += "Sa"
+         default:
+            self.classDays += ""
          }
       }
    }
