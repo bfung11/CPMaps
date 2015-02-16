@@ -42,8 +42,8 @@ class ChooseDaysViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      
       selectedDaysIndex = indexPath.row
+      selectedDays = days[indexPath.row]
       selectedDays = days[indexPath.row]
       
       //update the checkmark for the current row
