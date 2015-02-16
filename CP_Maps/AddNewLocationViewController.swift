@@ -35,10 +35,20 @@ class AddNewLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      var tempClassName = self.classNameTextField.text
+      var tempClassTimes = self.classTimesTextField.text
+      
+      if self.classNameTextField.text.isEmpty {
+         tempClassName = ""
+      }
+      if self.classTimesTextField.text.isEmpty{
+         tempClassTimes = ""
+      }
+      
       if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: building, buildingNumber: "14",
-            roomNumber: room, className: self.classNameTextField.text,
-            classDaysArray: days, classTimes: self.classTimesTextField.text)
+            roomNumber: room, className: tempClassName,
+            classDaysArray: days, classTimes: tempClassTimes)
       }
    }
    
