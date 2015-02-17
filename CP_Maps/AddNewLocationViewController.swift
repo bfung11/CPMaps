@@ -15,9 +15,10 @@ class AddNewLocationViewController: UITableViewController {
    var roomNumber: String!
    var days = [String]()
    
-   @IBOutlet weak var buildingNameDetail: UILabel!
-   @IBOutlet weak var roomNumberDetail: UILabel!
+   @IBOutlet weak var buildingDetail: UILabel!
+   @IBOutlet weak var roomDetail: UILabel!
    @IBOutlet weak var classNameTextField: UITextField!
+   @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var classTimesTextField: UITextField!
 
    @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
@@ -29,6 +30,8 @@ class AddNewLocationViewController: UITableViewController {
       switch segue.identifier! {
          case "saveBuilding":
             let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
+            //update building detail to reflect selection
+            buildingDetail.text = chooseBuildingViewController.selectedBuilding
             //convert building text from controller into elements of an array
             labels = chooseBuildingViewController.selectedBuilding!.componentsSeparatedByString(" ")
             //add building number
@@ -39,6 +42,8 @@ class AddNewLocationViewController: UITableViewController {
             buildingName = " ".join(labels)
          case "saveRoom":
             let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
+            //update room detail to reflect selection
+            roomDetail.text = chooseRoomViewController.selectedRoom
             //convert building text from controller into elements of an array
             labels = chooseRoomViewController.selectedRoom!.componentsSeparatedByString(" ")
             //grab only the room number
