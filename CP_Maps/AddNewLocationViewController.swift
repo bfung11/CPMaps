@@ -26,6 +26,8 @@ class AddNewLocationViewController: UITableViewController {
    
    @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {
       var labels = [String]()
+      var daysTitle = ""
+      var day : String
       
       switch segue.identifier! {
          case "saveBuilding":
@@ -50,10 +52,17 @@ class AddNewLocationViewController: UITableViewController {
             roomNumber = labels[1]
          case "saveDays":
             let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
+            //set as or as empty array
             days = chooseDaysViewController.selectedDays
             if days.isEmpty {
                days = [String]()
             }
+            //add days into title
+            for day in days {
+               daysTitle += ", " + day;
+            }
+            //update days detail to reflect selection(s)
+            daysDetail.text = daysTitle.substringFromIndex(advance(daysTitle.startIndex, 2))
          default: ()
       }
    }
