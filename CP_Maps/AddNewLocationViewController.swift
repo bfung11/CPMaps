@@ -24,42 +24,41 @@ class AddNewLocationViewController: UITableViewController {
    }
    
    @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {
-      var textFields = [String]()
+      var labels = [String]()
       
       switch segue.identifier! {
          case "saveBuilding":
             let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
             //convert building text from controller into elements of an array
-            textFields = chooseBuildingViewController.selectedBuilding!.componentsSeparatedByString(" ")
+            labels = chooseBuildingViewController.selectedBuilding!.componentsSeparatedByString(" ")
             //add building number
-            buildingNumber = textFields[0]
+            buildingNumber = labels[0]
             //remove the number in front
-            textFields.removeAtIndex(0)
+            labels.removeAtIndex(0)
             //combine them back into name
-            buildingName = " ".join(textFields)
+            buildingName = " ".join(labels)
          case "saveRoom":
             let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
             //convert building text from controller into elements of an array
-            textFields = chooseRoomViewController.selectedRoom!.componentsSeparatedByString(" ")
+            labels = chooseRoomViewController.selectedRoom!.componentsSeparatedByString(" ")
             //grab only the room number
-            roomNumber = textFields[1]
+            roomNumber = labels[1]
          case "saveDays":
             let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
             days = chooseDaysViewController.selectedDays
+            if days.isEmpty {
+               days = [String]()
+            }
          default: ()
       }
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       var tempClassName = self.classNameTextField.text
-      var tempDays = days
       var tempClassTimes = self.classTimesTextField.text
       
       if self.classNameTextField.text.isEmpty {
          tempClassName = ""
-      }
-      if days.isEmpty {
-         tempDays = [String]()
       }
       if self.classTimesTextField.text.isEmpty{
          tempClassTimes = ""
@@ -68,7 +67,7 @@ class AddNewLocationViewController: UITableViewController {
       if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
             roomNumber: roomNumber, className: tempClassName,
-            classDaysArray: tempDays, classTimes: tempClassTimes)
+            classDaysArray: days, classTimes: tempClassTimes)
       }
    }
    
