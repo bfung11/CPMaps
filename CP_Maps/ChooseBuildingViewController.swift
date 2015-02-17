@@ -38,8 +38,6 @@ class ChooseBuildingViewController: UITableViewController {
       return cell
    }
 
-
-
    //MARK: - Table view delegate
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
