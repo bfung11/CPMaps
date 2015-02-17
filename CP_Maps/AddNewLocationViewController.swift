@@ -12,7 +12,7 @@ class AddNewLocationViewController: UITableViewController {
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    var buildingName: String!
    var buildingNumber: String!
-   var room: String!
+   var roomNumber: String!
    var days = [String]()
    
    @IBOutlet weak var buildingNameDetail: UILabel!
@@ -26,24 +26,27 @@ class AddNewLocationViewController: UITableViewController {
    @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {
       var textFields = [String]()
       
-      if segue.identifier == "saveBuilding" {
-         let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
-         //convert building text from controller into elements of an array
-         textFields = chooseBuildingViewController.selectedBuilding!.componentsSeparatedByString(" ")
-         //add building number
-         buildingNumber = textFields[0]
-         //remove the number in front
-         textFields.removeAtIndex(0)
-         //combine them back into name
-         buildingName = " ".join(textFields)
-      }
-      if segue.identifier == "saveRoom" {
-         let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
-         room = chooseRoomViewController.selectedRoom
-      }
-      if segue.identifier == "saveDays" {
-         let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
-         days = chooseDaysViewController.selectedDays
+      switch segue.identifier! {
+         case "saveBuilding":
+            let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
+            //convert building text from controller into elements of an array
+            textFields = chooseBuildingViewController.selectedBuilding!.componentsSeparatedByString(" ")
+            //add building number
+            buildingNumber = textFields[0]
+            //remove the number in front
+            textFields.removeAtIndex(0)
+            //combine them back into name
+            buildingName = " ".join(textFields)
+         case "saveRoom":
+            let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
+            //convert building text from controller into elements of an array
+            textFields = chooseRoomViewController.selectedRoom!.componentsSeparatedByString(" ")
+            //grab only the room number
+            roomNumber = textFields[1]
+         case "saveDays":
+            let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
+            days = chooseDaysViewController.selectedDays
+         default: ()
       }
    }
    
@@ -64,7 +67,7 @@ class AddNewLocationViewController: UITableViewController {
       
       if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
-            roomNumber: room, className: tempClassName,
+            roomNumber: roomNumber, className: tempClassName,
             classDaysArray: tempDays, classTimes: tempClassTimes)
       }
    }
