@@ -14,7 +14,6 @@ class Location: NSObject {
    var roomNumber : String
    var className : String
    var classDaysList : [Day]
-   var classDaysArray = [String]()
    var classDays : String
    var classTimes : String
    
@@ -30,16 +29,18 @@ class Location: NSObject {
          self.roomNumber = roomNumber
          self.className = className
          self.classDaysList = [Day]()
-         self.classDaysArray = classDaysArray
          self.classDays = ""
          self.classTimes = classTimes
          super.init()
-         convertStringsToDays(classDaysArray)
+         classDaysList = (convertStringsToDays(classDaysArray))
+         classDaysList.sort({$0.value < $1.value})
    }
    
-   private func convertStringsToDays(arr: [String]) {
+   private func convertStringsToDays(arr: [String]) -> [Day] {
+      var tempDays : [Day]
       var value : Int
       
+      tempDays = [Day]()
       value = 0
       for name in arr {
          switch name {
@@ -60,8 +61,10 @@ class Location: NSObject {
          default: ()
          }
          
-         classDaysList.append(Day(name: name, value: value))
+         tempDays.append(Day(name: name, value: value))
       }
+      
+      return tempDays
    }
    
    private func shorthandDays() -> String {
