@@ -13,9 +13,15 @@ class Location: NSObject {
    var buildingNumber : String
    var roomNumber : String
    var className : String
+   var classDaysList : [Day]
    var classDaysArray = [String]()
    var classDays : String
    var classTimes : String
+   
+   enum Days : Int {
+      case Sunday = 0, Monday, Tuesday, Wednesday,
+      Thursday, Friday, Saturday
+   }
    
    init(buildingName: String, buildingNumber: String, roomNumber: String,
       className: String, classDaysArray: [String], classTimes: String){
@@ -23,37 +29,70 @@ class Location: NSObject {
          self.buildingNumber = buildingNumber
          self.roomNumber = roomNumber
          self.className = className
+         self.classDaysList = [Day]()
          self.classDaysArray = classDaysArray
          self.classDays = ""
          self.classTimes = classTimes
          super.init()
+         convertStringsToDays(classDaysArray)
    }
    
-   private func shorthandDays() {
-      for day in self.classDaysArray {
-         switch day {
+   private func convertStringsToDays(arr: [String]) {
+      var value : Int
+      
+      value = 0
+      for name in arr {
+         switch name {
          case "Sunday":
-            self.classDays += "Su"
+            value = Days.Sunday.rawValue
          case "Monday":
-            self.classDays += "M"
+            value = Days.Monday.rawValue
          case "Tuesday":
-            self.classDays += "Tu"
+            value = Days.Tuesday.rawValue
          case "Wednesday":
-            self.classDays += "W"
+            value = Days.Wednesday.rawValue
          case "Thursday":
-            self.classDays += "Th"
+            value = Days.Thursday.rawValue
          case "Friday":
-            self.classDays += "F"
+            value = Days.Friday.rawValue
          case "Saturday":
-            self.classDays += "Sa"
-         default:
-            self.classDays += ""
+            value = Days.Saturday.rawValue
+         default: ()
          }
+         
+         classDaysList.append(Day(name: name, value: value))
       }
    }
    
+   private func shorthandDays() -> String {
+      var classDaysShortHand : String
+      classDaysShortHand = ""
+      
+      for day in self.classDaysList {
+         switch day.name {
+         case "Sunday":
+            classDaysShortHand += "Su"
+         case "Monday":
+            classDaysShortHand += "M"
+         case "Tuesday":
+            classDaysShortHand += "Tu"
+         case "Wednesday":
+            classDaysShortHand += "W"
+         case "Thursday":
+            classDaysShortHand += "Th"
+         case "Friday":
+            classDaysShortHand += "F"
+         case "Saturday":
+            classDaysShortHand += "Sa"
+         default:
+            classDaysShortHand += ""
+         }
+      }
+      
+      return classDaysShortHand
+   }
+   
    func getClassDetails() -> String{
-      self.shorthandDays()
-      return self.className + " " + self.classDays + " " + self.classTimes
+      return self.className + " " + self.shorthandDays() + " " + self.classTimes
    }
 }
