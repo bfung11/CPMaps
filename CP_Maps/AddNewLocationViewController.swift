@@ -11,6 +11,7 @@ import UIKit
 class AddNewLocationViewController: UITableViewController {
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    var buildingName: String!
+   var buildingNumber: String!
    var room: String!
    var days = [String]()
    
@@ -29,6 +30,8 @@ class AddNewLocationViewController: UITableViewController {
          let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
          //convert building text from controller into elements of an array
          textFields = chooseBuildingViewController.selectedBuilding!.componentsSeparatedByString(" ")
+         //add building number
+         buildingNumber = textFields[0]
          //remove the number in front
          textFields.removeAtIndex(0)
          //combine them back into name
@@ -60,7 +63,7 @@ class AddNewLocationViewController: UITableViewController {
       }
       
       if segue.identifier == "saveNewLocation" {
-         location = Location(buildingName: buildingName, buildingNumber: "14",
+         location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
             roomNumber: room, className: tempClassName,
             classDaysArray: tempDays, classTimes: tempClassTimes)
       }
