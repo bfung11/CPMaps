@@ -9,6 +9,10 @@
 import UIKit
 
 class Location: NSObject {
+   var building : Building
+   var course : Course
+   
+   /*
    var buildingName : String
    var buildingNumber : String
    var roomNumber : String
@@ -16,14 +20,13 @@ class Location: NSObject {
    var classDaysList : [Day]
    var classDays : String
    var classTimes : String
-   
-   enum Days : Int {
-      case Sunday = 0, Monday, Tuesday, Wednesday,
-      Thursday, Friday, Saturday
-   }
+   */
    
    init(buildingName: String, buildingNumber: String, roomNumber: String,
-      className: String, classDaysArray: [String], classTimes: String){
+      courseName: String, daysAsString: [String], courseTimes: String){
+         self.building = Building(name: buildingName, number: buildingNumber, room: roomNumber)
+         self.course = Course(name: courseName, daysAsString: daysAsString, time: courseTimes)
+         /*
          self.buildingName = buildingName
          self.buildingNumber = buildingNumber
          self.roomNumber = roomNumber
@@ -34,68 +37,16 @@ class Location: NSObject {
          super.init()
          classDaysList = (convertStringsToDays(classDaysArray))
          classDaysList.sort({$0.value < $1.value})
+         */
    }
    
-   private func convertStringsToDays(arr: [String]) -> [Day] {
-      var tempDays : [Day]
-      var value : Int
-      
-      tempDays = [Day]()
-      value = 0
-      for name in arr {
-         switch name {
-         case "Sunday":
-            value = Days.Sunday.rawValue
-         case "Monday":
-            value = Days.Monday.rawValue
-         case "Tuesday":
-            value = Days.Tuesday.rawValue
-         case "Wednesday":
-            value = Days.Wednesday.rawValue
-         case "Thursday":
-            value = Days.Thursday.rawValue
-         case "Friday":
-            value = Days.Friday.rawValue
-         case "Saturday":
-            value = Days.Saturday.rawValue
-         default: ()
-         }
-         
-         tempDays.append(Day(name: name, value: value))
-      }
-      
-      return tempDays
+   //Optimization: Already created an object before this -> perhaps don't need to recreate it
+   init(building: Building, course: Course) {
+      self.building = Building(building: building) //could just change to reference to all one building and diff rooms...
+      self.course = Course(course: course)
    }
    
-   private func shorthandDays() -> String {
-      var classDaysShortHand : String
-      classDaysShortHand = ""
-      
-      for day in self.classDaysList {
-         switch day.name {
-         case "Sunday":
-            classDaysShortHand += "Su"
-         case "Monday":
-            classDaysShortHand += "M"
-         case "Tuesday":
-            classDaysShortHand += "Tu"
-         case "Wednesday":
-            classDaysShortHand += "W"
-         case "Thursday":
-            classDaysShortHand += "Th"
-         case "Friday":
-            classDaysShortHand += "F"
-         case "Saturday":
-            classDaysShortHand += "Sa"
-         default:
-            classDaysShortHand += ""
-         }
-      }
-      
-      return classDaysShortHand
-   }
-   
-   func getClassDetails() -> String{
-      return self.className + " " + self.shorthandDays() + " " + self.classTimes
+   func getCourseDetails() -> String{
+      return course.name + " " + course.getShortHandDays() + " " + course.time
    }
 }

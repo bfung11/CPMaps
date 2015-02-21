@@ -80,8 +80,8 @@ class AddNewLocationViewController: UITableViewController {
       
       if segue.identifier == "saveNewLocation" {
          location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
-            roomNumber: roomNumber, className: tempClassName,
-            classDaysArray: days, classTimes: tempClassTimes)
+            roomNumber: roomNumber, courseName: tempClassName,
+            daysAsString: days, courseTimes: tempClassTimes)
       }
    }
    

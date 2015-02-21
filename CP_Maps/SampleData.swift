@@ -10,11 +10,11 @@ import Foundation
 
 var locationsData = [
     Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"256",
-      className: "CPE-102", classDaysArray: ["Monday", "Wednesday", "Friday"], classTimes: "9:10 - 9:20"),
+      courseName: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"], courseTimes: "9:10 - 9:20"),
     Location(buildingName:"Fischer Science", buildingNumber:"14", roomNumber:"258",
-      className: "CPE-102", classDaysArray: ["Monday", "Wednesday", "Friday"], classTimes: "9:10 - 9:20"),
+      courseName: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"], courseTimes: "9:10 - 9:20"),
     Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"251",
-      className: "CPE-102", classDaysArray: ["Monday", "Wednesday", "Friday"], classTimes: "9:10 - 9:20")]
+      courseName: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"], courseTimes: "9:10 - 9:20")]
 
 var buildingsData = ["1 Administration", "14 Frank E. Pilling"]
 var roomsData = ["Room 251", "Room 252", "Room 253", "Room 254", "Room 255", "Room 256"]
