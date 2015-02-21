@@ -62,20 +62,22 @@ class AddNewLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      var tempClassName = self.classNameTextField.text
-      var tempClassTimes = self.classTimesTextField.text
-      
-      if self.classNameTextField.text.isEmpty {
-         tempClassName = ""
-      }
-      if self.classTimesTextField.text.isEmpty{
-         tempClassTimes = ""
-      }
-      
-      if segue.identifier == "saveNewLocation" {
-         location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
-            roomNumber: roomNumber, courseName: tempClassName,
-            daysAsString: days, courseTimes: tempClassTimes)
+      if segue.identifier == "saveNewLocation" { //leave in, so cancel segues don't do anything
+         var tempClassName = self.classNameTextField.text
+         var tempClassTimes = self.classTimesTextField.text
+         
+         if self.classNameTextField.text.isEmpty {
+            tempClassName = ""
+         }
+         if self.classTimesTextField.text.isEmpty{
+            tempClassTimes = ""
+         }
+         
+         if segue.identifier == "saveNewLocation" {
+            location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
+               roomNumber: roomNumber, courseName: tempClassName,
+               daysAsString: days, courseTimes: tempClassTimes)
+         }
       }
    }
    
