@@ -27,7 +27,7 @@ class ChooseRoomViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as UITableViewCell
-      cell.textLabel?.text = rooms[indexPath.row]
+      cell.textLabel?.text = "Room " + rooms[indexPath.row]
       
       if indexPath.row == selectedRoomIndex {
          cell.accessoryType = .Checkmark
@@ -38,7 +38,6 @@ class ChooseRoomViewController: UITableViewController {
    }
    
    //MARK: - Table view delegate
-   
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       

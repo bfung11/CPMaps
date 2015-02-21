@@ -9,8 +9,8 @@
 import UIKit
 
 class ChooseBuildingViewController: UITableViewController {
-   var buildings: [String] = buildingsData
-   var selectedBuilding: String? = nil
+   var buildings: [Building] = buildingsData
+   var selectedBuilding: Building? = nil
    var selectedBuildingIndex:Int? = nil
 
    override func viewDidLoad() {
@@ -26,15 +26,19 @@ class ChooseBuildingViewController: UITableViewController {
    }
 
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+      //display building number and name
       let cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as UITableViewCell
-      cell.textLabel?.text = buildings[indexPath.row]
-
+      let building = buildings[indexPath.row]
+      cell.textLabel?.text = "Building " + building.number + " (" + building.name + ")"
+      
+      //check and uncheck buildings
       if indexPath.row == selectedBuildingIndex {
          cell.accessoryType = .Checkmark
       }
       else {
          cell.accessoryType = .None
       }
+      
       return cell
    }
 

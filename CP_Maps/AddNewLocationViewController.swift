@@ -31,25 +31,19 @@ class AddNewLocationViewController: UITableViewController {
       
       switch segue.identifier! {
          case "saveBuilding":
+            //save building details
             let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
+            let building = chooseBuildingViewController.selectedBuilding
+            buildingName = building!.name
+            buildingNumber = building!.number
             //update building detail to reflect selection
-            buildingDetail.text = chooseBuildingViewController.selectedBuilding
-            //convert building text from controller into elements of an array
-            labels = chooseBuildingViewController.selectedBuilding!.componentsSeparatedByString(" ")
-            //add building number
-            buildingNumber = labels[0]
-            //remove the number in front
-            labels.removeAtIndex(0)
-            //combine them back into name
-            buildingName = " ".join(labels)
+            buildingDetail.text = "Building " + buildingNumber + " (" + buildingName + ")"
          case "saveRoom":
+            //save room details
             let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
+            roomNumber = chooseRoomViewController.selectedRoom
             //update room detail to reflect selection
-            roomDetail.text = chooseRoomViewController.selectedRoom
-            //convert building text from controller into elements of an array
-            labels = chooseRoomViewController.selectedRoom!.componentsSeparatedByString(" ")
-            //grab only the room number
-            roomNumber = labels[1]
+            roomDetail.text = "Room " + roomNumber
          case "saveDays":
             let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
             //set as or as empty array

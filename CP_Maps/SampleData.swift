@@ -16,6 +16,9 @@ var locationsData = [
     Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"251",
       courseName: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"], courseTimes: "9:10 - 9:20")]
 
-var buildingsData = ["1 Administration", "14 Frank E. Pilling"]
-var roomsData = ["Room 251", "Room 252", "Room 253", "Room 254", "Room 255", "Room 256"]
+var buildingsData = [
+   Building(name: "Administration", number: "1", room: "No room"),
+   Building(name: "Frank E. Pilling", number: "14", room: "No room")
+]
+var roomsData = ["251", "252", "253", "254", "255", "256"]
 var daysData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
