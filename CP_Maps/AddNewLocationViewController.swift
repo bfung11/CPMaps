@@ -13,8 +13,8 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var roomDetail: UILabel!
    @IBOutlet weak var courseTitleTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
-   @IBOutlet weak var startDatePicker: UIDatePicker!
    @IBOutlet weak var startTextField: UITextField!
+   @IBOutlet weak var startDatePicker: UIDatePicker!
    @IBOutlet weak var endTextField: UITextField!
    @IBOutlet weak var endDatePicker: UIDatePicker!
    
@@ -22,6 +22,7 @@ class AddNewLocationViewController: UITableViewController {
    var buildingName: String!
    var buildingNumber: String!
    var roomNumber: String!
+   var courseTitle: String!
    var days = [String]()
    var startTime: String!
    var endTime: String!
@@ -98,17 +99,27 @@ class AddNewLocationViewController: UITableViewController {
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == "saveNewLocation" { //leave in, so cancel segues don't do anything
-         var tempClassName = self.courseTitleTextField.text
-        
-         if self.courseTitleTextField.text.isEmpty {
-            tempClassName = ""
-         }
+         let courseTitle = self.courseTitleTextField.text
+         
+         checkTextFields()
          
          if segue.identifier == "saveNewLocation" {
             location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
-               roomNumber: roomNumber, courseTitle: tempClassName,
+               roomNumber: roomNumber, courseTitle: courseTitle,
                daysAsString: days, startTime: startTime, endTime: endTime)
          }
+      }
+   }
+   
+   func checkTextFields() {
+      if self.courseTitleTextField.text.isEmpty {
+         courseTitle = ""
+      }
+      if self.startTextField.text.isEmpty {
+         startTime = ""
+      }
+      if self.endTextField.text.isEmpty {
+         endTime = ""
       }
    }
    
