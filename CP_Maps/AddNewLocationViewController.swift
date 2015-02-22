@@ -23,6 +23,8 @@ class AddNewLocationViewController: UITableViewController {
    var buildingNumber: String!
    var roomNumber: String!
    var days = [String]()
+   var startTime: String!
+   var endTime: String!
    
    @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
    }
@@ -75,21 +77,23 @@ class AddNewLocationViewController: UITableViewController {
    func changeStartDatePicker(datePicker:UIDatePicker) {
       var dateFormatter = NSDateFormatter()
       
-      dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+      //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+      //save time
       dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+      startTime = dateFormatter.stringFromDate(startDatePicker.date)
       
-      var strDate = dateFormatter.stringFromDate(startDatePicker.date)
-      startTextField.text = strDate
+      //display date and time
+      dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+      startTextField.text = dateFormatter.stringFromDate(startDatePicker.date)
    }
    //redundant code
    func changeEndDatePicker(datePicker:UIDatePicker) {
       var dateFormatter = NSDateFormatter()
       
-      dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+      //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
       dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-      
-      var strDate = dateFormatter.stringFromDate(endDatePicker.date)
-      endTextField.text = strDate
+      endTime = dateFormatter.stringFromDate(endDatePicker.date)
+      endTextField.text = endTime
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -103,7 +107,7 @@ class AddNewLocationViewController: UITableViewController {
          if segue.identifier == "saveNewLocation" {
             location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
                roomNumber: roomNumber, courseName: tempClassName,
-               daysAsString: days, courseTimes: "9:10 = 10:10")
+               daysAsString: days, startTime: startTime, endTime: endTime)
          }
       }
    }

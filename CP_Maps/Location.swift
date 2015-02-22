@@ -23,9 +23,11 @@ class Location: NSObject {
    */
    
    init(buildingName: String, buildingNumber: String, roomNumber: String,
-      courseName: String, daysAsString: [String], courseTimes: String){
+      courseName: String, daysAsString: [String], startTime: String, endTime: String){
+         
          self.building = Building(name: buildingName, number: buildingNumber, room: roomNumber)
-         self.course = Course(name: courseName, daysAsString: daysAsString, time: courseTimes)
+         self.course = Course(name: courseName, daysAsString: daysAsString,
+            startTime: startTime, endTime: endTime)
          /*
          self.buildingName = buildingName
          self.buildingNumber = buildingNumber
@@ -47,6 +49,6 @@ class Location: NSObject {
    }
    
    func getCourseDetails() -> String{
-      return course.name + " " + course.getShortHandDays() + " " + course.time
+      return course.name + " " + course.getShortHandDays() + " " + course.startTime + " - " + course.endTime
    }
 }

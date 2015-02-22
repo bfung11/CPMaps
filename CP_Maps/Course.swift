@@ -11,14 +11,16 @@ import UIKit
 class Course: NSObject {
    var name: String
    var days: [Day]
-   var time: String
+   var startTime: String
+   var endTime: String
    
-   init(name: String, daysAsString: [String], time: String) {
+   init(name: String, daysAsString: [String], startTime: String, endTime: String) {
       var dayName: String
       
       self.name = name
       self.days = [Day]()
-      self.time = time
+      self.startTime = startTime
+      self.endTime = endTime
       super.init()
       for dayName in daysAsString {
          self.days.append(Day(name: dayName))
@@ -27,8 +29,9 @@ class Course: NSObject {
    
    init(course: Course) {
       self.name = course.name
-      self.days = course.days //not done
-      self.time = course.time
+      self.days = course.days
+      self.startTime = course.startTime
+      self.endTime = course.endTime
       super.init()
    }
    
