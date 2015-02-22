@@ -27,6 +27,15 @@ class Location: NSObject {
    }
    
    func getCourseDetails() -> String{
-      return course.name + " " + course.getShortHandDays() + " " + course.startTime + " - " + course.endTime
+      var timesTitle = " " + course.startTime + " - " + course.endTime
+      var courseTitle = course.name + " "
+      
+      if course.name == "" {
+         courseTitle = ""
+      }
+      if course.startTime == "" || course.endTime == "" {
+         timesTitle = ""
+      }
+      return courseTitle + course.getShortHandDays() + timesTitle
    }
 }
