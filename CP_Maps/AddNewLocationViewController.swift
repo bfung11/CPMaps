@@ -9,19 +9,21 @@
 import UIKit
 
 class AddNewLocationViewController: UITableViewController {
+   @IBOutlet weak var buildingDetail: UILabel!
+   @IBOutlet weak var roomDetail: UILabel!
+   @IBOutlet weak var classNameTextField: UITextField!
+   @IBOutlet weak var daysDetail: UILabel!
+   @IBOutlet weak var startDatePicker: UIDatePicker!
+   @IBOutlet weak var startTextField: UITextField!
+   @IBOutlet weak var endTextField: UITextField!
+   @IBOutlet weak var endDatePicker: UIDatePicker!
+   
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    var buildingName: String!
    var buildingNumber: String!
    var roomNumber: String!
    var days = [String]()
    
-   @IBOutlet weak var buildingDetail: UILabel!
-   @IBOutlet weak var roomDetail: UILabel!
-   @IBOutlet weak var classNameTextField: UITextField!
-   @IBOutlet weak var daysDetail: UILabel!
-   @IBOutlet weak var startLabel: UILabel!
-   @IBOutlet weak var endLabel: UILabel!
-
    @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
    }
    
@@ -60,6 +62,32 @@ class AddNewLocationViewController: UITableViewController {
             daysDetail.text = daysTitle.substringFromIndex(advance(daysTitle.startIndex, 2))
          default: ()
       }
+   }
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      startDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+      endDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+   }
+   
+   //redundant code
+   func changeStartDatePicker(datePicker:UIDatePicker) {
+      var dateFormatter = NSDateFormatter()
+      
+      dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+      
+      var strDate = dateFormatter.stringFromDate(startDatePicker.date)
+      startTextField.text = strDate
+   }
+   //redundant code
+   func changeEndDatePicker(datePicker:UIDatePicker) {
+      var dateFormatter = NSDateFormatter()
+      
+      dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+      
+      var strDate = dateFormatter.stringFromDate(endDatePicker.date)
+      endTextField.text = strDate
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
