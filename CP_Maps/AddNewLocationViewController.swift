@@ -75,7 +75,8 @@ class AddNewLocationViewController: UITableViewController {
    func changeStartDatePicker(datePicker:UIDatePicker) {
       var dateFormatter = NSDateFormatter()
       
-      dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+      dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+      dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
       
       var strDate = dateFormatter.stringFromDate(startDatePicker.date)
       startTextField.text = strDate
@@ -84,7 +85,8 @@ class AddNewLocationViewController: UITableViewController {
    func changeEndDatePicker(datePicker:UIDatePicker) {
       var dateFormatter = NSDateFormatter()
       
-      dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+      dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+      dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
       
       var strDate = dateFormatter.stringFromDate(endDatePicker.date)
       endTextField.text = strDate
