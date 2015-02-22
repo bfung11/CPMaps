@@ -23,10 +23,10 @@ class Location: NSObject {
    */
    
    init(buildingName: String, buildingNumber: String, roomNumber: String,
-      courseName: String, daysAsString: [String], startTime: String, endTime: String){
+      courseTitle: String, daysAsString: [String], startTime: String, endTime: String){
          
          self.building = Building(name: buildingName, number: buildingNumber, room: roomNumber)
-         self.course = Course(name: courseName, daysAsString: daysAsString,
+         self.course = Course(name: courseTitle, daysAsString: daysAsString,
             startTime: startTime, endTime: endTime)
          /*
          self.buildingName = buildingName
