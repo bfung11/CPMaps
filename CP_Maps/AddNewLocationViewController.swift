@@ -11,7 +11,7 @@ import UIKit
 class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var buildingDetail: UILabel!
    @IBOutlet weak var roomDetail: UILabel!
-   @IBOutlet weak var classNameTextField: UITextField!
+   @IBOutlet weak var courseTitleTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startDatePicker: UIDatePicker!
    @IBOutlet weak var startTextField: UITextField!
@@ -98,9 +98,9 @@ class AddNewLocationViewController: UITableViewController {
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == "saveNewLocation" { //leave in, so cancel segues don't do anything
-         var tempClassName = self.classNameTextField.text
+         var tempClassName = self.courseTitleTextField.text
         
-         if self.classNameTextField.text.isEmpty {
+         if self.courseTitleTextField.text.isEmpty {
             tempClassName = ""
          }
          
@@ -115,7 +115,7 @@ class AddNewLocationViewController: UITableViewController {
    //Allows user to tap anywhere in cell to bring up keyboard
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       if indexPath.section == 0 {
-         classNameTextField.becomeFirstResponder()
+         courseTitleTextField.becomeFirstResponder()
       }
    }
 }
