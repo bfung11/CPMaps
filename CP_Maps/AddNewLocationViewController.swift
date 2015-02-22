@@ -19,7 +19,8 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var roomDetail: UILabel!
    @IBOutlet weak var classNameTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
-   @IBOutlet weak var classTimesTextField: UITextField!
+   @IBOutlet weak var startLabel: UILabel!
+   @IBOutlet weak var endLabel: UILabel!
 
    @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
    }
@@ -64,19 +65,15 @@ class AddNewLocationViewController: UITableViewController {
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == "saveNewLocation" { //leave in, so cancel segues don't do anything
          var tempClassName = self.classNameTextField.text
-         var tempClassTimes = self.classTimesTextField.text
-         
+        
          if self.classNameTextField.text.isEmpty {
             tempClassName = ""
-         }
-         if self.classTimesTextField.text.isEmpty{
-            tempClassTimes = ""
          }
          
          if segue.identifier == "saveNewLocation" {
             location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
                roomNumber: roomNumber, courseName: tempClassName,
-               daysAsString: days, courseTimes: tempClassTimes)
+               daysAsString: days, courseTimes: "9:10 = 10:10")
          }
       }
    }
