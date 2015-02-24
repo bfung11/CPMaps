@@ -17,22 +17,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cM2-fL-eXT">
-                                <rect key="frame" x="126" y="353" width="114" height="30"/>
-                                <state key="normal" title="List of Locations">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="52w-FN-aei" customClass="GMSMapView">
+                                <rect key="frame" x="69" y="95" width="288" height="528"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eh6-vZ-OMO">
+                                <rect key="frame" x="132" y="4" width="151" height="30"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="List of Locations">
+                                            <attributes>
+                                                <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
-                                    <segue destination="6ma-5b-rqX" kind="show" id="vEd-9Y-kaF"/>
+                                    <segue destination="6ma-5b-rqX" kind="popoverPresentation" popoverAnchorView="eh6-vZ-OMO" id="sJN-Aw-H3o">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="52w-FN-aei" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="3jb-Hs-KhI"/>
+                            <constraint firstItem="52w-FN-aei" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="5MY-FH-aTn"/>
+                            <constraint firstAttribute="trailing" secondItem="52w-FN-aei" secondAttribute="trailing" id="Qbg-nj-gkR"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="52w-FN-aei" secondAttribute="bottom" id="tSg-Ao-mFL"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="101" y="967"/>
         </scene>
         <!--My Locations-->
         <scene sceneID="Ou0-u7-6v0">
@@ -90,7 +109,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGN-S7-Gdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="967"/>
+            <point key="canvasLocation" x="1426" y="967"/>
         </scene>
         <!--Add New Location-->
         <scene sceneID="cMe-hx-1RE">
@@ -289,7 +308,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="R2J-hs-uon" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2684" y="963"/>
+            <point key="canvasLocation" x="2756" y="975"/>
         </scene>
         <!--Choose Building-->
         <scene sceneID="wca-wQ-xqa">
@@ -336,7 +355,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3306" y="163"/>
+            <point key="canvasLocation" x="3470" y="167"/>
         </scene>
         <!--Choose Room-->
         <scene sceneID="wG9-WP-myO">
@@ -383,7 +402,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bba-u7-Lqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vtI-Bz-Bwg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3306" y="959"/>
+            <point key="canvasLocation" x="3458" y="975"/>
         </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
@@ -430,7 +449,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CM4-5w-lzu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3306" y="1776"/>
+            <point key="canvasLocation" x="3450" y="1796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="X0J-Vu-GCL">
@@ -446,7 +465,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeY-vo-1aj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2165" y="967"/>
+            <point key="canvasLocation" x="2065" y="975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2DV-J0-r0q">
@@ -464,7 +483,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-Xe-cBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="970"/>
+            <point key="canvasLocation" x="772" y="967"/>
         </scene>
     </scenes>
 </document>
