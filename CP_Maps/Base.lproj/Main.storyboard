@@ -165,7 +165,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="N4W-Rq-hDV" kind="show" id="Ila-bU-ghN"/>
+                                            <segue destination="N4W-Rq-hDV" kind="show" identifier="segueToChooseRoomViewController" id="Ila-bU-ghN"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

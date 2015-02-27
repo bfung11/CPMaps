@@ -9,8 +9,8 @@
 import UIKit
 
 class ChooseBuildingViewController: UITableViewController {
-   var buildings: [Building] = buildingsData
-   var selectedBuilding: Building? = nil
+   var buildings = buildingsData
+   var selectedBuilding: Building!
    var selectedBuildingIndex:Int? = nil
 
    override func viewDidLoad() {

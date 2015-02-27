@@ -8,20 +8,22 @@
 
 import Foundation
 
-var locationsData = [
-    Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"256",
-      courseTitle: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"],
-      startTime: "9:10", endTime: "9:20"),
-    Location(buildingName:"Fischer Science", buildingNumber:"14", roomNumber:"258",
-      courseTitle: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"],
-      startTime: "9:10", endTime: "10:10"),
-    Location(buildingName:"Frank E. Pilling", buildingNumber:"14", roomNumber:"251",
-      courseTitle: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"],
-      startTime: "9:10", endTime: "10:10")]
-
 var buildingsData = [
-   Building(name: "Administration", number: "1", room: "No room"),
-   Building(name: "Frank E. Pilling", number: "14", room: "No room")
+   Building(name: "Administration", number: "1",
+      rooms: [Room(number: "1"), Room(number: "2"), Room(number: "3")]
+   ),
+   Building(name: "Frank E. Pilling", number: "14",
+      rooms: [Room(number: "256"), Room(number: "257"), Room(number: "258")]
+   )
 ]
-var roomsData = ["251", "252", "253", "254", "255", "256"]
+
+var locationsData = [
+    Location(building: buildingsData[0], room: buildingsData[0].rooms[0],
+      course: Course(name: "CPE-101", daysAsString: ["Monday", "Wednesday", "Friday"], startTime: "8:10", endTime: "9:00")),
+   Location(building: buildingsData[1], room: buildingsData[1].rooms[0],
+      course: Course(name: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"], startTime: "9:10", endTime: "10:00")),
+   Location(building: buildingsData[1], room: buildingsData[1].rooms[1],
+      course: Course(name: "CPE-103", daysAsString: ["Monday", "Wednesday", "Friday"], startTime: "10:10", endTime: "11:00")),
+]
+
 var daysData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]

@@ -9,8 +9,8 @@
 import UIKit
 
 class ChooseRoomViewController: UITableViewController {
-   var rooms: [String] = roomsData
-   var selectedRoom: String? = nil
+   var selectedBuilding: Building!
+   var selectedRoom: Room?
    var selectedRoomIndex:Int? = nil
    
    override func viewDidLoad() {
@@ -22,12 +22,12 @@ class ChooseRoomViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return rooms.count
+      return selectedBuilding!.rooms.count
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as UITableViewCell
-      cell.textLabel?.text = "Room " + rooms[indexPath.row]
+      cell.textLabel?.text = "Room " + selectedBuilding!.rooms[indexPath.row].number
       
       if indexPath.row == selectedRoomIndex {
          cell.accessoryType = .Checkmark
@@ -48,7 +48,7 @@ class ChooseRoomViewController: UITableViewController {
       }
       
       selectedRoomIndex = indexPath.row
-      selectedRoom = rooms[indexPath.row]
+      selectedRoom = selectedBuilding!.rooms[indexPath.row]
       
       //update the checkmark for the current row
       let cell = tableView.cellForRowAtIndexPath(indexPath)

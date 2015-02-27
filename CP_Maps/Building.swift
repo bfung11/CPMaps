@@ -11,19 +11,19 @@ import UIKit
 class Building: NSObject {
    var name: String
    var number: String
-   var room: String
+   var rooms: [Room]
    
-   init(name: String, number: String, room: String) {
+   init(name: String, number: String, rooms: [Room]) {
       self.name = name
       self.number = number
-      self.room = room
+      self.rooms = rooms
       super.init()
    }
    
    init(building: Building) {
       self.name = building.name
       self.number = building.number
-      self.room = building.room
+      self.rooms = building.rooms
       super.init()
    }
 }

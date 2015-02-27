@@ -46,7 +46,7 @@ class LocationsViewController: UITableViewController {
         "Building " + location.building.number +
         " (" + location.building.name + ")"
       cell.roomTitleLabel.text =
-        "Room " + location.building.room
+        "Room " + location.room.number
       cell.classTitleLabel.text = location.getCourseDetails()
       return cell
    }

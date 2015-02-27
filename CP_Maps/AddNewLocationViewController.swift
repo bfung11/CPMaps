@@ -19,9 +19,9 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var endDatePicker: UIDatePicker!
    
    var location: Location! //exclamation point - does not instantiate, but must do so before use
-   var buildingName: String!
-   var buildingNumber: String!
-   var roomNumber: String!
+   var buildings = buildingsData
+   var building: Building!
+   var room: Room!
    var courseTitle: String!
    var days = [String]()
    var startTime: String!
@@ -39,17 +39,15 @@ class AddNewLocationViewController: UITableViewController {
          case "saveBuilding":
             //save building details
             let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
-            let building = chooseBuildingViewController.selectedBuilding
-            buildingName = building!.name
-            buildingNumber = building!.number
+            building = chooseBuildingViewController.selectedBuilding
             //update building detail to reflect selection
-            buildingDetail.text = "Building " + buildingNumber + " (" + buildingName + ")"
+            buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
          case "saveRoom":
             //save room details
             let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
-            roomNumber = chooseRoomViewController.selectedRoom
+            room = chooseRoomViewController.selectedRoom
             //update room detail to reflect selection
-            roomDetail.text = "Room " + roomNumber
+            roomDetail.text = "Room " + room.number
          case "saveDays":
             let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
             //set as or as empty array
@@ -98,15 +96,19 @@ class AddNewLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      if segue.identifier == "segueToChooseRoomViewController" {
+         //save selected building to choose rooms
+         let chooseRoomViewController = segue.destinationViewController as ChooseRoomViewController
+         chooseRoomViewController.selectedBuilding = building
+      }
       if segue.identifier == "saveNewLocation" { //leave in, so cancel segues don't do anything
          let courseTitle = self.courseTitleTextField.text
          
          checkTextFields()
          
          if segue.identifier == "saveNewLocation" {
-            location = Location(buildingName: buildingName, buildingNumber: buildingNumber,
-               roomNumber: roomNumber, courseTitle: courseTitle,
-               daysAsString: days, startTime: startTime, endTime: endTime)
+            location = Location(building: building, room: room,
+               course: Course(name: courseTitle, daysAsString: days, startTime: startTime, endTime: endTime))
          }
       }
    }
