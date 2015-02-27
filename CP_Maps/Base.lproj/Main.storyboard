@@ -296,6 +296,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="buildingDetail" destination="h8T-Tk-MmD" id="fwA-rQ-5IE"/>
+                        <outlet property="chooseRoomCell" destination="bzK-OV-31z" id="UYP-gk-QqS"/>
                         <outlet property="courseTitleTextField" destination="gb4-pS-E3P" id="8us-Vr-lTV"/>
                         <outlet property="daysDetail" destination="UPM-KT-bhc" id="lkK-5q-H5u"/>
                         <outlet property="endDatePicker" destination="sMM-v5-ezt" id="Zav-ly-0gs"/>

@@ -10,6 +10,7 @@ import UIKit
 
 class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var buildingDetail: UILabel!
+   @IBOutlet weak var chooseRoomCell: UITableViewCell!
    @IBOutlet weak var roomDetail: UILabel!
    @IBOutlet weak var courseTitleTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
@@ -21,7 +22,7 @@ class AddNewLocationViewController: UITableViewController {
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    var buildings = buildingsData
    var building: Building!
-   var room: Room!
+   var room: Room? = nil
    var courseTitle: String!
    var days = [String]()
    var startTime: String!
@@ -41,11 +42,14 @@ class AddNewLocationViewController: UITableViewController {
             let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
             building = chooseBuildingViewController.selectedBuilding
             buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+            //enable room selection
+            chooseRoomCell.userInteractionEnabled = true;
+            chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
          case "saveRoom":
             //save room details and update room details to reflect selection
             let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
             room = chooseRoomViewController.selectedRoom
-            roomDetail.text = "Room " + room.number
+            roomDetail.text = "Room " + room!.number
          case "saveDays":
             let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
             //set as or as empty array
@@ -66,6 +70,11 @@ class AddNewLocationViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      //disable room selection if building not selected
+      chooseRoomCell.userInteractionEnabled = false;
+      chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
+      
+      //initialize date pickers
       startDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
       endDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
    }
@@ -99,15 +108,11 @@ class AddNewLocationViewController: UITableViewController {
          let chooseRoomViewController = segue.destinationViewController as ChooseRoomViewController
          chooseRoomViewController.selectedBuilding = building
       }
-      if segue.identifier == "saveNewLocation" { //leave in, so cancel segues don't do anything
+      if segue.identifier == "saveNewLocation" {
          let courseTitle = self.courseTitleTextField.text
-         
          checkTextFields()
-         
-         if segue.identifier == "saveNewLocation" {
-            location = Location(building: building, room: room,
-               course: Course(name: courseTitle, daysAsString: days, startTime: startTime, endTime: endTime))
-         }
+         location = Location(building: building, room: room!,
+            course: Course(name: courseTitle, daysAsString: days, startTime: startTime, endTime: endTime))
       }
    }
    
