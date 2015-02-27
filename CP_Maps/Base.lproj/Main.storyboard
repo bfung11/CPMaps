@@ -102,7 +102,7 @@
                     <navigationItem key="navigationItem" title="My Locations" id="NVM-Mv-Ouy">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dKT-ae-OGQ">
                             <connections>
-                                <segue destination="V8A-tw-c9L" kind="show" id="l2j-18-l2U"/>
+                                <segue destination="V8A-tw-c9L" kind="presentation" id="l2j-18-l2U"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
