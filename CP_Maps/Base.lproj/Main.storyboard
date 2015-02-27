@@ -120,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Location" id="BxF-9O-Pci">
+                            <tableViewSection id="BxF-9O-Pci">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ChooseBuilding" textLabel="hph-aE-5pB" detailTextLabel="h8T-Tk-MmD" style="IBUITableViewCellStyleValue1" id="tGD-g0-6rT">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -170,7 +170,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Course" id="pAT-5a-N4h">
+                            <tableViewSection id="pAT-5a-N4h">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="UUb-1F-oUu">
                                         <autoresizingMask key="autoresizingMask"/>
