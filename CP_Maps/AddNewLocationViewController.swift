@@ -37,16 +37,14 @@ class AddNewLocationViewController: UITableViewController {
       
       switch segue.identifier! {
          case "saveBuilding":
-            //save building details
+            //save building details and update building details to reflect selection
             let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
             building = chooseBuildingViewController.selectedBuilding
-            //update building detail to reflect selection
             buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
          case "saveRoom":
-            //save room details
+            //save room details and update room details to reflect selection
             let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
             room = chooseRoomViewController.selectedRoom
-            //update room detail to reflect selection
             roomDetail.text = "Room " + room.number
          case "saveDays":
             let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
