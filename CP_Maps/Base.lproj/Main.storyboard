@@ -111,7 +111,7 @@
             </objects>
             <point key="canvasLocation" x="1426" y="967"/>
         </scene>
-        <!--Add New Location-->
+        <!--Add Location-->
         <scene sceneID="cMe-hx-1RE">
             <objects>
                 <tableViewController id="Agc-E3-Fux" customClass="AddNewLocationViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -120,7 +120,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Building and Room" id="BxF-9O-Pci">
+                            <tableViewSection headerTitle="Location" id="BxF-9O-Pci">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ChooseBuilding" textLabel="hph-aE-5pB" detailTextLabel="h8T-Tk-MmD" style="IBUITableViewCellStyleValue1" id="tGD-g0-6rT">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -282,7 +282,7 @@
                             <outlet property="delegate" destination="Agc-E3-Fux" id="6ZY-Gi-0J1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add New Location" id="Nwf-FL-NmI">
+                    <navigationItem key="navigationItem" title="Add Location" id="Nwf-FL-NmI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT">
                             <connections>
                                 <segue destination="R2J-hs-uon" kind="unwind" identifier="cancelToLocationsViewController" unwindAction="cancelToLocationsViewController:" id="tyc-RO-mdj"/>
