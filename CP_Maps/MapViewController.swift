@@ -21,7 +21,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate,CLLo
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-    mapCenterPinImage.hidden = true;
+    //mapCenterPinImage.hidden = true;
     
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
@@ -35,6 +35,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate,CLLo
       controller.delegate = self
     }
   }
+   
+   @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {
+      dismissViewControllerAnimated(true, completion: nil)
+      //performSegueWithIdentifier("cancelToMyLocations", sender: self)
+   }
   
   // MARK: - Types Controller Delegate
   func typesController(controller: TypesTableViewController, didSelectTypes types: [String]) {
