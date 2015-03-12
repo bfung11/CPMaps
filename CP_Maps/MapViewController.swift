@@ -22,6 +22,10 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
     if(mapView == nil) {
       NSLog("MapView starts off nil");
     }
+    else {
+      var startingPosition_UU = CLLocationCoordinate2DMake(35.299776974257, -120.65926909446716)
+      mapView.camera = GMSCameraPosition(target: startingPosition_UU, zoom: 15, bearing: 0, viewingAngle: 0)
+    }
    
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
@@ -49,6 +53,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   
   @IBAction func mapTypeSegmentPressed(sender: AnyObject) {
     let segmentedControl = sender as UISegmentedControl
+    mapView.clear();
+   
     switch segmentedControl.selectedSegmentIndex {
       case 0:
         mapView.mapType = kGMSTypeNormal
@@ -56,6 +62,15 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
         mapView.mapType = kGMSTypeSatellite
       case 2:
         mapView.mapType = kGMSTypeHybrid
+      case 3:
+        //Overlay cal polys map
+        var southWest = CLLocationCoordinate2DMake(35.295127282268666, -120.68558692932129)
+        var northEast = CLLocationCoordinate2DMake(35.3126913835769, -120.65211296081543)
+        var overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast)
+        var icon = UIImage(named: "PolyMap_Extended.jpg")
+        var overlay = GMSGroundOverlay(bounds: overlayBounds, icon: icon)
+        overlay.bearing = 0
+        overlay.map = mapView
       default:
         mapView.mapType = mapView.mapType
     }
@@ -78,10 +93,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
  
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     if let location = locations.first as? CLLocation {
- 
- // bldg 14
- // lat: 35.300226
- // long: -120.662171
       if(mapView != nil) {
          mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
          locationManager.stopUpdatingLocation()
