@@ -8,11 +8,9 @@
 
 import UIKit
 
-class MapViewController: UIViewController, TypesTableViewControllerDelegate,CLLocationManagerDelegate {
+class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate {
   
   @IBOutlet weak var mapView: GMSMapView!
-  @IBOutlet weak var mapCenterPinImage: UIImageView!
-  @IBOutlet weak var pinImageVerticalConstraint: NSLayoutConstraint!
   var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
   
   let locationManager = CLLocationManager()
@@ -20,9 +18,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate,CLLo
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
-    
-    //mapCenterPinImage.hidden = true;
-    
+   
+    if(mapView == nil) {
+      NSLog("MapView starts off nil");
+    }
+   
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
   }
@@ -61,29 +61,34 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate,CLLo
     }
   }
   
-   // 1
   func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-    // 2
     if status == .AuthorizedWhenInUse {
  
-      // 3
       locationManager.startUpdatingLocation()
  
-      //4
-      mapView.myLocationEnabled = true
-      mapView.settings.myLocationButton = true
+      if(mapView != nil) {
+         mapView.myLocationEnabled = true
+         mapView.settings.myLocationButton = true
+      }
+      else {
+         NSLog("MapView is nil");
+      }
     }
   }
  
-  // 5
   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     if let location = locations.first as? CLLocation {
  
-      // 6
-      mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
- 
-      // 7
-      locationManager.stopUpdatingLocation()
+ // bldg 14
+ // lat: 35.300226
+ // long: -120.662171
+      if(mapView != nil) {
+         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+         locationManager.stopUpdatingLocation()
+      }
+      else {
+         NSLog("MapView is nil");
+      }
     }
   }
 }
