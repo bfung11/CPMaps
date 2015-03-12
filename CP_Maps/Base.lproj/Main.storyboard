@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="101" y="967"/>
         </scene>
-        <!--My Locations-->
+        <!--Saved Locations-->
         <scene sceneID="Ou0-u7-6v0">
             <objects>
                 <tableViewController id="ziA-tw-Dgi" customClass="LocationsViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -127,7 +127,7 @@
                             <outlet property="delegate" destination="ziA-tw-Dgi" id="ZUf-EH-w5j"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Locations" id="NVM-Mv-Ouy">
+                    <navigationItem key="navigationItem" title="Saved Locations" id="NVM-Mv-Ouy">
                         <barButtonItem key="leftBarButtonItem" title="Map" id="hcv-bb-TCr">
                             <connections>
                                 <segue destination="xvd-gA-kuH" kind="unwind" identifier="clickBackToMaps" unwindAction="clickBackToMaps:" id="4He-gw-sVY"/>
