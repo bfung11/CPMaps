@@ -22,24 +22,6 @@
                                 <rect key="frame" x="104" y="102" width="207" height="437"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eh6-vZ-OMO">
-                                <rect key="frame" x="163" y="586" width="88" height="36"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Locations">
-                                            <attributes>
-                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <font key="NSFont" size="18" name="HelveticaNeue"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <segue destination="6ma-5b-rqX" kind="popoverPresentation" popoverAnchorView="eh6-vZ-OMO" id="sJN-Aw-H3o">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
-                            </button>
                             <navigationBar contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UjO-4V-7G9">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
@@ -63,14 +45,29 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xdF-13-LJl">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="vhg-KE-o3N"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BKs-bf-N7Y"/>
+                                    <barButtonItem systemItem="bookmarks" id="Fqs-xv-OCA">
+                                        <connections>
+                                            <segue destination="6ma-5b-rqX" kind="show" id="TLx-hb-XZO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="UjO-4V-7G9" secondAttribute="trailing" constant="-16" id="2zh-WI-5dY"/>
                             <constraint firstItem="52w-FN-aei" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="3jb-Hs-KhI"/>
                             <constraint firstItem="jyV-Pf-zRb" firstAttribute="top" secondItem="52w-FN-aei" secondAttribute="top" id="5MY-FH-aTn"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="xdF-13-LJl" secondAttribute="bottom" id="7ox-4l-7Ss"/>
                             <constraint firstItem="UjO-4V-7G9" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="K31-5r-She"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xdF-13-LJl" secondAttribute="trailing" constant="-16" id="Q0F-LT-GaB"/>
                             <constraint firstAttribute="trailing" secondItem="52w-FN-aei" secondAttribute="trailing" id="Qbg-nj-gkR"/>
+                            <constraint firstItem="xdF-13-LJl" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="d8S-7d-a0D"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="bottom" secondItem="52w-FN-aei" secondAttribute="bottom" id="tSg-Ao-mFL"/>
                         </constraints>
                     </view>
