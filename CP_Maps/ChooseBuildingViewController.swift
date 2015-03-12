@@ -45,18 +45,19 @@ class ChooseBuildingViewController: UITableViewController {
    //MARK: - Table view delegate
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-      //Other row is selected - need to deselect it
-      if let index = selectedBuildingIndex {
-         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-         cell?.accessoryType = .None
-      }
-
-      selectedBuildingIndex = indexPath.row
+      
+//      //Other row is selected - need to deselect it
+//      if let index = selectedBuildingIndex {
+//         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+//         cell?.accessoryType = .None
+//      }
+//      selectedBuildingIndex = indexPath.row
       selectedBuilding = buildings[indexPath.row]
-
-      //update the checkmark for the current row
-      let cell = tableView.cellForRowAtIndexPath(indexPath)
-      cell?.accessoryType = .Checkmark
+//
+//      //update the checkmark for the current row
+//      let cell = tableView.cellForRowAtIndexPath(indexPath)
+//      cell?.accessoryType = .Checkmark
+//      
+      performSegueWithIdentifier("saveBuilding", sender: self)
    }
 }
