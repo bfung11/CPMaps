@@ -137,14 +137,14 @@ class AddNewLocationViewController: UITableViewController {
       }
       if segue.identifier == "saveNewLocation" {
          let courseTitle = self.courseTitleTextField.text
-         checkTextFields()
+         checkForEmptyFields()
       
-         location = Location(building: building!, room: room!,
+         location = Location(building: building!, room: room,
             course: Course(name: courseTitle, daysAsString: days, startTime: startTime, endTime: endTime))
       }
    }
    
-   func checkTextFields() {
+   func checkForEmptyFields() {
       if self.courseTitleTextField.text.isEmpty {
          courseTitle = ""
       }
@@ -153,6 +153,9 @@ class AddNewLocationViewController: UITableViewController {
       }
       if self.endTextField.text.isEmpty {
          endTime = ""
+      }
+      if room == nil {
+         //room = Room(number: "Hi")
       }
    }
    

@@ -10,10 +10,10 @@ import UIKit
 
 class Location: NSObject {
    var building : Building
-   var room: Room
+   var room: Room?
    var course: Course
    
-   init(building: Building, room: Room, course: Course) {
+   init(building: Building, room: Room?, course: Course) {
       self.building = building
       self.room = room
       self.course = course
