@@ -29,7 +29,7 @@ class ChooseBuildingViewController: UITableViewController {
       //display building number and name
       let cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as UITableViewCell
       let building = buildings[indexPath.row]
-      cell.textLabel?.text = "Building " + building.number + " (" + building.name + ")"
+      cell.textLabel?.text = building.number + " - " + building.name
       
       //check and uncheck buildings
       if indexPath.row == selectedBuildingIndex {
