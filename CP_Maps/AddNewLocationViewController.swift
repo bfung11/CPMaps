@@ -112,9 +112,6 @@ class AddNewLocationViewController: UITableViewController {
             alert.show()
             shouldPerform = false
          }
-         else {
-            performSegueWithIdentifier("saveNewLocation", sender: self)
-         }
       }
       
       return shouldPerform
