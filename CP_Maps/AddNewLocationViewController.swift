@@ -23,10 +23,10 @@ class AddNewLocationViewController: UITableViewController {
    var buildings = buildingsData
    var building: Building!
    var room: Room? = nil
-   var courseTitle: String!
+   var courseTitle: String?
    var days = [String]()
-   var startTime: String!
-   var endTime: String!
+   var startTime: String?
+   var endTime: String?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -136,26 +136,20 @@ class AddNewLocationViewController: UITableViewController {
          //println("here 3")
       }
       if segue.identifier == "saveNewLocation" {
-         let courseTitle = self.courseTitleTextField.text
-         checkForEmptyFields()
+         var courseTitle = self.courseTitleTextField.text
+         
+         if courseTitle == nil {
+            courseTitle = ""
+         }
+         if startTime == nil {
+            startTime = ""
+         }
+         if endTime == nil {
+            endTime = ""
+         }
       
          location = Location(building: building!, room: room,
-            course: Course(name: courseTitle, daysAsString: days, startTime: startTime, endTime: endTime))
-      }
-   }
-   
-   func checkForEmptyFields() {
-      if self.courseTitleTextField.text.isEmpty {
-         courseTitle = ""
-      }
-      if self.startTextField.text.isEmpty {
-         startTime = ""
-      }
-      if self.endTextField.text.isEmpty {
-         endTime = ""
-      }
-      if room == nil {
-         //room = Room(number: "Hi")
+            course: Course(name: courseTitle!, daysAsString: days, startTime: startTime!, endTime: endTime!))
       }
    }
    
