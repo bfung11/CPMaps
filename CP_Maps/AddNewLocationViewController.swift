@@ -102,6 +102,24 @@ class AddNewLocationViewController: UITableViewController {
       endTextField.text = endTime
    }
    
+   override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+      var shouldPerform = true
+      
+      if identifier == "saveNewLocation" {
+         if building == nil {
+            let alert =
+            UIAlertView(title: "No Building Selected", message: "Please select a building to create a new location", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            shouldPerform = false
+         }
+         else {
+            performSegueWithIdentifier("saveNewLocation", sender: self)
+         }
+      }
+      
+      return shouldPerform
+   }
+   
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == "segueToChooseRoomViewController" {
          //save selected building to choose rooms
@@ -111,7 +129,8 @@ class AddNewLocationViewController: UITableViewController {
       if segue.identifier == "saveNewLocation" {
          let courseTitle = self.courseTitleTextField.text
          checkTextFields()
-         location = Location(building: building, room: room!,
+      
+         location = Location(building: building!, room: room!,
             course: Course(name: courseTitle, daysAsString: days, startTime: startTime, endTime: endTime))
       }
    }
