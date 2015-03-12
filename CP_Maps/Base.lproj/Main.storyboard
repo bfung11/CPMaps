@@ -199,7 +199,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zFU-qR-MMi" kind="show" identifier="segueToChooseRoomViewController" id="Ila-bU-ghN"/>
+                                            <segue destination="N4W-Rq-hDV" kind="show" identifier="segueToChooseRoomViewController" id="wrZ-Ha-4DL"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -522,24 +522,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqA-K6-uzc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3470" y="167"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="iKo-VB-Vjv">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zFU-qR-MMi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ai7-RT-En0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="N4W-Rq-hDV" kind="relationship" relationship="rootViewController" id="C5K-Wv-ErS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="inv-hI-b8g" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3458" y="975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bDA-JO-1eT">

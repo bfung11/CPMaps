@@ -28,45 +28,6 @@ class AddNewLocationViewController: UITableViewController {
    var startTime: String!
    var endTime: String!
    
-   @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
-   }
-   
-   @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {
-      var labels = [String]()
-      var daysTitle = ""
-      var day : String
-      
-      switch segue.identifier! {
-         case "saveBuilding":
-            //save building details and update building details to reflect selection
-            let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
-            building = chooseBuildingViewController.selectedBuilding
-            buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
-            //enable room selection
-            chooseRoomCell.userInteractionEnabled = true;
-            chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
-         case "saveRoom":
-            //save room details and update room details to reflect selection
-            let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
-            room = chooseRoomViewController.selectedRoom
-            roomDetail.text = "Room " + room!.number
-         case "saveDays":
-            let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
-            //set as or as empty array
-            days = chooseDaysViewController.selectedDays
-            if days.isEmpty {
-               days = [String]()
-            }
-            //add days into title
-            for day in days {
-               daysTitle += ", " + day;
-            }
-            //update days detail to reflect selection(s)
-            daysDetail.text = daysTitle.substringFromIndex(advance(daysTitle.startIndex, 2))
-         default: ()
-      }
-   }
-   
    override func viewDidLoad() {
       super.viewDidLoad()
       
@@ -77,6 +38,45 @@ class AddNewLocationViewController: UITableViewController {
       //initialize date pickers
       startDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
       endDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+   }
+   
+   @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
+   }
+   
+   @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {
+      var labels = [String]()
+      var daysTitle = ""
+      var day : String
+      
+      switch segue.identifier! {
+      case "saveBuilding":
+         //save building details and update building details to reflect selection
+         let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
+         building = chooseBuildingViewController.selectedBuilding
+         buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+         //enable room selection
+         chooseRoomCell.userInteractionEnabled = true;
+         chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
+      case "saveRoom":
+         //save room details and update room details to reflect selection
+         let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
+         room = chooseRoomViewController.selectedRoom
+         roomDetail.text = "Room " + room!.number
+      case "saveDays":
+         let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
+         //set as or as empty array
+         days = chooseDaysViewController.selectedDays
+         if days.isEmpty {
+            days = [String]()
+         }
+         //add days into title
+         for day in days {
+            daysTitle += ", " + day;
+         }
+         //update days detail to reflect selection(s)
+         daysDetail.text = daysTitle.substringFromIndex(advance(daysTitle.startIndex, 2))
+      default: ()
+      }
    }
    
    //redundant code
@@ -121,10 +121,19 @@ class AddNewLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      println(segue.identifier)
       if segue.identifier == "segueToChooseRoomViewController" {
          //save selected building to choose rooms
+         println("here 1")
+         //let navigationViewController = segue.destinationViewController as UINavigationController
+         //let num = navigationController?.viewControllers.count
+         //let chooseRoomViewController = navigationViewController.viewControllers[num! - 2] as ChooseBuildingViewController
+         //let chooseRoomViewController = navigationViewController.topViewController
          let chooseRoomViewController = segue.destinationViewController as ChooseRoomViewController
+         //println(chooseRoomViewController.title!)
          chooseRoomViewController.selectedBuilding = building
+         println(chooseRoomViewController.selectedBuilding!)
+         //println("here 3")
       }
       if segue.identifier == "saveNewLocation" {
          let courseTitle = self.courseTitleTextField.text
