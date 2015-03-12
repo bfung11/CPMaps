@@ -84,6 +84,9 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       if(mapView != nil) {
          mapView.myLocationEnabled = true
          mapView.settings.myLocationButton = true
+         
+         // make location button move past bottom bar
+         mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
       }
       else {
          NSLog("MapView is nil");
