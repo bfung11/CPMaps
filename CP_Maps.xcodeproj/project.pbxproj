@@ -12,6 +12,7 @@
 		1167C1D01A783FD000E6C780 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C91A783EF200E6C780 /* CoreLocation.framework */; };
 		1185CBB51A797B1900987018 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1185CBB41A797B1900987018 /* .gitignore */; };
 		118C896B1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */; };
+		118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */; };
 		11E139AB1A9AE53B0074B985 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139AA1A9AE53B0074B985 /* AVFoundation.framework */; };
 		11E139AD1A9AE54B0074B985 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139AC1A9AE54B0074B985 /* CoreText.framework */; };
 		11E139AF1A9AE5520074B985 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139AE1A9AE5520074B985 /* GLKit.framework */; };
@@ -69,6 +70,7 @@
 		1167C1CD1A783FB600E6C780 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1185CBB41A797B1900987018 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CalPoly_Bldg14_Location.gpx; sourceTree = "<group>"; };
+		118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PolyMap_Extended.jpg; sourceTree = "<group>"; };
 		11E139AA1A9AE53B0074B985 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		11E139AC1A9AE54B0074B985 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		11E139AE1A9AE5520074B985 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -252,6 +254,7 @@
 		B23536DF1A709D7500E4391B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */,
 				118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */,
 				B23536ED1A709D7500E4391B /* LaunchScreen.xib */,
 				B23536EB1A709D7500E4391B /* Images.xcassets */,
@@ -363,6 +366,7 @@
 				B23536EA1A709D7500E4391B /* Main.storyboard in Resources */,
 				B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */,
 				11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */,
+				118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */,
 				11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */,
 				B23536EC1A709D7500E4391B /* Images.xcassets in Resources */,
 			);
