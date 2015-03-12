@@ -399,13 +399,10 @@
                             <outlet property="delegate" destination="reh-xF-wIR" id="6Ac-jt-OjZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Building" id="vAl-71-3Ga">
-                        <barButtonItem key="rightBarButtonItem" style="done" id="tWx-2P-1iW">
-                            <connections>
-                                <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveNewLocationDetails:" id="qAq-uT-egw"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Building" id="vAl-71-3Ga"/>
+                    <connections>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveNewLocationDetails:" id="dA1-6y-XV8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
