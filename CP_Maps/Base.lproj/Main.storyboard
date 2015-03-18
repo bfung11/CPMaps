@@ -270,16 +270,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Start" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVf-nz-pcy">
-                                                    <rect key="frame" x="171" y="11" width="228" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.56000000000000005" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycn-w0-M6l">
+                                                    <rect key="frame" x="302" y="5" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="dVf-nz-pcy" secondAttribute="trailing" constant="7" id="qu2-s4-626"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="183" id="JDX-yc-R3E">
@@ -307,16 +303,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="End" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfM-EJ-cdW">
-                                                    <rect key="frame" x="171" y="11" width="228" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.56000000000000005" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="weL-85-bdT">
+                                                    <rect key="frame" x="302" y="7" width="97" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="MfM-EJ-cdW" secondAttribute="trailing" constant="7" id="tu2-Fs-7Pe"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="217" id="40t-cA-iNX">
@@ -358,11 +350,11 @@
                         <outlet property="chooseRoomCell" destination="bzK-OV-31z" id="UYP-gk-QqS"/>
                         <outlet property="courseTitleTextField" destination="gb4-pS-E3P" id="8us-Vr-lTV"/>
                         <outlet property="daysDetail" destination="UPM-KT-bhc" id="lkK-5q-H5u"/>
-                        <outlet property="endDateLabel" destination="MfM-EJ-cdW" id="2bZ-2N-mAI"/>
                         <outlet property="endDatePicker" destination="sMM-v5-ezt" id="Zav-ly-0gs"/>
+                        <outlet property="endDateTextField" destination="weL-85-bdT" id="pjU-5Q-Ww7"/>
                         <outlet property="roomDetail" destination="cpZ-ou-BQF" id="0OG-1x-Muj"/>
-                        <outlet property="startDateLabel" destination="dVf-nz-pcy" id="BAs-mu-Bp3"/>
                         <outlet property="startDatePicker" destination="eT5-xy-zj3" id="NZ4-5i-po8"/>
+                        <outlet property="startDateTextField" destination="ycn-w0-M6l" id="lxW-OD-Hpm"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>

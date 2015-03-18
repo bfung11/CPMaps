@@ -46,6 +46,7 @@
 		B25647351AA0179000315E46 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25647341AA0179000315E46 /* Room.swift */; };
 		B2644D361A990A9300513903 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D351A990A9300513903 /* Building.swift */; };
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
+		B2748F461AB9337D00411FAA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F451AB9337D00411FAA /* Const.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
@@ -108,6 +109,7 @@
 		B25647341AA0179000315E46 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B2644D351A990A9300513903 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		B2748F451AB9337D00411FAA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		B23536DF1A709D7500E4391B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B2748F451AB9337D00411FAA /* Const.swift */,
 				118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */,
 				118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */,
 				B23536ED1A709D7500E4391B /* LaunchScreen.xib */,
@@ -406,6 +409,7 @@
 				B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */,
 				B2E763BA1A9042C4000D93E5 /* ChooseBuildingViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,
+				B2748F461AB9337D00411FAA /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

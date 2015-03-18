@@ -14,9 +14,9 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var roomDetail: UILabel!
    @IBOutlet weak var courseTitleTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
-   @IBOutlet weak var startDateLabel: UILabel!
+   @IBOutlet weak var startDateTextField: UITextField!
    @IBOutlet weak var startDatePicker: UIDatePicker!
-   @IBOutlet weak var endDateLabel: UILabel!
+   @IBOutlet weak var endDateTextField: UITextField!
    @IBOutlet weak var endDatePicker: UIDatePicker!
    
    var location: Location! //exclamation point - does not instantiate, but must do so before use
@@ -90,7 +90,7 @@ class AddNewLocationViewController: UITableViewController {
       
       //display date and time
       dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-      startDateLabel.text = dateFormatter.stringFromDate(startDatePicker.date)
+      startDateTextField.text = dateFormatter.stringFromDate(startDatePicker.date)
    }
    //redundant code
    func changeEndDatePicker(datePicker:UIDatePicker) {
@@ -99,16 +99,16 @@ class AddNewLocationViewController: UITableViewController {
       //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
       dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
       endTime = dateFormatter.stringFromDate(endDatePicker.date)
-      endDateLabel.text = endTime
+      endDateTextField.text = endTime
    }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
       
       if identifier == "saveNewLocation" {
-         if building == nil {
+         if building == nil { //if they have not selected a building
             let alert =
-            UIAlertView(title: "No Building Selected", message: "Please select a building to create a new location", delegate: self, cancelButtonTitle: "OK")
+            UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: "OK")
             alert.show()
             shouldPerform = false
          }
