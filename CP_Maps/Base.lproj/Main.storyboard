@@ -193,7 +193,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="reh-xF-wIR" kind="show" id="Bkd-na-fPM"/>
+                                            <segue destination="reh-xF-wIR" kind="show" identifier="segueToChooseBuilding" id="Bkd-na-fPM"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zvX-AB-pa3" detailTextLabel="cpZ-ou-BQF" style="IBUITableViewCellStyleValue1" id="bzK-OV-31z">
@@ -377,7 +377,7 @@
         <!--Choose Building-->
         <scene sceneID="wca-wQ-xqa">
             <objects>
-                <tableViewController title="Choose Building" id="reh-xF-wIR" customClass="ChooseBuildingViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Choose Building" id="reh-xF-wIR" customClass="ChooseBuildingRoomViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s3D-UV-dVW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

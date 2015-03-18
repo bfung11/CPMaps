@@ -51,8 +51,8 @@ class AddNewLocationViewController: UITableViewController {
       switch segue.identifier! {
       case "saveBuilding":
          //save building details and update building details to reflect selection
-         let chooseBuildingViewController = segue.sourceViewController as ChooseBuildingViewController
-         building = chooseBuildingViewController.selectedBuilding
+         let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
+         building = viewController.selectedItem! as Building
          buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
          //enable room selection
          chooseRoomCell.userInteractionEnabled = true;
@@ -118,6 +118,11 @@ class AddNewLocationViewController: UITableViewController {
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       println(segue.identifier)
+      if segue.identifier == "segueToChooseBuilding" {
+         let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
+         viewController.identifier = "chooseBuilding"
+         viewController.data = buildingsData
+      }
       if segue.identifier == "segueToChooseRoomViewController" {
          //save selected building to choose rooms
          let chooseRoomViewController = segue.destinationViewController as ChooseRoomViewController

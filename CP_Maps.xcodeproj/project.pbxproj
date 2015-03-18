@@ -47,6 +47,7 @@
 		B2644D361A990A9300513903 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D351A990A9300513903 /* Building.swift */; };
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
 		B2748F461AB9337D00411FAA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F451AB9337D00411FAA /* Const.swift */; };
+		B2748F501AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
@@ -110,6 +111,7 @@
 		B2644D351A990A9300513903 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		B2748F451AB9337D00411FAA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
+		B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingRoomTableViewController.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddNewLocationViewController.swift */,
+				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B91A9042C4000D93E5 /* ChooseBuildingViewController.swift */,
 				B2E763BB1A9045AB000D93E5 /* ChooseRoomViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
@@ -393,6 +396,7 @@
 				11E139CF1A9BB2B30074B985 /* GoogleDataProvider.swift in Sources */,
 				B2E763BC1A9045AB000D93E5 /* ChooseRoomViewController.swift in Sources */,
 				B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */,
+				B2748F501AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift in Sources */,
 				B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */,
 				11E139D01A9BB2B30074B985 /* GooglePlace.swift in Sources */,
 				B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */,
