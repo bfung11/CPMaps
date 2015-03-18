@@ -59,8 +59,8 @@ class AddNewLocationViewController: UITableViewController {
          chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
       case "saveRoom":
          //save room details and update room details to reflect selection
-         let chooseRoomViewController = segue.sourceViewController as ChooseRoomViewController
-         room = chooseRoomViewController.selectedRoom
+         let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
+         room = viewController.selectedItem! as Room
          roomDetail.text = "Room " + room!.number
       case "saveDays":
          let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
@@ -123,10 +123,12 @@ class AddNewLocationViewController: UITableViewController {
          viewController.identifier = "chooseBuilding"
          viewController.data = buildingsData
       }
-      if segue.identifier == "segueToChooseRoomViewController" {
+      if segue.identifier == "segueToChooseRoom" {
          //save selected building to choose rooms
-         let chooseRoomViewController = segue.destinationViewController as ChooseRoomViewController
-         chooseRoomViewController.selectedBuilding = building
+         let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
+         viewController.identifier = "chooseRoom"
+         viewController.data = building!.rooms
+         viewController.selectedItem = building
       }
       if segue.identifier == "saveNewLocation" {
          var courseTitle = self.courseTitleTextField.text

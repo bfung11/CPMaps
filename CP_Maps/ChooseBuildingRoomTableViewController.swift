@@ -25,7 +25,6 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      println(identifier)
       return data.count
    }
    
@@ -37,14 +36,19 @@ class ChooseBuildingRoomViewController: UITableViewController {
          cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as? UITableViewCell
          let building = data![indexPath.row] as Building
          cell!.textLabel?.text = building.number + " - " + building.name
-         
-         //check and uncheck buildings
-         if indexPath.row == selectedItemIndex {
-            cell!.accessoryType = .Checkmark
-         }
-         else {
-            cell!.accessoryType = .None
-         }
+      }
+      //display rooms
+      else if identifier == "chooseRoom" {
+         cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as UITableViewCell
+         let building = selectedItem! as Building
+         cell!.textLabel?.text = "Room " + building.rooms[indexPath.row].number
+      }
+
+      if indexPath.row == selectedItemIndex {
+         cell!.accessoryType = .Checkmark
+      }
+      else {
+         cell!.accessoryType = .None
       }
       
       return cell!
@@ -68,6 +72,10 @@ class ChooseBuildingRoomViewController: UITableViewController {
       //      cell?.accessoryType = .Checkmark
       //
          performSegueWithIdentifier("saveBuilding", sender: self)
+      }
+      else if identifier == "chooseRoom" {
+         selectedItem = data![indexPath.row]
+         performSegueWithIdentifier("saveRoom", sender: self)
       }
    }
 }
