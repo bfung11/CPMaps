@@ -98,8 +98,7 @@ class AddNewLocationViewController: UITableViewController {
       
       //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
       dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-      endTime = dateFormatter.stringFromDate(endTimeDatePicker.date)
-      endTimeLabel.text = endTime
+      endTimeLabel.text = dateFormatter.stringFromDate(endTimeDatePicker.date)
    }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
