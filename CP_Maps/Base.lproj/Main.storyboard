@@ -270,13 +270,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-ij-ODa">
-                                                    <rect key="frame" x="175" y="10" width="200" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-ij-ODa">
+                                                    <rect key="frame" x="175" y="12" width="224" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tf2-ij-ODa" secondAttribute="bottom" constant="5" id="KFs-th-F4I"/>
+                                                <constraint firstItem="tf2-ij-ODa" firstAttribute="top" secondItem="SMX-7s-Jhm" secondAttribute="topMargin" constant="2" id="SVw-Td-wzS"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tf2-ij-ODa" secondAttribute="trailing" constant="7" id="bb4-5e-Kcv"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="183" id="JDX-yc-R3E">
@@ -304,13 +309,18 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoG-JL-P6V">
-                                                    <rect key="frame" x="175" y="10" width="200" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoG-JL-P6V">
+                                                    <rect key="frame" x="175" y="10" width="224" height="20"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UoG-JL-P6V" secondAttribute="trailing" constant="7" id="Muv-we-dhc"/>
+                                                <constraint firstItem="UoG-JL-P6V" firstAttribute="top" secondItem="fcd-qL-M6b" secondAttribute="topMargin" constant="2" id="Q8b-MZ-hF8"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="UoG-JL-P6V" secondAttribute="bottom" constant="5" id="bLD-jw-cDo"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="217" id="40t-cA-iNX">
@@ -362,7 +372,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="R2J-hs-uon" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="972"/>
+            <point key="canvasLocation" x="2756" y="971"/>
         </scene>
         <!--Choose Building-->
         <scene sceneID="wca-wQ-xqa">
