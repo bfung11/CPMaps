@@ -14,10 +14,10 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var roomDetail: UILabel!
    @IBOutlet weak var courseTitleTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
-   @IBOutlet weak var startDateTextField: UITextField!
-   @IBOutlet weak var startDatePicker: UIDatePicker!
-   @IBOutlet weak var endDateTextField: UITextField!
-   @IBOutlet weak var endDatePicker: UIDatePicker!
+   @IBOutlet weak var startTimeTextField: UITextField!
+   @IBOutlet weak var startTimeDatePicker: UIDatePicker!
+   @IBOutlet weak var endTimeTextField: UITextField!
+   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    var buildings = buildingsData
@@ -36,8 +36,8 @@ class AddNewLocationViewController: UITableViewController {
       chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
       
       //initialize date pickers
-      startDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
-      endDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+      startTimeDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+      endTimeDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
    }
    
    @IBAction func cancelAddDetails(segue:UIStoryboardSegue) {
@@ -86,11 +86,11 @@ class AddNewLocationViewController: UITableViewController {
       //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
       //save time
       dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-      startTime = dateFormatter.stringFromDate(startDatePicker.date)
+      startTime = dateFormatter.stringFromDate(startTimeDatePicker.date)
       
       //display date and time
       dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-      startDateTextField.text = dateFormatter.stringFromDate(startDatePicker.date)
+      startTimeTextField.text = dateFormatter.stringFromDate(startTimeDatePicker.date)
    }
    //redundant code
    func changeEndDatePicker(datePicker:UIDatePicker) {
@@ -98,8 +98,8 @@ class AddNewLocationViewController: UITableViewController {
       
       //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
       dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-      endTime = dateFormatter.stringFromDate(endDatePicker.date)
-      endDateTextField.text = endTime
+      endTime = dateFormatter.stringFromDate(endTimeDatePicker.date)
+      endTimeTextField.text = endTime
    }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {

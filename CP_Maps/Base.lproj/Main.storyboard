@@ -350,11 +350,11 @@
                         <outlet property="chooseRoomCell" destination="bzK-OV-31z" id="UYP-gk-QqS"/>
                         <outlet property="courseTitleTextField" destination="gb4-pS-E3P" id="8us-Vr-lTV"/>
                         <outlet property="daysDetail" destination="UPM-KT-bhc" id="lkK-5q-H5u"/>
-                        <outlet property="endDatePicker" destination="sMM-v5-ezt" id="Zav-ly-0gs"/>
-                        <outlet property="endDateTextField" destination="weL-85-bdT" id="pjU-5Q-Ww7"/>
+                        <outlet property="endTimeDatePicker" destination="sMM-v5-ezt" id="V3g-9o-FDR"/>
+                        <outlet property="endTimeTextField" destination="weL-85-bdT" id="JOT-gw-vF1"/>
                         <outlet property="roomDetail" destination="cpZ-ou-BQF" id="0OG-1x-Muj"/>
-                        <outlet property="startDatePicker" destination="eT5-xy-zj3" id="NZ4-5i-po8"/>
-                        <outlet property="startDateTextField" destination="ycn-w0-M6l" id="lxW-OD-Hpm"/>
+                        <outlet property="startTimeDatePicker" destination="eT5-xy-zj3" id="4DV-Wg-8Tp"/>
+                        <outlet property="startTimeTextField" destination="ycn-w0-M6l" id="FEg-ZH-99Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
