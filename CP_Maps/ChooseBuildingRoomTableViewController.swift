@@ -32,13 +32,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
       var cell: UITableViewCell?
       
       //display building number and name
-      if identifier == "chooseBuilding" {
+      if identifier == chooseBuildingIdentifier {
          cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as? UITableViewCell
          let building = data![indexPath.row] as Building
          cell!.textLabel?.text = building.number + " - " + building.name
       }
       //display rooms
-      else if identifier == "chooseRoom" {
+      else if identifier == chooseRoomIdentifier {
          cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as UITableViewCell
          let building = selectedItem! as Building
          cell!.textLabel?.text = "Room " + building.rooms[indexPath.row].number
@@ -64,18 +64,18 @@ class ChooseBuildingRoomViewController: UITableViewController {
       //         cell?.accessoryType = .None
       //      }
       //      selectedBuildingIndex = indexPath.row
-      if identifier == "chooseBuilding" {
+      if identifier == chooseBuildingIdentifier {
          selectedItem = data![indexPath.row]
       //
       //      //update the checkmark for the current row
       //      let cell = tableView.cellForRowAtIndexPath(indexPath)
       //      cell?.accessoryType = .Checkmark
       //
-         performSegueWithIdentifier("saveBuilding", sender: self)
+         performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
       }
-      else if identifier == "chooseRoom" {
+      else if identifier == chooseRoomIdentifier {
          selectedItem = data![indexPath.row]
-         performSegueWithIdentifier("saveRoom", sender: self)
+         performSegueWithIdentifier(saveRoomSegueIdentifer, sender: self)
       }
    }
 }

@@ -49,7 +49,7 @@ class AddNewLocationViewController: UITableViewController {
       var day : String
       
       switch segue.identifier! {
-      case "saveBuilding":
+      case saveBuildingSegueIdentifer:
          //save building details and update building details to reflect selection
          let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
          building = viewController.selectedItem! as Building
@@ -57,7 +57,7 @@ class AddNewLocationViewController: UITableViewController {
          //enable room selection
          chooseRoomCell.userInteractionEnabled = true;
          chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
-      case "saveRoom":
+      case saveRoomSegueIdentifer:
          //save room details and update room details to reflect selection
          let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
          room = viewController.selectedItem! as Room
@@ -104,7 +104,7 @@ class AddNewLocationViewController: UITableViewController {
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
       
-      if identifier == "saveNewLocation" {
+      if identifier == saveLocationSegueIdentifer {
          if building == nil { //if they have not selected a building
             let alert =
             UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: "OK")
@@ -120,17 +120,17 @@ class AddNewLocationViewController: UITableViewController {
       println(segue.identifier)
       if segue.identifier == "segueToChooseBuilding" {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
-         viewController.identifier = "chooseBuilding"
+         viewController.identifier = chooseBuildingIdentifier
          viewController.data = buildingsData
       }
       if segue.identifier == "segueToChooseRoom" {
          //save selected building to choose rooms
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
-         viewController.identifier = "chooseRoom"
+         viewController.identifier = chooseRoomIdentifier
          viewController.data = building!.rooms
          viewController.selectedItem = building
       }
-      if segue.identifier == "saveNewLocation" {
+      if segue.identifier == saveLocationSegueIdentifer {
          var courseTitle = self.courseTitleTextField.text
          
          if courseTitle == nil {
