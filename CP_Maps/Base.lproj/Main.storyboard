@@ -454,12 +454,10 @@
                                 <segue destination="vtI-Bz-Bwg" kind="unwind" unwindAction="cancelToAddNewLocationViewController:" id="qjc-we-Oh9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="6cr-ak-SXX">
-                            <connections>
-                                <segue destination="vtI-Bz-Bwg" kind="unwind" identifier="saveRoom" unwindAction="saveNewLocationDetails:" id="tGX-aF-Tyw"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="vtI-Bz-Bwg" kind="unwind" identifier="saveRoom" unwindAction="saveNewLocationDetails:" id="b94-Jp-NeH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bba-u7-Lqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vtI-Bz-Bwg" userLabel="Exit" sceneMemberID="exit"/>

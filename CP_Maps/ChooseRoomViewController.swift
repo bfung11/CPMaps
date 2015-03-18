@@ -41,17 +41,18 @@ class ChooseRoomViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       
-      //Other row is selected - need to deselect it
-      if let index = selectedRoomIndex {
-         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-         cell?.accessoryType = .None
-      }
-      
-      selectedRoomIndex = indexPath.row
+//      //Other row is selected - need to deselect it
+//      if let index = selectedRoomIndex {
+//         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+//         cell?.accessoryType = .None
+//      }
+//      selectedRoomIndex = indexPath.row
       selectedRoom = selectedBuilding!.rooms[indexPath.row]
+//
+//      //update the checkmark for the current row
+//      let cell = tableView.cellForRowAtIndexPath(indexPath)
+//      cell?.accessoryType = .Checkmark
       
-      //update the checkmark for the current row
-      let cell = tableView.cellForRowAtIndexPath(indexPath)
-      cell?.accessoryType = .Checkmark
+      performSegueWithIdentifier("saveRoom", sender: self)
    }
 }
