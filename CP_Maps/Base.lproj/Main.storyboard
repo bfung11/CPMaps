@@ -270,11 +270,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ycn-w0-M6l">
-                                                    <rect key="frame" x="302" y="5" width="97" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tf2-ij-ODa">
+                                                    <rect key="frame" x="175" y="10" width="200" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -303,11 +304,12 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="weL-85-bdT">
-                                                    <rect key="frame" x="302" y="7" width="97" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UoG-JL-P6V">
+                                                    <rect key="frame" x="175" y="10" width="200" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -351,16 +353,16 @@
                         <outlet property="courseTitleTextField" destination="gb4-pS-E3P" id="8us-Vr-lTV"/>
                         <outlet property="daysDetail" destination="UPM-KT-bhc" id="lkK-5q-H5u"/>
                         <outlet property="endTimeDatePicker" destination="sMM-v5-ezt" id="V3g-9o-FDR"/>
-                        <outlet property="endTimeTextField" destination="weL-85-bdT" id="JOT-gw-vF1"/>
+                        <outlet property="endTimeLabel" destination="UoG-JL-P6V" id="ZN5-i7-5L5"/>
                         <outlet property="roomDetail" destination="cpZ-ou-BQF" id="0OG-1x-Muj"/>
                         <outlet property="startTimeDatePicker" destination="eT5-xy-zj3" id="4DV-Wg-8Tp"/>
-                        <outlet property="startTimeTextField" destination="ycn-w0-M6l" id="FEg-ZH-99Q"/>
+                        <outlet property="startTimeLabel" destination="tf2-ij-ODa" id="slc-pa-frr"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="R2J-hs-uon" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="974"/>
+            <point key="canvasLocation" x="2756" y="972"/>
         </scene>
         <!--Choose Building-->
         <scene sceneID="wca-wQ-xqa">

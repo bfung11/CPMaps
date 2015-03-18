@@ -14,9 +14,9 @@ class AddNewLocationViewController: UITableViewController {
    @IBOutlet weak var roomDetail: UILabel!
    @IBOutlet weak var courseTitleTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
-   @IBOutlet weak var startTimeTextField: UITextField!
+   @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: UIDatePicker!
-   @IBOutlet weak var endTimeTextField: UITextField!
+   @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    var location: Location! //exclamation point - does not instantiate, but must do so before use
@@ -90,7 +90,7 @@ class AddNewLocationViewController: UITableViewController {
       
       //display date and time
       dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-      startTimeTextField.text = dateFormatter.stringFromDate(startTimeDatePicker.date)
+      startTimeLabel.text = dateFormatter.stringFromDate(startTimeDatePicker.date)
    }
    //redundant code
    func changeEndDatePicker(datePicker:UIDatePicker) {
@@ -99,7 +99,7 @@ class AddNewLocationViewController: UITableViewController {
       //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
       dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
       endTime = dateFormatter.stringFromDate(endTimeDatePicker.date)
-      endTimeTextField.text = endTime
+      endTimeLabel.text = endTime
    }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
