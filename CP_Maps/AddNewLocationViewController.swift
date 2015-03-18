@@ -120,16 +120,8 @@ class AddNewLocationViewController: UITableViewController {
       println(segue.identifier)
       if segue.identifier == "segueToChooseRoomViewController" {
          //save selected building to choose rooms
-         println("here 1")
-         //let navigationViewController = segue.destinationViewController as UINavigationController
-         //let num = navigationController?.viewControllers.count
-         //let chooseRoomViewController = navigationViewController.viewControllers[num! - 2] as ChooseBuildingViewController
-         //let chooseRoomViewController = navigationViewController.topViewController
          let chooseRoomViewController = segue.destinationViewController as ChooseRoomViewController
-         //println(chooseRoomViewController.title!)
          chooseRoomViewController.selectedBuilding = building
-         println(chooseRoomViewController.selectedBuilding!)
-         //println("here 3")
       }
       if segue.identifier == "saveNewLocation" {
          var courseTitle = self.courseTitleTextField.text
