@@ -103,13 +103,11 @@ class AddEditLocationViewController: UITableViewController {
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
       
-      if identifier == saveLocationSegueIdentifer {
-         if building == nil { //if they have not selected a building
-            let alert =
-            UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: "OK")
-            alert.show()
-            shouldPerform = false
-         }
+      if identifier == saveLocationSegueIdentifer && building == nil { //if they have not selected a building
+         let alert =
+         UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: "OK")
+         alert.show()
+         shouldPerform = false
       }
       
       return shouldPerform
