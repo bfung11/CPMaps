@@ -51,7 +51,7 @@
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
-		B2E763BE1A9049D5000D93E5 /* AddNewLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddNewLocationViewController.swift */; };
+		B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,7 +113,7 @@
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
-		B2E763BD1A9049D5000D93E5 /* AddNewLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNewLocationViewController.swift; sourceTree = "<group>"; };
+		B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
-				B2E763BD1A9049D5000D93E5 /* AddNewLocationViewController.swift */,
+				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
@@ -401,7 +401,7 @@
 				B2644D361A990A9300513903 /* Building.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
 				B25647351AA0179000315E46 /* Room.swift in Sources */,
-				B2E763BE1A9049D5000D93E5 /* AddNewLocationViewController.swift in Sources */,
+				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
 				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,
 				B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  AddNewLocationViewController.swift
+//  AddEditLocationViewController.swift
 //  CP_Maps
 //
 //  Created by Brian Fung on 2/14/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddNewLocationViewController: UITableViewController {
+class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var buildingDetail: UILabel!
    @IBOutlet weak var chooseRoomCell: UITableViewCell!
    @IBOutlet weak var roomDetail: UILabel!
@@ -49,16 +49,15 @@ class AddNewLocationViewController: UITableViewController {
       var day : String
       
       switch segue.identifier! {
-      case saveBuildingSegueIdentifer:
-         //save building details and update building details to reflect selection
+      case saveBuildingSegueIdentifer: //save building details and update building details to reflect selection
          let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
          building = viewController.selectedItem! as Building
          buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+         
          //enable room selection
          chooseRoomCell.userInteractionEnabled = true;
          chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
-      case saveRoomSegueIdentifer:
-         //save room details and update room details to reflect selection
+      case saveRoomSegueIdentifer: //save room details and update room details to reflect selection
          let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
          room = viewController.selectedItem! as Room
          roomDetail.text = "Room " + room!.number
@@ -117,14 +116,13 @@ class AddNewLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      println(segue.identifier)
       if segue.identifier == "segueToChooseBuilding" {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseBuildingIdentifier
          viewController.data = buildingsData
+         viewController.selectedItem = building
       }
       if segue.identifier == "segueToChooseRoom" {
-         //save selected building to choose rooms
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseRoomIdentifier
          viewController.data = building!.rooms

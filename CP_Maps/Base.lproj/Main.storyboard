@@ -165,7 +165,7 @@
         <!--Add Location-->
         <scene sceneID="cMe-hx-1RE">
             <objects>
-                <tableViewController id="Agc-E3-Fux" customClass="AddNewLocationViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Agc-E3-Fux" customClass="AddEditLocationViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BVV-Tm-Xhx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

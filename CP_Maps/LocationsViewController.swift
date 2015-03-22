@@ -59,7 +59,7 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func saveNewLocation(segue:UIStoryboardSegue) {
-      let addNewLocationViewController = segue.sourceViewController as AddNewLocationViewController
+      let addNewLocationViewController = segue.sourceViewController as AddEditLocationViewController
       
       //add the new player to the players array
       addNewLocationToArray(addNewLocationViewController.location)
