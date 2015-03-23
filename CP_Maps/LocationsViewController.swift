@@ -11,7 +11,7 @@ import UIKit
 class LocationsViewController: UITableViewController {
    
    var locations: [Location] = locationsData
-   var location: Location?
+   var indexPath: NSIndexPath?
    var isEditLocation: Bool?
    
    override func viewDidLoad() {
@@ -57,9 +57,8 @@ class LocationsViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      println("here")
-      location = locationsData[indexPath.row]
-
+      
+      self.indexPath = indexPath
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
    }
    
@@ -67,7 +66,7 @@ class LocationsViewController: UITableViewController {
       
       if segue.identifier == editLocationSegueIdentifier {
          let viewController = segue.destinationViewController as AddEditLocationViewController
-         viewController.location = location
+         viewController.location = locationsData[indexPath!.row]
          isEditLocation = true
       }
       else {
@@ -82,12 +81,13 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
+      let addNewLocationViewController = segue.sourceViewController as AddEditLocationViewController
+      
       if isEditLocation == true {
+         locationsData[indexPath!.row] = addNewLocationViewController.location
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         let addNewLocationViewController = segue.sourceViewController as AddEditLocationViewController
-         
          //add the new player to the players array
          addNewLocationToArray(addNewLocationViewController.location)
 

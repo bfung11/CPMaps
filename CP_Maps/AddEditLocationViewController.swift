@@ -22,7 +22,7 @@ class AddEditLocationViewController: UITableViewController {
    var location: Location! //exclamation point - does not instantiate, but must do so before use
    var buildings = buildingsData
    var building: Building!
-   var room: Room? = nil
+   var room: Room?
    var courseTitle: String?
    var days = [String]()
    var startTime: String?
@@ -34,15 +34,17 @@ class AddEditLocationViewController: UITableViewController {
       if location != nil { //if not from editLocation
          building = location.building
          buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+         
          room = location.room
-         roomDetail.text = "Room " + room!.number
+         if room != nil {
+            roomDetail.text = "Room " + room!.number
+         }
       }
       
       if building == nil {
          //disable room selection if building not selected
          chooseRoomCell.userInteractionEnabled = false;
          chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
-         println("here" + roomDetail.text!)
       }
       
       //initialize date pickers
@@ -60,6 +62,7 @@ class AddEditLocationViewController: UITableViewController {
       buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
       
       roomDetail.text = "None"
+      room = nil
       
       //enable room selection
       chooseRoomCell.userInteractionEnabled = true;
@@ -152,14 +155,8 @@ class AddEditLocationViewController: UITableViewController {
             endTime = ""
          }
          
-         if location != nil {
-            location.updateBuilding(building)
-            location.updateRoom(room!)
-         }
-         else {
-            location = Location(building: building!, room: room,
-               course: Course(name: courseTitle!, daysAsString: days, startTime: startTime!, endTime: endTime!))
-         }
+         location = Location(building: building!, room: room,
+            course: Course(name: courseTitle!, daysAsString: days, startTime: startTime!, endTime: endTime!))
       }
    }
    
