@@ -9,8 +9,8 @@
 import UIKit
 
 class Day: NSObject {
-   var name: String
-   var value: Int
+   var name: String!
+   var value: Int!
    
    enum DaysOfTheWeek: Int {
       case NoDay = 0, Sunday, Monday, Tuesday, Wednesday,
