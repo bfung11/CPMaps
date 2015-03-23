@@ -31,9 +31,20 @@ class AddEditLocationViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      //disable room selection if building not selected
-      chooseRoomCell.userInteractionEnabled = false;
-      chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
+      println("here")
+      
+      if location != nil {
+         building = location.building
+         buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+         room = location.room
+         roomDetail.text = "Room " + room!.number
+      }
+      
+      if building == nil {
+         //disable room selection if building not selected
+         chooseRoomCell.userInteractionEnabled = false;
+         chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
+      }
       
       //initialize date pickers
       startTimeDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)

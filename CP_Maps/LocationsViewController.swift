@@ -11,6 +11,7 @@ import UIKit
 class LocationsViewController: UITableViewController {
    
    var locations: [Location] = locationsData
+   var location: Location?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -51,6 +52,23 @@ class LocationsViewController: UITableViewController {
       }
       cell.classTitleLabel.text = location.getCourseDetails()
       return cell
+   }
+   
+   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      println("here")
+      location = locationsData[indexPath.row]
+
+      performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+   }
+   
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      
+      if segue.identifier == editLocationSegueIdentifier {
+         let viewController = segue.destinationViewController as AddEditLocationViewController
+         viewController.location = location
+      }
+      
    }
    
    @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {

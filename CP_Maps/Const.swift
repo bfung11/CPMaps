@@ -10,6 +10,7 @@ import UIKit
 
 let saveNewLocationTitle = "No Building Selected"
 let saveNewLocationMessage = "Please select a building to create a new location"
+let editLocationSegueIdentifier = "editLocation"
 let saveLocationSegueIdentifer = "saveLocation"
 let chooseBuildingSegueIdentifier = "segueToChooseBuilding"
 let saveBuildingSegueIdentifer = "saveBuilding"
