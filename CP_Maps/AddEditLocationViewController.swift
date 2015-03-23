@@ -20,16 +20,19 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    var location: Location! //exclamation point - does not instantiate, but must do so before use
-   var buildings = buildingsData
+   var buildings: [Building]!
    var building: Building!
    var room: Room?
    var courseTitle: String?
-   var days = [String]()
+   var days: [String]!
    var startTime: String?
    var endTime: String?
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      buildings = buildingsData
+      days = [String]()
       
       if location != nil { //if not from editLocation
          building = location.building
@@ -83,11 +86,11 @@ class AddEditLocationViewController: UITableViewController {
       let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
       //set as or as empty array
       days = chooseDaysViewController.selectedDays
-      if days.isEmpty {
+      if days!.isEmpty {
          days = [String]()
       }
       //add days into title
-      for day in days {
+      for day in days! {
          daysTitle += ", " + day;
       }
       //update days detail to reflect selection(s)
@@ -156,7 +159,7 @@ class AddEditLocationViewController: UITableViewController {
          }
          
          location = Location(building: building!, room: room,
-            course: Course(name: courseTitle!, daysAsString: days, startTime: startTime!, endTime: endTime!))
+            course: Course(name: courseTitle!, daysAsString: days!, startTime: startTime!, endTime: endTime!))
       }
    }
    
