@@ -42,6 +42,7 @@ class AddEditLocationViewController: UITableViewController {
          //disable room selection if building not selected
          chooseRoomCell.userInteractionEnabled = false;
          chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
+         println("here" + roomDetail.text!)
       }
       
       //initialize date pickers
@@ -57,6 +58,8 @@ class AddEditLocationViewController: UITableViewController {
       let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
       building = viewController.selectedItem! as Building
       buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+      
+      roomDetail.text = "None"
       
       //enable room selection
       chooseRoomCell.userInteractionEnabled = true;
