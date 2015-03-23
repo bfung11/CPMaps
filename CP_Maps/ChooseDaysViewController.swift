@@ -9,14 +9,18 @@
 import UIKit
 
 class ChooseDaysViewController: UITableViewController {
-   var days: [String] = daysData //show days of the week
-   var selectedDay: String? = nil
-   var selectedDayIndex: Int? = nil
-   var selectedDays = [String]()
+   var days: [String]! //show days of the week
+   var selectedDay: String?
+   var selectedDayIndex: Int?
+   var selectedDays: [String]!
    
    override func viewDidLoad() {
       super.viewDidLoad()
-
+      
+      days = daysData
+      selectedDay = nil
+      selectedDayIndex = nil
+      selectedDays = [String]()
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
