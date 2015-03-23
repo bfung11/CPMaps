@@ -32,13 +32,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
       var cell: UITableViewCell?
       
       //display building number and name
-      if identifier == chooseBuildingIdentifier {
+      if identifier == chooseBuildingSegueIdentifier {
          cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as? UITableViewCell
          let building = data![indexPath.row] as Building
          cell!.textLabel?.text = building.number + " - " + building.name
       }
       //display rooms
-      else if identifier == chooseRoomIdentifier {
+      else if identifier == chooseRoomSegueIdentifier {
          cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as UITableViewCell
          let building = selectedItem! as Building
          cell!.textLabel?.text = "Room " + building.rooms[indexPath.row].number
@@ -64,7 +64,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
       //         cell?.accessoryType = .None
       //      }
       //      selectedBuildingIndex = indexPath.row
-      if identifier == chooseBuildingIdentifier {
+      if identifier == chooseBuildingSegueIdentifier {
          selectedItem = data![indexPath.row]
       //
       //      //update the checkmark for the current row
@@ -73,7 +73,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
       //
          performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
       }
-      else if identifier == chooseRoomIdentifier {
+      else if identifier == chooseRoomSegueIdentifier {
          selectedItem = data![indexPath.row]
          performSegueWithIdentifier(saveRoomSegueIdentifer, sender: self)
       }
