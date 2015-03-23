@@ -19,6 +19,8 @@ class Location: NSObject {
       self.course = course
    }
    
+   
+   //Put in Course.swift?
    func getCourseDetails() -> String{
       var timesTitle = " " + course.startTime + " - " + course.endTime
       var courseTitle = course.name + " "
@@ -30,5 +32,18 @@ class Location: NSObject {
          timesTitle = ""
       }
       return courseTitle + course.getShortHandDays() + timesTitle
+   }
+   
+   func updateBuilding(building: Building) {
+      self.building = building
+      self.room = nil
+   }
+   
+   func updateRoom(room: Room) {
+      self.room = room
+   }
+   
+   func updateCourse() {
+      
    }
 }

@@ -31,9 +31,7 @@ class AddEditLocationViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      println("here")
-      
-      if location != nil {
+      if location != nil { //if not from editLocation
          building = location.building
          buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
          room = location.room
@@ -149,9 +147,15 @@ class AddEditLocationViewController: UITableViewController {
          if endTime == nil {
             endTime = ""
          }
-      
-         location = Location(building: building!, room: room,
-            course: Course(name: courseTitle!, daysAsString: days, startTime: startTime!, endTime: endTime!))
+         
+         if location != nil {
+            location.updateBuilding(building)
+            location.updateRoom(room!)
+         }
+         else {
+            location = Location(building: building!, room: room,
+               course: Course(name: courseTitle!, daysAsString: days, startTime: startTime!, endTime: endTime!))
+         }
       }
    }
    

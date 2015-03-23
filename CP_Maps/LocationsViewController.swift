@@ -12,6 +12,7 @@ class LocationsViewController: UITableViewController {
    
    var locations: [Location] = locationsData
    var location: Location?
+   var isEditLocation: Bool?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -67,6 +68,10 @@ class LocationsViewController: UITableViewController {
       if segue.identifier == editLocationSegueIdentifier {
          let viewController = segue.destinationViewController as AddEditLocationViewController
          viewController.location = location
+         isEditLocation = true
+      }
+      else {
+         isEditLocation = false
       }
       
    }
@@ -77,17 +82,22 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func saveNewLocation(segue:UIStoryboardSegue) {
-      let addNewLocationViewController = segue.sourceViewController as AddEditLocationViewController
-      
-      //add the new player to the players array
-      addNewLocationToArray(addNewLocationViewController.location)
+      if isEditLocation == true {
+         self.tableView.reloadData()
+      }
+      else {
+         let addNewLocationViewController = segue.sourceViewController as AddEditLocationViewController
+         
+         //add the new player to the players array
+         addNewLocationToArray(addNewLocationViewController.location)
 
-      //update the tableView
-      let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
-      tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+         //update the tableView
+         let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
+         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+      }
    }
    
-   func addNewLocationToArray(location: Location){
+   func addNewLocationToArray(location: Location) {
       //question: why do we need both to add?
       locations.append(location)
       locationsData.append(location)
