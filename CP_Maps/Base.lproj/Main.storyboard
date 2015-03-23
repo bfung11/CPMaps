@@ -351,7 +351,7 @@
                     <navigationItem key="navigationItem" title="Add Location" id="Nwf-FL-NmI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT">
                             <connections>
-                                <segue destination="R2J-hs-uon" kind="unwind" identifier="cancelToLocationsViewController" unwindAction="cancelToLocationsViewController:" id="tyc-RO-mdj"/>
+                                <segue destination="R2J-hs-uon" kind="unwind" identifier="cancelToLocationsViewController" unwindAction="cancelAddEditLocation:" id="tyc-RO-mdj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr">

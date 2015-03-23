@@ -74,7 +74,7 @@ class LocationsViewController: UITableViewController {
       }
    }
    
-   @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
+   @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
       //dismissViewControllerAnimated(true, completion: nil)
       //performSegueWithIdentifier("cancelToMyLocations", sender: self)
    }
