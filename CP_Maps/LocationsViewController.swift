@@ -89,17 +89,11 @@ class LocationsViewController: UITableViewController {
       }
       else {
          //add the new player to the players array
-         addNewLocationToArray(viewController.location)
+         locations.append(viewController.location)
 
          //update the tableView
          let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
          tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
       }
-   }
-   
-   func addNewLocationToArray(location: Location) {
-      //question: why do we need both to add?
-      locations.append(location)
-      locationsData.append(location)
    }
 }
