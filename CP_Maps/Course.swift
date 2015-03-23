@@ -14,7 +14,7 @@ class Course: NSObject {
    var startTime: String?
    var endTime: String?
    
-   init(name: String, daysAsString: [String], startTime: String, endTime: String) {
+   init(name: String?, daysAsString: [String]?, startTime: String?, endTime: String?) {
       var dayName: String
       
       self.name = name
@@ -22,7 +22,7 @@ class Course: NSObject {
       self.startTime = startTime
       self.endTime = endTime
       super.init()
-      for dayName in daysAsString {
+      for dayName in daysAsString! {
          self.days!.append(Day(name: dayName))
       }
    }

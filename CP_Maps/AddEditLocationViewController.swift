@@ -159,7 +159,7 @@ class AddEditLocationViewController: UITableViewController {
          }
          
          location = Location(building: building!, room: room,
-            course: Course(name: courseTitle!, daysAsString: days!, startTime: startTime!, endTime: endTime!))
+            course: Course(name: courseTitle!, daysAsString: days!, startTime: startTime?, endTime: endTime?))
       }
    }
    
