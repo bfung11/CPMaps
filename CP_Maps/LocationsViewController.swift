@@ -85,8 +85,6 @@ class LocationsViewController: UITableViewController {
       let viewController = segue.sourceViewController as AddEditLocationViewController
       
       if isEditLocation == true {
-         locationsData[indexPath!.row] = viewController.location
-         println("location: \(locationsData[indexPath!.row].room?.number)")
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
