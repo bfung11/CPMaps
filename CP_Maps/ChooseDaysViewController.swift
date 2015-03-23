@@ -24,7 +24,7 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      return 1
+      return numberOfSectionsInDaysViewController
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
