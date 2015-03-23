@@ -83,7 +83,7 @@ class LocationsViewController: UITableViewController {
    
    @IBAction func saveNewLocation(segue:UIStoryboardSegue) {
       if isEditLocation == true {
-         self.tableView.reloadData()
+         self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
          let addNewLocationViewController = segue.sourceViewController as AddEditLocationViewController
