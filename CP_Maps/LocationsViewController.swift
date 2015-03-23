@@ -17,7 +17,6 @@ class LocationsViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      
       locations = locationsData
 
       // Uncomment the following line to preserve selection between presentations
@@ -34,7 +33,7 @@ class LocationsViewController: UITableViewController {
 
    // MARK: - Table view data source
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      return 1
+      return numberOfSectionsInLocationsViewController
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

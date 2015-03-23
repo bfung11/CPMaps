@@ -8,6 +8,8 @@
 
 import UIKit
 
+let numberOfSectionsInLocationsViewController = 1
+
 let saveNewLocationTitle = "No Building Selected"
 let saveNewLocationMessage = "Please select a building to create a new location"
 let editLocationSegueIdentifier = "editLocation"
