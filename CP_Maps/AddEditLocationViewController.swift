@@ -42,6 +42,10 @@ class AddEditLocationViewController: UITableViewController {
          if room != nil {
             roomDetail.text = "Room " + room!.number
          }
+         if location.course != nil {
+            courseTitleTextField.text = location.course!.name
+            courseTitle = location.course!.name
+         }
       }
       
       if building == nil {
