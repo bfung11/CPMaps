@@ -49,7 +49,7 @@ class AddEditLocationViewController: UITableViewController {
       endTimeDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
    }
    
-   @IBAction func cancelToAddNewLocationViewController(segue:UIStoryboardSegue) {
+   @IBAction func cancelAddEditLocationDetails(segue:UIStoryboardSegue) {
    }
    
    @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {

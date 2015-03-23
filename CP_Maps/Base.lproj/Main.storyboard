@@ -409,7 +409,7 @@
                     <navigationItem key="navigationItem" title="Building" id="vAl-71-3Ga">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxk-t9-rb4">
                             <connections>
-                                <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelToAddNewLocationViewController:" id="epj-32-fl4"/>
+                                <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelAddEditLocationDetails:" id="epj-32-fl4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -454,7 +454,7 @@
                     <navigationItem key="navigationItem" title="Room" id="dtr-qv-Ddm">
                         <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="6sG-nM-Ie4">
                             <connections>
-                                <segue destination="vtI-Bz-Bwg" kind="unwind" unwindAction="cancelToAddNewLocationViewController:" id="qjc-we-Oh9"/>
+                                <segue destination="vtI-Bz-Bwg" kind="unwind" unwindAction="cancelAddEditLocationDetails:" id="qjc-we-Oh9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -499,7 +499,7 @@
                     <navigationItem key="navigationItem" title="Days" id="f4Q-Ml-Pjc">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zZe-L4-08u">
                             <connections>
-                                <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="cancelToAddNewLocationViewController:" id="g61-qg-3lc"/>
+                                <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="cancelAddEditLocationDetails:" id="g61-qg-3lc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t">
@@ -517,7 +517,6 @@
         <!--Navigation Controller-->
         <scene sceneID="2DV-J0-r0q">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-Xe-cBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6ma-5b-rqX" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="rLB-UQ-Woe">
@@ -529,6 +528,7 @@
                         <segue destination="ziA-tw-Dgi" kind="relationship" relationship="rootViewController" id="xUa-EG-U0m"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-Xe-cBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="772" y="967"/>
         </scene>
