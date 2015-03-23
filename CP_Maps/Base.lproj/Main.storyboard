@@ -499,7 +499,11 @@
                                 <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="cancelToAddNewLocationViewController:" id="g61-qg-3lc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t"/>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t">
+                            <connections>
+                                <segue destination="CM4-5w-lzu" kind="unwind" identifier="saveDays" unwindAction="saveNewLocationDetails:" id="ktl-uB-q0s"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
