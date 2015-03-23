@@ -19,19 +19,9 @@ class Location: NSObject {
       self.course = course
    }
    
-   
    //Put in Course.swift?
    func getCourseDetails() -> String{
-      var timesTitle = " " + course!.startTime! + " - " + course!.endTime!
-      var courseTitle = course!.name! + " "
-      
-      if course!.name == "" {
-         courseTitle = ""
-      }
-      if course!.startTime == "" || course!.endTime == "" {
-         timesTitle = ""
-      }
-      return courseTitle + course!.getShortHandDays() + timesTitle
+      return course!.getCourseDetails()
    }
    
    func updateBuilding(building: Building) {

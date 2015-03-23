@@ -148,18 +148,8 @@ class AddEditLocationViewController: UITableViewController {
       if segue.identifier == saveLocationSegueIdentifer {
          var courseTitle = self.courseTitleTextField.text
          
-         if courseTitle == nil {
-            courseTitle = ""
-         }
-         if startTime == nil {
-            startTime = ""
-         }
-         if endTime == nil {
-            endTime = ""
-         }
-         
          location = Location(building: building!, room: room,
-            course: Course(name: courseTitle!, daysAsString: days!, startTime: startTime?, endTime: endTime?))
+            course: Course(name: courseTitle?, daysAsString: days!, startTime: startTime?, endTime: endTime?))
       }
    }
    

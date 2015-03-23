@@ -9,10 +9,10 @@
 import UIKit
 
 class Course: NSObject {
-   var name: String?
-   var days: [Day]?
-   var startTime: String?
-   var endTime: String?
+   var name: String!
+   var days: [Day]!
+   var startTime: String!
+   var endTime: String!
    
    init(name: String?, daysAsString: [String]?, startTime: String?, endTime: String?) {
       var dayName: String
@@ -24,6 +24,15 @@ class Course: NSObject {
       super.init()
       for dayName in daysAsString! {
          self.days!.append(Day(name: dayName))
+      }
+      if self.name == nil {
+         self.name = ""
+      }
+      if self.startTime == nil {
+         self.startTime = ""
+      }
+      if self.endTime == nil {
+         self.endTime = ""
       }
    }
    
@@ -44,5 +53,18 @@ class Course: NSObject {
       }
       
       return daysAsString
+   }
+   
+   func getCourseDetails() -> String! {
+      var courseTimes: String!
+      
+      if self.startTime == "" || self.endTime == "" {
+         courseTimes = self.startTime + endTime
+      }
+      else {
+         courseTimes = self.startTime + " - " + self.endTime
+      }
+      
+      return self.name +  " " + self.getShortHandDays() + " " + courseTimes
    }
 }
