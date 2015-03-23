@@ -9,9 +9,9 @@
 import UIKit
 
 class Location: NSObject {
-   var building : Building
+   var building : Building!
    var room: Room?
-   var course: Course
+   var course: Course?
    
    init(building: Building, room: Room?, course: Course) {
       self.building = building
@@ -22,16 +22,16 @@ class Location: NSObject {
    
    //Put in Course.swift?
    func getCourseDetails() -> String{
-      var timesTitle = " " + course.startTime + " - " + course.endTime
-      var courseTitle = course.name + " "
+      var timesTitle = " " + course!.startTime + " - " + course!.endTime
+      var courseTitle = course!.name + " "
       
-      if course.name == "" {
+      if course!.name == "" {
          courseTitle = ""
       }
-      if course.startTime == "" || course.endTime == "" {
+      if course!.startTime == "" || course!.endTime == "" {
          timesTitle = ""
       }
-      return courseTitle + course.getShortHandDays() + timesTitle
+      return courseTitle + course!.getShortHandDays() + timesTitle
    }
    
    func updateBuilding(building: Building) {
