@@ -8,6 +8,9 @@
 
 import UIKit
 
+let editLocationViewControllerTitle = "Edit Location"
+let addLocationViewControllerTitle = "Add Location"
+
 let numberOfSectionsInLocationsViewController = 1
 let numberOfSectionsInChooseBuildingRoomViewController = 1
 let numberOfSectionsInDaysViewController = 1

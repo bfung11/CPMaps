@@ -165,7 +165,7 @@
             </objects>
             <point key="canvasLocation" x="2096" y="1039"/>
         </scene>
-        <!--Add Location-->
+        <!--Title Added Programmatically-->
         <scene sceneID="cMe-hx-1RE">
             <objects>
                 <tableViewController id="Agc-E3-Fux" customClass="AddEditLocationViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -348,7 +348,7 @@
                             <outlet property="delegate" destination="Agc-E3-Fux" id="6ZY-Gi-0J1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add Location" id="Nwf-FL-NmI">
+                    <navigationItem key="navigationItem" title="Title Added Programmatically" id="Nwf-FL-NmI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT">
                             <connections>
                                 <segue destination="R2J-hs-uon" kind="unwind" identifier="cancelToLocationsViewController" unwindAction="cancelAddEditLocation:" id="tyc-RO-mdj"/>
