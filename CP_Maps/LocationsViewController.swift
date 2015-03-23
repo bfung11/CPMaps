@@ -10,12 +10,15 @@ import UIKit
 
 class LocationsViewController: UITableViewController {
    
-   var locations: [Location] = locationsData
+   var locations: [Location]?
    var indexPath: NSIndexPath?
    var isEditLocation: Bool?
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      
+      locations = locationsData
 
       // Uncomment the following line to preserve selection between presentations
       // self.clearsSelectionOnViewWillAppear = false
@@ -35,7 +38,7 @@ class LocationsViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return locations.count
+      return locations!.count
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
@@ -43,7 +46,7 @@ class LocationsViewController: UITableViewController {
       let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath)
       as LocationCell
       
-      let location = locations[indexPath.row] as Location
+      let location = locations![indexPath.row] as Location
       cell.buildingTitleLabel.text = "Building " + location.building.number + " (" + location.building.name + ")"
       if location.room == nil {
          cell.roomTitleLabel.text = ""
@@ -89,10 +92,10 @@ class LocationsViewController: UITableViewController {
       }
       else {
          //add the new player to the players array
-         locations.append(viewController.location)
+         locations!.append(viewController.location)
 
          //update the tableView
-         let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
+         let indexPath = NSIndexPath(forRow: locations!.count-1, inSection: 0)
          tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
       }
    }
