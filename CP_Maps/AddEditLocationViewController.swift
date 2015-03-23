@@ -105,7 +105,7 @@ class AddEditLocationViewController: UITableViewController {
       
       if identifier == saveLocationSegueIdentifer && building == nil { //if they have not selected a building
          let alert =
-         UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: "OK")
+         UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: cancelButtonTitleOK)
          alert.show()
          shouldPerform = false
       }
@@ -114,13 +114,13 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == "segueToChooseBuilding" {
+      if segue.identifier == chooseBuildingSegueIdentifier {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseBuildingIdentifier
          viewController.data = buildingsData
          viewController.selectedItem = building
       }
-      if segue.identifier == "segueToChooseRoom" {
+      if segue.identifier == chooseRoomSegueIdentifier {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseRoomIdentifier
          viewController.data = building!.rooms
