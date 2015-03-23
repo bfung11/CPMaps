@@ -22,8 +22,8 @@ class Location: NSObject {
    
    //Put in Course.swift?
    func getCourseDetails() -> String{
-      var timesTitle = " " + course!.startTime + " - " + course!.endTime
-      var courseTitle = course!.name + " "
+      var timesTitle = " " + course!.startTime! + " - " + course!.endTime!
+      var courseTitle = course!.name! + " "
       
       if course!.name == "" {
          courseTitle = ""
