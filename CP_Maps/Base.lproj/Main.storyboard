@@ -356,7 +356,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr">
                             <connections>
-                                <segue destination="R2J-hs-uon" kind="unwind" identifier="saveLocation" unwindAction="saveNewLocation:" id="zl6-wF-w02"/>
+                                <segue destination="R2J-hs-uon" kind="unwind" identifier="saveLocation" unwindAction="saveLocation:" id="zl6-wF-w02"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -414,7 +414,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveNewLocationDetails:" id="HWa-f6-O2R"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveBuilding:" id="HWa-f6-O2R"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -459,7 +459,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="vtI-Bz-Bwg" kind="unwind" identifier="saveRoom" unwindAction="saveNewLocationDetails:" id="b94-Jp-NeH"/>
+                        <segue destination="vtI-Bz-Bwg" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="b94-Jp-NeH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bba-u7-Lqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -504,7 +504,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t">
                             <connections>
-                                <segue destination="CM4-5w-lzu" kind="unwind" identifier="saveDays" unwindAction="saveNewLocationDetails:" id="ktl-uB-q0s"/>
+                                <segue destination="CM4-5w-lzu" kind="unwind" identifier="saveDays" unwindAction="saveDays:" id="ktl-uB-q0s"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

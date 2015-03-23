@@ -52,39 +52,40 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func cancelAddEditLocationDetails(segue:UIStoryboardSegue) {
    }
    
-   @IBAction func saveNewLocationDetails(segue:UIStoryboardSegue) {
-      var labels = [String]()
-      var daysTitle = ""
-      var day : String
+   //save building details and update building details to reflect selection
+   @IBAction func saveBuilding(segue:UIStoryboardSegue) {
+      let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
+      building = viewController.selectedItem! as Building
+      buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
       
-      switch segue.identifier! {
-      case saveBuildingSegueIdentifer: //save building details and update building details to reflect selection
-         let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
-         building = viewController.selectedItem! as Building
-         buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
-         
-         //enable room selection
-         chooseRoomCell.userInteractionEnabled = true;
-         chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
-      case saveRoomSegueIdentifer: //save room details and update room details to reflect selection
-         let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
-         room = viewController.selectedItem! as Room
-         roomDetail.text = "Room " + room!.number
-      case "saveDays":
-         let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
-         //set as or as empty array
-         days = chooseDaysViewController.selectedDays
-         if days.isEmpty {
-            days = [String]()
-         }
-         //add days into title
-         for day in days {
-            daysTitle += ", " + day;
-         }
-         //update days detail to reflect selection(s)
-         daysDetail.text = daysTitle.substringFromIndex(advance(daysTitle.startIndex, 2))
-      default: ()
+      //enable room selection
+      chooseRoomCell.userInteractionEnabled = true;
+      chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
+   }
+   
+   //save room details and update room details to reflect selection
+   @IBAction func saveRoom(segue:UIStoryboardSegue) {
+      let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
+      room = viewController.selectedItem! as Room
+      roomDetail.text = "Room " + room!.number
+   }
+   
+   @IBAction func saveDays(segue:UIStoryboardSegue) {
+      var daysTitle = ""
+      var day: String
+
+      let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
+      //set as or as empty array
+      days = chooseDaysViewController.selectedDays
+      if days.isEmpty {
+         days = [String]()
       }
+      //add days into title
+      for day in days {
+         daysTitle += ", " + day;
+      }
+      //update days detail to reflect selection(s)
+      daysDetail.text = daysTitle.substringFromIndex(advance(daysTitle.startIndex, 2))
    }
    
    //redundant code
