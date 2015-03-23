@@ -9,7 +9,7 @@
 import UIKit
 
 class Room: NSObject {
-   var number: String
+   var number: String!
    
    init(number: String) {
       self.number = number

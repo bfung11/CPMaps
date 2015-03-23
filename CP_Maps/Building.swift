@@ -9,9 +9,9 @@
 import UIKit
 
 class Building: NSObject {
-   var name: String
-   var number: String
-   var rooms: [Room]
+   var name: String!
+   var number: String!
+   var rooms: [Room]!
    
    init(name: String, number: String, rooms: [Room]) {
       self.name = name
