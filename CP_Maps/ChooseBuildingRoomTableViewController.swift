@@ -23,7 +23,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      return 1
+      return numberOfSectionsInChooseBuildingRoomViewController
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
