@@ -13,11 +13,13 @@ import UIKit
 class ChooseBuildingRoomViewController: UITableViewController {
    var identifier: String?
    var data: [AnyObject]!
-   var selectedItem: AnyObject!
-   var selectedItemIndex:Int? = nil
+   var selectedItem: AnyObject?
+   var selectedItemIndex:Int?
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      selectedItemIndex = nil
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
