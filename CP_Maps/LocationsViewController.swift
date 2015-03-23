@@ -72,7 +72,6 @@ class LocationsViewController: UITableViewController {
       else {
          isEditLocation = false
       }
-      
    }
    
    @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
@@ -81,15 +80,16 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
-      let addNewLocationViewController = segue.sourceViewController as AddEditLocationViewController
+      let viewController = segue.sourceViewController as AddEditLocationViewController
       
       if isEditLocation == true {
-         locationsData[indexPath!.row] = addNewLocationViewController.location
+         locationsData[indexPath!.row] = viewController.location
+         println("location: \(locationsData[indexPath!.row].room?.number)")
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
          //add the new player to the players array
-         addNewLocationToArray(addNewLocationViewController.location)
+         addNewLocationToArray(viewController.location)
 
          //update the tableView
          let indexPath = NSIndexPath(forRow: locations.count-1, inSection: 0)
