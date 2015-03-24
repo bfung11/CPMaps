@@ -406,7 +406,7 @@
                             <outlet property="delegate" destination="reh-xF-wIR" id="6Ac-jt-OjZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Building Room Title" id="vAl-71-3Ga">
+                    <navigationItem key="navigationItem" title="Building / Room" id="vAl-71-3Ga">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxk-t9-rb4">
                             <connections>
                                 <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelAddEditLocationDetails:" id="epj-32-fl4"/>
@@ -421,7 +421,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3468" y="337"/>
+            <point key="canvasLocation" x="3480" y="693"/>
         </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
@@ -468,7 +468,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CM4-5w-lzu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3468" y="1992"/>
+            <point key="canvasLocation" x="3480" y="1520"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2DV-J0-r0q">
