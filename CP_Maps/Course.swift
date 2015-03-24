@@ -20,11 +20,11 @@ class Course: NSObject {
       self.initWithoutDays(name, startTime: startTime, endTime: endTime)
    }
    
-   init(name: String?, daysAsString: [String]?, startTime: String?, endTime: String?) {
+   init(name: String?, selectedDays: [String]?, startTime: String?, endTime: String?) {
       self.days = [Day]()
       super.init()
       self.initWithoutDays(name, startTime: startTime, endTime: endTime)
-      for dayName in daysAsString! {
+      for dayName in selectedDays! {
          self.days!.append(Day(name: dayName))
       }
    }

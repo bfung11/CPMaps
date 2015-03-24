@@ -70,11 +70,11 @@ var buildingsData = [
 
 var locationsData = [
     Location(building: buildingsData[0], room: buildingsData[0].rooms[0],
-      course: Course(name: "CPE-101", daysAsString: ["Monday", "Wednesday", "Friday"], startTime: "8:10", endTime: "9:00")),
+      course: Course(name: "CPE-101", selectedDays: ["Monday", "Wednesday", "Friday"], startTime: "8:10", endTime: "9:00")),
    Location(building: buildingsData[1], room: buildingsData[1].rooms[0],
-      course: Course(name: "CPE-102", daysAsString: ["Monday", "Wednesday", "Friday"], startTime: "9:10", endTime: "10:00")),
+      course: Course(name: "CPE-102", selectedDays: ["Monday", "Wednesday", "Friday"], startTime: "9:10", endTime: "10:00")),
    Location(building: buildingsData[1], room: buildingsData[1].rooms[1],
-      course: Course(name: "CPE-103", daysAsString: ["Monday", "Wednesday", "Friday"], startTime: "10:10", endTime: "11:00")),
+      course: Course(name: "CPE-103", selectedDays: ["Monday", "Wednesday", "Friday"], startTime: "10:10", endTime: "11:00")),
 ]
 
 var daysData = [Day(name: "Monday"), Day(name: "Tuesday") , Day(name: "Wednesday"),
