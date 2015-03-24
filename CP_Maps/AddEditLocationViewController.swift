@@ -113,10 +113,8 @@ class AddEditLocationViewController: UITableViewController {
       selectedDays = chooseDaysViewController.selectedDays // can be empty, not nil
       
       // display selected days
-      if selectedDays.isEmpty {
-         daysDetail.text = ""
-      }
-      else {
+      daysDetail.text = "None"
+      if !selectedDays.isEmpty {
          daysDetail.text = self.getCourseDays()
       }
    }
