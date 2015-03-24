@@ -52,17 +52,16 @@ class ChooseDaysViewController: UITableViewController {
       selectedDayIndex = indexPath.row
       selectedDay = days[indexPath.row]
       
+      let cell = tableView.cellForRowAtIndexPath(indexPath)
       //if has been selected, unselect it; else select it
       if selectedDaysAsBool[selectedDayIndex!] == true {
          selectedDaysAsBool[selectedDayIndex!] = false
+         cell?.accessoryType = .None
       }
       else {
          selectedDaysAsBool[selectedDayIndex!] = true
-      }
-      
-      //update the checkmark for the current row
-      let cell = tableView.cellForRowAtIndexPath(indexPath)
-      cell?.accessoryType = .Checkmark
+         cell?.accessoryType = .Checkmark
+      }      
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
