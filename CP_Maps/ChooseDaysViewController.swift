@@ -22,7 +22,14 @@ class ChooseDaysViewController: UITableViewController {
       selectedDay = nil
       selectedDayIndex = nil
       selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount, repeatedValue: selectedDaysAsBoolIntialValue)
-      selectedDays = [Day]()
+      if selectedDays == nil {
+         selectedDays = [Day]()
+      }
+      else { //from edit location, set correct days as true for checkmarks
+         for day in selectedDays! {
+            selectedDaysAsBool[day.value] = true
+         }
+      }
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -37,12 +44,12 @@ class ChooseDaysViewController: UITableViewController {
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as UITableViewCell
       cell.textLabel?.text = days[indexPath.row].name
+      cell.accessoryType = .None
       
-      if indexPath.row == selectedDayIndex {
+      if selectedDaysAsBool[indexPath.row] == true {
          cell.accessoryType = .Checkmark
-      } else {
-         cell.accessoryType = .None
       }
+   
       return cell
    }
    
