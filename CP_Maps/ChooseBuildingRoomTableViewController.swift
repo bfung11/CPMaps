@@ -14,7 +14,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    var identifier: String?
    var data: [AnyObject]!
    var selectedItem: AnyObject?
-   var selectedItemIndex:Int?
+   var selectedItemIndex: Int?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -37,18 +37,19 @@ class ChooseBuildingRoomViewController: UITableViewController {
          cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as? UITableViewCell
          let building = data![indexPath.row] as Building
          cell!.textLabel?.text = building.number + " - " + building.name
+         cell!.accessoryType = .None //prevents random buildings will have checkmarks
+         if selectedItem != nil && building.name == (selectedItem as Building).name {
+            println("here")
+            cell!.accessoryType = .Checkmark
+         }
       }
       else if identifier == chooseRoomSegueIdentifier { //display rooms
          cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as? UITableViewCell
          let building = selectedItem! as Building
          cell!.textLabel?.text = "Room " + building.rooms[indexPath.row].number
-      }
-
-      if indexPath.row == selectedItemIndex {
-         cell!.accessoryType = .Checkmark
-      }
-      else {
-         cell!.accessoryType = .None
+//         if selectedItem != nil && building.rooms[indexPath.row].number == (selectedItem as Room).number {
+//            cell!.accessoryType = .Checkmark
+//         }
       }
       
       return cell!
