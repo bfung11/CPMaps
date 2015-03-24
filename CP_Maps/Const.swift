@@ -8,6 +8,8 @@
 
 import UIKit
 
+let dayEnumStartValue = -1
+
 let editLocationViewControllerTitle = "Edit Location"
 let addLocationViewControllerTitle = "Add Location"
 

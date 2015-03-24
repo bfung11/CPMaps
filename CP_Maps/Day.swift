@@ -13,7 +13,7 @@ class Day: NSObject {
    var value: Int!
    
    enum DaysOfTheWeek: Int {
-      case NoDay = 0, Sunday, Monday, Tuesday, Wednesday,
+      case NoDay = -1, Sunday, Monday, Tuesday, Wednesday,
       Thursday, Friday, Saturday
    }
    
@@ -33,7 +33,7 @@ class Day: NSObject {
    private func attachValueToDay(name: String) -> Int {
       var value: Int
       
-      value = 0
+      value = dayEnumStartValue
       switch name {
       case "Sunday":
          value = DaysOfTheWeek.Sunday.rawValue
