@@ -81,7 +81,7 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    
-   // save building details and update building details to reflect selection
+   // save selected building and display selected building
    @IBAction func saveBuilding(segue:UIStoryboardSegue) {
       
       // save building and display selected building
@@ -98,7 +98,7 @@ class AddEditLocationViewController: UITableViewController {
       chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
    }
    
-   // save room details and update room details to reflect selection
+   // save selected room and display selected room
    @IBAction func saveRoom(segue:UIStoryboardSegue) {
       // save room and display selected room
       let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
@@ -106,10 +106,13 @@ class AddEditLocationViewController: UITableViewController {
       roomDetail.text = "Room " + selectedRoom!.number
    }
    
+   // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
+      // get selected days from view controller
       let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
-      //set as or as empty array
-      selectedDays = chooseDaysViewController.selectedDays
+      selectedDays = chooseDaysViewController.selectedDays // can be empty, not nil
+      
+      // display selected days
       if selectedDays.isEmpty {
          daysDetail.text = ""
       }
