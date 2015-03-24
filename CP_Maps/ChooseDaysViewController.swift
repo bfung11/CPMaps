@@ -9,10 +9,10 @@
 import UIKit
 
 class ChooseDaysViewController: UITableViewController {
-   var days: [Day]! //show days of the week
+   var days: [Day]!                // days data
    var selectedDayIndex: Int?
-   var selectedDaysAsBool: [Bool]!
-   var selectedDays: [Day]?
+   var selectedDaysAsBool: [Bool]! // toggles for selecting and deselecting days
+   var selectedDays: [Day]?        // final selection of days
    
    override func viewDidLoad() {
       super.viewDidLoad()
