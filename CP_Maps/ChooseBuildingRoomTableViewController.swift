@@ -58,7 +58,6 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    //MARK: - Table view delegate
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
       if identifier == chooseBuildingSegueIdentifier {
          selectedItem = data![indexPath.row]
          performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
