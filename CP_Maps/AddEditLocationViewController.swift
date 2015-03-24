@@ -72,7 +72,7 @@ class AddEditLocationViewController: UITableViewController {
          self.navigationItem.title = addLocationViewControllerTitle
       }
       
-      //initialize date pickers
+      // initialize date pickers
       startTimeDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
       endTimeDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
    }
@@ -98,8 +98,9 @@ class AddEditLocationViewController: UITableViewController {
       chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
    }
    
-   //save room details and update room details to reflect selection
+   // save room details and update room details to reflect selection
    @IBAction func saveRoom(segue:UIStoryboardSegue) {
+      // save room and display selected room
       let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
       selectedRoom = viewController.selectedItem! as Room
       roomDetail.text = "Room " + selectedRoom!.number
