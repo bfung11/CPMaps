@@ -298,7 +298,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="g60-TJ-JGu" kind="show" identifier="segueToChooseDays" id="nV1-HK-Exb"/>
+                                            <segue destination="g60-TJ-JGu" kind="show" identifier="chooseDays" id="nV1-HK-Exb"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sQn-FV-lVd">
