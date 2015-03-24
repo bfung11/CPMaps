@@ -10,7 +10,6 @@ import UIKit
 
 class ChooseDaysViewController: UITableViewController {
    var days: [Day]! //show days of the week
-   var selectedDay: Day?
    var selectedDayIndex: Int?
    var selectedDaysAsBool: [Bool]!
    var selectedDays: [Day]?
@@ -19,7 +18,6 @@ class ChooseDaysViewController: UITableViewController {
       super.viewDidLoad()
       
       days = daysData
-      selectedDay = nil
       selectedDayIndex = nil
       selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount, repeatedValue: selectedDaysAsBoolIntialValue)
       if selectedDays == nil {
@@ -57,7 +55,6 @@ class ChooseDaysViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       selectedDayIndex = indexPath.row
-      selectedDay = days[indexPath.row]
       
       let cell = tableView.cellForRowAtIndexPath(indexPath)
       //if has been selected, unselect it; else select it
