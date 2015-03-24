@@ -188,12 +188,12 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-   //Allows user to tap anywhere in cell to bring up keyboard
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      if indexPath.section == 0 {
-         courseTitleTextField.becomeFirstResponder()
-      }
-   }
+//   //Allows user to tap anywhere in cell to bring up keyboard
+//   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//      if indexPath.section == 0 {
+//         courseTitleTextField.becomeFirstResponder()
+//      }
+//   }
    
    
    /*! Takes all the selected days, puts them into a string separated by commas 
