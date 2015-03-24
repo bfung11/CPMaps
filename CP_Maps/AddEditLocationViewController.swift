@@ -19,9 +19,10 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
-   var location: Location! //exclamation point - does not instantiate, but must do so before use
-   var buildings: [Building]!
-   var building: Building!
+   //exclamation point - does not instantiate, but must do so before use
+   var location: Location!
+   var buildings: [Building]! //holds the data for all buildings
+   var selectedBuilding: Building! //
    var room: Room?
    var courseTitle: String?
    var selectedDays: [Day]!
@@ -35,8 +36,8 @@ class AddEditLocationViewController: UITableViewController {
       selectedDays = [Day]()
       
       if location != nil { //if not from editLocation
-         building = location.building
-         buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+         selectedBuilding = location.building
+         buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
          
          room = location.room
          if room != nil {
@@ -57,7 +58,7 @@ class AddEditLocationViewController: UITableViewController {
          self.navigationItem.title = addLocationViewControllerTitle
       }
       
-      if building == nil {
+      if selectedBuilding == nil {
          //disable room selection if building not selected
          chooseRoomCell.userInteractionEnabled = false;
          chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
@@ -74,8 +75,8 @@ class AddEditLocationViewController: UITableViewController {
    //save building details and update building details to reflect selection
    @IBAction func saveBuilding(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
-      building = viewController.selectedItem! as Building
-      buildingDetail.text = "Building " + building.number + " (" + building.name + ")"
+      selectedBuilding = viewController.selectedItem! as Building
+      buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
       
       roomDetail.text = "None"
       room = nil
@@ -129,7 +130,7 @@ class AddEditLocationViewController: UITableViewController {
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
       
-      if identifier == saveLocationSegueIdentifer && building == nil { //if they have not selected a building
+      if identifier == saveLocationSegueIdentifer && selectedBuilding == nil { //if they have not selected a building
          let alert =
          UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: cancelButtonTitleOK)
          alert.show()
@@ -144,12 +145,12 @@ class AddEditLocationViewController: UITableViewController {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseBuildingSegueIdentifier
          viewController.data = buildingsData
-         viewController.selectedItem = building
+         viewController.selectedItem = selectedBuilding
       }
       if segue.identifier == chooseRoomSegueIdentifier {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseRoomSegueIdentifier
-         viewController.data = building!.rooms
+         viewController.data = selectedBuilding!.rooms
          viewController.selectedItem = room
       }
       if segue.identifier == chooseDaysSegueIdentifier {
@@ -160,12 +161,12 @@ class AddEditLocationViewController: UITableViewController {
          var courseTitle = self.courseTitleTextField.text
          
          if location != nil { //for some reason, replacing the old location with a new location does not work
-            location.building = building
+            location.building = selectedBuilding
             location.room = room
             location.course = Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?)
          }
          else {
-            location = Location(building: building!, room: room,
+            location = Location(building: selectedBuilding!, room: room,
                course: Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?))
          }
       }
