@@ -65,13 +65,11 @@ class AddEditLocationViewController: UITableViewController {
          self.navigationItem.title = editLocationViewControllerTitle
       }
       else {
-         self.navigationItem.title = addLocationViewControllerTitle
-      }
-      
-      if selectedBuilding == nil {
-         //disable room selection if building not selected
+         // disable room selection if building not selected
          chooseRoomCell.userInteractionEnabled = false;
          chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
+         
+         self.navigationItem.title = addLocationViewControllerTitle
       }
       
       //initialize date pickers
