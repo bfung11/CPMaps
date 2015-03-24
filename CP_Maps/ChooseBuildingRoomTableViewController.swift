@@ -57,38 +57,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    //MARK: - Table view delegate
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      
+      selectedItem = data![indexPath.row]
       if identifier == chooseBuildingSegueIdentifier {
-         selectedItem = data![indexPath.row]
          performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
       }
       else if identifier == chooseRoomSegueIdentifier {
-         selectedItem = data![indexPath.row]
          performSegueWithIdentifier(saveRoomSegueIdentifer, sender: self)
       }
    }
-   
-//   //MARK: - Table view delegate
-//   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//      tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//      
-//      //      //Other row is selected - need to deselect it
-//      //      if let index = selectedBuildingIndex {
-//      //         let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-//      //         cell?.accessoryType = .None
-//      //      }
-//      //      selectedBuildingIndex = indexPath.row
-//      if identifier == chooseBuildingSegueIdentifier {
-//         selectedItem = data![indexPath.row]
-//         //
-//         //      //update the checkmark for the current row
-//         //      let cell = tableView.cellForRowAtIndexPath(indexPath)
-//         //      cell?.accessoryType = .Checkmark
-//         //
-//         performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
-//      }
-//      else if identifier == chooseRoomSegueIdentifier {
-//         selectedItem = data![indexPath.row]
-//         performSegueWithIdentifier(saveRoomSegueIdentifer, sender: self)
-//      }
-//   }
 }
