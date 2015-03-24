@@ -15,7 +15,6 @@ class Course: NSObject {
    var endTime: String!
    
    init(name: String?, daysAsString: [String]?, startTime: String?, endTime: String?) {
-      var dayName: String
       self.days = [Day]()
 
       super.init()
