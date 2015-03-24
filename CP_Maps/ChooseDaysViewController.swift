@@ -69,9 +69,10 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      selectedDays = [Day]() //refresh the list and start over
       for var index = 0; index < selectedDaysAsBool.count; ++index {
          if selectedDaysAsBool[index] == true {
-            selectedDays!.append(days[index])
+            selectedDays!.append(days![index])
          }
       }
    }
