@@ -9,6 +9,8 @@
 import UIKit
 
 let dayEnumStartValue = -1
+let selectedDaysAsBoolInitialCount = 7
+let selectedDaysAsBoolIntialValue = false
 
 let editLocationViewControllerTitle = "Edit Location"
 let addLocationViewControllerTitle = "Add Location"
