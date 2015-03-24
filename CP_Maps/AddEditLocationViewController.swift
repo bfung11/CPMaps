@@ -211,7 +211,7 @@ class AddEditLocationViewController: UITableViewController {
       
       // delete the final comma added to the string
       finalTitle = NSString(string: tempTitle)
-      finalTitle = finalTitle.substringToIndex(finalTitle.length - 2)
+      finalTitle = finalTitle.substringToIndex(finalTitle.length - numCharactersToRemoveForFinalLengthOfSelectedDaysString)
       
       return finalTitle
    }

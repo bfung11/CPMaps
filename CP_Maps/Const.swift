@@ -23,6 +23,7 @@ let saveNewLocationTitle = "No Building Selected"
 let saveNewLocationMessage = "Please select a building to create a new location"
 let editLocationSegueIdentifier = "editLocation"
 let saveLocationSegueIdentifer = "saveLocation"
+let numCharactersToRemoveForFinalLengthOfSelectedDaysString = 2
 
 let chooseBuildingViewControllerTitle = "Building"
 let chooseBuildingSegueIdentifier = "chooseBuilding"
