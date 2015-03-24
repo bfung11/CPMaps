@@ -71,7 +71,7 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      selectedDays = [Day]() //refresh the list and start over
+      selectedDays = [Day]() // destroy the old list and count just the curently selected days
       for var index = 0; index < selectedDaysAsBool.count; ++index {
          if selectedDaysAsBool[index] == true {
             selectedDays!.append(days![index])
