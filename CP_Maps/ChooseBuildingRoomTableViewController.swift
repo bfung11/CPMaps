@@ -11,17 +11,17 @@
 import UIKit
 
 class ChooseBuildingRoomViewController: UITableViewController {
-   var identifier: String?
-   var data: [AnyObject]!
-   var selectedItem: AnyObject?
-   var selectedItemIndex: Int?
+   var identifier: String?      // determines whether to display building or room data 
+   var data: [AnyObject]!       // building data or room data
+   var selectedItem: AnyObject? // selected building or room
+   var selectedItemIndex: Int?  // index of selected building or room
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
       selectedItemIndex = nil
       
-      // display correct controller title 
+      // display correct controller title
       if identifier == chooseBuildingSegueIdentifier {
          self.navigationItem.title = chooseBuildingViewControllerTitle
       }
