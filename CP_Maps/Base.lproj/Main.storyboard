@@ -196,7 +196,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="reh-xF-wIR" kind="show" identifier="segueToChooseBuilding" id="Bkd-na-fPM"/>
+                                            <segue destination="reh-xF-wIR" kind="show" identifier="chooseBuilding" id="Bkd-na-fPM"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zvX-AB-pa3" detailTextLabel="cpZ-ou-BQF" style="IBUITableViewCellStyleValue1" id="bzK-OV-31z">
@@ -219,7 +219,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="N4W-Rq-hDV" kind="show" identifier="segueToChooseRoom" id="wrZ-Ha-4DL"/>
+                                            <segue destination="N4W-Rq-hDV" kind="show" identifier="chooseRoom" id="wrZ-Ha-4DL"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
