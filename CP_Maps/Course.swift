@@ -16,23 +16,13 @@ class Course: NSObject {
    
    init(name: String?, daysAsString: [String]?, startTime: String?, endTime: String?) {
       var dayName: String
-      
-      self.name = name
       self.days = [Day]()
-      self.startTime = startTime
-      self.endTime = endTime
+
       super.init()
+      
+      self.initWithoutDays(name, startTime: startTime, endTime: endTime)
       for dayName in daysAsString! {
          self.days!.append(Day(name: dayName))
-      }
-      if self.name == nil {
-         self.name = ""
-      }
-      if self.startTime == nil {
-         self.startTime = ""
-      }
-      if self.endTime == nil {
-         self.endTime = ""
       }
    }
    
@@ -42,6 +32,22 @@ class Course: NSObject {
       self.startTime = course.startTime
       self.endTime = course.endTime
       super.init()
+   }
+   
+   func initWithoutDays(name: String?, startTime: String?, endTime: String?) {
+      self.name = name
+      self.startTime = startTime
+      self.endTime = endTime
+      
+      if self.name == nil {
+         self.name = ""
+      }
+      if self.startTime == nil {
+         self.startTime = ""
+      }
+      if self.endTime == nil {
+         self.endTime = ""
+      }
    }
    
    func getShortHandDays() -> String {
