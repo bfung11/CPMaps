@@ -22,8 +22,8 @@ class AddEditLocationViewController: UITableViewController {
    //exclamation point - does not instantiate, but must do so before use
    var location: Location!
    var buildings: [Building]! //holds the data for all buildings
-   var selectedBuilding: Building! //selected building from choosing a builidng or from editing a location
-   var room: Room?
+   var selectedBuilding: Building! //building from choosing a builidng or from editing a location
+   var selectedRoom: Room? //room from choosing a room or from editing a location with room
    var courseTitle: String?
    var selectedDays: [Day]!
    var startTime: String?
@@ -39,9 +39,9 @@ class AddEditLocationViewController: UITableViewController {
          selectedBuilding = location.building
          buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
          
-         room = location.room
-         if room != nil {
-            roomDetail.text = "Room " + room!.number
+         selectedRoom = location.room
+         if selectedRoom != nil {
+            roomDetail.text = "Room " + selectedRoom!.number
          }
          if location.course != nil {
             courseTitleTextField.text = location.course!.name
@@ -79,7 +79,7 @@ class AddEditLocationViewController: UITableViewController {
       buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
       
       roomDetail.text = "None"
-      room = nil
+      selectedRoom = nil
       
       //enable room selection
       chooseRoomCell.userInteractionEnabled = true;
@@ -89,8 +89,8 @@ class AddEditLocationViewController: UITableViewController {
    //save room details and update room details to reflect selection
    @IBAction func saveRoom(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
-      room = viewController.selectedItem! as Room
-      roomDetail.text = "Room " + room!.number
+      selectedRoom = viewController.selectedItem! as Room
+      roomDetail.text = "Room " + selectedRoom!.number
    }
    
    @IBAction func saveDays(segue:UIStoryboardSegue) {
@@ -151,7 +151,7 @@ class AddEditLocationViewController: UITableViewController {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseRoomSegueIdentifier
          viewController.data = selectedBuilding!.rooms
-         viewController.selectedItem = room
+         viewController.selectedItem = selectedRoom
       }
       if segue.identifier == chooseDaysSegueIdentifier {
          let viewController = segue.destinationViewController as ChooseDaysViewController
@@ -162,11 +162,11 @@ class AddEditLocationViewController: UITableViewController {
          
          if location != nil { //for some reason, replacing the old location with a new location does not work
             location.building = selectedBuilding
-            location.room = room
+            location.room = selectedRoom
             location.course = Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?)
          }
          else {
-            location = Location(building: selectedBuilding!, room: room,
+            location = Location(building: selectedBuilding!, room: selectedRoom,
                course: Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?))
          }
       }
