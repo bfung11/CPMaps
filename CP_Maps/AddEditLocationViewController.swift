@@ -22,7 +22,7 @@ class AddEditLocationViewController: UITableViewController {
    //exclamation point - does not instantiate, but must do so before use
    var location: Location!
    var buildings: [Building]! //holds the data for all buildings
-   var selectedBuilding: Building! //
+   var selectedBuilding: Building! //selected building from choosing a builidng or from editing a location
    var room: Room?
    var courseTitle: String?
    var selectedDays: [Day]!
