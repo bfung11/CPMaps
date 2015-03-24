@@ -88,9 +88,6 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    @IBAction func saveDays(segue:UIStoryboardSegue) {
-      var tempTitle = ""
-      var finalTitle: NSString!
-      
       let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
       //set as or as empty array
       selectedDays = chooseDaysViewController.selectedDays
@@ -99,13 +96,7 @@ class AddEditLocationViewController: UITableViewController {
          daysDetail.text = ""
       }
       else {
-         for day in selectedDays {
-            tempTitle += day.name + ", "
-         }
-         
-         finalTitle = NSString(string: tempTitle)
-         finalTitle = finalTitle.substringToIndex(finalTitle.length - 2)
-         daysDetail.text = finalTitle
+         daysDetail.text = self.getCourseDays()
       }
    }
    
@@ -177,5 +168,19 @@ class AddEditLocationViewController: UITableViewController {
       if indexPath.section == 0 {
          courseTitleTextField.becomeFirstResponder()
       }
+   }
+   
+   private func getCourseDays() -> NSString {
+      var tempTitle = ""
+      var finalTitle: NSString!
+      
+      for day in selectedDays {
+         tempTitle += day.name + ", "
+      }
+      
+      finalTitle = NSString(string: tempTitle)
+      finalTitle = finalTitle.substringToIndex(finalTitle.length - 2)
+      
+      return finalTitle
    }
 }
