@@ -151,7 +151,7 @@ class AddEditLocationViewController: UITableViewController {
          let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
          viewController.identifier = chooseRoomSegueIdentifier
          viewController.data = building!.rooms
-         viewController.selectedItem = building
+         viewController.selectedItem = room
       }
       if segue.identifier == saveLocationSegueIdentifer {
          var courseTitle = self.courseTitleTextField.text
