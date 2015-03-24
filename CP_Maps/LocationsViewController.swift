@@ -69,7 +69,8 @@ class LocationsViewController: UITableViewController {
       if segue.identifier == editLocationSegueIdentifier {
          let navViewController = segue.destinationViewController as UINavigationController
          let viewController = navViewController.viewControllers.first as AddEditLocationViewController
-         viewController.location = locationsData[indexPath!.row]
+         println(indexPath!.row)
+         viewController.location = locations![indexPath!.row]
          isEditLocation = true
       }
       else {
