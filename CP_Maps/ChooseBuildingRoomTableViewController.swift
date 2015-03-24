@@ -33,15 +33,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       var cell: UITableViewCell?
       
-      //display building number and name
-      if identifier == chooseBuildingSegueIdentifier {
+      if identifier == chooseBuildingSegueIdentifier { //display buildings
          cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as? UITableViewCell
          let building = data![indexPath.row] as Building
          cell!.textLabel?.text = building.number + " - " + building.name
       }
-      //display rooms
-      else if identifier == chooseRoomSegueIdentifier {
-         cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as UITableViewCell
+      else if identifier == chooseRoomSegueIdentifier { //display rooms
+         cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as? UITableViewCell
          let building = selectedItem! as Building
          cell!.textLabel?.text = "Room " + building.rooms[indexPath.row].number
       }
