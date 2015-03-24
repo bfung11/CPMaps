@@ -14,11 +14,15 @@ class Course: NSObject {
    var startTime: String!
    var endTime: String!
    
+   init(name: String?, selectedDays: [Day]?, startTime: String?, endTime: String?) {
+      self.days = selectedDays
+      super.init()
+      self.initWithoutDays(name, startTime: startTime, endTime: endTime)
+   }
+   
    init(name: String?, daysAsString: [String]?, startTime: String?, endTime: String?) {
       self.days = [Day]()
-
       super.init()
-      
       self.initWithoutDays(name, startTime: startTime, endTime: endTime)
       for dayName in daysAsString! {
          self.days!.append(Day(name: dayName))
