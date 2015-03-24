@@ -11,6 +11,7 @@ import UIKit
 class Day: NSObject {
    var name: String!
    var value: Int!
+   var shorthand: String!
    
    enum DaysOfTheWeek: Int {
       case NoDay = -1, Sunday, Monday, Tuesday, Wednesday,
@@ -37,46 +38,28 @@ class Day: NSObject {
       switch name {
       case "Sunday":
          value = DaysOfTheWeek.Sunday.rawValue
+         shorthand = "Su"
       case "Monday":
          value = DaysOfTheWeek.Monday.rawValue
+         shorthand = "M"
       case "Tuesday":
          value = DaysOfTheWeek.Tuesday.rawValue
+         shorthand = "Tu"
       case "Wednesday":
          value = DaysOfTheWeek.Wednesday.rawValue
+         shorthand = "W"
       case "Thursday":
          value = DaysOfTheWeek.Thursday.rawValue
+         shorthand = "Th"
       case "Friday":
          value = DaysOfTheWeek.Friday.rawValue
+         shorthand = "F"
       case "Saturday":
          value = DaysOfTheWeek.Saturday.rawValue
+         shorthand = "Sa"
       default: ()
       }
       
       return value
-   }
-   
-   func shorthand() -> String {
-      var dayAsString: String
-      
-      switch name {
-      case "Sunday":
-         dayAsString = "Su"
-      case "Monday":
-         dayAsString = "M"
-      case "Tuesday":
-         dayAsString = "Tu"
-      case "Wednesday":
-         dayAsString = "W"
-      case "Thursday":
-         dayAsString = "Th"
-      case "Friday":
-         dayAsString = "F"
-      case "Saturday":
-         dayAsString = "Sa"
-      default:
-         dayAsString = ""
-      }
-      
-      return dayAsString
    }
 }

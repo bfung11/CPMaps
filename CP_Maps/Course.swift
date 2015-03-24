@@ -49,7 +49,7 @@ class Course: NSObject {
       var daysAsString = ""
       
       for day in days! {
-         daysAsString += day.shorthand()
+         daysAsString += day.shorthand
       }
       
       return daysAsString
