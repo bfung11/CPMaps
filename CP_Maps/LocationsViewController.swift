@@ -67,7 +67,8 @@ class LocationsViewController: UITableViewController {
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       
       if segue.identifier == editLocationSegueIdentifier {
-         let viewController = segue.destinationViewController as AddEditLocationViewController
+         let navViewController = segue.destinationViewController as UINavigationController
+         let viewController = navViewController.viewControllers.first as AddEditLocationViewController
          viewController.location = locationsData[indexPath!.row]
          isEditLocation = true
       }

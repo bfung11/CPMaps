@@ -152,12 +152,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dKT-ae-OGQ">
                             <connections>
-                                <segue destination="Agc-E3-Fux" kind="show" identifier="addLocation" id="a7d-1Q-8Ga"/>
+                                <segue destination="SkE-ef-w4j" kind="showDetail" identifier="addLocation" id="a7d-1Q-8Ga"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="Agc-E3-Fux" kind="show" identifier="editLocation" id="SoB-9N-PPc"/>
+                        <segue destination="SkE-ef-w4j" kind="showDetail" identifier="editLocation" id="SoB-9N-PPc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGN-S7-Gdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -375,7 +375,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="R2J-hs-uon" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="971"/>
+            <point key="canvasLocation" x="3382" y="971"/>
         </scene>
         <!--Choose Building-->
         <scene sceneID="wca-wQ-xqa">
@@ -420,7 +420,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3434" y="333"/>
+            <point key="canvasLocation" x="4060" y="333"/>
         </scene>
         <!--Choose Room-->
         <scene sceneID="wG9-WP-myO">
@@ -465,7 +465,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bba-u7-Lqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vtI-Bz-Bwg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3434" y="1166"/>
+            <point key="canvasLocation" x="4060" y="1166"/>
         </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
@@ -531,6 +531,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-Xe-cBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="772" y="967"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qDO-Zz-ShO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SkE-ef-w4j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uAm-Jn-aQN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Agc-E3-Fux" kind="relationship" relationship="rootViewController" id="2UI-jL-8ni"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y2h-1b-xII" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2756" y="971"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
