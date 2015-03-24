@@ -10,9 +10,10 @@ import UIKit
 
 class ChooseDaysViewController: UITableViewController {
    var days: [Day]! //show days of the week
-   var selectedDay: String?
+   var selectedDay: Day?
    var selectedDayIndex: Int?
-   var selectedDays: [String]!
+   var selectedDaysAsBool: [Bool]!
+   var selectedDays: [Day]?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -20,12 +21,14 @@ class ChooseDaysViewController: UITableViewController {
       days = daysData
       selectedDay = nil
       selectedDayIndex = nil
-      selectedDays = [String]()
+      selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount, repeatedValue: selectedDaysAsBoolIntialValue)
+      selectedDays = [Day]()
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return numberOfSectionsInDaysViewController
    }
+   
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return days.count
@@ -44,34 +47,29 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    //MARK: - Table view delegate
-   
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      var i : Int
-      var count : Int
-      var day : String
-      
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       selectedDayIndex = indexPath.row
-      selectedDay = days[indexPath.row].name
+      selectedDay = days[indexPath.row]
       
-      //if selected day is in array, remove; else add
-      if !selectedDays.isEmpty {
-         count = selectedDays.count
-         for (i = 0; i < count; ++i) {
-            if selectedDay == selectedDays[i]  {
-               selectedDays.removeAtIndex(i)
-            }
-            else {
-               selectedDays.append(selectedDay!)
-            }
-         }
+      //if has been selected, unselect it; else select it
+      if selectedDaysAsBool[selectedDayIndex!] == true {
+         selectedDaysAsBool[selectedDayIndex!] = false
       }
       else {
-         selectedDays.append(selectedDay!)
+         selectedDaysAsBool[selectedDayIndex!] = true
       }
       
       //update the checkmark for the current row
       let cell = tableView.cellForRowAtIndexPath(indexPath)
       cell?.accessoryType = .Checkmark
+   }
+   
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      for var index = 0; index < selectedDaysAsBool.count; ++index {
+         if selectedDaysAsBool[index] == true {
+            selectedDays!.append(days[index])
+         }
+      }
    }
 }

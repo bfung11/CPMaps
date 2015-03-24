@@ -24,7 +24,7 @@ class AddEditLocationViewController: UITableViewController {
    var building: Building!
    var room: Room?
    var courseTitle: String?
-   var days: [String]!
+   var selectedDays: [Day]!
    var startTime: String?
    var endTime: String?
    
@@ -32,7 +32,7 @@ class AddEditLocationViewController: UITableViewController {
       super.viewDidLoad()
       
       buildings = buildingsData
-      days = [String]()
+      selectedDays = [Day]()
       
       if location != nil { //if not from editLocation
          building = location.building
@@ -88,21 +88,24 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    @IBAction func saveDays(segue:UIStoryboardSegue) {
-      var daysTitle = ""
+      var shorthandTitle = ""
+      var title: NSString!
       var day: String
-
+      
       let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
       //set as or as empty array
-      days = chooseDaysViewController.selectedDays
-      if days!.isEmpty {
-         days = [String]()
+      selectedDays = chooseDaysViewController.selectedDays
+      if selectedDays!.isEmpty {
+         daysDetail.text = ""
       }
-      //add days into title
-      for day in days! {
-         daysTitle += ", " + day;
+      else {
+         for day in selectedDays {
+            shorthandTitle = day.name + ", "
+         }
+         
+         title = NSString(UTF8String: shorthandTitle)
+         title = title.substringToIndex(title.length - 2)
       }
-      //update days detail to reflect selection(s)
-      daysDetail.text = daysTitle.substringFromIndex(advance(daysTitle.startIndex, 2))
    }
    
    //redundant code
@@ -159,11 +162,11 @@ class AddEditLocationViewController: UITableViewController {
          if location != nil { //for some reason, replacing the old location with a new location does not work
             location.building = building
             location.room = room
-            location.course = Course(name: courseTitle?, selectedDays: days!, startTime: startTime?, endTime: endTime?)
+            location.course = Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?)
          }
          else {
             location = Location(building: building!, room: room,
-               course: Course(name: courseTitle?, selectedDays: days!, startTime: startTime?, endTime: endTime?))
+               course: Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?))
          }
       }
    }
