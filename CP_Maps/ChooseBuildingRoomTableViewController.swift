@@ -21,6 +21,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
       
       selectedItemIndex = nil
       
+      // display correct controller title 
       if identifier == chooseBuildingSegueIdentifier {
          self.navigationItem.title = chooseBuildingViewControllerTitle
       }
