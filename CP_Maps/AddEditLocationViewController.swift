@@ -195,14 +195,21 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
+   
+   /*! Takes all the selected days, puts them into a string separated by commas 
+       and returns it. Used to display the selected days when adding or editing location
+   
+   */
    private func getCourseDays() -> NSString {
       var tempTitle = ""
       var finalTitle: NSString!
       
+      // add all the days separated by commas
       for day in selectedDays {
          tempTitle += day.name + ", "
       }
       
+      // delete the final comma added to the string
       finalTitle = NSString(string: tempTitle)
       finalTitle = finalTitle.substringToIndex(finalTitle.length - 2)
       
