@@ -24,8 +24,8 @@ class AddEditLocationViewController: UITableViewController {
    var buildings: [Building]!      // holds the data for all buildings
    var selectedBuilding: Building! // building from choosing a builidng or from editing a location
    var selectedRoom: Room?         // room from choosing a room or from editing a location with room
+   var courseName: String?
    var selectedDays: [Day]!        // list of selected days
-   var courseTitle: String?
    var startTime: String?
    var endTime: String?
    
@@ -52,7 +52,7 @@ class AddEditLocationViewController: UITableViewController {
          // update course
          if location.course != nil { // if there is a course
             courseTitleTextField.text = location.course!.name
-            courseTitle = location.course!.name
+            courseName = location.course!.name
          }
          
          // update selected days
@@ -167,16 +167,16 @@ class AddEditLocationViewController: UITableViewController {
          viewController.selectedDays = selectedDays
       }
       if segue.identifier == saveLocationSegueIdentifer {
-         var courseTitle = self.courseTitleTextField.text
+         var courseName = self.courseTitleTextField.text
          
          if location != nil { //for some reason, replacing the old location with a new location does not work
             location.building = selectedBuilding
             location.room = selectedRoom
-            location.course = Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?)
+            location.course = Course(name: courseName?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?)
          }
          else {
             location = Location(building: selectedBuilding!, room: selectedRoom,
-               course: Course(name: courseTitle?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?))
+               course: Course(name: courseName?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?))
          }
       }
    }
