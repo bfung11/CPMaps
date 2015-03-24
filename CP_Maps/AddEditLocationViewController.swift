@@ -96,7 +96,6 @@ class AddEditLocationViewController: UITableViewController {
       let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
       //set as or as empty array
       selectedDays = chooseDaysViewController.selectedDays
-      println(selectedDays.isEmpty)
       if selectedDays.isEmpty {
          daysDetail.text = ""
       }
