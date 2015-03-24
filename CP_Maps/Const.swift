@@ -27,5 +27,6 @@ let chooseBuildingSegueIdentifier = "chooseBuilding"
 let saveBuildingSegueIdentifer = "saveBuilding"
 let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
+let chooseDaysSegueIdentifier = "chooseDays"
 
 let cancelButtonTitleOK = "OK"
