@@ -20,6 +20,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
       super.viewDidLoad()
       
       selectedItemIndex = nil
+      
+      if identifier == chooseBuildingSegueIdentifier {
+         self.navigationItem.title = chooseBuildingViewControllerTitle
+      }
+      else {
+         self.navigationItem.title = chooseRoomViewControllerTitle
+      }
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -34,7 +41,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
       var cell: UITableViewCell?
       
       if identifier == chooseBuildingSegueIdentifier { //display buildings
-         cell = tableView.dequeueReusableCellWithIdentifier("BuildingCell", forIndexPath: indexPath) as? UITableViewCell
+         cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
          let building = data![indexPath.row] as Building
          cell!.textLabel?.text = building.number + " - " + building.name
          cell!.accessoryType = .None //prevents random buildings from having checkmarks
@@ -43,7 +50,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
          }
       }
       else if identifier == chooseRoomSegueIdentifier { //display rooms
-         cell = tableView.dequeueReusableCellWithIdentifier("RoomCell", forIndexPath: indexPath) as? UITableViewCell
+         cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
          let room = data![indexPath.row] as Room
          cell!.textLabel?.text = "Room " + room.number
          cell!.accessoryType = .None //prevents random room from having checkmarks

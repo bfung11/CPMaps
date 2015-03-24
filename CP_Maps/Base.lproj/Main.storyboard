@@ -219,7 +219,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="N4W-Rq-hDV" kind="show" identifier="chooseRoom" id="wrZ-Ha-4DL"/>
+                                            <segue destination="reh-xF-wIR" kind="show" identifier="chooseRoom" id="g6d-cM-Wbu"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -386,7 +386,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuildingCell" textLabel="UDb-dV-IAv" style="IBUITableViewCellStyleDefault" id="fCd-FV-pah">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuildingRoomCell" textLabel="UDb-dV-IAv" style="IBUITableViewCellStyleDefault" id="fCd-FV-pah">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCd-FV-pah" id="RRf-Vr-3Gb">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -406,7 +406,7 @@
                             <outlet property="delegate" destination="reh-xF-wIR" id="6Ac-jt-OjZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Building" id="vAl-71-3Ga">
+                    <navigationItem key="navigationItem" title="Building Room Title" id="vAl-71-3Ga">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxk-t9-rb4">
                             <connections>
                                 <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelAddEditLocationDetails:" id="epj-32-fl4"/>
@@ -415,57 +415,13 @@
                     </navigationItem>
                     <connections>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveBuilding:" id="HWa-f6-O2R"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="wxG-2A-tdJ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3468" y="337"/>
-        </scene>
-        <!--Choose Room-->
-        <scene sceneID="wG9-WP-myO">
-            <objects>
-                <tableViewController title="Choose Room" id="N4W-Rq-hDV" customClass="ChooseBuildingRoomViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qT6-0u-M30">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomCell" textLabel="HCT-LV-17d" style="IBUITableViewCellStyleDefault" id="RXf-6H-LyA">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RXf-6H-LyA" id="BSi-jL-TL5">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HCT-LV-17d">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="N4W-Rq-hDV" id="XU0-yM-BwB"/>
-                            <outlet property="delegate" destination="N4W-Rq-hDV" id="nbO-67-Si4"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Room" id="dtr-qv-Ddm">
-                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="6sG-nM-Ie4">
-                            <connections>
-                                <segue destination="vtI-Bz-Bwg" kind="unwind" unwindAction="cancelAddEditLocationDetails:" id="qjc-we-Oh9"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="vtI-Bz-Bwg" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="b94-Jp-NeH"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bba-u7-Lqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="vtI-Bz-Bwg" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3468" y="1170"/>
         </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
@@ -553,5 +509,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="a7d-1Q-8Ga"/>
+        <segue reference="g6d-cM-Wbu"/>
     </inferredMetricsTieBreakers>
 </document>
