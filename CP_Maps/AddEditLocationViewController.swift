@@ -88,23 +88,24 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    @IBAction func saveDays(segue:UIStoryboardSegue) {
-      var shorthandTitle = ""
-      var title: NSString!
-      var day: String
+      var tempTitle = ""
+      var finalTitle: NSString!
       
       let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
       //set as or as empty array
       selectedDays = chooseDaysViewController.selectedDays
-      if selectedDays!.isEmpty {
+      println(selectedDays.isEmpty)
+      if selectedDays.isEmpty {
          daysDetail.text = ""
       }
       else {
          for day in selectedDays {
-            shorthandTitle = day.name + ", "
+            tempTitle += day.name + ", "
          }
          
-         title = NSString(UTF8String: shorthandTitle)
-         title = title.substringToIndex(title.length - 2)
+         finalTitle = NSString(string: tempTitle)
+         finalTitle = finalTitle.substringToIndex(finalTitle.length - 2)
+         daysDetail.text = finalTitle
       }
    }
    
