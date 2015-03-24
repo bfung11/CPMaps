@@ -19,12 +19,12 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
-   //exclamation point - does not instantiate, but must do so before use
+   // exclamation point - does not instantiate, but must do so before use
    var location: Location!
-   var buildings: [Building]!      //holds the data for all buildings
-   var selectedBuilding: Building! //building from choosing a builidng or from editing a location
-   var selectedRoom: Room?         //room from choosing a room or from editing a location with room
-   var selectedDays: [Day]!        //list of selected days
+   var buildings: [Building]!      // holds the data for all buildings
+   var selectedBuilding: Building! // building from choosing a builidng or from editing a location
+   var selectedRoom: Room?         // room from choosing a room or from editing a location with room
+   var selectedDays: [Day]!        // list of selected days
    var courseTitle: String?
    var startTime: String?
    var endTime: String?
@@ -32,26 +32,35 @@ class AddEditLocationViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      // set up data source
       buildings = buildingsData
       selectedDays = [Day]()
       
-      if location != nil { //if not from editLocation
+      // if editing a location location
+      if location != nil { // if from editing a location, then location must always be passed
+         
+         // update building
          selectedBuilding = location.building
          buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
          
+         // update room
          selectedRoom = location.room
-         if selectedRoom != nil {
+         if selectedRoom != nil { // if there is a room
             roomDetail.text = "Room " + selectedRoom!.number
          }
-         if location.course != nil {
+         
+         // update course
+         if location.course != nil { // if there is a course
             courseTitleTextField.text = location.course!.name
             courseTitle = location.course!.name
          }
          
+         // update selected days
          self.selectedDays = location!.course!.days
-         if !selectedDays.isEmpty {
+         if !selectedDays.isEmpty { // if there are selected days
             daysDetail.text = self.getCourseDays()
          }
+         
          self.navigationItem.title = editLocationViewControllerTitle
       }
       else {
