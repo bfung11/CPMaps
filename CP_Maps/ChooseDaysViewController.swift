@@ -17,14 +17,17 @@ class ChooseDaysViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      // set up data
       days = daysData
       selectedDayIndex = nil
       selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount, repeatedValue: selectedDaysAsBoolIntialValue)
+      
+      // if from adding a location
       if selectedDays == nil {
          selectedDays = [Day]()
       }
-      else { //from edit location, set correct days as true for checkmarks
-         for day in selectedDays! {
+      else {
+         for day in selectedDays! { // set days that need checkmarks
             selectedDaysAsBool[day.value] = true
          }
       }
