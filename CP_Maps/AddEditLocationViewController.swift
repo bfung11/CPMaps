@@ -9,15 +9,6 @@
 import UIKit
 
 class AddEditLocationViewController: UITableViewController {
-   @IBOutlet weak var buildingDetail: UILabel!
-   @IBOutlet weak var chooseRoomCell: UITableViewCell!
-   @IBOutlet weak var roomDetail: UILabel!
-   @IBOutlet weak var courseTitleTextField: UITextField!
-   @IBOutlet weak var daysDetail: UILabel!
-   @IBOutlet weak var startTimeLabel: UILabel!
-   @IBOutlet weak var startTimeDatePicker: UIDatePicker!
-   @IBOutlet weak var endTimeLabel: UILabel!
-   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
    var location: Location!
@@ -28,6 +19,16 @@ class AddEditLocationViewController: UITableViewController {
    var selectedDays: [Day]!        // list of selected days
    var startTime: String?
    var endTime: String?
+   
+   @IBOutlet weak var buildingDetail: UILabel!
+   @IBOutlet weak var chooseRoomCell: UITableViewCell!
+   @IBOutlet weak var roomDetail: UILabel!
+   @IBOutlet weak var courseTitleTextField: UITextField!
+   @IBOutlet weak var daysDetail: UILabel!
+   @IBOutlet weak var startTimeLabel: UILabel!
+   @IBOutlet weak var startTimeDatePicker: UIDatePicker!
+   @IBOutlet weak var endTimeLabel: UILabel!
+   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    override func viewDidLoad() {
       super.viewDidLoad()
