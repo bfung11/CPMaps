@@ -80,16 +80,20 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func cancelAddEditLocationDetails(segue:UIStoryboardSegue) {
    }
    
-   //save building details and update building details to reflect selection
+   
+   // save building details and update building details to reflect selection
    @IBAction func saveBuilding(segue:UIStoryboardSegue) {
+      
+      // save building and display selected building
       let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
       selectedBuilding = viewController.selectedItem! as Building
       buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
       
-      roomDetail.text = "None"
-      selectedRoom = nil
+      // if choose a new building,
+      selectedRoom = nil // deselect room
+      roomDetail.text = "None" // display no selected room
       
-      //enable room selection
+      // enable room selection
       chooseRoomCell.userInteractionEnabled = true;
       chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
    }
