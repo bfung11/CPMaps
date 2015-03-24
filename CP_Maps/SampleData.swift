@@ -77,4 +77,5 @@ var locationsData = [
       course: Course(name: "CPE-103", daysAsString: ["Monday", "Wednesday", "Friday"], startTime: "10:10", endTime: "11:00")),
 ]
 
-var daysData = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+var daysData = [Day(name: "Monday"), Day(name: "Tuesday") , Day(name: "Wednesday"),
+   Day(name: "Thursday"), Day(name: "Friday"), Day(name: "Saturday"), Day(name: "Sunday")]

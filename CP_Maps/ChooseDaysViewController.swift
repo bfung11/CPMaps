@@ -9,7 +9,7 @@
 import UIKit
 
 class ChooseDaysViewController: UITableViewController {
-   var days: [String]! //show days of the week
+   var days: [Day]! //show days of the week
    var selectedDay: String?
    var selectedDayIndex: Int?
    var selectedDays: [String]!
@@ -33,7 +33,7 @@ class ChooseDaysViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as UITableViewCell
-      cell.textLabel?.text = days[indexPath.row]
+      cell.textLabel?.text = days[indexPath.row].name
       
       if indexPath.row == selectedDayIndex {
          cell.accessoryType = .Checkmark
@@ -52,7 +52,7 @@ class ChooseDaysViewController: UITableViewController {
       
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       selectedDayIndex = indexPath.row
-      selectedDay = days[indexPath.row]
+      selectedDay = days[indexPath.row].name
       
       //if selected day is in array, remove; else add
       if !selectedDays.isEmpty {
