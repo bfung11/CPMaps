@@ -91,6 +91,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="locationTitle" destination="54e-UY-bu7" id="D2C-P2-8dP"/>
                         <outlet property="mapView" destination="52w-FN-aei" id="rEd-4q-ECZ"/>
                     </connections>
                 </viewController>
@@ -158,6 +159,7 @@
                     </navigationItem>
                     <connections>
                         <segue destination="SkE-ef-w4j" kind="showDetail" identifier="editLocation" id="SoB-9N-PPc"/>
+                        <segue destination="xvd-gA-kuH" kind="unwind" identifier="chooseLocation" unwindAction="chooseLocation:" id="IFd-7H-Ao6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGN-S7-Gdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -509,6 +511,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="g6d-cM-Wbu"/>
-        <segue reference="a7d-1Q-8Ga"/>
+        <segue reference="SoB-9N-PPc"/>
     </inferredMetricsTieBreakers>
 </document>

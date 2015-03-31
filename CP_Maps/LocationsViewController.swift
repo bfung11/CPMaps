@@ -61,7 +61,7 @@ class LocationsViewController: UITableViewController {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       
       self.indexPath = indexPath
-      //performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+      performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
@@ -69,8 +69,7 @@ class LocationsViewController: UITableViewController {
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
    }
 
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {    
       if segue.identifier == editLocationSegueIdentifier {
          let navViewController = segue.destinationViewController as UINavigationController
          let viewController = navViewController.viewControllers.first as AddEditLocationViewController

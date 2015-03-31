@@ -11,6 +11,7 @@ import UIKit
 class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate {
   
   @IBOutlet weak var mapView: GMSMapView!
+   @IBOutlet weak var locationTitle: UILabel!
   var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
   
   let locationManager = CLLocationManager()
@@ -39,6 +40,12 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       controller.delegate = self
     }
   }
+   
+   @IBAction func chooseLocation(segue:UIStoryboardSegue) {
+      let viewController = segue.sourceViewController as LocationsViewController
+      let location = viewController.locations![viewController.indexPath!.row]
+      locationTitle.text = location.building.name
+   }
    
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {
       dismissViewControllerAnimated(true, completion: nil)
