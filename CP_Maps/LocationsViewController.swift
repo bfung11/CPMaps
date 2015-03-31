@@ -64,12 +64,15 @@ class LocationsViewController: UITableViewController {
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
    }
    
+   override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+      performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+   }
+
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       
       if segue.identifier == editLocationSegueIdentifier {
          let navViewController = segue.destinationViewController as UINavigationController
          let viewController = navViewController.viewControllers.first as AddEditLocationViewController
-         println(indexPath!.row)
          viewController.location = locations![indexPath!.row]
          isEditLocation = true
       }
