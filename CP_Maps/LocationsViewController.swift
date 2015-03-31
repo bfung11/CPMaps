@@ -61,10 +61,11 @@ class LocationsViewController: UITableViewController {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       
       self.indexPath = indexPath
-      performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+      //performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
    }
    
    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+      self.indexPath = indexPath
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
    }
 
