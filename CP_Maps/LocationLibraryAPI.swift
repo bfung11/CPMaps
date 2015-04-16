@@ -9,9 +9,8 @@
 import UIKit
 
 // API that all classes and users use to interface with locations
-// calls persistencyMananger and not have code inside because this could also be for HTTP Clients
-// should create all objects before passing to persistencyManager
-// (i.e. get location or get string and create location before passing to persistencyManager)
+// if model implementations change, classes can still continue to rely on
+// on these functions and be oblivious to the change
 class LocationLibraryAPI: NSObject {
    private let persistencyManager: PersistencyManager
    
