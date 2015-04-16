@@ -9,7 +9,7 @@
 import UIKit
 
 class Location: NSObject {
-   var building : Building!
+   var building: Building!
    var room: Room?
    var course: Course?
    
@@ -20,7 +20,7 @@ class Location: NSObject {
    }
    
    //Put in Course.swift?
-   func getCourseDetails() -> String{
+   func getCourseDetails() -> String {
       return course!.getCourseDetails()
    }
    
