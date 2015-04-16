@@ -34,15 +34,15 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "Types Segue" {
-      let navigationController = segue.destinationViewController as UINavigationController
-      let controller = segue.destinationViewController.topViewController as TypesTableViewController
+      let navigationController = segue.destinationViewController as! UINavigationController
+      let controller = segue.destinationViewController.topViewController as! TypesTableViewController
       controller.selectedTypes = searchedTypes
       controller.delegate = self
     }
   }
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
-      let viewController = segue.sourceViewController as LocationsViewController
+      let viewController = segue.sourceViewController as! LocationsViewController
       let location = viewController.locations![viewController.indexPath!.row]
       locationTitle.text = location.building.name
    }
@@ -59,7 +59,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
   }
   
   @IBAction func mapTypeSegmentPressed(sender: AnyObject) {
-    let segmentedControl = sender as UISegmentedControl
+    let segmentedControl = sender as! UISegmentedControl
     mapView.clear();
    
     switch segmentedControl.selectedSegmentIndex {

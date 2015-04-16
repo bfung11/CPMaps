@@ -37,10 +37,10 @@ class GoogleDataProvider {
       if let json = NSJSONSerialization.JSONObjectWithData(data, options:nil, error:nil) as? NSDictionary {
         if let results = json["results"] as? NSArray {
           for rawPlace:AnyObject in results {
-            let place = GooglePlace(dictionary: rawPlace as NSDictionary, acceptedTypes: types)
+            let place = GooglePlace(dictionary: rawPlace as! NSDictionary, acceptedTypes: types)
             placesArray.append(place)
             if let reference = place.photoReference {
-              self.fetchPhotoFromReference(reference) { image in
+              self.fetchPhotoFromReference(reference as! String) { image in
                 place.photo = image
               }
             }

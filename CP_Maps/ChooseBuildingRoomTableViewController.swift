@@ -44,24 +44,24 @@ class ChooseBuildingRoomViewController: UITableViewController {
       if identifier == chooseBuildingSegueIdentifier {
          // display buildings
          cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
-         let building = data![indexPath.row] as Building
+         let building = data![indexPath.row] as! Building
          cell!.textLabel?.text = building.number + " - " + building.name
          cell!.accessoryType = .None //prevents random buildings from having checkmarks
          
          // if there is a selected building, put a checkmark next to the selected building
-         if selectedItem != nil && building.name == (selectedItem as Building).name {
+         if selectedItem != nil && building.name == (selectedItem as! Building).name {
             cell!.accessoryType = .Checkmark
          }
       }
       else if identifier == chooseRoomSegueIdentifier {
          // display rooms
          cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
-         let room = data![indexPath.row] as Room
+         let room = data![indexPath.row] as! Room
          cell!.textLabel?.text = "Room " + room.number
          cell!.accessoryType = .None //prevents random room from having checkmarks
          
          // if there is a selected room, put a checkmark next to the selected room
-         if selectedItem != nil && room.number == (selectedItem as Room).number{
+         if selectedItem != nil && room.number == (selectedItem as! Room).number{
             cell!.accessoryType = .Checkmark
          }
       }

@@ -59,7 +59,7 @@ class AddEditLocationViewController: UITableViewController {
          // update selected days
          self.selectedDays = location!.course!.days
          if !selectedDays.isEmpty { // if there are selected days
-            daysDetail.text = self.getCourseDays()
+            daysDetail.text = self.getCourseDays() as! String
          }
          
          self.navigationItem.title = editLocationViewControllerTitle
@@ -85,8 +85,8 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func saveBuilding(segue:UIStoryboardSegue) {
       
       // save building and display selected building
-      let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
-      selectedBuilding = viewController.selectedItem! as Building
+      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
+      selectedBuilding = viewController.selectedItem! as! Building
       buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
       
       // if choose a new building,
@@ -101,21 +101,21 @@ class AddEditLocationViewController: UITableViewController {
    // save selected room and display selected room
    @IBAction func saveRoom(segue:UIStoryboardSegue) {
       // save room and display selected room
-      let viewController = segue.sourceViewController as ChooseBuildingRoomViewController
-      selectedRoom = viewController.selectedItem! as Room
+      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
+      selectedRoom = viewController.selectedItem! as! Room
       roomDetail.text = "Room " + selectedRoom!.number
    }
    
    // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       // get selected days from view controller
-      let chooseDaysViewController = segue.sourceViewController as ChooseDaysViewController
+      let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
       selectedDays = chooseDaysViewController.selectedDays // can be empty, not nil
       
       // display selected days
       daysDetail.text = "None"
       if !selectedDays.isEmpty {
-         daysDetail.text = self.getCourseDays()
+         daysDetail.text = self.getCourseDays() as String
       }
    }
    
@@ -156,19 +156,19 @@ class AddEditLocationViewController: UITableViewController {
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == chooseBuildingSegueIdentifier {
-         let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
+         let viewController = segue.destinationViewController as! ChooseBuildingRoomViewController
          viewController.identifier = chooseBuildingSegueIdentifier
          viewController.data = buildingsData
          viewController.selectedItem = selectedBuilding
       }
       if segue.identifier == chooseRoomSegueIdentifier {
-         let viewController = segue.destinationViewController as ChooseBuildingRoomViewController
+         let viewController = segue.destinationViewController as! ChooseBuildingRoomViewController
          viewController.identifier = chooseRoomSegueIdentifier
          viewController.data = selectedBuilding!.rooms
          viewController.selectedItem = selectedRoom
       }
       if segue.identifier == chooseDaysSegueIdentifier {
-         let viewController = segue.destinationViewController as ChooseDaysViewController
+         let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = selectedDays
       }
       if segue.identifier == saveLocationSegueIdentifer {
@@ -179,11 +179,11 @@ class AddEditLocationViewController: UITableViewController {
             // for some reason, replacing the location does not work
             location.building = selectedBuilding
             location.room = selectedRoom
-            location.course = Course(name: courseName?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?)
+            location.course = Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)
          }
          else {
             location = Location(building: selectedBuilding!, room: selectedRoom,
-               course: Course(name: courseName?, selectedDays: selectedDays, startTime: startTime?, endTime: endTime?))
+               course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime))
          }
       }
    }

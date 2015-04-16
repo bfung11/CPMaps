@@ -43,7 +43,7 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as UITableViewCell
+      let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as! UITableViewCell
       cell.textLabel?.text = days[indexPath.row].name
       cell.accessoryType = .None // mark all days as none to prevent random days from having checkmarks
       if selectedDaysAsBool[indexPath.row] == true { // if day was selected

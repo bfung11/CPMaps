@@ -17,7 +17,7 @@ class LocationsViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      locations = locationsData
+      locations = locationsData as! [Location]
 
       // Uncomment the following line to preserve selection between presentations
       // self.clearsSelectionOnViewWillAppear = false
@@ -42,8 +42,7 @@ class LocationsViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
    -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath)
-      as LocationCell
+      let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) as! LocationCell
       
       let location = locations![indexPath.row] as Location
       cell.buildingTitleLabel.text = "Building " + location.building.number + " (" + location.building.name + ")"
@@ -71,8 +70,10 @@ class LocationsViewController: UITableViewController {
 
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {    
       if segue.identifier == editLocationSegueIdentifier {
-         let navViewController = segue.destinationViewController as UINavigationController
-         let viewController = navViewController.viewControllers.first as AddEditLocationViewController
+         let navViewController = segue.destinationViewController
+            as! UINavigationController
+         let viewController = navViewController.viewControllers.first
+            as! AddEditLocationViewController
          viewController.location = locations![indexPath!.row]
          isEditLocation = true
       }
@@ -87,7 +88,7 @@ class LocationsViewController: UITableViewController {
    }
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
-      let viewController = segue.sourceViewController as AddEditLocationViewController
+      let viewController = segue.sourceViewController as! AddEditLocationViewController
       
       if isEditLocation == true {
          self.tableView.reloadData() //may need to reload only one table cell
