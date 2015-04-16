@@ -288,8 +288,8 @@
 		B2485FCF1ADF678800430CD9 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */,
 				B2485FD01ADF6C4200430CD9 /* PersistencyManager.swift */,
+				B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";

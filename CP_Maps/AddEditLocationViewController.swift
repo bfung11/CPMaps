@@ -48,15 +48,15 @@ class AddEditLocationViewController: UITableViewController {
          buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
          
          // update room
-//         selectedRoom = location.getRoom(indexPath.row)
          if location.hasRoom(indexPath.row) { // if there is a room
             roomDetail.text = "Room " + location.getRoom(indexPath.row)!.number
          }
          
          // update course
-         if tempLocation.course != nil { // if there is a course
-            courseTitleTextField.text = tempLocation.course!.name
-            courseName = tempLocation.course!.name
+         if location.hasCourse(indexPath.row) { // if there is a course
+            let tempCourseName = location.getCourseName(indexPath.row)
+            courseTitleTextField.text = tempCourseName
+            courseName = tempCourseName
          }
          
          // update selected days

@@ -44,6 +44,14 @@ class PersistencyManager: NSObject {
       return locations[index].room
    }
    
+   func hasCourse(index: Int) -> Bool {
+      return locations[index].course != nil
+   }
+   
+   func getCourseName(index: Int) -> String {
+      return locations[index].course!.name
+   }
+   
    func printAllLocations() {
       for location in locations {
          println(location.building!.name + " ")

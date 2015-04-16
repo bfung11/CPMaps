@@ -50,6 +50,14 @@ class LocationLibraryAPI: NSObject {
       return persistencyManager.getRoom(index)
    }
    
+   func hasCourse(index: Int) -> Bool {
+      return persistencyManager.hasCourse(index)
+   }
+   
+   func getCourseName(index: Int) -> String {
+      return persistencyManager.getCourseName(index)
+   }
+   
    func printAllLocations() {
       persistencyManager.printAllLocations()
    }
