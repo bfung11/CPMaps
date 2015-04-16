@@ -48,9 +48,9 @@ class PersistencyManager: NSObject {
       return locations[index].room
    }
    
-//   func updateRoom(#index: Int, room: Room) {
-//      locations[index].room = room
-//   }
+   func updateRoom(#index: Int, room: Room) {
+      locations[index].room = room
+   }
    
    func hasCourse(index: Int) -> Bool {
       return locations[index].course != nil
