@@ -90,9 +90,7 @@ class LocationsViewController: UITableViewController {
       //performSegueWithIdentifier("cancelToMyLocations", sender: self)
    }
    
-   @IBAction func saveLocation(segue:UIStoryboardSegue) {
-      let viewController = segue.sourceViewController as! AddEditLocationViewController
-      
+   @IBAction func saveLocation(segue:UIStoryboardSegue) {      
       if isEditLocation == true {
          self.tableView.reloadData() //may need to reload only one table cell
       }
