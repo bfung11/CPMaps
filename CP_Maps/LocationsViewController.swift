@@ -79,8 +79,6 @@ class LocationsViewController: UITableViewController {
             as! AddEditLocationViewController
          viewController.tempLocation = locations.getLocation(indexPath!.row)
          viewController.indexPath = indexPath
-         println("in list locations")
-         println(indexPath)
          isEditLocation = true
       }
       else {
