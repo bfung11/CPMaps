@@ -21,4 +21,18 @@ class PersistencyManager: NSObject {
    func addLocation(location: Location) {
       locations.append(location)
    }
+   
+   func getLocation(index: Int) -> Location {
+      return locations[index]
+   }
+   
+   func getAllLocations() -> [Location] {
+      return locations
+   }
+   
+   func printAllLocations() {
+      for location in locations {
+         println(location.building!.name + " ")
+      }
+   }
 }

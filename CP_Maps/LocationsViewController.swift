@@ -10,14 +10,16 @@ import UIKit
 
 class LocationsViewController: UITableViewController {
    
-   var locations: [Location]?
+   var locations: [Location]!
    var indexPath: NSIndexPath?
    var isEditLocation: Bool?
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      locations = locationsData as! [Location]
+      locations = LocationLibraryAPI.sharedInstance.getAllLocations()
+      println("Here")
+      LocationLibraryAPI.sharedInstance.printAllLocations()
 
       // Uncomment the following line to preserve selection between presentations
       // self.clearsSelectionOnViewWillAppear = false

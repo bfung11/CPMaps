@@ -26,7 +26,15 @@ class LocationLibraryAPI: NSObject {
       persistencyManager.addLocation(location)
    }
    
-//   func getLocation(index: Int) -> Location {
-//      
-//   }
+   func getLocation(index: Int) -> Location {
+      return persistencyManager.getLocation(index)
+   }
+   
+   func getAllLocations() -> [Location] {
+      return persistencyManager.getAllLocations()
+   }
+   
+   func printAllLocations() {
+      persistencyManager.printAllLocations()
+   }
 }
