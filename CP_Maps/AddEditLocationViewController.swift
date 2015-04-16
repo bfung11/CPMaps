@@ -176,7 +176,7 @@ class AddEditLocationViewController: UITableViewController {
       if segue.identifier == saveLocationSegueIdentifer {
          var courseName = self.courseTitleTextField.text
          
-         if tempLocation != nil { // if from editing
+         if indexPath != nil { // if from editing
             // replace objects in location
             // for some reason, replacing the location does not work
             location.updateBuilding(index: indexPath.row, building: selectedBuilding)
