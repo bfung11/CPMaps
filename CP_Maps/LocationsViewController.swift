@@ -10,14 +10,14 @@ import UIKit
 
 class LocationsViewController: UITableViewController {
    
-   var locations: [Location]!
+   var locations: LocationLibraryAPI!
    var indexPath: NSIndexPath?
    var isEditLocation: Bool?
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      locations = LocationLibraryAPI.sharedInstance.getAllLocations()
+      locations = LocationLibraryAPI.sharedInstance
 
       // Uncomment the following line to preserve selection between presentations
       // self.clearsSelectionOnViewWillAppear = false
@@ -37,14 +37,14 @@ class LocationsViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return LocationLibraryAPI.sharedInstance.getNumberOfLocations()
+      return locations.getNumberOfLocations()
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
    -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) as! LocationCell
       
-      let location = LocationLibraryAPI.sharedInstance.getLocation(indexPath.row)
+      let location = locations.getLocation(indexPath.row)
       cell.buildingTitleLabel.text = "Building " + location.building.number + " (" + location.building.name + ")"
       if location.room == nil {
          cell.roomTitleLabel.text = ""
@@ -74,7 +74,7 @@ class LocationsViewController: UITableViewController {
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
-         viewController.location = LocationLibraryAPI.sharedInstance.getLocation(indexPath!.row)
+         viewController.location = locations.getLocation(indexPath!.row)
          isEditLocation = true
       }
       else {
@@ -95,9 +95,9 @@ class LocationsViewController: UITableViewController {
       }
       else {
          // add the new location to the location array
-         LocationLibraryAPI.sharedInstance.addLocation(viewController.location)
+         locations.addLocation(viewController.location)
          
-         let count = LocationLibraryAPI.sharedInstance.getNumberOfLocations() - 1
+         let count = locations.getNumberOfLocations() - 1
          // update the tableView
          let indexPath = NSIndexPath(forRow: count, inSection: 0)
          tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
