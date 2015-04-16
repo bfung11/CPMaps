@@ -43,6 +43,10 @@ class LocationLibraryAPI: NSObject {
       return persistencyManager.getBuilding(index)
    }
    
+   func hasRoom(index: Int) -> Bool {
+      return persistencyManager.hasRoom(index)
+   }
+   
    func getRoom(index: Int) -> Room? {
       return persistencyManager.getRoom(index)
    }

@@ -39,6 +39,10 @@ class PersistencyManager: NSObject {
       return locations[index].building
    }
    
+   func hasRoom(index: Int) -> Bool {
+      return locations[index].room != nil
+   }
+   
    func getRoom(index: Int) -> Room? {
       return locations[index].room
    }
