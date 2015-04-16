@@ -57,7 +57,7 @@ class PersistencyManager: NSObject {
    }
    
    func getRoomNumber(index: Int) -> String {
-      return locations[index].room!.number
+      return locations[index].room!.getRoomNumber()
    }
    
    func updateRoom(#index: Int, room: Room) {

@@ -14,4 +14,8 @@ class Room: NSObject {
    init(number: String) {
       self.number = number
    }
+   
+   func getRoomNumber() -> String {
+      return self.number
+   }
 }
