@@ -37,11 +37,11 @@ class PersistencyManager: NSObject {
    }
    
    func getBuildingName(index: Int) -> String {
-      return locations[index].building!.name
+      return locations[index].building.getBuildingName()
    }
    
    func getBuildingNumber(index: Int) -> String {
-      return locations[index].building!.number
+      return locations[index].building!.getBuildingNumber()
    }
    
    func updateBuilding(#index: Int, building: Building) {

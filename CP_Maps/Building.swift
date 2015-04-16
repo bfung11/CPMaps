@@ -26,4 +26,12 @@ class Building: NSObject {
       self.rooms = building.rooms
       super.init()
    }
+   
+   func getBuildingName() -> String {
+      return self.name
+   }
+   
+   func getBuildingNumber() -> String {
+      return self.number
+   }
 }
