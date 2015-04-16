@@ -76,7 +76,6 @@ class LocationsViewController: UITableViewController {
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
-         viewController.tempLocation = locations.getLocation(indexPath!.row)
          viewController.indexPath = indexPath
          isEditLocation = true
       }

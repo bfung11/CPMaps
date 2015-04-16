@@ -22,7 +22,6 @@ class AddEditLocationViewController: UITableViewController {
    // exclamation point - does not instantiate, but must do so before use
    var indexPath: NSIndexPath!       // location passed as index
    var location: LocationLibraryAPI! // location as sharedInstance
-   var tempLocation: Location!       // temporary so code does not break while updating it in parts
    var buildings: [Building]!        // holds the data for all buildings
    var selectedBuilding: Building!   // building from choosing a builidng or from editing a location
    var selectedRoom: Room?           // room from choosing a room or from editing a location with room
