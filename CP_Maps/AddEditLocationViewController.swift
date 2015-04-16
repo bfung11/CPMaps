@@ -41,7 +41,6 @@ class AddEditLocationViewController: UITableViewController {
       
       // if editing a location location
       if indexPath != nil { // if from editing a location, then location must always be passed
-         
          selectedBuilding = location.getBuilding(indexPath.row)
          buildingDetail.text = "Building " + selectedBuilding.number + " (" +
             selectedBuilding.name + ")"
@@ -58,7 +57,6 @@ class AddEditLocationViewController: UITableViewController {
          if location.hasDays(indexPath.row) {
             daysDetail.text = self.getCourseDays() as! String
          }
-         
          self.navigationItem.title = editLocationViewControllerTitle
       }
       else {
