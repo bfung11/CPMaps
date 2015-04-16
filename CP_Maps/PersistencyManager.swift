@@ -36,6 +36,14 @@ class PersistencyManager: NSObject {
       return locations[index].building
    }
    
+   func getBuildingName(index: Int) -> String {
+      return locations[index].building!.name
+   }
+   
+   func getBuildingNumber(index: Int) -> String {
+      return locations[index].building!.number
+   }
+   
    func updateBuilding(#index: Int, building: Building) {
       locations[index].building = building
    }
@@ -48,6 +56,10 @@ class PersistencyManager: NSObject {
       return locations[index].room
    }
    
+   func getRoomNumber(index: Int) -> String {
+      return locations[index].room!.number
+   }
+   
    func updateRoom(#index: Int, room: Room) {
       locations[index].room = room
    }
@@ -58,6 +70,10 @@ class PersistencyManager: NSObject {
    
    func getCourseName(index: Int) -> String {
       return locations[index].course!.name
+   }
+   
+   func getCourseDetails(index: Int) -> String {
+      return locations[index].getCourseDetails()
    }
    
    func updateCourse(#index: Int, course: Course) {

@@ -46,12 +46,24 @@ class LocationLibraryAPI: NSObject {
       persistencyManager.updateBuilding(index: index, building: building)
    }
    
+   func getBuildingName(index: Int) -> String {
+      return persistencyManager.getBuildingName(index)
+   }
+   
+   func getBuildingNumber(index: Int) -> String {
+      return persistencyManager.getBuildingNumber(index)
+   }
+   
    func hasRoom(index: Int) -> Bool {
       return persistencyManager.hasRoom(index)
    }
    
    func getRoom(index: Int) -> Room? {
       return persistencyManager.getRoom(index)
+   }
+   
+   func getRoomNumber(index: Int) -> String {
+      return persistencyManager.getRoomNumber(index)
    }
    
    func updateRoom(#index: Int, room: Room) {
@@ -64,6 +76,10 @@ class LocationLibraryAPI: NSObject {
    
    func getCourseName(index: Int) -> String {
       return persistencyManager.getCourseName(index)
+   }
+   
+   func getCourseDetails(index: Int) -> String {
+      return persistencyManager.getCourseDetails(index)
    }
    
    func updateCourse(#index: Int, course: Course) {

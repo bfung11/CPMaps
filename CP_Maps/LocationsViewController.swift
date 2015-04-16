@@ -44,15 +44,19 @@ class LocationsViewController: UITableViewController {
    -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) as! LocationCell
       
-      let location = locations.getLocation(indexPath.row)
-      cell.buildingTitleLabel.text = "Building " + location.building.number + " (" + location.building.name + ")"
-      if location.room == nil {
-         cell.roomTitleLabel.text = ""
+      
+      // need to update so that locations cannot be accessed
+      let location = LocationLibraryAPI.sharedInstance
+      cell.buildingTitleLabel.text =
+         "Building " + location.getBuildingNumber(indexPath.row) +
+         " (" + location.getBuildingName(indexPath.row) + ")"
+      if location.hasRoom(indexPath.row) {
+         cell.roomTitleLabel.text = "Room " + location.getRoomNumber(indexPath.row)
       }
       else {
-         cell.roomTitleLabel.text = "Room " + location.room!.number
+         cell.roomTitleLabel.text = ""
       }
-      cell.classTitleLabel.text = location.getCourseDetails()
+      cell.classTitleLabel.text = location.getCourseDetails(indexPath.row)
       return cell
    }
    
