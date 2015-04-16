@@ -69,7 +69,7 @@ class PersistencyManager: NSObject {
    }
    
    func getCourseName(index: Int) -> String {
-      return locations[index].course!.name
+      return locations[index].course!.getCourseName()
    }
    
    func getCourseDetails(index: Int) -> String {

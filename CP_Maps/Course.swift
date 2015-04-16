@@ -68,6 +68,10 @@ class Course: NSObject {
       return daysAsString
    }
    
+   func getCourseName() -> String {
+      return self.name
+   }
+   
    func getCourseDetails() -> String! {
       var courseTimes: String!
       
