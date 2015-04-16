@@ -94,11 +94,11 @@ class LocationsViewController: UITableViewController {
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         //add the new player to the players array
+         // add the new location to the location array
          LocationLibraryAPI.sharedInstance.addLocation(viewController.location)
          
          let count = LocationLibraryAPI.sharedInstance.getNumberOfLocations() - 1
-         //update the tableView
+         // update the tableView
          let indexPath = NSIndexPath(forRow: count, inSection: 0)
          tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
       }
