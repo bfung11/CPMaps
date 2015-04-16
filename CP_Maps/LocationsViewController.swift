@@ -97,11 +97,8 @@ class LocationsViewController: UITableViewController {
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         // add the new location to the location array
-         locations.addLocation(viewController.tempLocation)
-         
-         let count = locations.getNumberOfLocations() - 1
          // update the tableView
+         let count = locations.getNumberOfLocations() - 1
          let indexPath = NSIndexPath(forRow: count, inSection: 0)
          tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
       }

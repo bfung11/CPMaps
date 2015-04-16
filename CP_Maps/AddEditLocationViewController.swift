@@ -177,15 +177,13 @@ class AddEditLocationViewController: UITableViewController {
          var courseName = self.courseTitleTextField.text
          
          if indexPath != nil { // if from editing
-            // replace objects in location
-            // for some reason, replacing the location does not work
             location.updateBuilding(index: indexPath.row, building: selectedBuilding)
             location.updateRoom(index: indexPath.row, room: selectedRoom!)
             location.updateCourse(index: indexPath.row, course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime))
          }
          else {
-            tempLocation = Location(building: selectedBuilding!, room: selectedRoom,
-               course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime))
+            location.addLocation(Location(building: selectedBuilding!, room: selectedRoom,
+               course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)))
          }
       }
    }
