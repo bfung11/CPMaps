@@ -54,7 +54,7 @@ class LocationLibraryAPI: NSObject {
       return persistencyManager.getRoom(index)
    }
    
-   func updateRoom(#index: Int, #room: Room) {
+   func updateRoom(#index: Int, room: Room) {
       persistencyManager.updateRoom(index: index, room: room)
    }
    
@@ -64,6 +64,10 @@ class LocationLibraryAPI: NSObject {
    
    func getCourseName(index: Int) -> String {
       return persistencyManager.getCourseName(index)
+   }
+   
+   func updateCourse(#index: Int, course: Course) {
+      persistencyManager.updateCourse(index: index, course: course)
    }
    
    func hasDays(index: Int) -> Bool {

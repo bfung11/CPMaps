@@ -181,7 +181,7 @@ class AddEditLocationViewController: UITableViewController {
             // for some reason, replacing the location does not work
             location.updateBuilding(index: indexPath.row, building: selectedBuilding)
             location.updateRoom(index: indexPath.row, room: selectedRoom!)
-            tempLocation.course = Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)
+            location.updateCourse(index: indexPath.row, course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime))
          }
          else {
             tempLocation = Location(building: selectedBuilding!, room: selectedRoom,

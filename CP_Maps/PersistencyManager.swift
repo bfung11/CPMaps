@@ -60,6 +60,10 @@ class PersistencyManager: NSObject {
       return locations[index].course!.name
    }
    
+   func updateCourse(#index: Int, course: Course) {
+      locations[index].course = course
+   }
+   
    func hasDays(index: Int) -> Bool {
       return locations[index].course!.hasDays()
    }
