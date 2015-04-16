@@ -22,10 +22,10 @@ class LocationLibraryAPI: NSObject {
       super.init()
    }
    
-//   func addLocation(location: Location) {
-//      persistencyManager.addLocation(location)
-//   }
-//   
+   func addLocation(location: Location) {
+      persistencyManager.addLocation(location)
+   }
+   
 //   func getLocation(index: Int) -> Location {
 //      
 //   }

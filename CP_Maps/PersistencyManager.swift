@@ -18,7 +18,7 @@ class PersistencyManager: NSObject {
       locations = locationsData as! [Location]
    }
    
-//   func addLocation(location: Location) {
-//      locations.append(location)
-//   }
+   func addLocation(location: Location) {
+      locations.append(location)
+   }
 }
