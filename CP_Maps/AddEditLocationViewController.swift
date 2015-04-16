@@ -60,8 +60,8 @@ class AddEditLocationViewController: UITableViewController {
          }
          
          // update selected days
-         self.selectedDays = tempLocation!.course!.days
-         if !selectedDays.isEmpty { // if there are selected days
+         self.selectedDays = location.getDays(indexPath.row)
+         if location.hasDays(indexPath.row) { // if there are selected days
             daysDetail.text = self.getCourseDays() as! String
          }
          

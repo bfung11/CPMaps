@@ -10,7 +10,7 @@ import UIKit
 
 class Course: NSObject {
    var name: String!
-   var days: [Day]!
+   var days: [Day]?
    var startTime: String!
    var endTime: String!
    
@@ -51,6 +51,10 @@ class Course: NSObject {
       if self.endTime == nil {
          self.endTime = ""
       }
+   }
+   
+   func hasDays() -> Bool {
+      return !days!.isEmpty
    }
    
    func getShortHandDays() -> String {

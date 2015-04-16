@@ -58,6 +58,14 @@ class LocationLibraryAPI: NSObject {
       return persistencyManager.getCourseName(index)
    }
    
+   func hasDays(index: Int) -> Bool {
+      return persistencyManager.hasDays(index)
+   }
+   
+   func getDays(index: Int) -> [Day]? {
+      return persistencyManager.getDays(index)
+   }
+   
    func printAllLocations() {
       persistencyManager.printAllLocations()
    }
