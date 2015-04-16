@@ -20,14 +20,14 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
-   var indexPath: NSIndexPath!
-   var location: LocationLibraryAPI!
-   var tempLocation: Location!
-   var buildings: [Building]!      // holds the data for all buildings
-   var selectedBuilding: Building! // building from choosing a builidng or from editing a location
-   var selectedRoom: Room?         // room from choosing a room or from editing a location with room
+   var indexPath: NSIndexPath!       // location passed as index
+   var location: LocationLibraryAPI! // location as sharedInstance
+   var tempLocation: Location!       // temporary so code does not break while updating it in parts
+   var buildings: [Building]!        // holds the data for all buildings
+   var selectedBuilding: Building!   // building from choosing a builidng or from editing a location
+   var selectedRoom: Room?           // room from choosing a room or from editing a location with room
    var courseName: String?
-   var selectedDays: [Day]!        // list of selected days
+   var selectedDays: [Day]!          // list of selected days
    var startTime: String?
    var endTime: String?
    
@@ -41,27 +41,22 @@ class AddEditLocationViewController: UITableViewController {
       location = LocationLibraryAPI.sharedInstance
       
       // if editing a location location
-      if tempLocation != nil { // if from editing a location, then location must always be passed
+      if indexPath != nil { // if from editing a location, then location must always be passed
          
-         // update building
          selectedBuilding = location.getBuilding(indexPath.row)
-         buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
-         
-         // update room
-         if location.hasRoom(indexPath.row) { // if there is a room
+         buildingDetail.text = "Building " + selectedBuilding.number + " (" +
+            selectedBuilding.name + ")"
+         if location.hasRoom(indexPath.row) {
             roomDetail.text = "Room " + location.getRoom(indexPath.row)!.number
+            selectedRoom = location.getRoom(indexPath.row)
          }
-         
-         // update course
-         if location.hasCourse(indexPath.row) { // if there is a course
+         if location.hasCourse(indexPath.row) {
             let tempCourseName = location.getCourseName(indexPath.row)
             courseTitleTextField.text = tempCourseName
             courseName = tempCourseName
          }
-         
-         // update selected days
          self.selectedDays = location.getDays(indexPath.row)
-         if location.hasDays(indexPath.row) { // if there are selected days
+         if location.hasDays(indexPath.row) {
             daysDetail.text = self.getCourseDays() as! String
          }
          
@@ -76,8 +71,12 @@ class AddEditLocationViewController: UITableViewController {
       }
       
       // initialize date pickers
-      startTimeDatePicker.addTarget(self, action: Selector("changeStartDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
-      endTimeDatePicker.addTarget(self, action: Selector("changeEndDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+      startTimeDatePicker.addTarget(self,
+         action: Selector("changeStartDatePicker:"),
+         forControlEvents: UIControlEvents.ValueChanged)
+      endTimeDatePicker.addTarget(self,
+         action: Selector("changeEndDatePicker:"),
+         forControlEvents: UIControlEvents.ValueChanged)
    }
    
    @IBAction func cancelAddEditLocationDetails(segue:UIStoryboardSegue) {
