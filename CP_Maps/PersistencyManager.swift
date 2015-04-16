@@ -9,6 +9,7 @@
 import UIKit
 
 // manager that controls all persistent objects
+// does all the heavy lifting 
 // should only have the add proper object into list (i.e. add Location to location array)
 // not create location object from string then add
 class PersistencyManager: NSObject {
@@ -33,6 +34,10 @@ class PersistencyManager: NSObject {
    func getNumberOfLocations() -> Int {
       return locations.count
    }
+   
+//   func getBuilding(index: Int) -> Building {
+//      return locations[index].building
+//   }
    
    func printAllLocations() {
       for location in locations {
