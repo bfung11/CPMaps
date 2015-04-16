@@ -9,7 +9,7 @@
 import UIKit
 
 // manager that controls all persistent objects
-// does all the heavy lifting 
+// does all the heavy lifting
 // should only have the add proper object into list (i.e. add Location to location array)
 // not create location object from string then add
 class PersistencyManager: NSObject {
