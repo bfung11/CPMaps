@@ -36,6 +36,10 @@ class PersistencyManager: NSObject {
       return locations[index].building
    }
    
+   func updateBuilding(#index: Int, building: Building) {
+      locations[index].building = building
+   }
+   
    func hasRoom(index: Int) -> Bool {
       return locations[index].room != nil
    }
@@ -43,6 +47,10 @@ class PersistencyManager: NSObject {
    func getRoom(index: Int) -> Room? {
       return locations[index].room
    }
+   
+//   func updateRoom(#index: Int, room: Room) {
+//      locations[index].room = room
+//   }
    
    func hasCourse(index: Int) -> Bool {
       return locations[index].course != nil

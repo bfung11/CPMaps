@@ -42,6 +42,10 @@ class LocationLibraryAPI: NSObject {
       return persistencyManager.getBuilding(index)
    }
    
+   func updateBuilding(#index: Int, #building: Building) {
+      persistencyManager.updateBuilding(index: index, building: building)
+   }
+   
    func hasRoom(index: Int) -> Bool {
       return persistencyManager.hasRoom(index)
    }
@@ -49,6 +53,10 @@ class LocationLibraryAPI: NSObject {
    func getRoom(index: Int) -> Room? {
       return persistencyManager.getRoom(index)
    }
+   
+//   func updateRoom(#index: Int, #room: Room) {
+//      persistencyManager.updateRoom(index: index, room: room)
+//   }
    
    func hasCourse(index: Int) -> Bool {
       return persistencyManager.hasCourse(index)
