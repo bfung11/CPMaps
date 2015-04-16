@@ -39,6 +39,10 @@ class LocationLibraryAPI: NSObject {
       return persistencyManager.getNumberOfLocations()
    }
    
+   func getBuilding(index: Int) -> Building {
+      return persistencyManager.getBuilding(index)
+   }
+   
    func printAllLocations() {
       persistencyManager.printAllLocations()
    }

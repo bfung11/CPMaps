@@ -20,7 +20,9 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
-   var location: Location!
+   var indexPath: NSIndexPath!
+   var location: LocationLibraryAPI!
+   var tempLocation: Location!
    var buildings: [Building]!      // holds the data for all buildings
    var selectedBuilding: Building! // building from choosing a builidng or from editing a location
    var selectedRoom: Room?         // room from choosing a room or from editing a location with room
@@ -36,27 +38,31 @@ class AddEditLocationViewController: UITableViewController {
       buildings = buildingsData
       selectedDays = [Day]()
       
+      location = LocationLibraryAPI.sharedInstance
+      
       // if editing a location location
-      if location != nil { // if from editing a location, then location must always be passed
+      if tempLocation != nil { // if from editing a location, then location must always be passed
          
          // update building
-         selectedBuilding = location.building
+         println(location)
+         println(indexPath)
+         selectedBuilding = location.getBuilding(indexPath.row)
          buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
          
          // update room
-         selectedRoom = location.room
+         selectedRoom = tempLocation.room
          if selectedRoom != nil { // if there is a room
             roomDetail.text = "Room " + selectedRoom!.number
          }
          
          // update course
-         if location.course != nil { // if there is a course
-            courseTitleTextField.text = location.course!.name
-            courseName = location.course!.name
+         if tempLocation.course != nil { // if there is a course
+            courseTitleTextField.text = tempLocation.course!.name
+            courseName = tempLocation.course!.name
          }
          
          // update selected days
-         self.selectedDays = location!.course!.days
+         self.selectedDays = tempLocation!.course!.days
          if !selectedDays.isEmpty { // if there are selected days
             daysDetail.text = self.getCourseDays() as! String
          }
@@ -173,15 +179,15 @@ class AddEditLocationViewController: UITableViewController {
       if segue.identifier == saveLocationSegueIdentifer {
          var courseName = self.courseTitleTextField.text
          
-         if location != nil { // if from editing
+         if tempLocation != nil { // if from editing
             // replace objects in location
             // for some reason, replacing the location does not work
-            location.building = selectedBuilding
-            location.room = selectedRoom
-            location.course = Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)
+            tempLocation.building = selectedBuilding
+            tempLocation.room = selectedRoom
+            tempLocation.course = Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)
          }
          else {
-            location = Location(building: selectedBuilding!, room: selectedRoom,
+            tempLocation = Location(building: selectedBuilding!, room: selectedRoom,
                course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime))
          }
       }

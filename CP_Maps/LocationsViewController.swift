@@ -74,7 +74,10 @@ class LocationsViewController: UITableViewController {
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
-         viewController.location = locations.getLocation(indexPath!.row)
+         viewController.tempLocation = locations.getLocation(indexPath!.row)
+         viewController.indexPath = indexPath
+         println("in list locations")
+         println(indexPath)
          isEditLocation = true
       }
       else {
@@ -95,7 +98,7 @@ class LocationsViewController: UITableViewController {
       }
       else {
          // add the new location to the location array
-         locations.addLocation(viewController.location)
+         locations.addLocation(viewController.tempLocation)
          
          let count = locations.getNumberOfLocations() - 1
          // update the tableView
