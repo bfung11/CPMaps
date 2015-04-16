@@ -30,6 +30,10 @@ class PersistencyManager: NSObject {
       return locations
    }
    
+   func getNumberOfLocations() -> Int {
+      return locations.count
+   }
+   
    func printAllLocations() {
       for location in locations {
          println(location.building!.name + " ")
