@@ -44,12 +44,13 @@
 		B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */; };
 		B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */; };
 		B2485FCE1ADF677E00430CD9 /* LocationLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */; };
-		B2485FD11ADF6C4200430CD9 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FD01ADF6C4200430CD9 /* PersistencyManager.swift */; };
+		B2485FD11ADF6C4200430CD9 /* LocationPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FD01ADF6C4200430CD9 /* LocationPersistencyManager.swift */; };
 		B25647351AA0179000315E46 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25647341AA0179000315E46 /* Room.swift */; };
 		B2644D361A990A9300513903 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D351A990A9300513903 /* Building.swift */; };
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
 		B2748F461AB9337D00411FAA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F451AB9337D00411FAA /* Const.swift */; };
 		B2748F501AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */; };
+		B28088941AE8D08100A4656E /* BuildingPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28088931AE8D08100A4656E /* BuildingPersistencyManager.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
@@ -108,12 +109,13 @@
 		B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLibraryAPI.swift; sourceTree = "<group>"; };
-		B2485FD01ADF6C4200430CD9 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		B2485FD01ADF6C4200430CD9 /* LocationPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPersistencyManager.swift; sourceTree = "<group>"; };
 		B25647341AA0179000315E46 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B2644D351A990A9300513903 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		B2748F451AB9337D00411FAA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingRoomTableViewController.swift; sourceTree = "<group>"; };
+		B28088931AE8D08100A4656E /* BuildingPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingPersistencyManager.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
@@ -288,7 +290,8 @@
 		B2485FCF1ADF678800430CD9 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B2485FD01ADF6C4200430CD9 /* PersistencyManager.swift */,
+				B2485FD01ADF6C4200430CD9 /* LocationPersistencyManager.swift */,
+				B28088931AE8D08100A4656E /* BuildingPersistencyManager.swift */,
 				B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */,
 			);
 			name = API;
@@ -416,12 +419,13 @@
 				B2644D361A990A9300513903 /* Building.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
 				B25647351AA0179000315E46 /* Room.swift in Sources */,
+				B28088941AE8D08100A4656E /* BuildingPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
 				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,
 				B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,
 				B2748F461AB9337D00411FAA /* Const.swift in Sources */,
-				B2485FD11ADF6C4200430CD9 /* PersistencyManager.swift in Sources */,
+				B2485FD11ADF6C4200430CD9 /* LocationPersistencyManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
