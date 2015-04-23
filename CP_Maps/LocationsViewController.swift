@@ -19,6 +19,7 @@ class LocationsViewController: UITableViewController {
       super.viewDidLoad()
       
       locations = LocationsLibraryAPI.sharedInstance
+      
 
       // Uncomment the following line to preserve selection between presentations
       // self.clearsSelectionOnViewWillAppear = false
@@ -49,7 +50,8 @@ class LocationsViewController: UITableViewController {
          "Building " + locations.getLocationBuildingNumber(indexPath.row) +
          " (" + locations.getLocationBuildingName(indexPath.row) + ")"
       if locations.locationHasRoom(indexPath.row) {
-         cell.roomTitleLabel.text = "Room " + locations.getLocationRoomNumber(indexPath.row)
+         cell.roomTitleLabel.text =
+            "Room " + locations.getLocationRoomNumber(indexPath.row)
       }
       else {
          cell.roomTitleLabel.text = ""
@@ -102,9 +104,15 @@ class LocationsViewController: UITableViewController {
          locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays, insertIntoManagedObjectContext: self.managedObjectContext)
          
          // update the tableView
-         let count = locations.getNumberOfLocations() - 1
+         self.tableView.reloadData()
+         
+         let count = locations.getNumberOfLocations()
+         
+         println("\(count) add\n\n\n\n\n")
+         
          let indexPath = NSIndexPath(forRow: count, inSection: 0)
          tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+         println("after")
       }
    }
 }
