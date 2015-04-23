@@ -39,19 +39,19 @@ class AddEditLocationViewController: UITableViewController {
       
       // if editing a location location
       if indexPath != nil { // if from editing a location, then location must always be passed
-         buildingDetail.text = "Building " + locations.getBuildingNumber(indexPath.row) + " (" +
-            locations.getBuildingName(indexPath.row) + ")"
-         if locations.hasRoom(indexPath.row) {
-            roomTextField.text = "Room " + locations.getRoom(indexPath.row)!
-            selectedRoom = locations.getRoom(indexPath.row)
+         buildingDetail.text = "Building " + locations.getLocationBuildingNumber(indexPath.row) + " (" +
+            locations.getLocationBuildingName(indexPath.row) + ")"
+         if locations.locationHasRoom(indexPath.row) {
+            roomTextField.text = "Room " + locations.getLocationRoom(indexPath.row)!
+            selectedRoom = locations.getLocationRoom(indexPath.row)
          }
-         if locations.hasName(indexPath.row) {
-            let tempCourseName = locations.getName(indexPath.row)
+         if locations.locationHasName(indexPath.row) {
+            let tempCourseName = locations.getLocationName(indexPath.row)
             roomTextField.text = tempCourseName
             courseName = tempCourseName
          }
-         self.selectedDays = locations.getDays(indexPath.row)
-         if locations.hasDays(indexPath.row) {
+         self.selectedDays = locations.getLocationDays(indexPath.row)
+         if locations.locationHasDays(indexPath.row) {
             daysDetail.text = self.getCourseDays() as! String
          }
          self.navigationItem.title = editLocationViewControllerTitle
@@ -173,7 +173,7 @@ class AddEditLocationViewController: UITableViewController {
          
          if indexPath != nil { // if from editing
 //            locations.updateBuildingNumber(index: indexPath.row, buildingNumber: selectedBuilding!)
-            locations.updateRoomNumber(index: indexPath.row, roomNumber: selectedRoom!)
+            locations.updateLocationRoomNumber(index: indexPath.row, roomNumber: selectedRoom!)
          }
          else {
 //            locations.addLocation(Location(building: selectedBuilding!, room: selectedRoom,
