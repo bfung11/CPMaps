@@ -39,7 +39,7 @@ class LocationLibraryAPI: NSObject {
       return locationPersistencyManager.getNumberOfLocations()
    }
    
-   func hasLocationName(index: Int) -> Bool {
+   func locationHasName(index: Int) -> Bool {
       return locationPersistencyManager.hasName(index)
    }
    
@@ -59,7 +59,7 @@ class LocationLibraryAPI: NSObject {
       locationPersistencyManager.updateBuilding(index: index, buildingNumber: buildingNumber)
    }
    
-   func hasLocationRoom(index: Int) -> Bool {
+   func locationHasRoom(index: Int) -> Bool {
       return locationPersistencyManager.hasRoom(index)
    }
    
@@ -75,7 +75,7 @@ class LocationLibraryAPI: NSObject {
       locationPersistencyManager.updateRoomNumber(index: index, roomNumber: roomNumber)
    }
    
-   func hasLocationDays(index: Int) -> Bool {
+   func locationHasDays(index: Int) -> Bool {
       return locationPersistencyManager.hasDays(index)
    }
    
