@@ -54,7 +54,7 @@ class LocationsViewController: UITableViewController {
       else {
          cell.roomTitleLabel.text = ""
       }
-      cell.classTitleLabel.text = location.getCourseDetails(indexPath.row)
+      cell.classTitleLabel.text = location.getName(indexPath.row)
       return cell
    }
    
