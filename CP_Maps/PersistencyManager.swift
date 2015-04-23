@@ -32,65 +32,47 @@ class PersistencyManager: NSObject {
       return locations.count
    }
    
-   func getBuilding(index: Int) -> Building {
-      return locations[index].building
+   func hasName(index: Int) -> Bool {
+      return locations[index].name != nil
    }
    
-   func getBuildingName(index: Int) -> String {
-      return locations[index].building.getBuildingName()
+   func getName(index: Int) -> String {
+      return locations[index].name!
+   }
+   
+   func updateName(#index: Int, name: String) {
+      locations[index].name = name
    }
    
    func getBuildingNumber(index: Int) -> String {
-      return locations[index].building!.getBuildingNumber()
+      return locations[index].buildingNumber
    }
    
-   func updateBuilding(#index: Int, building: Building) {
-      locations[index].building = building
+   func updateBuilding(#index: Int, buildingNumber: String) {
+      locations[index].buildingNumber = buildingNumber
    }
    
    func hasRoom(index: Int) -> Bool {
-      return locations[index].room != nil
-   }
-   
-   func getRoom(index: Int) -> Room? {
-      return locations[index].room
+      return locations[index].roomNumber != nil
    }
    
    func getRoomNumber(index: Int) -> String {
-      return locations[index].room!.getRoomNumber()
+      return locations[index].roomNumber!
    }
    
-   func updateRoom(#index: Int, room: Room) {
-      locations[index].room = room
-   }
-   
-   func hasCourse(index: Int) -> Bool {
-      return locations[index].course != nil
-   }
-   
-   func getCourseName(index: Int) -> String {
-      return locations[index].course!.getCourseName()
-   }
-   
-   func getCourseDetails(index: Int) -> String {
-      return locations[index].getCourseDetails()
-   }
-   
-   func updateCourse(#index: Int, course: Course) {
-      locations[index].course = course
+   func updateRoomNumber(#index: Int, roomNumber: String) {
+      locations[index].roomNumber = roomNumber
    }
    
    func hasDays(index: Int) -> Bool {
-      return locations[index].course!.hasDays()
+      return locations[index].days != nil
    }
    
-   func getDays(index: Int) -> [Day]? {
-      return locations[index].course!.days
+   func getDays(index: Int) -> String {
+      return locations[index].days!
    }
    
-   func printAllLocations() {
-      for location in locations {
-         println(location.building!.name + " ")
-      }
+   func updateDays(#index: Int, days: String) {
+      locations[index].days = days
    }
 }
