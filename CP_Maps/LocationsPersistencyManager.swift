@@ -9,7 +9,7 @@
 import UIKit
 
 // manager that controls all persistent objects
-class LocationPersistencyManager: NSObject {
+class LocationsPersistencyManager: NSObject {
    private var locations: [Location]
    
    override init() {

@@ -11,87 +11,87 @@ import UIKit
 // API that all classes and users use to interface with locations
 // if model implementations change, classes can still continue to rely on
 // on these functions and be oblivious to the change
-class LocationLibraryAPI: NSObject {
-   private let locationPersistencyManager: LocationPersistencyManager
-   private let buildingPersistencyManager: BuildingPersistencyManager
+class LocationsLibraryAPI: NSObject {
+   private let locationsPersistencyManager: LocationsPersistencyManager
+   private let buildingsPersistencyManager: BuildingsPersistencyManager
    
-   static let sharedInstance = LocationLibraryAPI()
+   static let sharedInstance = LocationsLibraryAPI()
    
    override init() {
-      locationPersistencyManager = LocationPersistencyManager()
-      buildingPersistencyManager = BuildingPersistencyManager()
+      locationsPersistencyManager = LocationsPersistencyManager()
+      buildingsPersistencyManager = BuildingsPersistencyManager()
       super.init()
    }
    
    func addLocation(location: Location) {
-      locationPersistencyManager.addLocation(location)
+      locationsPersistencyManager.addLocation(location)
    }
    
    func getLocation(index: Int) -> Location {
-      return locationPersistencyManager.getLocation(index)
+      return locationsPersistencyManager.getLocation(index)
    }
    
    func getAllLocations() -> [Location] {
-      return locationPersistencyManager.getAllLocations()
+      return locationsPersistencyManager.getAllLocations()
    }
    
    func getNumberOfLocations() -> Int {
-      return locationPersistencyManager.getNumberOfLocations()
+      return locationsPersistencyManager.getNumberOfLocations()
    }
    
    func hasName(index: Int) -> Bool {
-      return locationPersistencyManager.hasName(index)
+      return locationsPersistencyManager.hasName(index)
    }
    
    func getName(index: Int) -> String {
-      return locationPersistencyManager.getName(index)
+      return locationsPersistencyManager.getName(index)
    }
    
    func updateName(#index: Int, name: String) {
-      locationPersistencyManager.updateName(index: index, name: name)
+      locationsPersistencyManager.updateName(index: index, name: name)
    }
    
 //   func addBuilding(building: Building) {
-//      buildingPersistencyManager.addBuilding(building)
+//      buildingsPersistencyManager.addBuilding(building)
 //   }
    
    func getBuildingName(index: Int) -> String {
-      return buildingPersistencyManager.getBuildingName(index)
+      return buildingsPersistencyManager.getBuildingName(index)
    }
    
    func getBuildingNumber(index: Int) -> String {
-      return locationPersistencyManager.getBuildingNumber(index)
+      return locationsPersistencyManager.getBuildingNumber(index)
    }
    
    func updateBuildingNumber(#index: Int, #buildingNumber: String) {
-      locationPersistencyManager.updateBuilding(index: index, buildingNumber: buildingNumber)
+      locationsPersistencyManager.updateBuilding(index: index, buildingNumber: buildingNumber)
    }
    
    func hasRoom(index: Int) -> Bool {
-      return locationPersistencyManager.hasRoom(index)
+      return locationsPersistencyManager.hasRoom(index)
    }
    
    func getRoom(index: Int) -> String? {
-      return locationPersistencyManager.getRoomNumber(index)
+      return locationsPersistencyManager.getRoomNumber(index)
    }
    
    func getRoomNumber(index: Int) -> String {
-      return locationPersistencyManager.getRoomNumber(index)
+      return locationsPersistencyManager.getRoomNumber(index)
    }
    
    func updateRoomNumber(#index: Int, roomNumber: String) {
-      locationPersistencyManager.updateRoomNumber(index: index, roomNumber: roomNumber)
+      locationsPersistencyManager.updateRoomNumber(index: index, roomNumber: roomNumber)
    }
    
    func hasDays(index: Int) -> Bool {
-      return locationPersistencyManager.hasDays(index)
+      return locationsPersistencyManager.hasDays(index)
    }
    
    func getDays(index: Int) -> String? {
-      return locationPersistencyManager.getDays(index)
+      return locationsPersistencyManager.getDays(index)
    }
    
    func updateDays(#index: Int, days: String) {
-      locationPersistencyManager.updateDays(index: index, days: days)
+      locationsPersistencyManager.updateDays(index: index, days: days)
    }
 }

@@ -11,8 +11,8 @@ import UIKit
 class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var buildingDetail: UILabel!
    @IBOutlet weak var chooseRoomCell: UITableViewCell!
-   @IBOutlet weak var roomDetail: UILabel!
-   @IBOutlet weak var courseTitleTextField: UITextField!
+   @IBOutlet weak var roomTextField: UITextField!
+   @IBOutlet weak var nameTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: UIDatePicker!
@@ -42,12 +42,12 @@ class AddEditLocationViewController: UITableViewController {
          buildingDetail.text = "Building " + locations.getBuildingNumber(indexPath.row) + " (" +
             locations.getBuildingName(indexPath.row) + ")"
          if locations.hasRoom(indexPath.row) {
-            roomDetail.text = "Room " + locations.getRoom(indexPath.row)!
+            roomTextField.text = "Room " + locations.getRoom(indexPath.row)!
             selectedRoom = locations.getRoom(indexPath.row)
          }
          if locations.hasName(indexPath.row) {
             let tempCourseName = locations.getName(indexPath.row)
-            courseTitleTextField.text = tempCourseName
+            roomTextField.text = tempCourseName
             courseName = tempCourseName
          }
          self.selectedDays = locations.getDays(indexPath.row)
@@ -86,7 +86,7 @@ class AddEditLocationViewController: UITableViewController {
       
       // if choose a new building,
       selectedRoom = nil // deselect room
-      roomDetail.text = "None" // display no selected room
+      roomTextField.text = "None" // display no selected room
       
       // enable room selection
       chooseRoomCell.userInteractionEnabled = true;
@@ -99,7 +99,7 @@ class AddEditLocationViewController: UITableViewController {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       let tempSelectedRoom = viewController.selectedItem! as! Room
       let selectedRoom = tempSelectedRoom.number
-      roomDetail.text = "Room " + selectedRoom
+      roomTextField.text = "Room " + selectedRoom
    }
    
    // save selected days and display selected days
@@ -169,7 +169,7 @@ class AddEditLocationViewController: UITableViewController {
          viewController.selectedDays = selectedDaysAsArray
       }
       if segue.identifier == saveLocationSegueIdentifer {
-         var courseName = self.courseTitleTextField.text
+         var courseName = self.nameTextField.text
          
          if indexPath != nil { // if from editing
 //            locations.updateBuildingNumber(index: indexPath.row, buildingNumber: selectedBuilding!)

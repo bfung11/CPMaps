@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BuildingPersistencyManager: NSObject {
+class BuildingsPersistencyManager: NSObject {
    private var buildings: [Building]
    
    override init() {
