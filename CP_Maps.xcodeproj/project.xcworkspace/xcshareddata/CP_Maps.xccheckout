@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>56ADF339-6005-4CE8-9EB6-D514A2E03C2E</string>
 	<key>IDESourceControlProjectName</key>
-	<string>CP_Maps</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>401EA10FA6FE08595E976B90DAAB63CD3123E97C</key>
 		<string>https://github.com/bfung11/CPMaps.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CP_Maps.xcodeproj</string>
+	<string>CP_Maps.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>401EA10FA6FE08595E976B90DAAB63CD3123E97C</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>401EA10FA6FE08595E976B90DAAB63CD3123E97C</string>
 			<key>IDESourceControlWCCName</key>
-			<string>CP_Maps</string>
+			<string>Brians%20CPMaps</string>
 		</dict>
 	</array>
 </dict>
