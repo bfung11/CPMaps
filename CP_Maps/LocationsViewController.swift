@@ -93,14 +93,13 @@ class LocationsViewController: UITableViewController {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
       
       if isEditLocation == true {
-         
          locations.updateLocationBuildingNumber(index: viewController.indexPath.row, buildingNumber: viewController.selectedBuilding!)
          locations.updateLocationRoomNumber(index: viewController.indexPath.row, roomNumber: viewController.selectedRoom!)
          
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         locations.addLocation(viewController.name!, buildingNumber: viewController.selectedBuilding, roomNumber: viewController.selectedRoom!, startTime: viewController.startTime!, endTime: viewController.endTime!, days: viewController.selectedDays!, insertIntoManagedObjectContext: self.managedObjectContext!)
+         locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays, insertIntoManagedObjectContext: self.managedObjectContext)
          
          // update the tableView
          let count = locations.getNumberOfLocations() - 1

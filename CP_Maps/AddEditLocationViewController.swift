@@ -94,14 +94,14 @@ class AddEditLocationViewController: UITableViewController {
       chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
    }
    
-   // save selected room and display selected room
-   @IBAction func saveRoom(segue:UIStoryboardSegue) {
-      // save room and display selected room
-      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      let tempSelectedRoom = viewController.selectedItem! as! Room
-      let selectedRoom = tempSelectedRoom.number
-      roomTextField.text = "Room " + selectedRoom
-   }
+//   // save selected room and display selected room
+//   @IBAction func saveRoom(segue:UIStoryboardSegue) {
+//      // save room and display selected room
+//      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
+//      let tempSelectedRoom = viewController.selectedItem! as! Room
+//      let selectedRoom = tempSelectedRoom.number
+//      roomTextField.text = "Room " + selectedRoom
+//   }
    
    // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Entity" syncable="YES">
+    <entity name="Location" syncable="YES">
         <attribute name="buildingNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="days" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endTime" optional="YES" attributeType="String" syncable="YES"/>
@@ -9,6 +9,6 @@
         <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Entity" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="Location" positionX="-54" positionY="-9" width="128" height="135"/>
     </elements>
 </model>

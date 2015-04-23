@@ -24,8 +24,8 @@ class LocationsLibraryAPI: NSObject {
       super.init()
    }
    
-   func addLocation(name: String, buildingNumber: String, roomNumber: String, startTime: String, endTime: String, days: String,
-      insertIntoManagedObjectContext context: NSManagedObjectContext) {
+   func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?,
+      insertIntoManagedObjectContext context: NSManagedObjectContext?) {
       locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
    }
    

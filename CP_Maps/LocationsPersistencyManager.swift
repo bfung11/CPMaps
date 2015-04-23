@@ -17,8 +17,8 @@ class LocationsPersistencyManager: NSObject {
       locations = locationsData as! [Location]
    }
 
-   func addLocation(name: String, buildingNumber: String, roomNumber: String, startTime: String, endTime: String, days: String,
-      insertIntoManagedObjectContext context: NSManagedObjectContext) {
+   func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?,
+      insertIntoManagedObjectContext context: NSManagedObjectContext?) {
       Location.createInManagedObjectContext(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
       // TODO: should not fetch every time
    }

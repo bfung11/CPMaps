@@ -18,8 +18,8 @@ class Location: NSManagedObject {
    @NSManaged var days: String?
    
    
-   class func createInManagedObjectContext(name: String, buildingNumber: String, roomNumber: String,
-      startTime: String, endTime: String, days: String,
+   class func createInManagedObjectContext(name: String?, buildingNumber: String!, roomNumber: String?,
+      startTime: String?, endTime: String?, days: String?,
       insertIntoManagedObjectContext context: NSManagedObjectContext?) {
       let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: context!) as! Location
       location.setValue(name, forKey: "name")
