@@ -86,4 +86,16 @@ class LocationLibraryAPI: NSObject {
    func updateLocationDays(#index: Int, days: String) {
       locationPersistencyManager.updateDays(index: index, days: days)
    }
+   
+   func addBuilding(building: Building) {
+      buildingPersistencyManager.addBuilding(building)
+   }
+   
+   func getBuildingName(index: Int) -> String {
+      return buildingPersistencyManager.getBuildingName(index)
+   }
+   
+   func getBuildingNumber(index: Int) -> String {
+      return buildingPersistencyManager.getBuildingNumber(index)
+   }
 }
