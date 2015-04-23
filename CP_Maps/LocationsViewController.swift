@@ -13,6 +13,7 @@ class LocationsViewController: UITableViewController {
    var locations: LocationsLibraryAPI!
    var indexPath: NSIndexPath?
    var isEditLocation: Bool?
+   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -88,11 +89,19 @@ class LocationsViewController: UITableViewController {
       //performSegueWithIdentifier("cancelToMyLocations", sender: self)
    }
    
-   @IBAction func saveLocation(segue:UIStoryboardSegue) {      
+   @IBAction func saveLocation(segue:UIStoryboardSegue) {
+      let viewController = segue.sourceViewController as! AddEditLocationViewController
+      
       if isEditLocation == true {
+         
+         locations.updateLocationBuildingNumber(index: viewController.indexPath.row, buildingNumber: viewController.selectedBuilding!)
+         locations.updateLocationRoomNumber(index: viewController.indexPath.row, roomNumber: viewController.selectedRoom!)
+         
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
+         locations.addLocation(viewController.name!, buildingNumber: viewController.selectedBuilding, roomNumber: viewController.selectedRoom!, startTime: viewController.startTime!, endTime: viewController.endTime!, days: viewController.selectedDays!, insertIntoManagedObjectContext: self.managedObjectContext!)
+         
          // update the tableView
          let count = locations.getNumberOfLocations() - 1
          let indexPath = NSIndexPath(forRow: count, inSection: 0)

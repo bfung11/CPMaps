@@ -23,9 +23,9 @@ class AddEditLocationViewController: UITableViewController {
    var indexPath: NSIndexPath!       // location passed as index
    var locations: LocationsLibraryAPI! // location as sharedInstance
    var buildings: [Building]!        // holds the data for all buildings
-   var selectedBuilding: Building!   // building from choosing a builidng or from editing a location
+   var selectedBuilding: String!   // building from choosing a builidng or from editing a location
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
-   var courseName: String?
+   var name: String?
    var selectedDays: String?
    var selectedDaysAsArray: [Day]?
    var startTime: String?
@@ -48,7 +48,7 @@ class AddEditLocationViewController: UITableViewController {
          if locations.locationHasName(indexPath.row) {
             let tempCourseName = locations.getLocationName(indexPath.row)
             roomTextField.text = tempCourseName
-            courseName = tempCourseName
+            name = tempCourseName
          }
          self.selectedDays = locations.getLocationDays(indexPath.row)
          if locations.locationHasDays(indexPath.row) {
@@ -81,8 +81,9 @@ class AddEditLocationViewController: UITableViewController {
       
       // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      selectedBuilding = viewController.selectedItem! as! Building
-      buildingDetail.text = "Building " + selectedBuilding.number + " (" + selectedBuilding.name + ")"
+      let tempSelectedBuilding = viewController.selectedItem! as! Building
+      buildingDetail.text = "Building " + tempSelectedBuilding.number + " (" + tempSelectedBuilding.name + ")"
+      selectedBuilding = tempSelectedBuilding.number
       
       // if choose a new building,
       selectedRoom = nil // deselect room
@@ -158,12 +159,12 @@ class AddEditLocationViewController: UITableViewController {
          viewController.data = buildingsData
          viewController.selectedItem = selectedBuilding
       }
-      if segue.identifier == chooseRoomSegueIdentifier {
-         let viewController = segue.destinationViewController as! ChooseBuildingRoomViewController
-         viewController.identifier = chooseRoomSegueIdentifier
-         viewController.data = selectedBuilding!.rooms
-         viewController.selectedItem = selectedRoom
-      }
+//      if segue.identifier == chooseRoomSegueIdentifier {
+//         let viewController = segue.destinationViewController as! ChooseBuildingRoomViewController
+//         viewController.identifier = chooseRoomSegueIdentifier
+//         viewController.data = selectedBuilding!.rooms
+//         viewController.selectedItem = selectedRoom
+//      }
       if segue.identifier == chooseDaysSegueIdentifier {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = selectedDaysAsArray
