@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class Room: NSObject {
    var number: String!

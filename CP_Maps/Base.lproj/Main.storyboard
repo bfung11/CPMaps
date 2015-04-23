@@ -106,8 +106,6 @@
         <!--Buildings-->
         <scene sceneID="s9A-w7-TCp">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="otV-Jj-3rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="dph-ZY-8CQ" userLabel="Exit" sceneMemberID="exit"/>
                 <tableViewController id="lGh-y7-cTa" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YJV-9a-HZQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -134,13 +132,14 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="otV-Jj-3rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dph-ZY-8CQ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1512" y="66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tZR-BB-uK3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VTX-D6-2yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="4lu-bR-S6e" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Awz-TA-Tbm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bYQ-Yw-0Cs">
@@ -151,6 +150,7 @@
                         <segue destination="lGh-y7-cTa" kind="relationship" relationship="rootViewController" id="k81-Vs-pIe"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VTX-D6-2yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="760" y="66"/>
         </scene>
