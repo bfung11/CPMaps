@@ -10,14 +10,14 @@ import UIKit
 
 class LocationsViewController: UITableViewController {
    
-   var locations: LocationLibraryAPI!
+   var locations: LocationsLibraryAPI!
    var indexPath: NSIndexPath?
    var isEditLocation: Bool?
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      locations = LocationLibraryAPI.sharedInstance
+      locations = LocationsLibraryAPI.sharedInstance
 
       // Uncomment the following line to preserve selection between presentations
       // self.clearsSelectionOnViewWillAppear = false
@@ -44,7 +44,7 @@ class LocationsViewController: UITableViewController {
    -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
       
-      let location = LocationLibraryAPI.sharedInstance
+      let location = LocationsLibraryAPI.sharedInstance
       cell.buildingTitleLabel.text =
          "Building " + location.getBuildingNumber(indexPath.row) +
          " (" + location.getBuildingName(indexPath.row) + ")"
