@@ -172,23 +172,14 @@ class AddEditLocationViewController: UITableViewController {
          var courseName = self.nameTextField.text
          
          if indexPath != nil { // if from editing
-//            locations.updateBuildingNumber(index: indexPath.row, buildingNumber: selectedBuilding!)
+            // TODO: update building
             locations.updateLocationRoomNumber(index: indexPath.row, roomNumber: selectedRoom!)
          }
          else {
-//            locations.addLocation(Location(building: selectedBuilding!, room: selectedRoom,
-//               course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)))
+            // TODO: add location
          }
       }
    }
-   
-//   //Allows user to tap anywhere in cell to bring up keyboard
-//   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//      if indexPath.section == 0 {
-//         courseTitleTextField.becomeFirstResponder()
-//      }
-//   }
-   
    
    /*! Takes all the selected days, puts them into a string separated by commas 
        and returns it. Used to display the selected days when adding or editing location
