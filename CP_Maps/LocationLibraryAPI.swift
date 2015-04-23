@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 // API that all classes and users use to interface with locations
 // if model implementations change, classes can still continue to rely on
@@ -23,8 +24,10 @@ class LocationsLibraryAPI: NSObject {
       super.init()
    }
    
-   func addLocation(location: Location) {
-      locationsPersistencyManager.addLocation(location)
+   func addLocation(name: String, buildingNumber: String, roomNumber: String,
+      startTime: String, endTime: String, days: String,
+      insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+      locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
    }
    
    func getLocation(index: Int) -> Location {

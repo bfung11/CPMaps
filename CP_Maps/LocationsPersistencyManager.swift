@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 // manager that controls all persistent objects
 class LocationsPersistencyManager: NSObject {
@@ -16,8 +17,10 @@ class LocationsPersistencyManager: NSObject {
       locations = locationsData as! [Location]
    }
    
-   func addLocation(location: Location) {
-      locations.append(location)
+   func addLocation(name: String, buildingNumber: String, roomNumber: String, startTime: String, endTime: String, days: String,
+      insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+      Location.createInManagedObjectContext(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
+      // TODO: should not fetch every time
    }
    
    func getLocation(index: Int) -> Location {
