@@ -63,7 +63,7 @@ class LocationLibraryAPI: NSObject {
       return locationPersistencyManager.getBuildingNumber(index)
    }
    
-   func updateBuilding(#index: Int, #buildingNumber: String) {
+   func updateBuildingNumber(#index: Int, #buildingNumber: String) {
       locationPersistencyManager.updateBuilding(index: index, buildingNumber: buildingNumber)
    }
    

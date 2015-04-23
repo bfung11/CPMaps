@@ -21,12 +21,13 @@ class AddEditLocationViewController: UITableViewController {
    
    // exclamation point - does not instantiate, but must do so before use
    var indexPath: NSIndexPath!       // location passed as index
-   var location: LocationLibraryAPI! // location as sharedInstance
+   var locations: LocationLibraryAPI! // location as sharedInstance
    var buildings: [Building]!        // holds the data for all buildings
    var selectedBuilding: Building!   // building from choosing a builidng or from editing a location
-   var selectedRoom: Room?           // room from choosing a room or from editing a location with room
+   var selectedRoom: String?           // room from choosing a room or from editing a location with room
    var courseName: String?
-   var selectedDays: [Day]!          // list of selected days
+   var selectedDays: String?
+   var selectedDaysAsArray: [Day]?
    var startTime: String?
    var endTime: String?
    
@@ -34,27 +35,23 @@ class AddEditLocationViewController: UITableViewController {
       super.viewDidLoad()
       
       // set up data source
-      buildings = buildingsData
-      selectedDays = [Day]()
-      
-      location = LocationLibraryAPI.sharedInstance
+      locations = LocationLibraryAPI.sharedInstance
       
       // if editing a location location
       if indexPath != nil { // if from editing a location, then location must always be passed
-         selectedBuilding = location.getBuilding(indexPath.row)
-         buildingDetail.text = "Building " + selectedBuilding.number + " (" +
-            selectedBuilding.name + ")"
-         if location.hasRoom(indexPath.row) {
-            roomDetail.text = "Room " + location.getRoom(indexPath.row)!.number
-            selectedRoom = location.getRoom(indexPath.row)
+         buildingDetail.text = "Building " + locations.getBuildingNumber(indexPath.row) + " (" +
+            locations.getBuildingName(indexPath.row) + ")"
+         if locations.hasRoom(indexPath.row) {
+            roomDetail.text = "Room " + locations.getRoom(indexPath.row)!
+            selectedRoom = locations.getRoom(indexPath.row)
          }
-         if location.hasCourse(indexPath.row) {
-            let tempCourseName = location.getCourseName(indexPath.row)
+         if locations.hasName(indexPath.row) {
+            let tempCourseName = locations.getName(indexPath.row)
             courseTitleTextField.text = tempCourseName
             courseName = tempCourseName
          }
-         self.selectedDays = location.getDays(indexPath.row)
-         if location.hasDays(indexPath.row) {
+         self.selectedDays = locations.getDays(indexPath.row)
+         if locations.hasDays(indexPath.row) {
             daysDetail.text = self.getCourseDays() as! String
          }
          self.navigationItem.title = editLocationViewControllerTitle
@@ -100,19 +97,21 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func saveRoom(segue:UIStoryboardSegue) {
       // save room and display selected room
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      selectedRoom = viewController.selectedItem! as! Room
-      roomDetail.text = "Room " + selectedRoom!.number
+      let tempSelectedRoom = viewController.selectedItem! as! Room
+      let selectedRoom = tempSelectedRoom.number
+      roomDetail.text = "Room " + selectedRoom
    }
    
    // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       // get selected days from view controller
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
-      selectedDays = chooseDaysViewController.selectedDays // can be empty, not nil
+      let selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
+//      selectedDays = chooseDaysViewController.selectedDays // can be empty, not nil
       
       // display selected days
       daysDetail.text = "None"
-      if !selectedDays.isEmpty {
+      if !selectedDaysAsArray!.isEmpty {
          daysDetail.text = self.getCourseDays() as String
       }
    }
@@ -167,19 +166,18 @@ class AddEditLocationViewController: UITableViewController {
       }
       if segue.identifier == chooseDaysSegueIdentifier {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
-         viewController.selectedDays = selectedDays
+         viewController.selectedDays = selectedDaysAsArray
       }
       if segue.identifier == saveLocationSegueIdentifer {
          var courseName = self.courseTitleTextField.text
          
          if indexPath != nil { // if from editing
-            location.updateBuilding(index: indexPath.row, building: selectedBuilding)
-            location.updateRoom(index: indexPath.row, room: selectedRoom!)
-            location.updateCourse(index: indexPath.row, course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime))
+//            locations.updateBuildingNumber(index: indexPath.row, buildingNumber: selectedBuilding!)
+            locations.updateRoomNumber(index: indexPath.row, roomNumber: selectedRoom!)
          }
          else {
-            location.addLocation(Location(building: selectedBuilding!, room: selectedRoom,
-               course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)))
+//            locations.addLocation(Location(building: selectedBuilding!, room: selectedRoom,
+//               course: Course(name: courseName, selectedDays: selectedDays, startTime: startTime, endTime: endTime)))
          }
       }
    }
@@ -201,7 +199,7 @@ class AddEditLocationViewController: UITableViewController {
       var finalTitle: NSString!
       
       // add all the days separated by commas
-      for day in selectedDays {
+      for day in selectedDaysAsArray! {
          tempTitle += day.name + ", "
       }
       
