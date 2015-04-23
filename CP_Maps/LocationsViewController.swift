@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-class LocationsViewController: UITableViewController {
+class LocationsViewController: UITableViewController, UITableViewDataSource {
+   
+   @IBOutlet var locationsTableView: UITableView!
    
    var locations: LocationsLibraryAPI!
    var indexPath: NSIndexPath?
@@ -19,7 +22,7 @@ class LocationsViewController: UITableViewController {
       super.viewDidLoad()
       
       locations = LocationsLibraryAPI.sharedInstance
-      
+      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
 
       // Uncomment the following line to preserve selection between presentations
       // self.clearsSelectionOnViewWillAppear = false
@@ -46,17 +49,17 @@ class LocationsViewController: UITableViewController {
    -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
       
-      cell.buildingTitleLabel.text =
+      cell.buildingLabel?.text =
          "Building " + locations.getLocationBuildingNumber(indexPath.row) +
          " (" + locations.getLocationBuildingName(indexPath.row) + ")"
       if locations.locationHasRoom(indexPath.row) {
-         cell.roomTitleLabel.text =
+         cell.roomLabel?.text =
             "Room " + locations.getLocationRoomNumber(indexPath.row)
       }
       else {
-         cell.roomTitleLabel.text = ""
+         cell.roomLabel?.text = ""
       }
-      cell.classTitleLabel.text = locations.getLocationName(indexPath.row)
+      cell.timesLabel?.text = locations.getLocationName(indexPath.row)
       return cell
    }
    
@@ -105,13 +108,10 @@ class LocationsViewController: UITableViewController {
          
          // update the tableView
          self.tableView.reloadData()
-         
          let count = locations.getNumberOfLocations()
-         
-         println("\(count) add\n\n\n\n\n")
-         
+         println("num location \(count)")
          let indexPath = NSIndexPath(forRow: count, inSection: 0)
-         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
          println("after")
       }
    }
