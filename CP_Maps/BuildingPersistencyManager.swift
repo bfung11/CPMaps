@@ -9,5 +9,21 @@
 import UIKit
 
 class BuildingPersistencyManager: NSObject {
+   private var buildings: [Building]
    
+   override init() {
+      buildings = buildingsData as! [Building]
+   }
+   
+   func addBuilding(building: Building) {
+      buildings.append(building)
+   }
+   
+   func getBuildingName(index: Int) -> String {
+      return buildings[index].name
+   }
+   
+   func getBuildingNumber(index: Int) -> String {
+      return buildings[index].number
+   }
 }
