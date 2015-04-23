@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +41,11 @@
                                                 <action selector="mapTypeSegmentPressed:" destination="vXZ-lx-hvc" eventType="valueChanged" id="fRR-Sc-hyA"/>
                                             </connections>
                                         </segmentedControl>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZnS-fd-ijj"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZnS-fd-ijj">
+                                            <connections>
+                                                <segue destination="4lu-bR-S6e" kind="presentation" modalTransitionStyle="coverVertical" id="U84-BJ-tEH"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -98,6 +102,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101" y="967"/>
+        </scene>
+        <!--Buildings-->
+        <scene sceneID="s9A-w7-TCp">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="otV-Jj-3rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dph-ZY-8CQ" userLabel="Exit" sceneMemberID="exit"/>
+                <tableViewController id="lGh-y7-cTa" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YJV-9a-HZQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="E3L-TK-HpI">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E3L-TK-HpI" id="a45-Di-Pkl">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lGh-y7-cTa" id="r1P-9Y-K7u"/>
+                            <outlet property="delegate" destination="lGh-y7-cTa" id="8pu-g5-cF6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Buildings" id="mZo-nk-Dp4">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="cgU-wa-CYg">
+                            <connections>
+                                <segue destination="dph-ZY-8CQ" kind="unwind" unwindAction="clickBackToMaps:" id="kJe-Mo-GjL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="1512" y="66"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tZR-BB-uK3">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VTX-D6-2yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController id="4lu-bR-S6e" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Awz-TA-Tbm"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bYQ-Yw-0Cs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lGh-y7-cTa" kind="relationship" relationship="rootViewController" id="k81-Vs-pIe"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="760" y="66"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="Ou0-u7-6v0">
