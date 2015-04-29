@@ -12,12 +12,12 @@ import CoreData
 // API that all classes and users use to interface with locations
 // if model implementations change, classes can still continue to rely on
 // on these functions and be oblivious to the change
-class LocationsLibraryAPI: NSObject {
+class CPMapsLibraryAPI: NSObject {
    private let locationsPersistencyManager: LocationsPersistencyManager
    private let buildingsPersistencyManager: BuildingsPersistencyManager
    private let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
-   static let sharedInstance = LocationsLibraryAPI()
+   static let sharedInstance = CPMapsLibraryAPI()
    
    override init() {
       locationsPersistencyManager = LocationsPersistencyManager()

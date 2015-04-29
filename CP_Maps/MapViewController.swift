@@ -15,7 +15,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
    
    let locationManager = CLLocationManager()
-   let locationLibraryAPI = LocationsLibraryAPI.sharedInstance
+   let locationLibraryAPI = CPMapsLibraryAPI.sharedInstance
    
    override func viewDidLoad() {
       super.viewDidLoad()

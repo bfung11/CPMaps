@@ -21,7 +21,7 @@ class AddEditLocationViewController: UITableViewController {
    
    // exclamation point - does not instantiate, but must do so before use
    var indexPath: NSIndexPath!       // location passed as index
-   var locations: LocationsLibraryAPI! // location as sharedInstance
+   var locations: CPMapsLibraryAPI! // location as sharedInstance
    var buildings: [Building]!        // holds the data for all buildings
    var selectedBuilding: String!   // building from choosing a builidng or from editing a location
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
@@ -35,7 +35,7 @@ class AddEditLocationViewController: UITableViewController {
       super.viewDidLoad()
       
       // set up data source
-      locations = LocationsLibraryAPI.sharedInstance
+      locations = CPMapsLibraryAPI.sharedInstance
       
       // if editing a location location
       if indexPath != nil { // if from editing a location, then location must always be passed

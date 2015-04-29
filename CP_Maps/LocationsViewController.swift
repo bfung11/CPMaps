@@ -13,7 +13,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    
    @IBOutlet var locationsTableView: UITableView!
    
-   var locations: LocationsLibraryAPI!
+   var locations: CPMapsLibraryAPI!
    var indexPath: NSIndexPath?
    var isEditLocation: Bool?
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -21,7 +21,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      locations = LocationsLibraryAPI.sharedInstance
+      locations = CPMapsLibraryAPI.sharedInstance
       locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
 
       // Uncomment the following line to preserve selection between presentations
