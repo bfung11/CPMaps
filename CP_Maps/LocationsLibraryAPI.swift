@@ -15,7 +15,8 @@ import CoreData
 class LocationsLibraryAPI: NSObject {
    private let locationsPersistencyManager: LocationsPersistencyManager
    private let buildingsPersistencyManager: BuildingsPersistencyManager
-   
+   private let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+
    static let sharedInstance = LocationsLibraryAPI()
    
    override init() {
@@ -24,9 +25,8 @@ class LocationsLibraryAPI: NSObject {
       super.init()
    }
    
-   func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?,
-      insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-      locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
+   func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?) {
+      locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, context: managedObjectContext)
    }
    
    func getLocation(index: Int) -> Location {

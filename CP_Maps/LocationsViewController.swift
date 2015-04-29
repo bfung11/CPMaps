@@ -104,7 +104,9 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays, insertIntoManagedObjectContext: self.managedObjectContext)
+//         locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays, insertIntoManagedObjectContext: self.managedObjectContext)
+            locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays)
+
          
          // update the tableView
          self.tableView.reloadData()
