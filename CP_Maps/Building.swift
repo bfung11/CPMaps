@@ -13,8 +13,8 @@ class Building: NSObject {
    var name: String!
    var number: String!
    var rooms: [Room]!
-   var lat : Double!
-   var long: Double!
+   var latitude: Double!
+   var longitude: Double!
    
    init(name: String, number: String, rooms: [Room]) {
       self.name = name
@@ -27,8 +27,8 @@ class Building: NSObject {
       self.name = name
       self.number = number
       self.rooms = []
-      self.lat = lat
-      self.long = long
+      self.latitude = lat
+      self.longitude = long
       super.init()
    }
    
@@ -45,5 +45,13 @@ class Building: NSObject {
    
    func getBuildingNumber() -> String {
       return self.number
+   }
+   
+   func getLongtitude() -> Double {
+      return self.longitude
+   }
+   
+   func getLatitude() -> Double {
+      return self.latitude
    }
 }
