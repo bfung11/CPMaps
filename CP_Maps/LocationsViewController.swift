@@ -23,20 +23,12 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       
       locations = CPMapsLibraryAPI.sharedInstance
       locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
-
-      // Uncomment the following line to preserve selection between presentations
-      // self.clearsSelectionOnViewWillAppear = false
-
-      // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-      // self.navigationItem.rightBarButtonItem = self.editButtonItem()
    }
    
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
    }
 
-   // MARK: - Table view data source
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return numberOfSectionsInLocationsViewController
    }
@@ -97,6 +89,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
       
+      
       if isEditLocation == true {
          locations.updateLocationBuildingNumber(index: viewController.indexPath.row, buildingNumber: viewController.selectedBuilding!)
          locations.updateLocationRoomNumber(index: viewController.indexPath.row, roomNumber: viewController.selectedRoom!)
@@ -104,17 +97,24 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-//         locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays, insertIntoManagedObjectContext: self.managedObjectContext)
-            locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays)
+         locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays)
 
-         
          // update the tableView
          self.tableView.reloadData()
          let count = locations.getNumberOfLocations()
-         println("num location \(count)")
+         println("num location \(count)\n")
+         
+         println("List of Locations")
+         var index = 0;
+         for (index = 0; index < count; ++index) {
+            var name = locations.getLocationBuildingNumber(index)
+            println("num location \(name)")
+            if locations.locationHasName(index) {
+               println("hasName")
+            }
+         }
          let indexPath = NSIndexPath(forRow: count, inSection: 0)
 //         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-         println("after")
       }
    }
 }
