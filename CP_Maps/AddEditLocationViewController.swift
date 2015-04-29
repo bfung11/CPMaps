@@ -23,7 +23,7 @@ class AddEditLocationViewController: UITableViewController {
    var indexPath: NSIndexPath!       // location passed as index
    var locations: CPMapsLibraryAPI! // location as sharedInstance
    var buildings: [Building]!        // holds the data for all buildings
-   var selectedBuilding: String!   // building from choosing a builidng or from editing a location
+   var buildingIndexPath: NSIndexPath! // building from choosing a builidng or from editing a location
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
    var name: String?
    var selectedDays: String?
@@ -36,6 +36,7 @@ class AddEditLocationViewController: UITableViewController {
       
       // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
+      buildingIndexPath = nil
       
       if indexPath != nil { // if editing a location, then location must always be passed
          buildingDetail.text = "Building " + locations.getLocationBuildingNumber(indexPath.row) + " (" +
@@ -80,27 +81,9 @@ class AddEditLocationViewController: UITableViewController {
       
       // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      let tempSelectedBuilding = viewController.selectedItem! as! Building
-      buildingDetail.text = "Building " + tempSelectedBuilding.number + " (" + tempSelectedBuilding.name + ")"
-      selectedBuilding = tempSelectedBuilding.number
-      
-      // if choose a new building,
-      selectedRoom = nil // deselect room
-      roomTextField.text = "None" // display no selected room
-      
-      // enable room selection
-      chooseRoomCell.userInteractionEnabled = true;
-      chooseRoomCell.textLabel!.textColor = UIColor.blackColor();
+      buildingIndexPath = viewController.buildingIndexPath
+      buildingDetail.text = "Building " + locations.getBuildingNumber(buildingIndexPath.row) + " (" + locations.getBuildingName(buildingIndexPath.row) + ")"
    }
-   
-//   // save selected room and display selected room
-//   @IBAction func saveRoom(segue:UIStoryboardSegue) {
-//      // save room and display selected room
-//      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-//      let tempSelectedRoom = viewController.selectedItem! as! Room
-//      let selectedRoom = tempSelectedRoom.number
-//      roomTextField.text = "Room " + selectedRoom
-//   }
    
    // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
@@ -141,7 +124,7 @@ class AddEditLocationViewController: UITableViewController {
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
       
-      if identifier == saveLocationSegueIdentifer && selectedBuilding == nil { //if they have not selected a building
+      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil { //if they have not selected a building
          let alert =
          UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: cancelButtonTitleOK)
          alert.show()
@@ -155,15 +138,8 @@ class AddEditLocationViewController: UITableViewController {
       if segue.identifier == chooseBuildingSegueIdentifier {
          let viewController = segue.destinationViewController as! ChooseBuildingRoomViewController
          viewController.identifier = chooseBuildingSegueIdentifier
-         viewController.data = buildingsData
-         viewController.selectedItem = selectedBuilding
+         viewController.buildingIndexPath = buildingIndexPath
       }
-//      if segue.identifier == chooseRoomSegueIdentifier {
-//         let viewController = segue.destinationViewController as! ChooseBuildingRoomViewController
-//         viewController.identifier = chooseRoomSegueIdentifier
-//         viewController.data = selectedBuilding!.rooms
-//         viewController.selectedItem = selectedRoom
-//      }
       if segue.identifier == chooseDaysSegueIdentifier {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = selectedDaysAsArray

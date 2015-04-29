@@ -97,6 +97,18 @@ class CPMapsLibraryAPI: NSObject {
       locationsPersistencyManager.updateDays(index: index, days: days)
    }
    
+   func getBuildingName(index: Int) -> String {
+      return buildingsPersistencyManager.getBuildingName(index)
+   }
+   
+   func getBuildingNumber(index: Int) -> String {
+      return buildingsPersistencyManager.getBuildingNumber(index)
+   }
+   
+   func getNumberOfBuildings() -> Int {
+      return buildingsPersistencyManager.getNumberOfBuildings()
+   }
+   
    func getBuildingLongitude(index: Int) -> Double {
       return buildingsPersistencyManager.getLongitude(index)
    }

@@ -88,16 +88,17 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
+      let selectedBuilding = locations.getBuildingName(viewController.buildingIndexPath.row)
       
       
       if isEditLocation == true {
-         locations.updateLocationBuildingNumber(index: viewController.indexPath.row, buildingNumber: viewController.selectedBuilding!)
+         locations.updateLocationBuildingNumber(index: viewController.indexPath.row, buildingNumber: selectedBuilding)
          locations.updateLocationRoomNumber(index: viewController.indexPath.row, roomNumber: viewController.selectedRoom!)
          
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         locations.addLocation(viewController.name, buildingNumber: viewController.selectedBuilding!, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays)
+         locations.addLocation(viewController.name, buildingNumber: selectedBuilding, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays)
 
          // update the tableView
          self.tableView.reloadData()

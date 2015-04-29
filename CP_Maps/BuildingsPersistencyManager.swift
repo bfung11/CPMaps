@@ -27,6 +27,10 @@ class BuildingsPersistencyManager: NSObject {
       return buildings[index].number
    }
    
+   func getNumberOfBuildings() -> Int {
+      return buildings.count
+   }
+   
    func getLongitude(index: Int) -> Double {
       return buildings[index].longitude
    }
