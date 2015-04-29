@@ -12,7 +12,6 @@ import CoreData
 // manager that controls all persistent objects
 class LocationsPersistencyManager: NSObject {
    private var locations: [Location]
-   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
    override init() {
       locations = [Location]()
