@@ -37,8 +37,7 @@ class AddEditLocationViewController: UITableViewController {
       // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
       
-      // if editing a location location
-      if indexPath != nil { // if from editing a location, then location must always be passed
+      if indexPath != nil { // if editing a location, then location must always be passed
          buildingDetail.text = "Building " + locations.getLocationBuildingNumber(indexPath.row) + " (" +
             locations.getLocationBuildingName(indexPath.row) + ")"
          if locations.locationHasRoom(indexPath.row) {
