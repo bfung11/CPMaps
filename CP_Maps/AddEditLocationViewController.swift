@@ -20,10 +20,10 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
-   var indexPath: NSIndexPath!       // location passed as index
-   var locations: CPMapsLibraryAPI! // location as sharedInstance
-   var buildings: [Building]!        // holds the data for all buildings
-   var buildingIndexPath: NSIndexPath! // building from choosing a builidng or from editing a location
+   var indexPath: NSIndexPath!         // location passed as index
+   var locations: CPMapsLibraryAPI!    // location as sharedInstance
+   var buildings: [Building]!          // holds the data for all buildings
+   var buildingIndexPath: NSIndexPath! // selected building as index (of the list of all buildings)
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
    var name: String?
    var selectedDays: String?
@@ -46,9 +46,7 @@ class AddEditLocationViewController: UITableViewController {
             selectedRoom = locations.getLocationRoom(indexPath.row)
          }
          if locations.locationHasName(indexPath.row) {
-            let tempCourseName = locations.getLocationName(indexPath.row)
-            roomTextField.text = tempCourseName
-            name = tempCourseName
+            nameTextField.text = locations.getLocationName(indexPath.row)
          }
          self.selectedDays = locations.getLocationDays(indexPath.row)
          if locations.locationHasDays(indexPath.row) {
@@ -145,13 +143,12 @@ class AddEditLocationViewController: UITableViewController {
          viewController.selectedDays = selectedDaysAsArray
       }
       if segue.identifier == saveLocationSegueIdentifer {
-         var courseName = self.nameTextField.text
-         
          if indexPath != nil { // if from editing
             // TODO: update building
             locations.updateLocationRoomNumber(index: indexPath.row, roomNumber: selectedRoom!)
          }
          else {
+            locations.addLocation(self.nameTextField.text, buildingNumber: locations.getBuildingNumber(buildingIndexPath.row), roomNumber: selectedRoom, startTime: startTime, endTime: endTime, days: selectedDays) // name is "blank space"
             // TODO: add location
          }
       }

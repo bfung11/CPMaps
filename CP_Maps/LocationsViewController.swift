@@ -108,10 +108,10 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          println("List of Locations")
          var index = 0;
          for (index = 0; index < count; ++index) {
-            var name = locations.getLocationBuildingNumber(index)
-            println("num location \(name)")
+            var num = locations.getLocationBuildingNumber(index)
+            println("num location \(num)")
             if locations.locationHasName(index) {
-               println("hasName")
+               println(locations.getLocationName(index))
             }
          }
          let indexPath = NSIndexPath(forRow: count, inSection: 0)
