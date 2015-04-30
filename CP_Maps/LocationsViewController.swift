@@ -20,7 +20,6 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
       locations = CPMapsLibraryAPI.sharedInstance
       locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
    }
@@ -84,24 +83,19 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    }
    
    @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
-      //dismissViewControllerAnimated(true, completion: nil)
-      //performSegueWithIdentifier("cancelToMyLocations", sender: self)
    }
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
       let selectedBuilding = locations.getBuildingName(viewController.buildingIndexPath.row)
       
-      
       if isEditLocation == true {
          locations.updateLocationBuildingNumber(index: viewController.selectedLocation.row, buildingNumber: selectedBuilding)
          locations.updateLocationRoomNumber(index: viewController.selectedLocation.row, roomNumber: viewController.selectedRoom!)
-         
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
          locations.addLocation(viewController.name, buildingNumber: selectedBuilding, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays)
-
          // update the tableView
          self.tableView.reloadData()
          let count = locations.getNumberOfLocations()
