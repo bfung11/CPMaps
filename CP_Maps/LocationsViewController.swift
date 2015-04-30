@@ -75,7 +75,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
-         viewController.indexPath = selectedLocation
+         viewController.selectedLocation = selectedLocation
          isEditLocation = true
       }
       else {
@@ -94,8 +94,8 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       
       
       if isEditLocation == true {
-         locations.updateLocationBuildingNumber(index: viewController.indexPath.row, buildingNumber: selectedBuilding)
-         locations.updateLocationRoomNumber(index: viewController.indexPath.row, roomNumber: viewController.selectedRoom!)
+         locations.updateLocationBuildingNumber(index: viewController.selectedLocation.row, buildingNumber: selectedBuilding)
+         locations.updateLocationRoomNumber(index: viewController.selectedLocation.row, roomNumber: viewController.selectedRoom!)
          
          self.tableView.reloadData() //may need to reload only one table cell
       }
