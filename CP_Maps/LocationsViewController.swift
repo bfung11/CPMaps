@@ -90,7 +90,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       let selectedBuilding = locations.getBuildingName(viewController.buildingIndexPath.row)
       
       if isEditLocation == true {
-         locations.updateLocationBuildingNumber(index: viewController.selectedLocation.row, buildingNumber: selectedBuilding)
+         locations.updateBuildingNumberAtLocation(index: viewController.selectedLocation.row, buildingNumber: selectedBuilding)
          locations.updateLocationRoomNumber(index: viewController.selectedLocation.row, roomNumber: viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell
       }
