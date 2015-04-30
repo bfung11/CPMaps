@@ -89,7 +89,7 @@ class CPMapsLibraryAPI: NSObject {
       return buildingsPersistencyManager.getBuildingName(index)
    }
    
-   func getLocationBuildingNumber(index: Int) -> String {
+   func getBuildingNumberAtLocation(index: Int) -> String {
       return locationsPersistencyManager.getBuildingNumber(index)
    }
    

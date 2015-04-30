@@ -42,9 +42,9 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       
       println(indexPath.row)
 //      println(locations.getLocationBuildingNumber(self.indexPath!.row))
-      println(locations.getLocationBuildingNumber(indexPath.row))
+      println(locations.getBuildingNumberAtLocation(indexPath.row))
       cell.buildingLabel?.text =
-         "Building " + locations.getLocationBuildingNumber(indexPath.row) +
+         "Building " + locations.getBuildingNumberAtLocation(indexPath.row) +
          " (" + locations.getBuildingNameAtLocation(indexPath.row) + ")"
       if locations.locationHasRoom(indexPath.row) {
          cell.roomLabel?.text =
@@ -104,7 +104,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          println("List of Locations")
          var index = 0;
          for (index = 0; index < count; ++index) {
-            var num = locations.getLocationBuildingNumber(index)
+            var num = locations.getBuildingNumberAtLocation(index)
             println("num location \(num)")
             if locations.locationHasName(index) {
                println(locations.getLocationName(index))
