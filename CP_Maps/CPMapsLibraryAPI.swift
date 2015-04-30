@@ -101,10 +101,6 @@ class CPMapsLibraryAPI: NSObject {
       return locationsPersistencyManager.hasRoom(index)
    }
    
-   func getLocationRoom(index: Int) -> String? {
-      return locationsPersistencyManager.getRoomNumber(index)
-   }
-   
    func getRoomNumberAtLocation(index: Int) -> String {
       return locationsPersistencyManager.getRoomNumber(index)
    }
