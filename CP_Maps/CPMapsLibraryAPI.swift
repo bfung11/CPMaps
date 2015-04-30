@@ -105,7 +105,7 @@ class CPMapsLibraryAPI: NSObject {
       return locationsPersistencyManager.getRoomNumber(index)
    }
    
-   func getLocationRoomNumber(index: Int) -> String {
+   func getRoomNumberAtLocation(index: Int) -> String {
       return locationsPersistencyManager.getRoomNumber(index)
    }
    
