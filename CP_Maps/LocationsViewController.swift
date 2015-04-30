@@ -45,7 +45,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       println(locations.getLocationBuildingNumber(indexPath.row))
       cell.buildingLabel?.text =
          "Building " + locations.getLocationBuildingNumber(indexPath.row) +
-         " (" + locations.getLocationBuildingName(indexPath.row) + ")"
+         " (" + locations.getBuildingNameForLocation(indexPath.row) + ")"
       if locations.locationHasRoom(indexPath.row) {
          cell.roomLabel?.text =
             "Room " + locations.getLocationRoomNumber(indexPath.row)
@@ -99,17 +99,17 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          // update the tableView
          self.tableView.reloadData()
          let count = locations.getNumberOfLocations()
-//         println("num location \(count)\n")
-//         
-//         println("List of Locations")
-//         var index = 0;
-//         for (index = 0; index < count; ++index) {
-//            var num = locations.getLocationBuildingNumber(index)
-//            println("num location \(num)")
-//            if locations.locationHasName(index) {
-//               println(locations.getLocationName(index))
-//            }
-//         }
+         println("num location \(count)\n")
+         
+         println("List of Locations")
+         var index = 0;
+         for (index = 0; index < count; ++index) {
+            var num = locations.getLocationBuildingNumber(index)
+            println("num location \(num)")
+            if locations.locationHasName(index) {
+               println(locations.getLocationName(index))
+            }
+         }
          let tempIndexPath = NSIndexPath(forRow: count, inSection: 0)
 //         tableView.insertRowsAtIndexPaths([tempIndexPath], withRowAnimation: .Automatic)
       }
