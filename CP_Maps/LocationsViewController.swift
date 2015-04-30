@@ -45,7 +45,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       println(locations.getLocationBuildingNumber(indexPath.row))
       cell.buildingLabel?.text =
          "Building " + locations.getLocationBuildingNumber(indexPath.row) +
-         " (" + locations.getBuildingNameForLocation(indexPath.row) + ")"
+         " (" + locations.getBuildingNameAtLocation(indexPath.row) + ")"
       if locations.locationHasRoom(indexPath.row) {
          cell.roomLabel?.text =
             "Room " + locations.getLocationRoomNumber(indexPath.row)
