@@ -145,7 +145,7 @@ class AddEditLocationViewController: UITableViewController {
       if segue.identifier == saveLocationSegueIdentifer {
          if selectedLocation != nil { // if from editing
             // TODO: update building
-            locations.updateLocationRoomNumber(index: selectedLocation.row, roomNumber: selectedRoom!)
+            locations.updateRoomNumberAtLocation(index: selectedLocation.row, roomNumber: selectedRoom!)
          }
          else {
             locations.addLocation(self.nameTextField.text, buildingNumber: locations.getBuildingNumber(buildingIndexPath.row), roomNumber: selectedRoom, startTime: startTime, endTime: endTime, days: selectedDays) // name is "blank space"
