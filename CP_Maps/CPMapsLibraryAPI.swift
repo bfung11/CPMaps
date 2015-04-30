@@ -25,6 +25,34 @@ class CPMapsLibraryAPI: NSObject {
       super.init()
    }
    
+   func loadDataFromCSV() {
+      var buildingsDataParsed = [Building]()
+      // load in buildings from CSV file -- this only works for Carl at the moment...
+      if let aStreamReader = StreamReader(path: "/Users/carllindiii/Desktop/Brians CPMaps/CP_Maps/Building_Info.csv") {
+         while let line = aStreamReader.nextLine() {
+            var buildingArr = split(line) {$0 == ","}
+            
+            if buildingArr.count == 5 {
+               buildingsDataParsed.append(Building(
+                  number: buildingArr[0],
+                  name: buildingArr[1],
+                  floors: (buildingArr[2] as NSString).integerValue,
+                  latitude: (buildingArr[3] as NSString).doubleValue,
+                  longitude: (buildingArr[4] as NSString).doubleValue))
+            }
+         
+            if buildingArr.count == 3 {
+               buildingsDataParsed.append(Building(
+                  number: buildingArr[0],
+                  name: buildingArr[1]))
+            }
+         }
+         aStreamReader.close()
+         // set buildingsData to new data
+         buildingsData = buildingsDataParsed
+      }
+   }
+   
    func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?) {
       locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, context: managedObjectContext)
    }

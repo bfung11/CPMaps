@@ -19,16 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject:
        AnyObject]?) -> Bool {
+       
           GMSServices.provideAPIKey(googleMapsApiKey)
-         
-          // load in buildings from CSV file
-          if let aStreamReader = StreamReader(path: "~/Building_Info.csv") {
-            while let line = aStreamReader.nextLine() {
-               println(line)
-            }
-            aStreamReader.close()
-          }
 
+          // load from CSV file
+          CPMapsLibraryAPI.sharedInstance.loadDataFromCSV()
           return true
        }
 
