@@ -50,8 +50,8 @@ class AddEditLocationViewController: UITableViewController {
          if location.hasName() {
             nameTextField.text = location.getName()
          }
-         self.selectedDays = locations.getLocationDays(selectedLocation.row)
-         if locations.locationHasDays(selectedLocation.row) {
+         self.selectedDays = location.getDays()
+         if location.hasDays() {
             daysDetail.text = self.getCourseDays() as String
          }
          self.navigationItem.title = editLocationViewControllerTitle
