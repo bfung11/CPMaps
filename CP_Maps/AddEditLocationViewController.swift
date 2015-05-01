@@ -42,7 +42,7 @@ class AddEditLocationViewController: UITableViewController {
          
          let building = locations.getBuildingAtIndex(selectedLocation.row)
          buildingDetail.text = "Building " + locations.getBuildingNumberAtLocation(selectedLocation.row) + " (" +
-            building.getBuildingName() + ")"
+            building.getName() + ")"
          if locations.doesLocationHaveRoom(selectedLocation.row) {
             roomTextField.text = "Room " + locations.getRoomNumberAtLocation(selectedLocation.row)
             selectedRoom = locations.getRoomNumberAtLocation(selectedLocation.row)
@@ -83,7 +83,7 @@ class AddEditLocationViewController: UITableViewController {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
       let building = locations.getBuildingAtIndex(buildingIndexPath.row)
-      buildingDetail.text = "Building " + building.getBuildingNumber() + " (" + building.getBuildingName() + ")"
+      buildingDetail.text = "Building " + building.getBuildingNumber() + " (" + building.getName() + ")"
    }
    
    // save selected days and display selected days

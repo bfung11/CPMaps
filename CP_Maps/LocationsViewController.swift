@@ -47,7 +47,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       
       cell.buildingLabel?.text =
          "Building " + building.getBuildingNumber() +
-         " (" + building.getBuildingName() + ")"
+         " (" + building.getName() + ")"
       if locations.doesLocationHaveRoom(indexPath.row) {
          cell.roomLabel?.text =
             "Room " + locations.getRoomNumberAtLocation(indexPath.row)
@@ -89,7 +89,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
-      let selectedBuilding = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getBuildingName()
+      let selectedBuilding = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getName()
       
       if isEditLocation == true {
          locations.updateBuildingNumberAtLocation(index: viewController.selectedLocation.row, buildingNumber: selectedBuilding)

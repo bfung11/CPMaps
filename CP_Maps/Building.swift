@@ -52,7 +52,7 @@ class Building: NSObject {
       super.init()
    }
    
-   func getBuildingName() -> String {
+   func getName() -> String {
       return self.name
    }
    
