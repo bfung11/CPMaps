@@ -73,14 +73,6 @@ class CPMapsLibraryAPI: NSObject {
       return buildingsPersistencyManager.getBuilding(buildingNumber);
    }
    
-   func getBuildingNumberAtLocation(index: Int) -> String {
-      return locationsPersistencyManager.getBuildingNumber(index)
-   }
-   
-   func updateBuildingNumberAtLocation(#index: Int, buildingNumber: String) {
-      locationsPersistencyManager.updateBuildingNumber(index: index, buildingNumber: buildingNumber)
-   }
-   
    func doesLocationHaveRoom(index: Int) -> Bool {
       return locationsPersistencyManager.hasRoom(index)
    }

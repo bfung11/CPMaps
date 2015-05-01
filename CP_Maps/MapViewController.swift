@@ -44,7 +44,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! LocationsViewController
-      locationTitle.text = locationLibraryAPI.getBuildingNumberAtLocation(viewController.selectedLocation!.row)
+      let location = locationLibraryAPI.getLocation(viewController.selectedLocation!.row)
+      locationTitle.text = location.getBuildingNumber()
    }
    
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {

@@ -38,11 +38,12 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
    -> UITableViewCell {
+      let location = locations.getLocation(indexPath.row)
       let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
       
       println(indexPath.row)
 //      println(locations.getLocationBuildingNumber(self.indexPath!.row))
-      println(locations.getBuildingNumberAtLocation(indexPath.row))
+      println(location.getBuildingNumber())
       let building = locations.getBuildingAtIndex(indexPath.row)
       
       cell.buildingLabel?.text =
@@ -55,7 +56,6 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       else {
          cell.roomLabel?.text = ""
       }
-      let location = locations.getLocation(indexPath.row)
       cell.timesLabel?.text = location.getName()
       return cell
    }
@@ -93,7 +93,8 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       let selectedBuilding = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getName()
       
       if isEditLocation == true {
-         locations.updateBuildingNumberAtLocation(index: viewController.selectedLocation.row, buildingNumber: selectedBuilding)
+         let location = locations.getLocation(viewController.selectedLocation.row)
+         location.updateBuildingNumber(selectedBuilding)
          locations.updateRoomNumberAtLocation(index: viewController.selectedLocation.row, roomNumber: viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell
       }
@@ -105,18 +106,18 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          // update the tableView
          self.tableView.reloadData()
          let count = locations.getNumberOfLocations()
-         println("num location \(count)\n")
-         
-         println("List of Locations")
-         var index = 0;
-         for (index = 0; index < count; ++index) {
-            var num = locations.getBuildingNumberAtLocation(index)
-            println("num location \(num)")
-            let location = locations.getLocation(index)
-            if location.hasName() {
-               println(location.getName())
-            }
-         }
+//         println("num location \(count)\n")
+//         
+//         println("List of Locations")
+//         var index = 0;
+//         for (index = 0; index < count; ++index) {
+//            var num = locations.getBuildingNumberAtLocation(index)
+//            println("num location \(num)")
+//            let location = locations.getLocation(index)
+//            if location.hasName() {
+//               println(location.getName())
+//            }
+//         }
          let tempIndexPath = NSIndexPath(forRow: count, inSection: 0)
 //         tableView.insertRowsAtIndexPaths([tempIndexPath], withRowAnimation: .Automatic)
       }
