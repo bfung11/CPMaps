@@ -47,18 +47,6 @@ class LocationsPersistencyManager: NSObject {
       return locations.count
    }
    
-   func hasDays(index: Int) -> Bool {
-      return locations[index].days != nil
-   }
-   
-   func getDays(index: Int) -> String {
-      return locations[index].days!
-   }
-   
-   func updateDays(#index: Int, days: String) {
-      locations[index].days = days
-   }
-   
    private func fetchLocations() -> [Location] {
       var tempLocations = []
       let fetchRequest = NSFetchRequest(entityName: "Location")
