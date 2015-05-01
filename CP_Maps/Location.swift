@@ -43,6 +43,10 @@ class Location: NSManagedObject {
       return self.name != nil
    }
    
+   func hasRoomNumber() -> Bool {
+      return self.roomNumber != nil
+   }
+   
    func getName() -> String? {
       return self.name
    }
@@ -51,11 +55,19 @@ class Location: NSManagedObject {
       return self.buildingNumber
    }
    
+   func getRoomNumber() -> String? {
+      return self.roomNumber
+   }
+   
    func updateName(name: String) {
       self.name = name
    }
    
    func updateBuildingNumber(buildingNumber: String) {
       self.buildingNumber = buildingNumber
+   }
+   
+   func updateRoomNumber(roomNumber: String) {
+      self.roomNumber = roomNumber
    }
 }
