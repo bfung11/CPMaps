@@ -42,4 +42,17 @@ class BuildingsPersistencyManager: NSObject {
    func getLatitude(index: Int) -> Double {
       return buildings[index].latitude
    }
+   
+   private func calculateIndex(buildingNumber: String) -> Int {
+      var index = 0
+      var hasIndex = false
+      
+      for (index = 0; index < buildings.count || hasIndex == false; ++index) {
+         if buildings[index].getBuildingNumber() == buildingNumber {
+            hasIndex = true
+         }
+      }
+      
+      return index
+   }
 }
