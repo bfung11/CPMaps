@@ -19,8 +19,8 @@ class BuildingsPersistencyManager: NSObject {
       buildings.append(building)
    }
    
-   func getBuilding(index: Int) -> Building {
-      return buildings[index]
+   func getBuilding(buildingNumber: String) -> Building {
+      return buildings[calculateIndex(buildingNumber)]
    }
    
    func getBuildingName(index: Int) -> String {

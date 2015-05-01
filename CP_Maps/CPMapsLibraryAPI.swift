@@ -85,8 +85,8 @@ class CPMapsLibraryAPI: NSObject {
 //      buildingsPersistencyManager.addBuilding(building)
 //   }
    
-   func getBuildingAtLocation(index: Int) -> Building {
-      return buildingsPersistencyManager.getBuilding(index);
+   func getBuildingAtLocation(buildingNumber: String) -> Building {
+      return buildingsPersistencyManager.getBuilding(buildingNumber);
    }
    
    func getBuildingNameAtLocation(index: Int) -> String {
