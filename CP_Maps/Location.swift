@@ -47,6 +47,10 @@ class Location: NSManagedObject {
       return self.roomNumber != nil
    }
    
+   func hasDays() -> Bool {
+      return self.days != nil
+   }
+   
    func getName() -> String {
       return self.name!
    }
@@ -59,6 +63,10 @@ class Location: NSManagedObject {
       return self.roomNumber!
    }
    
+   func getDays() -> String {
+      return self.days!
+   }
+   
    func updateName(name: String) {
       self.name = name
    }
@@ -69,5 +77,9 @@ class Location: NSManagedObject {
    
    func updateRoomNumber(roomNumber: String) {
       self.roomNumber = roomNumber
+   }
+   
+   func updateDays(days: String) {
+      self.days = days
    }
 }
