@@ -132,12 +132,4 @@ class CPMapsLibraryAPI: NSObject {
    func getNumberOfBuildings() -> Int {
       return buildingsPersistencyManager.getNumberOfBuildings()
    }
-   
-   func getBuildingLongitude(index: Int) -> Double {
-      return buildingsPersistencyManager.getLongitude(index)
-   }
-   
-   func getBuildingLatitude(index: Int) -> Double {
-      return buildingsPersistencyManager.getLatitude(index)
-   }
 }
