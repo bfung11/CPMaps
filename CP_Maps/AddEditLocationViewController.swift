@@ -39,16 +39,14 @@ class AddEditLocationViewController: UITableViewController {
       buildingIndexPath = nil
       
       if selectedLocation != nil { // if editing a location, then location must always be passed
-         
+         let location = locations.getLocation(selectedLocation.row)
          let building = locations.getBuildingAtIndex(selectedLocation.row)
          buildingDetail.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
-         if locations.doesLocationHaveRoom(selectedLocation.row) {
-            roomTextField.text = "Room " + locations.getRoomNumberAtLocation(selectedLocation.row)
-            selectedRoom = locations.getRoomNumberAtLocation(selectedLocation.row)
+         if location.hasRoomNumber() {
+            roomTextField.text = "Room " + location.getRoomNumber()
+            selectedRoom = location.getRoomNumber()
          }
-         
-         let location = locations.getLocation(selectedLocation.row)
          if location.hasName() {
             nameTextField.text = location.getName()
          }
@@ -150,7 +148,8 @@ class AddEditLocationViewController: UITableViewController {
       if segue.identifier == saveLocationSegueIdentifer {
          if selectedLocation != nil { // if from editing
             // TODO: update building
-            locations.updateRoomNumberAtLocation(index: selectedLocation.row, roomNumber: selectedRoom!)
+            let location = locations.getLocation(selectedLocation.row)
+            location.updateRoomNumber(selectedRoom!)
          }
          else {
             locations.addLocation(self.nameTextField.text, buildingNumber: locations.getBuildingAtIndex(buildingIndexPath.row).getNumber(), roomNumber: selectedRoom, startTime: startTime, endTime: endTime, days: selectedDays) // name is "blank space"

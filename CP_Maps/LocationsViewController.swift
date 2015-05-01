@@ -49,9 +49,9 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       cell.buildingLabel?.text =
          "Building " + building.getNumber() +
          " (" + building.getName() + ")"
-      if locations.doesLocationHaveRoom(indexPath.row) {
+      if location.hasRoomNumber() {
          cell.roomLabel?.text =
-            "Room " + locations.getRoomNumberAtLocation(indexPath.row)
+            "Room " + location.getRoomNumber()
       }
       else {
          cell.roomLabel?.text = ""
@@ -95,7 +95,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       if isEditLocation == true {
          let location = locations.getLocation(viewController.selectedLocation.row)
          location.updateBuildingNumber(selectedBuilding)
-         locations.updateRoomNumberAtLocation(index: viewController.selectedLocation.row, roomNumber: viewController.selectedRoom!)
+         location.updateRoomNumber(viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {

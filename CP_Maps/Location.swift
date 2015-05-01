@@ -47,16 +47,16 @@ class Location: NSManagedObject {
       return self.roomNumber != nil
    }
    
-   func getName() -> String? {
-      return self.name
+   func getName() -> String {
+      return self.name!
    }
    
    func getBuildingNumber() -> String {
       return self.buildingNumber
    }
    
-   func getRoomNumber() -> String? {
-      return self.roomNumber
+   func getRoomNumber() -> String {
+      return self.roomNumber!
    }
    
    func updateName(name: String) {
