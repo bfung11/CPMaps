@@ -80,7 +80,7 @@ class AddEditLocationViewController: UITableViewController {
       // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
-      buildingDetail.text = "Building " + locations.getBuildingNumber(buildingIndexPath.row) + " (" + locations.getBuildingName(buildingIndexPath.row) + ")"
+      buildingDetail.text = "Building " + locations.getBuildingNumber(buildingIndexPath.row) + " (" + locations.getBuildingAtIndex(buildingIndexPath.row).getBuildingName() + ")"
    }
    
    // save selected days and display selected days

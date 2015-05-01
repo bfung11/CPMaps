@@ -87,7 +87,7 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
-      let selectedBuilding = locations.getBuildingName(viewController.buildingIndexPath.row)
+      let selectedBuilding = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getBuildingName()
       
       if isEditLocation == true {
          locations.updateBuildingNumberAtLocation(index: viewController.selectedLocation.row, buildingNumber: selectedBuilding)

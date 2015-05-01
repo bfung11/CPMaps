@@ -29,16 +29,16 @@ class ChooseBuildingMapController: UITableViewController {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       var cell: UITableViewCell?
-      var buildingName = api.getBuildingName(indexPath.row) // for readability
+      var building = api.getBuildingAtIndex(indexPath.row) // for readability
       
       // display buildings
       cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) as? UITableViewCell
       cell!.textLabel?.text = api.getBuildingNumber(indexPath.row) + " - " +
-         buildingName
+         building.getBuildingName()
       cell!.accessoryType = .None //prevents random buildings from having checkmarks
       
       // if there is a selected building, put a checkmark next to the selected building
-      if buildingIndexPath != nil && api.getBuildingName(buildingIndexPath!.row) == buildingName {
+      if buildingIndexPath != nil && api.getBuildingAtIndex(buildingIndexPath!.row).getBuildingName() == building.getBuildingName() {
          cell!.accessoryType = .Checkmark
       }
       
