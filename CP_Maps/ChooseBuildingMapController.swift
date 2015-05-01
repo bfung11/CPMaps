@@ -33,7 +33,7 @@ class ChooseBuildingMapController: UITableViewController {
       
       // display buildings
       cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) as? UITableViewCell
-      cell!.textLabel?.text = api.getBuildingNumber(indexPath.row) + " - " +
+      cell!.textLabel?.text = api.getBuildingAtIndex(indexPath.row).getBuildingNumber() + " - " +
          building.getBuildingName()
       cell!.accessoryType = .None //prevents random buildings from having checkmarks
       

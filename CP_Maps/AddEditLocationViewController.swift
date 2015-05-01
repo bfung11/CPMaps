@@ -80,7 +80,8 @@ class AddEditLocationViewController: UITableViewController {
       // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
-      buildingDetail.text = "Building " + locations.getBuildingNumber(buildingIndexPath.row) + " (" + locations.getBuildingAtIndex(buildingIndexPath.row).getBuildingName() + ")"
+      let building = locations.getBuildingAtIndex(buildingIndexPath.row)
+      buildingDetail.text = "Building " + building.getBuildingNumber() + " (" + building.getBuildingName() + ")"
    }
    
    // save selected days and display selected days
@@ -148,7 +149,7 @@ class AddEditLocationViewController: UITableViewController {
             locations.updateRoomNumberAtLocation(index: selectedLocation.row, roomNumber: selectedRoom!)
          }
          else {
-            locations.addLocation(self.nameTextField.text, buildingNumber: locations.getBuildingNumber(buildingIndexPath.row), roomNumber: selectedRoom, startTime: startTime, endTime: endTime, days: selectedDays) // name is "blank space"
+            locations.addLocation(self.nameTextField.text, buildingNumber: locations.getBuildingAtIndex(buildingIndexPath.row).getBuildingNumber(), roomNumber: selectedRoom, startTime: startTime, endTime: endTime, days: selectedDays) // name is "blank space"
             // TODO: add location
          }
       }
