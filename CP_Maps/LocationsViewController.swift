@@ -95,7 +95,10 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         locations.addLocation(viewController.name, buildingNumber: selectedBuilding, roomNumber: viewController.selectedRoom, startTime: viewController.startTime, endTime: viewController.endTime, days: viewController.selectedDays)
+         locations.addLocation(viewController.name,
+            buildingNumber: selectedBuilding, roomNumber: viewController.selectedRoom,
+            startTime: viewController.startTime, endTime: viewController.endTime,
+            days: viewController.selectedDays)
          // update the tableView
          self.tableView.reloadData()
          let count = locations.getNumberOfLocations()
