@@ -36,7 +36,7 @@ class CPMapsLibraryAPI: NSObject {
                buildingsDataParsed.append(Building(
                   number: buildingArr[0],
                   name: buildingArr[1],
-                  floors: (buildingArr[2] as NSString).integerValue,
+                  numberOfFloors: (buildingArr[2] as NSString).integerValue,
                   latitude: (buildingArr[3] as NSString).doubleValue,
                   longitude: (buildingArr[4] as NSString).doubleValue))
             }

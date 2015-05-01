@@ -12,7 +12,7 @@ import CoreData
 class Building: NSObject {
    var name: String!
    var number: String!
-   var floors: Int!
+   var numberOfFloors: Int!
    var rooms: [Room]!
    var latitude: Double!
    var longitude: Double!
@@ -27,15 +27,15 @@ class Building: NSObject {
    init(number: String, name: String) {
       self.name = name
       self.number = number
-      self.floors = 0
+      self.numberOfFloors = 0
       self.rooms = []
       super.init()
    }
    
-   init(number: String, name: String, floors: Int, latitude: Double, longitude: Double) {
+   init(number: String, name: String, numberOfFloors: Int, latitude: Double, longitude: Double) {
       self.name = name
       self.number = number
-      self.floors = floors
+      self.numberOfFloors = numberOfFloors
       self.rooms = []
       self.latitude = latitude
       self.longitude = longitude
@@ -46,7 +46,7 @@ class Building: NSObject {
       self.name = building.name
       self.number = building.number
       self.rooms = building.rooms
-      self.floors = building.floors
+      self.numberOfFloors = building.numberOfFloors
       self.latitude = building.latitude
       self.longitude = building.longitude
       super.init()
@@ -60,8 +60,8 @@ class Building: NSObject {
       return self.number
    }
    
-   func getFloorsNumber() -> Int {
-      return self.floors
+   func getNumberOfFloors() -> Int {
+      return self.numberOfFloors
    }
    
    func getLongtitude() -> Double {
