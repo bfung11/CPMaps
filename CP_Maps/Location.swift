@@ -38,4 +38,16 @@ class Location: NSManagedObject {
    func updateRoom(roomNumber: String) {
       self.roomNumber = roomNumber
    }
+   
+   func doesLocationHaveName() -> Bool {
+      return name != nil
+   }
+   
+   func getName() -> String? {
+      return self.name
+   }
+   
+   func updateName(name: String) {
+      self.name = name
+   }
 }
