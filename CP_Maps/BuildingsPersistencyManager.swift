@@ -23,6 +23,10 @@ class BuildingsPersistencyManager: NSObject {
       return buildings[calculateIndex(buildingNumber)]
    }
    
+   func getBuildingAtIndex(index: Int) -> Building {
+      return buildings[index]
+   }
+   
    func getBuildingName(index: Int) -> String {
       return buildings[index].name
    }
