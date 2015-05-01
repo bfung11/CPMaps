@@ -40,14 +40,22 @@ class Location: NSManagedObject {
    }
    
    func hasName() -> Bool {
-      return name != nil
+      return self.name != nil
    }
    
    func getName() -> String? {
       return self.name
    }
    
+   func getBuildingNumber() -> String {
+      return self.buildingNumber
+   }
+   
    func updateName(name: String) {
       self.name = name
+   }
+   
+   func updateBuildingNumber(buildingNumber: String) {
+      self.buildingNumber = buildingNumber
    }
 }
