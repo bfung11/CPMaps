@@ -39,7 +39,7 @@ class Location: NSManagedObject {
       self.roomNumber = roomNumber
    }
    
-   func doesLocationHaveName() -> Bool {
+   func hasName() -> Bool {
       return name != nil
    }
    
