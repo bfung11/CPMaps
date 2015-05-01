@@ -47,38 +47,6 @@ class LocationsPersistencyManager: NSObject {
       return locations.count
    }
    
-   func hasName(index: Int) -> Bool {
-      return locations[index].name != nil
-   }
-   
-   func getName(index: Int) -> String {
-      return locations[index].name!
-   }
-   
-   func updateName(#index: Int, name: String) {
-      locations[index].name = name
-   }
-   
-   func getBuildingNumber(index: Int) -> String {
-      return locations[index].buildingNumber
-   }
-   
-   func updateBuildingNumber(#index: Int, buildingNumber: String) {
-      locations[index].buildingNumber = buildingNumber
-   }
-   
-   func hasRoom(index: Int) -> Bool {
-      return locations[index].roomNumber != nil
-   }
-   
-   func getRoomNumber(index: Int) -> String {
-      return locations[index].roomNumber!
-   }
-   
-   func updateRoomNumber(#index: Int, roomNumber: String) {
-      locations[index].roomNumber = roomNumber
-   }
-   
    func hasDays(index: Int) -> Bool {
       return locations[index].days != nil
    }
