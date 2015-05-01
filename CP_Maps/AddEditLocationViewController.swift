@@ -39,8 +39,10 @@ class AddEditLocationViewController: UITableViewController {
       buildingIndexPath = nil
       
       if selectedLocation != nil { // if editing a location, then location must always be passed
+         
+         let building = locations.getBuildingAtIndex(selectedLocation.row)
          buildingDetail.text = "Building " + locations.getBuildingNumberAtLocation(selectedLocation.row) + " (" +
-            locations.getBuildingNameAtLocation(selectedLocation.row) + ")"
+            building.getBuildingName() + ")"
          if locations.doesLocationHaveRoom(selectedLocation.row) {
             roomTextField.text = "Room " + locations.getRoomNumberAtLocation(selectedLocation.row)
             selectedRoom = locations.getRoomNumberAtLocation(selectedLocation.row)

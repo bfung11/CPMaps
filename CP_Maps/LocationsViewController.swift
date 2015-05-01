@@ -43,9 +43,11 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       println(indexPath.row)
 //      println(locations.getLocationBuildingNumber(self.indexPath!.row))
       println(locations.getBuildingNumberAtLocation(indexPath.row))
+      let building = locations.getBuildingAtIndex(indexPath.row)
+      
       cell.buildingLabel?.text =
-         "Building " + locations.getBuildingNumberAtLocation(indexPath.row) +
-         " (" + locations.getBuildingNameAtLocation(indexPath.row) + ")"
+         "Building " + building.getBuildingNumber() +
+         " (" + building.getBuildingName() + ")"
       if locations.doesLocationHaveRoom(indexPath.row) {
          cell.roomLabel?.text =
             "Room " + locations.getRoomNumberAtLocation(indexPath.row)
