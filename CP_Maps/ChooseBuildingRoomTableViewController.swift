@@ -36,7 +36,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
       
       // display buildings
       cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
-      cell!.textLabel?.text = building.getBuildingNumber() + " - " +
+      cell!.textLabel?.text = building.getNumber() + " - " +
          building.getName()
       cell!.accessoryType = .None //prevents random buildings from having checkmarks
       

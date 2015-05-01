@@ -56,7 +56,7 @@ class Building: NSObject {
       return self.name
    }
    
-   func getBuildingNumber() -> String {
+   func getNumber() -> String {
       return self.number
    }
    

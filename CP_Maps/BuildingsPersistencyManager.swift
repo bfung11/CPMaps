@@ -36,7 +36,7 @@ class BuildingsPersistencyManager: NSObject {
       var hasIndex = false
       
       for (index = 0; index < buildings.count || hasIndex == false; ++index) {
-         if buildings[index].getBuildingNumber() == buildingNumber {
+         if buildings[index].getNumber() == buildingNumber {
             hasIndex = true
          }
       }
