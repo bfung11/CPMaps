@@ -47,8 +47,9 @@ class AddEditLocationViewController: UITableViewController {
             roomTextField.text = "Room " + locations.getRoomNumberAtLocation(selectedLocation.row)
             selectedRoom = locations.getRoomNumberAtLocation(selectedLocation.row)
          }
-         if locations.locationHasName(selectedLocation.row) {
-            nameTextField.text = locations.getLocationName(selectedLocation.row)
+         let location = locations.getLocation(selectedLocation.row)
+         if location.hasName() {
+            nameTextField.text = location.getName()
          }
          self.selectedDays = locations.getLocationDays(selectedLocation.row)
          if locations.locationHasDays(selectedLocation.row) {

@@ -69,18 +69,6 @@ class CPMapsLibraryAPI: NSObject {
       return locationsPersistencyManager.getNumberOfLocations()
    }
    
-   func locationHasName(index: Int) -> Bool {
-      return locationsPersistencyManager.hasName(index)
-   }
-   
-   func getLocationName(index: Int) -> String {
-      return locationsPersistencyManager.getName(index)
-   }
-   
-   func updateLocationName(#index: Int, name: String) {
-      locationsPersistencyManager.updateName(index: index, name: name)
-   }
-   
    func getBuildingAtLocation(buildingNumber: String) -> Building {
       return buildingsPersistencyManager.getBuilding(buildingNumber);
    }

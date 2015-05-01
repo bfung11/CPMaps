@@ -55,7 +55,8 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       else {
          cell.roomLabel?.text = ""
       }
-      cell.timesLabel?.text = locations.getLocationName(indexPath.row)
+      let location = locations.getLocation(indexPath.row)
+      cell.timesLabel?.text = location.getName()
       return cell
    }
    
@@ -111,8 +112,9 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          for (index = 0; index < count; ++index) {
             var num = locations.getBuildingNumberAtLocation(index)
             println("num location \(num)")
-            if locations.locationHasName(index) {
-               println(locations.getLocationName(index))
+            let location = locations.getLocation(index)
+            if location.hasName() {
+               println(location.getName())
             }
          }
          let tempIndexPath = NSIndexPath(forRow: count, inSection: 0)
