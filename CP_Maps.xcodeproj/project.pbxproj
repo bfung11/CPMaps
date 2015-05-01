@@ -15,6 +15,7 @@
 		1185CBB51A797B1900987018 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1185CBB41A797B1900987018 /* .gitignore */; };
 		118C896B1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */; };
 		118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */; };
+		1192E75D1AF2950600950596 /* ChooseBuildingMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1192E75C1AF2950600950596 /* ChooseBuildingMapController.swift */; };
 		11E139AB1A9AE53B0074B985 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139AA1A9AE53B0074B985 /* AVFoundation.framework */; };
 		11E139AD1A9AE54B0074B985 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139AC1A9AE54B0074B985 /* CoreText.framework */; };
 		11E139AF1A9AE5520074B985 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139AE1A9AE5520074B985 /* GLKit.framework */; };
@@ -78,6 +79,7 @@
 		1185CBB41A797B1900987018 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CalPoly_Bldg14_Location.gpx; sourceTree = "<group>"; };
 		118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PolyMap_Extended.jpg; sourceTree = "<group>"; };
+		1192E75C1AF2950600950596 /* ChooseBuildingMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingMapController.swift; sourceTree = "<group>"; };
 		11E139AA1A9AE53B0074B985 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		11E139AC1A9AE54B0074B985 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		11E139AE1A9AE5520074B985 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
@@ -190,6 +192,7 @@
 				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
+				1192E75C1AF2950600950596 /* ChooseBuildingMapController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
 				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
@@ -418,6 +421,7 @@
 				B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */,
 				11E139D01A9BB2B30074B985 /* GooglePlace.swift in Sources */,
 				B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */,
+				1192E75D1AF2950600950596 /* ChooseBuildingMapController.swift in Sources */,
 				B23573541A92BC090065DF25 /* Day.swift in Sources */,
 				B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */,
 				B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */,
