@@ -27,10 +27,6 @@ class BuildingsPersistencyManager: NSObject {
       return buildings[index]
    }
    
-   func getBuildingName(index: Int) -> String {
-      return buildings[index].name
-   }
-   
    func getNumberOfBuildings() -> Int {
       return buildings.count
    }
