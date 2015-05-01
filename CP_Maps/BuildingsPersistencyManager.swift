@@ -31,20 +31,8 @@ class BuildingsPersistencyManager: NSObject {
       return buildings[index].name
    }
    
-   func getBuildingNumber(index: Int) -> String {
-      return buildings[index].number
-   }
-   
    func getNumberOfBuildings() -> Int {
       return buildings.count
-   }
-   
-   func getLongitude(index: Int) -> Double {
-      return buildings[index].longitude
-   }
-   
-   func getLatitude(index: Int) -> Double {
-      return buildings[index].latitude
    }
    
    private func calculateIndex(buildingNumber: String) -> Int {
