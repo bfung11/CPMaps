@@ -43,7 +43,7 @@
                                         </segmentedControl>
                                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZnS-fd-ijj">
                                             <connections>
-                                                <segue destination="fz7-XB-OHL" kind="show" id="mFX-ht-UXj"/>
+                                                <segue destination="fz7-XB-OHL" kind="show" id="SF7-2X-cyR"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -528,7 +528,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mFX-ht-UXj"/>
+        <segue reference="SF7-2X-cyR"/>
         <segue reference="a7d-1Q-8Ga"/>
     </inferredMetricsTieBreakers>
 </document>
