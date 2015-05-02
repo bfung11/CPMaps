@@ -49,11 +49,14 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       }
    }
    
+   // Called after selecting a building
    @IBAction func finishedChoosingBuilding(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       let buildingIndexPath = viewController.buildingIndexPath
       let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!.row)
       locationTitle.text = building.getName()
+      
+      // TODO Carl: Add your stuff here
    }
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
