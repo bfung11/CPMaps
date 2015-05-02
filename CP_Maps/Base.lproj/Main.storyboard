@@ -43,7 +43,7 @@
                                         </segmentedControl>
                                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZnS-fd-ijj">
                                             <connections>
-                                                <segue destination="fz7-XB-OHL" kind="show" id="SF7-2X-cyR"/>
+                                                <segue destination="fz7-XB-OHL" kind="show" identifier="chooseBuilding" id="SF7-2X-cyR"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -410,7 +410,7 @@
                     <navigationItem key="navigationItem" title="Building / Room" id="vAl-71-3Ga">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxk-t9-rb4">
                             <connections>
-                                <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelAddEditLocationDetails:" id="epj-32-fl4"/>
+                                <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelToMapViewController:" id="rMZ-dr-1wh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -418,6 +418,7 @@
                     <connections>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveBuilding:" id="HWa-f6-O2R"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="wxG-2A-tdJ"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="finishedChoosingBuilding" unwindAction="finishedChoosingBuilding:" id="2vf-3c-IRW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>

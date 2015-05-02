@@ -40,12 +40,32 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          controller.selectedTypes = searchedTypes
          controller.delegate = self
       }
+      else if segue.identifier == chooseBuildingSegueIdentifier {
+         let navViewController = segue.destinationViewController
+            as! UINavigationController
+         let viewController = navViewController.viewControllers.first
+            as! ChooseBuildingRoomViewController
+         viewController.identifier = finishedChoosingBuildingSegueIdentifier
+      }
+   }
+   
+   @IBAction func finishedChoosingBuilding(segue:UIStoryboardSegue) {
+      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
+      let buildingIndexPath = viewController.buildingIndexPath
+      let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!.row)
+      locationTitle.text = building.getName()
    }
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! LocationsViewController
       let location = locationLibraryAPI.getLocation(viewController.selectedLocation!.row)
       locationTitle.text = location.getBuildingNumber()
+   }
+   
+   @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
+      //      let viewController = segue.sourceViewController as! LocationsViewController
+      //      let location = locationLibraryAPI.getLocation(viewController.selectedLocation!.row)
+      //      locationTitle.text = location.getBuildingNumber()
    }
    
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {

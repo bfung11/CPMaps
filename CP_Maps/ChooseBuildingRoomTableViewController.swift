@@ -50,6 +50,12 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       self.buildingIndexPath = indexPath
-      performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
+
+      if identifier == saveBuildingSegueIdentifer {
+         performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
+      }
+      else if identifier == finishedChoosingBuildingSegueIdentifier {
+         performSegueWithIdentifier(finishedChoosingBuildingSegueIdentifier, sender: self)
+      }
    }
 }
