@@ -111,9 +111,9 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
 //         println("List of Locations")
 //         var index = 0;
 //         for (index = 0; index < count; ++index) {
-//            var num = locations.getBuildingNumberAtLocation(index)
-//            println("num location \(num)")
 //            let location = locations.getLocation(index)
+//            let num = location.getBuildingNumber()
+//            println("building number \(num)")
 //            if location.hasName() {
 //               println(location.getName())
 //            }

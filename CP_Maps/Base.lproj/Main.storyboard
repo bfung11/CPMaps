@@ -43,7 +43,7 @@
                                         </segmentedControl>
                                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZnS-fd-ijj">
                                             <connections>
-                                                <segue destination="4lu-bR-S6e" kind="presentation" modalTransitionStyle="coverVertical" id="U84-BJ-tEH"/>
+                                                <segue destination="fz7-XB-OHL" kind="show" id="mFX-ht-UXj"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -102,65 +102,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101" y="967"/>
-        </scene>
-        <!--Buildings-->
-        <scene sceneID="s9A-w7-TCp">
-            <objects>
-                <tableViewController id="lGh-y7-cTa" customClass="ChooseBuildingMapController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="YJV-9a-HZQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="60" id="bpA-y0-bpK" customClass="LocationCell" customModule="CP_Maps" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bpA-y0-bpK" id="tAT-mM-feT">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ha-b6-2PP" customClass="Title">
-                                            <rect key="frame" x="22" y="19" width="392" height="23"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="lGh-y7-cTa" id="r1P-9Y-K7u"/>
-                            <outlet property="delegate" destination="lGh-y7-cTa" id="8pu-g5-cF6"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Buildings" id="mZo-nk-Dp4">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="cgU-wa-CYg">
-                            <connections>
-                                <segue destination="dph-ZY-8CQ" kind="unwind" identifier="saveBuilding" unwindAction="clickBackToMaps:" id="kJe-Mo-GjL"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="otV-Jj-3rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="dph-ZY-8CQ" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1512" y="66"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="tZR-BB-uK3">
-            <objects>
-                <navigationController id="4lu-bR-S6e" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Awz-TA-Tbm"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bYQ-Yw-0Cs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="lGh-y7-cTa" kind="relationship" relationship="rootViewController" id="k81-Vs-pIe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VTX-D6-2yK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="760" y="66"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="Ou0-u7-6v0">
@@ -225,7 +166,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGN-S7-Gdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xvd-gA-kuH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="975"/>
+            <point key="canvasLocation" x="2138" y="975"/>
         </scene>
         <!--Add / Edit Location-->
         <scene sceneID="cMe-hx-1RE">
@@ -275,7 +216,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="reh-xF-wIR" kind="show" identifier="chooseBuilding" id="Bkd-na-fPM"/>
+                                            <segue destination="fz7-XB-OHL" kind="show" identifier="chooseBuilding" id="Bkd-na-fPM"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="bzK-OV-31z">
@@ -291,7 +232,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="reh-xF-wIR" kind="show" identifier="chooseRoom" id="g6d-cM-Wbu"/>
+                                            <segue destination="fz7-XB-OHL" kind="show" identifier="chooseRoom" id="g6d-cM-Wbu"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -435,14 +376,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="R2J-hs-uon" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="975"/>
+            <point key="canvasLocation" x="3416" y="975"/>
         </scene>
         <!--Choose Building-->
         <scene sceneID="wca-wQ-xqa">
             <objects>
                 <tableViewController title="Choose Building" id="reh-xF-wIR" customClass="ChooseBuildingRoomViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s3D-UV-dVW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -473,6 +414,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveBuilding:" id="HWa-f6-O2R"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="wxG-2A-tdJ"/>
@@ -481,7 +423,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3480" y="693"/>
+            <point key="canvasLocation" x="1310" y="255"/>
         </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
@@ -546,7 +488,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-Xe-cBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="967"/>
+            <point key="canvasLocation" x="1398" y="967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qDO-Zz-ShO">
@@ -564,11 +506,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2h-1b-xII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164" y="975"/>
+            <point key="canvasLocation" x="2790" y="975"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ICY-Y7-wD0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fz7-XB-OHL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xfK-B0-fOg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="reh-xF-wIR" kind="relationship" relationship="rootViewController" id="XrN-eG-Q2i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iwx-Q3-dIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="255"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="mFX-ht-UXj"/>
         <segue reference="a7d-1Q-8Ga"/>
-        <segue reference="g6d-cM-Wbu"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -137,7 +137,9 @@ class AddEditLocationViewController: UITableViewController {
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == chooseBuildingSegueIdentifier {
-         let viewController = segue.destinationViewController as! ChooseBuildingRoomViewController
+         let navViewController = segue.destinationViewController
+            as! UINavigationController
+         let viewController = navViewController.viewControllers.first as! ChooseBuildingRoomViewController
          viewController.identifier = chooseBuildingSegueIdentifier
          viewController.buildingIndexPath = buildingIndexPath
       }
