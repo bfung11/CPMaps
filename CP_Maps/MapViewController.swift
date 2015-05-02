@@ -63,7 +63,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    // find selected building and display info
    @IBAction func findBuilding(segue:UIStoryboardSegue) {
       // save building and display selected building
-      let viewController = segue.sourceViewController as! ChooseBuildingMapController
+//      let viewController = segue.sourceViewController as! ChooseBuildingMapController
       //let building = locationLibraryAPI.getBuildingAtLocation(viewController.buildingIndexPath?.item)
       
       //println(building.name)
