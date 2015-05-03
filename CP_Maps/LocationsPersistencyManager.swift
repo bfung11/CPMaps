@@ -12,16 +12,13 @@ import CoreData
 // manager that controls all persistent objects
 class LocationsPersistencyManager: NSObject {
    var fetchedResultsController: NSFetchedResultsController
-   private var locations: [Location]
    private let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
    override init() {
-      locations = [Location]()
       fetchedResultsController = NSFetchedResultsController()
       super.init()
       fetchedResultsController = getFetchedResultController()
       fetchedResultsController.performFetch(nil)
-      locations = fetchLocations()
    }
    
    func getNSFetchedResultsController() -> NSFetchedResultsController {
@@ -35,15 +32,6 @@ class LocationsPersistencyManager: NSObject {
    func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?,
       context: NSManagedObjectContext?) {
          Location.createInManagedObjectContext(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
-         
-         //      see number of entities stored
-         //      print("in addLocation")
-         //      var fetchRequest = NSFetchRequest(entityName: "Location")
-         //      let recordCount = self.managedObjectContext!.countForFetchRequest(fetchRequest, error: nil)
-         //      NSLog("user records found: \(recordCount)")
-         
-         // TODO: should not fetch every time
-         locations = fetchLocations()
    }
    
    func getLocation(indexPath: NSIndexPath) -> Location {
@@ -61,15 +49,5 @@ class LocationsPersistencyManager: NSObject {
       let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
       fetchRequest.sortDescriptors = [sortDescriptor]
       return fetchRequest
-   }
-   
-   private func fetchLocations() -> [Location] {
-      var tempLocations = []
-      let fetchRequest = NSFetchRequest(entityName: "Location")
-      if let fetchResults = self.managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Location] {
-         tempLocations = fetchResults
-      }
-      
-      return tempLocations as! [Location]
    }
 }
