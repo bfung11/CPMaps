@@ -79,4 +79,28 @@ class ChooseDaysViewController: UITableViewController {
          }
       }
    }
+   
+   private func convertToShorthand(longName: String) -> String {
+      var shortName = "Please select a day"
+      
+      switch longName {
+      case "Sunday":
+         shortName = "Su"
+      case "Monday":
+         shortName = "M"
+      case "Tuesday":
+         shortName = "Tu"
+      case "Wednesday":
+         shortName = "W"
+      case "Thursday":
+         shortName = "Th"
+      case "Friday":
+         shortName = "F"
+      case "Saturday":
+         shortName = "Sa"
+      default: ()
+      }
+      
+      return shortName
+   }
 }
