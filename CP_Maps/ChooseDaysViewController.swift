@@ -103,4 +103,28 @@ class ChooseDaysViewController: UITableViewController {
       
       return shortName
    }
+   
+   private func convertToLongName(shortName: String) -> String {
+      var longName = "Please select a day"
+      
+      switch shortName {
+      case "Su":
+         longName = "Sunday"
+      case "M":
+         longName = "Monday"
+      case "Tu":
+         longName = "Tuesday"
+      case "W":
+         longName = "Wednesday"
+      case "Th":
+         longName = "Thursday"
+      case "F":
+         longName = "Friday"
+      case "Sa":
+         longName = "Saturday"
+      default: ()
+      }
+      
+      return longName
+   }
 }
