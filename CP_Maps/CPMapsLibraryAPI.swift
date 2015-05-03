@@ -41,12 +41,8 @@ class CPMapsLibraryAPI: NSObject {
       locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, context: managedObjectContext)
    }
    
-   func getLocation(index: Int) -> Location {
-      return locationsPersistencyManager.getLocation(index)
-   }
-   
-   func getFetchedLocation(indexPath: NSIndexPath) -> Location {
-      return locationsPersistencyManager.getFetchedLocation(indexPath)
+   func getLocation(indexPath: NSIndexPath) -> Location {
+      return locationsPersistencyManager.getLocation(indexPath)
    }
    
    func getAllLocations() -> [Location] {

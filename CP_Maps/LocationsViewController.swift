@@ -46,7 +46,7 @@ UITableViewDataSource {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
       -> UITableViewCell {
-         let location = locations.getFetchedLocation(indexPath)
+         let location = locations.getLocation(indexPath)
          let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
          
          println(indexPath.row)
@@ -101,7 +101,7 @@ UITableViewDataSource {
       let selectedBuilding = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getName()
       
       if isEditLocation == true {
-         let location = locations.getLocation(viewController.selectedLocation.row)
+         let location = locations.getLocation(viewController.selectedLocation)
          location.updateBuildingNumber(selectedBuilding)
          location.updateRoomNumber(viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell

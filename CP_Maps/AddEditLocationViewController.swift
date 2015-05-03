@@ -39,7 +39,7 @@ class AddEditLocationViewController: UITableViewController {
       buildingIndexPath = nil
       
       if selectedLocation != nil { // if editing a location, then location must always be passed
-         let location = locations.getLocation(selectedLocation.row)
+         let location = locations.getLocation(selectedLocation)
          let building = locations.getBuildingAtIndex(selectedLocation.row)
          buildingDetail.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
@@ -150,7 +150,7 @@ class AddEditLocationViewController: UITableViewController {
       if segue.identifier == saveLocationSegueIdentifer {
          if selectedLocation != nil { // if from editing
             // TODO: update building
-            let location = locations.getLocation(selectedLocation.row)
+            let location = locations.getLocation(selectedLocation)
             location.updateRoomNumber(selectedRoom!)
          }
          else {

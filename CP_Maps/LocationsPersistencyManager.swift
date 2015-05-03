@@ -34,7 +34,6 @@ class LocationsPersistencyManager: NSObject {
    
    func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?,
       context: NSManagedObjectContext?) {
-         
          Location.createInManagedObjectContext(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
          
          //      see number of entities stored
@@ -47,11 +46,7 @@ class LocationsPersistencyManager: NSObject {
          locations = fetchLocations()
    }
    
-   func getLocation(index: Int) -> Location {
-      return locations[index]
-   }
-   
-   func getFetchedLocation(indexPath: NSIndexPath) -> Location {
+   func getLocation(indexPath: NSIndexPath) -> Location {
       return fetchedResultsController.objectAtIndexPath(indexPath) as! Location
    }
    
