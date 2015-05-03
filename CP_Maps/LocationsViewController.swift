@@ -114,20 +114,20 @@ UITableViewDataSource {
          // update the tableView
          self.tableView.reloadData()
          let count = locations.getNumberOfLocations()
-         //         println("num location \(count)\n")
-         //
-         //         println("List of Locations")
-         //         var index = 0;
-         //         for (index = 0; index < count; ++index) {
-         //            let location = locations.getLocation(index)
-         //            let num = location.getBuildingNumber()
-         //            println("building number \(num)")
-         //            if location.hasName() {
-         //               println(location.getName())
-         //            }
-         //         }
+//         println("num location \(count)\n")
+//
+//         println("List of Locations")
+//         var index = 0;
+//         for (index = 0; index < count; ++index) {
+//            let location = locations.getLocation(index)
+//            let num = location.getBuildingNumber()
+//            println("building number \(num)")
+//            if location.hasName() {
+//               println(location.getName())
+//            }
+//         }
          let tempIndexPath = NSIndexPath(forRow: count, inSection: 0)
-         //         tableView.insertRowsAtIndexPaths([tempIndexPath], withRowAnimation: .Automatic)
+//         tableView.insertRowsAtIndexPaths([tempIndexPath], withRowAnimation: .Automatic)
       }
    }
 }
