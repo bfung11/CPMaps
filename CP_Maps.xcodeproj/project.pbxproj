@@ -217,6 +217,7 @@
 				B2644D371A990C4800513903 /* Course.swift */,
 				B2CB2AA81A91AC1200FDF096 /* Location.swift */,
 				B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */,
+				1171B44B1AF0AD2400564ABE /* StreamReader.swift */,
 				11E139CD1A9BB2B30074B985 /* GoogleDataProvider.swift */,
 				11E139CE1A9BB2B30074B985 /* GooglePlace.swift */,
 			);
@@ -250,7 +251,6 @@
 				B23536E81A709D7500E4391B /* Main.storyboard */,
 				B23536E11A709D7500E4391B /* AppDelegate.swift */,
 				B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */,
-				1171B44B1AF0AD2400564ABE /* StreamReader.swift */,
 				B2485FCF1ADF678800430CD9 /* API */,
 				11FFA9FB1A79D1BC007BBBF1 /* Models */,
 				11FFA9FA1A79D1B6007BBBF1 /* Views */,
