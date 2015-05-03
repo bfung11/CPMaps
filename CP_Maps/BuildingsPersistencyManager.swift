@@ -37,13 +37,13 @@ class BuildingsPersistencyManager: NSObject {
       var index = 0
       var hasIndex = false
       
-      for (index = 0; index < buildings.count || hasIndex == false; ++index) {
+      for (index = 0; index < buildings.count && hasIndex == false; ++index) {
          if buildings[index].getNumber() == buildingNumber {
             hasIndex = true
          }
       }
       
-      return index
+      return index - 1 // because index incremented after conditional
    }
    
    private func loadDataFromCSV() {

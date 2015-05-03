@@ -43,10 +43,9 @@ UITableViewDataSource {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
       -> UITableViewCell {
-         let location = locations.getLocation(indexPath)
          let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
-         let building = locations.getBuildingAtIndex(indexPath.row)
-         
+         let location = locations.getLocation(indexPath)
+         let building = locations.getBuilding(location.getBuildingNumber())
          cell.buildingLabel.text =
             "Building " + building.getNumber() +
             " (" + building.getName() + ")"
@@ -95,17 +94,17 @@ UITableViewDataSource {
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
-      let selectedBuilding = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getName()
+      let buildingNumber = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getNumber()
       
       if isEditLocation == true {
          let location = locations.getLocation(viewController.selectedLocation)
-         location.updateBuildingNumber(selectedBuilding)
+         location.updateBuildingNumber(buildingNumber)
          location.updateRoomNumber(viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
          locations.addLocation(viewController.name,
-            buildingNumber: selectedBuilding, roomNumber: viewController.selectedRoom,
+            buildingNumber: buildingNumber, roomNumber: viewController.selectedRoom,
             startTime: viewController.startTime, endTime: viewController.endTime,
             days: viewController.selectedDays)
       }
