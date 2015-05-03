@@ -13,7 +13,7 @@ class BuildingsPersistencyManager: NSObject {
    
    override init() {
       buildings = [Building]()
-      buildings = buildingsData as [Building]
+//      buildings = buildingsData as [Building]
    }
    
    func loadDataFromCSV() {
@@ -40,7 +40,7 @@ class BuildingsPersistencyManager: NSObject {
             }
          }
          aStreamReader.close()
-//         buildings = buildingsDataParsed
+         buildings = buildingsDataParsed
       }
    }
    
