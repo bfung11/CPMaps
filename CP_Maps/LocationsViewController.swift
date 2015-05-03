@@ -49,9 +49,9 @@ UITableViewDataSource {
          let location = locations.getLocation(indexPath)
          let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
          
-         println(indexPath.row)
-         //      println(locations.getLocationBuildingNumber(self.indexPath!.row))
-         println(location.getBuildingNumber())
+//         println(indexPath.row)
+//         println(locations.getLocationBuildingNumber(self.indexPath!.row))
+//         println(location.getBuildingNumber())
          let building = locations.getBuildingAtIndex(indexPath.row)
          
          cell.buildingLabel.text =
@@ -93,6 +93,10 @@ UITableViewDataSource {
       }
    }
    
+   func controllerDidChangeContent(controller: NSFetchedResultsController) {
+      self.tableView.reloadData()
+   }
+   
    @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
    }
    
@@ -107,6 +111,7 @@ UITableViewDataSource {
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
+         println("in here")
          locations.addLocation(viewController.name,
             buildingNumber: selectedBuilding, roomNumber: viewController.selectedRoom,
             startTime: viewController.startTime, endTime: viewController.endTime,
