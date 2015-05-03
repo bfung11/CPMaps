@@ -14,7 +14,7 @@ class BuildingsPersistencyManager: NSObject {
    override init() {
       buildings = [Building]()
       super.init()
-      self.loadDataFromCSV()
+      self.loadDataFromCSV() // what if app goes to sleep and need to reload? maybe not private then?
    }
    
    func addBuilding(building: Building) {
