@@ -15,7 +15,7 @@ UITableViewDataSource {
    @IBOutlet var locationsTableView: UITableView!
    
    var locations: CPMapsLibraryAPI!
-   var fetchedResultsController: NSFetchedResultsController!
+   var fetchedResultsController: CPMapsLibraryAPI!
    var selectedLocation: NSIndexPath?
    var isEditLocation: Bool?
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -23,8 +23,8 @@ UITableViewDataSource {
    override func viewDidLoad() {
       super.viewDidLoad()
       locations = CPMapsLibraryAPI.sharedInstance
-      locations.setDelegate(self)
-      fetchedResultsController = locations.getNSFetchedResultsController()
+      fetchedResultsController = CPMapsLibraryAPI.sharedInstance
+      fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
 //      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
    }
@@ -34,13 +34,12 @@ UITableViewDataSource {
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      return fetchedResultsController.sections!.count
+      return fetchedResultsController.getNumberOfSectionsInTableView()
       //      return numberOfSectionsInLocationsViewController
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      let sectionInfo = fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
-      return sectionInfo.numberOfObjects
+      return fetchedResultsController.getNumberOfRowsInSection(section)
       //      return locations.getNumberOfLocations()
    }
    
