@@ -29,12 +29,24 @@ class CPMapsLibraryAPI: NSObject {
       buildingsPersistencyManager.loadDataFromCSV()
    }
    
+   func getNSFetchedResultsController() -> NSFetchedResultsController {
+      return locationsPersistencyManager.getNSFetchedResultsController()
+   }
+   
+   func setDelegate(delegate: NSFetchedResultsControllerDelegate) {
+      locationsPersistencyManager.setDelegate(delegate)
+   }
+   
    func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?) {
       locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, context: managedObjectContext)
    }
    
    func getLocation(index: Int) -> Location {
       return locationsPersistencyManager.getLocation(index)
+   }
+   
+   func getFetchedLocation(indexPath: NSIndexPath) -> Location {
+      return locationsPersistencyManager.getFetchedLocation(indexPath)
    }
    
    func getAllLocations() -> [Location] {

@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class LocationsViewController: UITableViewController, UITableViewDataSource {
+class LocationsViewController: UITableViewController, NSFetchedResultsControllerDelegate,
+UITableViewDataSource {
    
    @IBOutlet var locationsTableView: UITableView!
    
    var locations: CPMapsLibraryAPI!
+   var fetchedResultsController: NSFetchedResultsController!
    var selectedLocation: NSIndexPath?
    var isEditLocation: Bool?
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -21,43 +23,49 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
    override func viewDidLoad() {
       super.viewDidLoad()
       locations = CPMapsLibraryAPI.sharedInstance
-      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
+      locations.setDelegate(self)
+      fetchedResultsController = locations.getNSFetchedResultsController()
+      fetchedResultsController.performFetch(nil)
+//      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
    }
    
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
    }
-
+   
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      return numberOfSectionsInLocationsViewController
+      return fetchedResultsController.sections!.count
+      //      return numberOfSectionsInLocationsViewController
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return locations.getNumberOfLocations()
+      let sectionInfo = fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+      return sectionInfo.numberOfObjects
+      //      return locations.getNumberOfLocations()
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
-   -> UITableViewCell {
-      let location = locations.getLocation(indexPath.row)
-      let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
-      
-      println(indexPath.row)
-//      println(locations.getLocationBuildingNumber(self.indexPath!.row))
-      println(location.getBuildingNumber())
-      let building = locations.getBuildingAtIndex(indexPath.row)
-      
-      cell.buildingLabel?.text =
-         "Building " + building.getNumber() +
-         " (" + building.getName() + ")"
-      if location.hasRoomNumber() {
-         cell.roomLabel?.text =
-            "Room " + location.getRoomNumber()
-      }
-      else {
-         cell.roomLabel?.text = ""
-      }
-      cell.timesLabel?.text = location.getName()
-      return cell
+      -> UITableViewCell {
+         let location = locations.getFetchedLocation(indexPath)
+         let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
+         
+         println(indexPath.row)
+         //      println(locations.getLocationBuildingNumber(self.indexPath!.row))
+         println(location.getBuildingNumber())
+         let building = locations.getBuildingAtIndex(indexPath.row)
+         
+         cell.buildingLabel.text =
+            "Building " + building.getNumber() +
+            " (" + building.getName() + ")"
+         if location.hasRoomNumber() {
+            cell.roomLabel?.text =
+               "Room " + location.getRoomNumber()
+         }
+         else {
+            cell.roomLabel?.text = ""
+         }
+         cell.timesLabel?.text = "This is where cool text goes"
+         return cell
    }
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -70,8 +78,8 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
       self.selectedLocation = indexPath
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
    }
-
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {    
+   
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == editLocationSegueIdentifier {
          let navViewController = segue.destinationViewController
             as! UINavigationController
@@ -106,20 +114,20 @@ class LocationsViewController: UITableViewController, UITableViewDataSource {
          // update the tableView
          self.tableView.reloadData()
          let count = locations.getNumberOfLocations()
-//         println("num location \(count)\n")
-//         
-//         println("List of Locations")
-//         var index = 0;
-//         for (index = 0; index < count; ++index) {
-//            let location = locations.getLocation(index)
-//            let num = location.getBuildingNumber()
-//            println("building number \(num)")
-//            if location.hasName() {
-//               println(location.getName())
-//            }
-//         }
+         //         println("num location \(count)\n")
+         //
+         //         println("List of Locations")
+         //         var index = 0;
+         //         for (index = 0; index < count; ++index) {
+         //            let location = locations.getLocation(index)
+         //            let num = location.getBuildingNumber()
+         //            println("building number \(num)")
+         //            if location.hasName() {
+         //               println(location.getName())
+         //            }
+         //         }
          let tempIndexPath = NSIndexPath(forRow: count, inSection: 0)
-//         tableView.insertRowsAtIndexPaths([tempIndexPath], withRowAnimation: .Automatic)
+         //         tableView.insertRowsAtIndexPaths([tempIndexPath], withRowAnimation: .Automatic)
       }
    }
 }

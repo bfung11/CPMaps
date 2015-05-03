@@ -138,9 +138,9 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="buildingLabel" destination="foB-RT-LcD" id="4Ai-MJ-gif"/>
-                                    <outlet property="roomLabel" destination="eiD-uK-uf1" id="nr9-PN-PKI"/>
-                                    <outlet property="timesLabel" destination="zCN-UD-U2h" id="6Fe-Pu-aqL"/>
+                                    <outlet property="buildingLabel" destination="foB-RT-LcD" id="cvK-e8-95b"/>
+                                    <outlet property="roomLabel" destination="eiD-uK-uf1" id="hPZ-n6-jTm"/>
+                                    <outlet property="timesLabel" destination="zCN-UD-U2h" id="71v-Vm-daz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -529,7 +529,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SF7-2X-cyR"/>
         <segue reference="a7d-1Q-8Ga"/>
+        <segue reference="g6d-cM-Wbu"/>
     </inferredMetricsTieBreakers>
 </document>

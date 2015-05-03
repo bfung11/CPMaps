@@ -13,13 +13,14 @@ class BuildingsPersistencyManager: NSObject {
    
    override init() {
       buildings = [Building]()
-//      buildings = buildingsData as [Building]
+      buildings = buildingsData as [Building]
    }
    
    func loadDataFromCSV() {
       var buildingsDataParsed = [Building]()
+      // TODO Carl: NSURL?
       // load in buildings from CSV file -- this only works for Carl at the moment...
-      if let aStreamReader = StreamReader(path: "/Users/carllindiii/Desktop/Brians CPMaps/CP_Maps/Building_Info.csv") {
+      if let aStreamReader = StreamReader(path: brianPath) {
          while let line = aStreamReader.nextLine() {
             var buildingArr = split(line) {$0 == ","}
             
@@ -39,7 +40,7 @@ class BuildingsPersistencyManager: NSObject {
             }
          }
          aStreamReader.close()
-         buildings = buildingsDataParsed
+//         buildings = buildingsDataParsed
       }
    }
    
