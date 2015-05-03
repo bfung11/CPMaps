@@ -50,10 +50,6 @@ class LocationsPersistencyManager: NSObject {
       return fetchedResultsController.objectAtIndexPath(indexPath) as! Location
    }
    
-   func getAllLocations() -> [Location] {
-      return locations
-   }
-   
    func getNumberOfLocations() -> Int {
       return locations.count
    }

@@ -45,10 +45,6 @@ class CPMapsLibraryAPI: NSObject {
       return locationsPersistencyManager.getLocation(indexPath)
    }
    
-   func getAllLocations() -> [Location] {
-      return locationsPersistencyManager.getAllLocations()
-   }
-   
    func getNumberOfLocations() -> Int {
       return locationsPersistencyManager.getNumberOfLocations()
    }
