@@ -17,10 +17,6 @@ class BuildingsPersistencyManager: NSObject {
       self.loadDataFromCSV()
    }
    
-   func setBuildings(newBuildings: [Building]) {
-      buildings = newBuildings
-   }
-   
    func addBuilding(building: Building) {
       buildings.append(building)
    }
