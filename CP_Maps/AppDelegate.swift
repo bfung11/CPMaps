@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           GMSServices.provideAPIKey(googleMapsApiKey)
 
           // load from CSV file
-          CPMapsLibraryAPI.sharedInstance.loadDataFromCSV()
           return true
        }
 

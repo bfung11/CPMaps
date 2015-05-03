@@ -25,10 +25,6 @@ class CPMapsLibraryAPI: NSObject {
       super.init()
    }
    
-   func loadDataFromCSV() {
-      buildingsPersistencyManager.loadDataFromCSV()
-   }
-   
    func getNSFetchedResultsController() -> NSFetchedResultsController {
       return locationsPersistencyManager.getNSFetchedResultsController()
    }
