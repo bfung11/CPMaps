@@ -153,10 +153,6 @@ class AddEditLocationViewController: UITableViewController {
             let location = locations.getLocation(selectedLocation)
             location.updateRoomNumber(selectedRoom!)
          }
-         else {
-            locations.addLocation(self.nameTextField.text, buildingNumber: locations.getBuildingAtIndex(buildingIndexPath.row).getNumber(), roomNumber: selectedRoom, startTime: startTime, endTime: endTime, days: selectedDays) // name is "blank space"
-            // TODO: add location
-         }
       }
    }
    
