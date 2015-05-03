@@ -13,7 +13,6 @@ class BuildingsPersistencyManager: NSObject {
    
    override init() {
       buildings = [Building]()
-//      buildings = buildingsData as [Building]
    }
    
    func loadDataFromCSV() {
