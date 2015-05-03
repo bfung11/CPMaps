@@ -35,6 +35,7 @@
 		11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */; };
 		11E139D51A9BB4AD0074B985 /* GoogleMaps.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */; };
 		11E139D61A9BB4AF0074B985 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D11A9BB47A0074B985 /* GoogleMaps.framework */; };
+		11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */; };
 		B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536E11A709D7500E4391B /* AppDelegate.swift */; };
 		B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */; };
 		B23536EA1A709D7500E4391B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23536E81A709D7500E4391B /* Main.storyboard */; };
@@ -97,6 +98,7 @@
 		11E139CE1A9BB2B30074B985 /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		11E139D11A9BB47A0074B985 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		11EEA6731AF5FFA500053ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B23536DC1A709D7500E4391B /* CP_Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP_Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536E01A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536E11A709D7500E4391B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 			children = (
 				1171B44D1AF0AE0E00564ABE /* Building_Info.csv */,
 				B2748F451AB9337D00411FAA /* Const.swift */,
+				11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */,
 				118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */,
 				118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */,
 				B23536EB1A709D7500E4391B /* Images.xcassets */,
@@ -388,6 +391,7 @@
 				11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */,
 				118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */,
 				11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */,
+				11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */,
 				B23536EC1A709D7500E4391B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,6 +456,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11EEA6731AF5FFA500053ADA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		B23536E81A709D7500E4391B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
