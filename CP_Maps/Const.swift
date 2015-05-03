@@ -26,7 +26,6 @@ let chooseBuildingViewControllerTitle = "Building"
 let chooseRoomViewControllerTitle = "Room"
 
 // Number of Sections in view controllers
-let numberOfSectionsInLocationsViewController = 1
 let numberOfSectionsInChooseBuildingRoomViewController = 1
 let numberOfSectionsInDaysViewController = 1
 

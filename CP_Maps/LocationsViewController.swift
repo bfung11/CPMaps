@@ -35,22 +35,16 @@ UITableViewDataSource {
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return fetchedResultsController.getNumberOfSectionsInTableView()
-      //      return numberOfSectionsInLocationsViewController
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return fetchedResultsController.getNumberOfRowsInSection(section)
-      //      return locations.getNumberOfLocations()
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
       -> UITableViewCell {
          let location = locations.getLocation(indexPath)
          let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
-         
-//         println(indexPath.row)
-//         println(locations.getLocationBuildingNumber(self.indexPath!.row))
-//         println(location.getBuildingNumber())
          let building = locations.getBuildingAtIndex(indexPath.row)
          
          cell.buildingLabel.text =
