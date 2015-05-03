@@ -25,7 +25,7 @@ class BuildingsPersistencyManager: NSObject {
       // Can you also check out NSURL? It may have what we need. I only looked at it 
       // for a moment
       // load in buildings from CSV file -- this only works for Carl at the moment...
-      if let aStreamReader = StreamReader(path: brianPath) {
+      if let aStreamReader = StreamReader(path: brianPath) { // Read comments above 
          while let line = aStreamReader.nextLine() {
             var buildingArr = split(line) {$0 == ","}
             
