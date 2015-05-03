@@ -39,7 +39,6 @@
 		B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */; };
 		B23536EA1A709D7500E4391B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23536E81A709D7500E4391B /* Main.storyboard */; };
 		B23536EC1A709D7500E4391B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23536EB1A709D7500E4391B /* Images.xcassets */; };
-		B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23536ED1A709D7500E4391B /* LaunchScreen.xib */; };
 		B23536FB1A709D7500E4391B /* CP_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536FA1A709D7500E4391B /* CP_MapsTests.swift */; };
 		B23573541A92BC090065DF25 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23573531A92BC090065DF25 /* Day.swift */; };
 		B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */; };
@@ -104,7 +103,6 @@
 		B23536E41A709D7500E4391B /* CP_Maps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CP_Maps.xcdatamodel; sourceTree = "<group>"; };
 		B23536E91A709D7500E4391B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B23536EB1A709D7500E4391B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B23536EE1A709D7500E4391B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B23536F41A709D7500E4391B /* CP_MapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP_MapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536F91A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536FA1A709D7500E4391B /* CP_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CP_MapsTests.swift; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 				B2748F451AB9337D00411FAA /* Const.swift */,
 				118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */,
 				118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */,
-				B23536ED1A709D7500E4391B /* LaunchScreen.xib */,
 				B23536EB1A709D7500E4391B /* Images.xcassets */,
 				B23536E01A709D7500E4391B /* Info.plist */,
 			);
@@ -388,7 +385,6 @@
 				1185CBB51A797B1900987018 /* .gitignore in Resources */,
 				1171B44E1AF0AE0E00564ABE /* Building_Info.csv in Resources */,
 				B23536EA1A709D7500E4391B /* Main.storyboard in Resources */,
-				B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */,
 				11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */,
 				118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */,
 				11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */,
@@ -462,14 +458,6 @@
 				B23536E91A709D7500E4391B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B23536ED1A709D7500E4391B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B23536EE1A709D7500E4391B /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -558,6 +546,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -581,6 +570,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
