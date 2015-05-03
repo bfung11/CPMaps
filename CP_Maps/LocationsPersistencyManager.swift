@@ -29,6 +29,19 @@ class LocationsPersistencyManager: NSObject {
       fetchedResultsController.delegate = delegate
    }
    
+   func performFetch(error: NSErrorPointer) {
+      fetchedResultsController.performFetch(error)
+   }
+   
+   func getNumberOfSectionsInTableView() -> Int {
+      return fetchedResultsController.sections!.count
+   }
+   
+   func getNumberOfRowsInSection(section: Int) -> Int {
+      let sectionInfo = fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+      return sectionInfo.numberOfObjects
+   }
+   
    func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?,
       context: NSManagedObjectContext?) {
          Location.createInManagedObjectContext(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)

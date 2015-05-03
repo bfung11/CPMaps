@@ -37,6 +37,18 @@ class CPMapsLibraryAPI: NSObject {
       locationsPersistencyManager.setDelegate(delegate)
    }
    
+   func performFetch(error: NSErrorPointer) {
+      locationsPersistencyManager.performFetch(error)
+   }
+   
+   func getNumberOfSectionsInTableView() -> Int {
+      return locationsPersistencyManager.getNumberOfSectionsInTableView()
+   }
+   
+   func getNumberOfRowsInSection(section: Int) -> Int {
+      return locationsPersistencyManager.getNumberOfRowsInSection(section)
+   }
+   
    func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?) {
       locationsPersistencyManager.addLocation(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, context: managedObjectContext)
    }
