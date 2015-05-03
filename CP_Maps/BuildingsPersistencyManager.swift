@@ -12,7 +12,12 @@ class BuildingsPersistencyManager: NSObject {
    private var buildings: [Building]
    
    override init() {
-      buildings = buildingsData as [Building]
+      buildings = [Building]()
+//      buildings = buildingsData as [Building]
+   }
+   
+   func setBuildings(newBuildings: [Building]) {
+      buildings = newBuildings
    }
    
    func addBuilding(building: Building) {

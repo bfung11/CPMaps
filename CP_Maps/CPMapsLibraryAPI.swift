@@ -41,15 +41,15 @@ class CPMapsLibraryAPI: NSObject {
                   longitude: (buildingArr[4] as NSString).doubleValue))
             }
          
-            if buildingArr.count == 3 {
+            if buildingArr.count == 2 {
                buildingsDataParsed.append(Building(
                   number: buildingArr[0],
                   name: buildingArr[1]))
             }
          }
          aStreamReader.close()
-         // set buildingsData to new data
-         buildingsData = buildingsDataParsed
+         // set buildings data
+         buildingsPersistencyManager.setBuildings(buildingsDataParsed)
       }
    }
    
