@@ -57,6 +57,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       locationTitle.text = building.getName()
       
       // TODO Carl: Add your stuff here
+      var position = CLLocationCoordinate2DMake(building.latitude, building.longitude)
+      var marker = GMSMarker(position: position)
+      marker.title = building.getName()
+      //marker.icon = UIImage(named: "walking")
+      marker.map = mapView
    }
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
