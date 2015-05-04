@@ -17,7 +17,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: UIDatePicker!
    @IBOutlet weak var endTimeLabel: UILabel!
-   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
+//   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
@@ -89,7 +89,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       // get selected days from view controller
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
-      let selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
+      selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
 //      selectedDays = chooseDaysViewController.selectedDays // can be empty, not nil
       
       // display selected days

@@ -354,6 +354,7 @@
                         <outlet property="RoomTextField" destination="Jsf-JQ-gFe" id="rhk-iE-Tks"/>
                         <outlet property="buildingDetail" destination="h8T-Tk-MmD" id="fwA-rQ-5IE"/>
                         <outlet property="chooseRoomCell" destination="bzK-OV-31z" id="UYP-gk-QqS"/>
+                        <outlet property="daysDetail" destination="Whc-CM-SRp" id="cXF-Pt-Ljk"/>
                         <outlet property="endTimeLabel" destination="UoG-JL-P6V" id="ZN5-i7-5L5"/>
                         <outlet property="nameTextField" destination="dLa-c0-3zy" id="20S-PS-KSO"/>
                         <outlet property="roomTextField" destination="Jsf-JQ-gFe" id="glY-hC-Ikk"/>

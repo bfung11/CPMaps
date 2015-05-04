@@ -27,6 +27,7 @@ class ChooseDaysViewController: UITableViewController {
          selectedDays = [Day]()
       }
       else {
+         println("here")
          for day in selectedDays! { // set days that need checkmarks
             selectedDaysAsBool[day.value] = true
          }
@@ -45,7 +46,7 @@ class ChooseDaysViewController: UITableViewController {
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as! UITableViewCell
       cell.textLabel?.text = days[indexPath.row].name
-      cell.accessoryType = .None // mark all days as none to prevent random days from having checkmarks
+//      cell.accessoryType = .None // mark all days as none to prevent random days from having checkmarks
       if selectedDaysAsBool[indexPath.row] == true { // if day was selected
          cell.accessoryType = .Checkmark
       }
@@ -57,7 +58,6 @@ class ChooseDaysViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       selectedDayIndex = indexPath.row
-      
       let cell = tableView.cellForRowAtIndexPath(indexPath)
       // if has been selected, unselect it; else select it
       if selectedDaysAsBool[selectedDayIndex!] == true {
