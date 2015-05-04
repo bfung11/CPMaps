@@ -73,11 +73,15 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       if(building.getLatitude() != 0) {
          var position = CLLocationCoordinate2DMake(building.getLatitude(), building.getLongtitude())
          marker = GMSMarker(position: position)
+         marker.copy()
          marker.title = building.getName()
          marker.snippet = "Floors: " + String(building.getNumberOfFloors())
-         marker.infoWindowAnchor = CGPointMake(0.5, 0.5)
+         marker.infoWindowAnchor = CGPointMake(0.5, 0.1)
          marker.appearAnimation = kGMSMarkerAnimationPop
          marker.map = mapView
+         
+         // animate to marker
+         mapView.animateToLocation(position)
       }
    }
    
