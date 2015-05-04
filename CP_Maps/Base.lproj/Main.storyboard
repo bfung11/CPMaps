@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
@@ -303,20 +303,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="217" id="40t-cA-iNX">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="40t-cA-iNX" id="KXl-Rz-2d5">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="sMM-v5-ezt">
-                                                    <rect key="frame" x="0.0" y="8" width="414" height="162"/>
-                                                    <date key="date" timeIntervalSinceReferenceDate="446268970.39257503">
-                                                        <!--2015-02-22 03:36:10 +0000-->
-                                                    </date>
-                                                </datePicker>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="kGH-qY-GjK">
@@ -340,6 +326,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="g60-TJ-JGu" kind="show" id="GEz-PY-Efx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -365,7 +354,6 @@
                         <outlet property="RoomTextField" destination="Jsf-JQ-gFe" id="rhk-iE-Tks"/>
                         <outlet property="buildingDetail" destination="h8T-Tk-MmD" id="fwA-rQ-5IE"/>
                         <outlet property="chooseRoomCell" destination="bzK-OV-31z" id="UYP-gk-QqS"/>
-                        <outlet property="endTimeDatePicker" destination="sMM-v5-ezt" id="V3g-9o-FDR"/>
                         <outlet property="endTimeLabel" destination="UoG-JL-P6V" id="ZN5-i7-5L5"/>
                         <outlet property="nameTextField" destination="dLa-c0-3zy" id="20S-PS-KSO"/>
                         <outlet property="roomTextField" destination="Jsf-JQ-gFe" id="glY-hC-Ikk"/>
@@ -431,7 +419,7 @@
             <objects>
                 <tableViewController title="Choose Days" id="g60-TJ-JGu" customClass="ChooseDaysViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1FA-yR-KMd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -471,7 +459,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CM4-5w-lzu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3480" y="1520"/>
+            <point key="canvasLocation" x="3959" y="975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2DV-J0-r0q">
@@ -529,7 +517,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SF7-2X-cyR"/>
+        <segue reference="g6d-cM-Wbu"/>
         <segue reference="a7d-1Q-8Ga"/>
     </inferredMetricsTieBreakers>
 </document>

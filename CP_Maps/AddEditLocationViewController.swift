@@ -68,9 +68,9 @@ class AddEditLocationViewController: UITableViewController {
       startTimeDatePicker.addTarget(self,
          action: Selector("changeStartDatePicker:"),
          forControlEvents: UIControlEvents.ValueChanged)
-      endTimeDatePicker.addTarget(self,
-         action: Selector("changeEndDatePicker:"),
-         forControlEvents: UIControlEvents.ValueChanged)
+//      endTimeDatePicker.addTarget(self,
+//         action: Selector("changeEndDatePicker:"),
+//         forControlEvents: UIControlEvents.ValueChanged)
    }
    
    @IBAction func cancelAddEditLocationDetails(segue:UIStoryboardSegue) {
@@ -112,14 +112,14 @@ class AddEditLocationViewController: UITableViewController {
       dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
       startTimeLabel.text = dateFormatter.stringFromDate(startTimeDatePicker.date)
    }
-   //redundant code
-   func changeEndDatePicker(datePicker:UIDatePicker) {
-      var dateFormatter = NSDateFormatter()
-      
-      //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-      dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-      endTimeLabel.text = dateFormatter.stringFromDate(endTimeDatePicker.date)
-   }
+//   //redundant code
+//   func changeEndDatePicker(datePicker:UIDatePicker) {
+//      var dateFormatter = NSDateFormatter()
+//      
+//      //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+//      dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+//      endTimeLabel.text = dateFormatter.stringFromDate(endTimeDatePicker.date)
+//   }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
