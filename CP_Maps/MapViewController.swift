@@ -73,7 +73,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       if(building.getLatitude() != 0) {
          var position = CLLocationCoordinate2DMake(building.getLatitude(), building.getLongtitude())
          marker = GMSMarker(position: position)
-         marker.copy()
          marker.title = building.getName()
          marker.snippet = "Floors: " + String(building.getNumberOfFloors())
          marker.infoWindowAnchor = CGPointMake(0.5, 0.1)
