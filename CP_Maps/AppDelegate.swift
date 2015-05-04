@@ -21,8 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        AnyObject]?) -> Bool {
        
           GMSServices.provideAPIKey(googleMapsApiKey)
-
-          // load from CSV file
           return true
        }
 

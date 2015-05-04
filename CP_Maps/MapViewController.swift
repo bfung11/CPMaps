@@ -17,6 +17,9 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    let locationManager = CLLocationManager()
    let locationLibraryAPI = CPMapsLibraryAPI.sharedInstance
    
+   var overlay = GMSGroundOverlay()
+   var marker = GMSMarker()
+   
    override func viewDidLoad() {
       super.viewDidLoad()
       // Do any additional setup after loading the view, typically from a nib.
@@ -27,6 +30,16 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       else {
          var startingPosition_UU = CLLocationCoordinate2DMake(35.299776974257, -120.65926909446716)
          mapView.camera = GMSCameraPosition(target: startingPosition_UU, zoom: 15, bearing: 0, viewingAngle: 0)
+         
+         // initialize overlay 
+         var southWest = CLLocationCoordinate2DMake(35.295115, -120.6855869)
+         var northEast = CLLocationCoordinate2DMake(35.312691, -120.6521129)
+         var overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast)
+         var icon = UIImage(named: "PolyMap_Extended.jpg")
+         overlay = GMSGroundOverlay(bounds: overlayBounds, icon: icon)
+         overlay.bearing = 0
+         overlay.map = nil
+         
       }
       
       locationManager.delegate = self
@@ -54,20 +67,24 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       let buildingIndexPath = viewController.buildingIndexPath
       let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!.row)
-      locationTitle.text = building.getName()
+      locationTitle.text = String(building.getNumber()) + " - " + building.getName()
       
-      // TODO Carl: Add your stuff here
-      var position = CLLocationCoordinate2DMake(building.latitude, building.longitude)
-      var marker = GMSMarker(position: position)
-      marker.title = building.getName()
-      //marker.icon = UIImage(named: "walking")
-      marker.map = mapView
+      marker.map = nil      
+      if(building.getLatitude() != 0) {
+         var position = CLLocationCoordinate2DMake(building.getLatitude(), building.getLongtitude())
+         marker = GMSMarker(position: position)
+         marker.title = building.getName()
+         marker.snippet = "Floors: " + String(building.getNumberOfFloors())
+         marker.infoWindowAnchor = CGPointMake(0.5, 0.5)
+         marker.appearAnimation = kGMSMarkerAnimationPop
+         marker.map = mapView
+      }
    }
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! LocationsViewController
       let location = locationLibraryAPI.getLocation(viewController.selectedLocation!)
-      locationTitle.text = location.getBuildingNumber()
+      locationTitle.text = location.getName()
    }
    
    @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
@@ -99,7 +116,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    @IBAction func mapTypeSegmentPressed(sender: AnyObject) {
       let segmentedControl = sender as! UISegmentedControl
-      mapView.clear();
+      overlay.map = nil
       
       switch segmentedControl.selectedSegmentIndex {
       case 0:
@@ -109,13 +126,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       case 2:
          mapView.mapType = kGMSTypeHybrid
       case 3:
-         //Overlay cal polys map
-         var southWest = CLLocationCoordinate2DMake(35.295127282268666, -120.68558692932129)
-         var northEast = CLLocationCoordinate2DMake(35.3126913835769, -120.65211296081543)
-         var overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast)
-         var icon = UIImage(named: "PolyMap_Extended.jpg")
-         var overlay = GMSGroundOverlay(bounds: overlayBounds, icon: icon)
-         overlay.bearing = 0
+         // overlay cal polys map
          overlay.map = mapView
       default:
          mapView.mapType = mapView.mapType
