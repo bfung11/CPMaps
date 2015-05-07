@@ -7,33 +7,79 @@
 //
 
 import UIKit
+import CoreData
 
-class Location: NSObject {
-   var building: Building!
-   var room: Room?
-   var course: Course?
+class Location: NSManagedObject {
+   @NSManaged var name: String?
+   @NSManaged var buildingNumber: String!
+   @NSManaged var roomNumber: String?
+   @NSManaged var startTime: String?
+   @NSManaged var endTime: String?
+   @NSManaged var days: String?
    
-   init(building: Building, room: Room?, course: Course?) {
-      self.building = building
-      self.room = room
-      self.course = course
+   
+   class func createInManagedObjectContext(name: String?, buildingNumber: String!, roomNumber: String?,
+      startTime: String?, endTime: String?, days: String?,
+      insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+      let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: context!) as! Location
+      location.setValue(name, forKey: "name")
+      location.setValue(buildingNumber, forKey: "buildingNumber")
+      location.setValue(roomNumber, forKey: "roomNumber")
+      location.setValue(startTime, forKey: "startTime")
+      location.setValue(endTime, forKey: "endTime")
+      location.setValue(days, forKey: "days")
    }
    
-   //Put in Course.swift?
-   func getCourseDetails() -> String {
-      return course!.getCourseDetails()
+   func updateBuilding(buildingNumber: String) {
+      self.buildingNumber = buildingNumber
+      self.roomNumber = "None"
    }
    
-   func updateBuilding(building: Building) {
-      self.building = building
-      self.room = nil
+   func updateRoom(roomNumber: String) {
+      self.roomNumber = roomNumber
    }
    
-   func updateRoom(room: Room) {
-      self.room = room
+   func hasName() -> Bool {
+      return self.name != nil
    }
    
-   func updateCourse() {
-      
+   func hasRoomNumber() -> Bool {
+      return self.roomNumber != nil
+   }
+   
+   func hasDays() -> Bool {
+      return self.days != nil
+   }
+   
+   func getName() -> String? {
+      return self.name
+   }
+   
+   func getBuildingNumber() -> String {
+      return self.buildingNumber
+   }
+   
+   func getRoomNumber() -> String {
+      return self.roomNumber!
+   }
+   
+   func getDays() -> String {
+      return self.days!
+   }
+   
+   func updateName(name: String) {
+      self.name = name
+   }
+   
+   func updateBuildingNumber(buildingNumber: String) {
+      self.buildingNumber = buildingNumber
+   }
+   
+   func updateRoomNumber(roomNumber: String) {
+      self.roomNumber = roomNumber
+   }
+   
+   func updateDays(days: String) {
+      self.days = days
    }
 }

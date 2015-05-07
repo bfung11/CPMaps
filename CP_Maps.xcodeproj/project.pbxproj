@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1157A9EC1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */; };
+		1157A9F01AFAAAFE004CA294 /* 0140-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9ED1AFAAAFE004CA294 /* 0140-1.png */; };
+		1157A9F11AFAAAFE004CA294 /* 0140-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EE1AFAAAFE004CA294 /* 0140-2.png */; };
+		1157A9F21AFAAAFE004CA294 /* 0140-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EF1AFAAAFE004CA294 /* 0140-3.png */; };
 		1167C1CE1A783FB600E6C780 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1CD1A783FB600E6C780 /* UIKit.framework */; };
 		1167C1CF1A783FC600E6C780 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C81A783EF200E6C780 /* CoreGraphics.framework */; };
 		1167C1D01A783FD000E6C780 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C91A783EF200E6C780 /* CoreLocation.framework */; };
+		1171B44C1AF0AD2400564ABE /* StreamReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1171B44B1AF0AD2400564ABE /* StreamReader.swift */; };
+		1171B44E1AF0AE0E00564ABE /* Building_Info.csv in Resources */ = {isa = PBXBuildFile; fileRef = 1171B44D1AF0AE0E00564ABE /* Building_Info.csv */; };
 		1185CBB51A797B1900987018 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1185CBB41A797B1900987018 /* .gitignore */; };
 		118C896B1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */; };
 		118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */; };
@@ -33,23 +39,24 @@
 		11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */; };
 		11E139D51A9BB4AD0074B985 /* GoogleMaps.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */; };
 		11E139D61A9BB4AF0074B985 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D11A9BB47A0074B985 /* GoogleMaps.framework */; };
+		11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */; };
 		B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536E11A709D7500E4391B /* AppDelegate.swift */; };
 		B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */; };
 		B23536EA1A709D7500E4391B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23536E81A709D7500E4391B /* Main.storyboard */; };
 		B23536EC1A709D7500E4391B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23536EB1A709D7500E4391B /* Images.xcassets */; };
-		B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B23536ED1A709D7500E4391B /* LaunchScreen.xib */; };
 		B23536FB1A709D7500E4391B /* CP_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536FA1A709D7500E4391B /* CP_MapsTests.swift */; };
 		B23573541A92BC090065DF25 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23573531A92BC090065DF25 /* Day.swift */; };
 		B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */; };
 		B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */; };
 		B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */; };
-		B2485FCE1ADF677E00430CD9 /* LocationLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */; };
-		B2485FD11ADF6C4200430CD9 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FD01ADF6C4200430CD9 /* PersistencyManager.swift */; };
+		B2485FCE1ADF677E00430CD9 /* CPMapsLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */; };
+		B2485FD11ADF6C4200430CD9 /* LocationsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */; };
 		B25647351AA0179000315E46 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25647341AA0179000315E46 /* Room.swift */; };
 		B2644D361A990A9300513903 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D351A990A9300513903 /* Building.swift */; };
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
 		B2748F461AB9337D00411FAA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F451AB9337D00411FAA /* Const.swift */; };
 		B2748F501AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */; };
+		B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
@@ -67,9 +74,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorPlanPagedScrollViewController.swift; sourceTree = "<group>"; };
+		1157A9ED1AFAAAFE004CA294 /* 0140-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-1.png"; sourceTree = "<group>"; };
+		1157A9EE1AFAAAFE004CA294 /* 0140-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-2.png"; sourceTree = "<group>"; };
+		1157A9EF1AFAAAFE004CA294 /* 0140-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-3.png"; sourceTree = "<group>"; };
 		1167C1C81A783EF200E6C780 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1167C1C91A783EF200E6C780 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1167C1CD1A783FB600E6C780 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1171B44B1AF0AD2400564ABE /* StreamReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamReader.swift; sourceTree = "<group>"; };
+		1171B44D1AF0AE0E00564ABE /* Building_Info.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Building_Info.csv; sourceTree = "<group>"; };
 		1185CBB41A797B1900987018 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CalPoly_Bldg14_Location.gpx; sourceTree = "<group>"; };
 		118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PolyMap_Extended.jpg; sourceTree = "<group>"; };
@@ -93,13 +106,13 @@
 		11E139CE1A9BB2B30074B985 /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		11E139D11A9BB47A0074B985 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
+		11EEA6731AF5FFA500053ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B23536DC1A709D7500E4391B /* CP_Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP_Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536E01A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536E11A709D7500E4391B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23536E41A709D7500E4391B /* CP_Maps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CP_Maps.xcdatamodel; sourceTree = "<group>"; };
 		B23536E91A709D7500E4391B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B23536EB1A709D7500E4391B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B23536EE1A709D7500E4391B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B23536F41A709D7500E4391B /* CP_MapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP_MapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536F91A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536FA1A709D7500E4391B /* CP_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CP_MapsTests.swift; sourceTree = "<group>"; };
@@ -107,13 +120,14 @@
 		B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
-		B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationLibraryAPI.swift; sourceTree = "<group>"; };
-		B2485FD01ADF6C4200430CD9 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMapsLibraryAPI.swift; sourceTree = "<group>"; };
+		B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsPersistencyManager.swift; sourceTree = "<group>"; };
 		B25647341AA0179000315E46 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B2644D351A990A9300513903 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		B2748F451AB9337D00411FAA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingRoomTableViewController.swift; sourceTree = "<group>"; };
+		B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsPersistencyManager.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +168,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1157A9F31AFAAB0A004CA294 /* FloorPlans */ = {
+			isa = PBXGroup;
+			children = (
+				1157A9ED1AFAAAFE004CA294 /* 0140-1.png */,
+				1157A9EE1AFAAAFE004CA294 /* 0140-2.png */,
+				1157A9EF1AFAAAFE004CA294 /* 0140-3.png */,
+			);
+			name = FloorPlans;
+			sourceTree = "<group>";
+		};
 		1167C1CC1A783F3200E6C780 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,12 +205,13 @@
 		11FFA9F91A79D1AA007BBBF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				11E139C31A9BB1040074B985 /* MapViewController.swift */,
+				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
-				11E139C31A9BB1040074B985 /* MapViewController.swift */,
-				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
+				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -211,6 +236,7 @@
 				B2644D371A990C4800513903 /* Course.swift */,
 				B2CB2AA81A91AC1200FDF096 /* Location.swift */,
 				B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */,
+				1171B44B1AF0AD2400564ABE /* StreamReader.swift */,
 				11E139CD1A9BB2B30074B985 /* GoogleDataProvider.swift */,
 				11E139CE1A9BB2B30074B985 /* GooglePlace.swift */,
 			);
@@ -258,10 +284,12 @@
 		B23536DF1A709D7500E4391B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1157A9F31AFAAB0A004CA294 /* FloorPlans */,
+				1171B44D1AF0AE0E00564ABE /* Building_Info.csv */,
 				B2748F451AB9337D00411FAA /* Const.swift */,
+				11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */,
 				118C896C1AB16C6200E8847B /* PolyMap_Extended.jpg */,
 				118C896A1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx */,
-				B23536ED1A709D7500E4391B /* LaunchScreen.xib */,
 				B23536EB1A709D7500E4391B /* Images.xcassets */,
 				B23536E01A709D7500E4391B /* Info.plist */,
 			);
@@ -288,8 +316,9 @@
 		B2485FCF1ADF678800430CD9 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				B2485FD01ADF6C4200430CD9 /* PersistencyManager.swift */,
-				B2485FCD1ADF677E00430CD9 /* LocationLibraryAPI.swift */,
+				B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */,
+				B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */,
+				B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -377,11 +406,15 @@
 			files = (
 				118C896B1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx in Resources */,
 				1185CBB51A797B1900987018 /* .gitignore in Resources */,
+				1171B44E1AF0AE0E00564ABE /* Building_Info.csv in Resources */,
 				B23536EA1A709D7500E4391B /* Main.storyboard in Resources */,
-				B23536EF1A709D7500E4391B /* LaunchScreen.xib in Resources */,
 				11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */,
 				118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */,
+				1157A9F21AFAAAFE004CA294 /* 0140-3.png in Resources */,
+				1157A9F01AFAAAFE004CA294 /* 0140-1.png in Resources */,
 				11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */,
+				11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */,
+				1157A9F11AFAAAFE004CA294 /* 0140-2.png in Resources */,
 				B23536EC1A709D7500E4391B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,9 +434,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2644D381A990C4800513903 /* Course.swift in Sources */,
+				1157A9EC1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift in Sources */,
 				11E139CF1A9BB2B30074B985 /* GoogleDataProvider.swift in Sources */,
 				B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */,
-				B2485FCE1ADF677E00430CD9 /* LocationLibraryAPI.swift in Sources */,
+				B2485FCE1ADF677E00430CD9 /* CPMapsLibraryAPI.swift in Sources */,
 				B2748F501AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift in Sources */,
 				B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */,
 				11E139D01A9BB2B30074B985 /* GooglePlace.swift in Sources */,
@@ -412,16 +446,18 @@
 				B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */,
 				B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */,
 				11E139CC1A9BB1660074B985 /* UIViewExtension.swift in Sources */,
+				1171B44C1AF0AD2400564ABE /* StreamReader.swift in Sources */,
 				11E139CA1A9BB1660074B985 /* MarkerInfoView.swift in Sources */,
 				B2644D361A990A9300513903 /* Building.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
 				B25647351AA0179000315E46 /* Room.swift in Sources */,
+				B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
 				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,
 				B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,
 				B2748F461AB9337D00411FAA /* Const.swift in Sources */,
-				B2485FD11ADF6C4200430CD9 /* PersistencyManager.swift in Sources */,
+				B2485FD11ADF6C4200430CD9 /* LocationsPersistencyManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,20 +480,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				11EEA6731AF5FFA500053ADA /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
 		B23536E81A709D7500E4391B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				B23536E91A709D7500E4391B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B23536ED1A709D7500E4391B /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B23536EE1A709D7500E4391B /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -546,6 +582,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -569,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

@@ -12,22 +12,14 @@ import UIKit
 
 class ChooseBuildingRoomViewController: UITableViewController {
    var identifier: String?      // determines whether to display building or room data 
-   var data: [AnyObject]!       // building data or room data
-   var selectedItem: AnyObject? // selected building or room
-   var selectedItemIndex: Int?  // index of selected building or room
+   var data: CPMapsLibraryAPI!       // building data or room data
+   var buildingIndexPath: NSIndexPath? // selected building or room
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      selectedItemIndex = nil
-      
-      // display correct controller title
-      if identifier == chooseBuildingSegueIdentifier {
-         self.navigationItem.title = chooseBuildingViewControllerTitle
-      }
-      else {
-         self.navigationItem.title = chooseRoomViewControllerTitle
-      }
+      data = CPMapsLibraryAPI.sharedInstance
+      self.navigationItem.title = chooseBuildingViewControllerTitle
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -35,48 +27,35 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return data.count
+      return data.getNumberOfBuildings()
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       var cell: UITableViewCell?
+      var building = data.getBuildingAtIndex(indexPath.row) // for readability
       
-      if identifier == chooseBuildingSegueIdentifier {
-         // display buildings
-         cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
-         let building = data![indexPath.row] as! Building
-         cell!.textLabel?.text = building.number + " - " + building.name
-         cell!.accessoryType = .None //prevents random buildings from having checkmarks
-         
-         // if there is a selected building, put a checkmark next to the selected building
-         if selectedItem != nil && building.name == (selectedItem as! Building).name {
-            cell!.accessoryType = .Checkmark
-         }
-      }
-      else if identifier == chooseRoomSegueIdentifier {
-         // display rooms
-         cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
-         let room = data![indexPath.row] as! Room
-         cell!.textLabel?.text = "Room " + room.number
-         cell!.accessoryType = .None //prevents random room from having checkmarks
-         
-         // if there is a selected room, put a checkmark next to the selected room
-         if selectedItem != nil && room.number == (selectedItem as! Room).number{
-            cell!.accessoryType = .Checkmark
-         }
+      // display buildings
+      cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
+      cell!.textLabel?.text = building.getNumber() + " - " +
+         building.getName()
+      cell!.accessoryType = .None //prevents random buildings from having checkmarks
+      
+      // if there is a selected building, put a checkmark next to the selected building
+      if buildingIndexPath != nil && data.getBuildingAtIndex(buildingIndexPath!.row).getName() == building.getName() {
+         cell!.accessoryType = .Checkmark
       }
       
       return cell!
    }
    
-   //MARK: - Table view delegate
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      selectedItem = data![indexPath.row]
-      if identifier == chooseBuildingSegueIdentifier {
-         performSegueWithIdentifier(saveBuildingSegueIdentifer, sender: self)
+      self.buildingIndexPath = indexPath
+
+      if identifier == chooseBuildingForAddEditViewController {
+         performSegueWithIdentifier(chooseBuildingForAddEditViewController, sender: self)
       }
-      else if identifier == chooseRoomSegueIdentifier {
-         performSegueWithIdentifier(saveRoomSegueIdentifer, sender: self)
+      else if identifier == chooseBuildingForMapViewController {
+         performSegueWithIdentifier(chooseBuildingForMapViewController, sender: self)
       }
    }
 }

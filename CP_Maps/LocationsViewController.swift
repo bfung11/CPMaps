@@ -7,76 +7,77 @@
 //
 
 import UIKit
+import CoreData
 
-class LocationsViewController: UITableViewController {
+class LocationsViewController: UITableViewController, NSFetchedResultsControllerDelegate,
+UITableViewDataSource {
    
-   var locations: LocationLibraryAPI!
-   var indexPath: NSIndexPath?
+   @IBOutlet var locationsTableView: UITableView!
+   
+   var locations: CPMapsLibraryAPI!
+   var fetchedResultsController: CPMapsLibraryAPI!
+   var selectedLocation: NSIndexPath?
    var isEditLocation: Bool?
+   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
-      locations = LocationLibraryAPI.sharedInstance
-
-      // Uncomment the following line to preserve selection between presentations
-      // self.clearsSelectionOnViewWillAppear = false
-
-      // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-      // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+      locations = CPMapsLibraryAPI.sharedInstance
+      fetchedResultsController = CPMapsLibraryAPI.sharedInstance
+      fetchedResultsController.setDelegate(self)
+      fetchedResultsController.performFetch(nil)
+//      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
    }
    
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
    }
-
-   // MARK: - Table view data source
+   
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      return numberOfSectionsInLocationsViewController
+      return fetchedResultsController.getNumberOfSectionsInTableView()
    }
    
    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return locations.getNumberOfLocations()
+      return fetchedResultsController.getNumberOfRowsInSection(section)
    }
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
-   -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
-      
-      let location = LocationLibraryAPI.sharedInstance
-      cell.buildingTitleLabel.text =
-         "Building " + location.getBuildingNumber(indexPath.row) +
-         " (" + location.getBuildingName(indexPath.row) + ")"
-      if location.hasRoom(indexPath.row) {
-         cell.roomTitleLabel.text = "Room " + location.getRoomNumber(indexPath.row)
-      }
-      else {
-         cell.roomTitleLabel.text = ""
-      }
-      cell.classTitleLabel.text = location.getCourseDetails(indexPath.row)
-      return cell
+      -> UITableViewCell {
+         let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
+         let location = locations.getLocation(indexPath)
+         let building = locations.getBuilding(location.getBuildingNumber())
+         cell.buildingLabel.text =
+            "Building " + building.getNumber() +
+            " (" + building.getName() + ")"
+         if location.hasRoomNumber() {
+            cell.roomLabel?.text =
+               "Room " + location.getRoomNumber()
+         }
+         else {
+            cell.roomLabel?.text = ""
+         }
+         cell.timesLabel?.text = "This is where cool text goes"
+         return cell
    }
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      
-      self.indexPath = indexPath
+      self.selectedLocation = indexPath
       performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-      self.indexPath = indexPath
+      self.selectedLocation = indexPath
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
    }
-
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {    
+   
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == editLocationSegueIdentifier {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
-         viewController.indexPath = indexPath
+         viewController.selectedLocation = selectedLocation
          isEditLocation = true
       }
       else {
@@ -84,20 +85,28 @@ class LocationsViewController: UITableViewController {
       }
    }
    
-   @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
-      //dismissViewControllerAnimated(true, completion: nil)
-      //performSegueWithIdentifier("cancelToMyLocations", sender: self)
+   func controllerDidChangeContent(controller: NSFetchedResultsController) {
+      self.tableView.reloadData()
    }
    
-   @IBAction func saveLocation(segue:UIStoryboardSegue) {      
+   @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
+   }
+   
+   @IBAction func saveLocation(segue:UIStoryboardSegue) {
+      let viewController = segue.sourceViewController as! AddEditLocationViewController
+      let buildingNumber = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getNumber()
+      
       if isEditLocation == true {
+         let location = locations.getLocation(viewController.selectedLocation)
+         location.updateBuildingNumber(buildingNumber)
+         location.updateRoomNumber(viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
-         // update the tableView
-         let count = locations.getNumberOfLocations() - 1
-         let indexPath = NSIndexPath(forRow: count, inSection: 0)
-         tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+         locations.addLocation(viewController.name,
+            buildingNumber: buildingNumber, roomNumber: viewController.selectedRoom,
+            startTime: viewController.startTime, endTime: viewController.endTime,
+            days: viewController.selectedDays)
       }
    }
 }
