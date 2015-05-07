@@ -48,14 +48,10 @@ class BuildingsPersistencyManager: NSObject {
    
    private func loadDataFromCSV() {
       var buildingsDataParsed = [Building]()
-      // TODO Carl: NSURL?
-      // Carl, brianPath is a const so that I don't have to rewrite the path everytime
-      // there is one called carlPath that is yours
-      // we'll just have to deal with it until we get a relative path working
-      // Can you also check out NSURL? It may have what we need. I only looked at it
-      // for a moment
-      // load in buildings from CSV file -- this only works for Carl at the moment...
-      if let aStreamReader = StreamReader(path: brianPath) { // Read comments above
+      
+      let path = NSBundle.mainBundle().pathForResource("Building_Info", ofType: "csv")
+      
+      if let aStreamReader = StreamReader(path: path!) { // Read comments above
          while let line = aStreamReader.nextLine() {
             var buildingArr = split(line) {$0 == ","}
             
