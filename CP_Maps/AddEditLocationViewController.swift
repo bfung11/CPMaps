@@ -73,7 +73,7 @@ class AddEditLocationViewController: UITableViewController {
 //         forControlEvents: UIControlEvents.ValueChanged)
    }
    
-   @IBAction func cancelAddEditLocationDetails(segue:UIStoryboardSegue) {
+   @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
    }
    
    // save selected building and display selected building
