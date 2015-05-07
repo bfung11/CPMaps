@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -75,7 +75,11 @@
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cxw-Su-LIk"/>
-                                    <barButtonItem systemItem="action" id="vhg-KE-o3N"/>
+                                    <barButtonItem systemItem="action" id="vhg-KE-o3N">
+                                        <connections>
+                                            <segue destination="PtO-Vs-Ut1" kind="show" id="nby-7V-GSU"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -102,6 +106,48 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101" y="967"/>
+        </scene>
+        <!--Floor Plans-->
+        <scene sceneID="Fr8-2D-a5z">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="PtO-Vs-Ut1" customClass="FloorPlanPagedScrollViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QAY-Lg-4zK"/>
+                        <viewControllerLayoutGuide type="bottom" id="wqP-be-HZG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EZQ-BH-ZRQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-eR-Djf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
+                                <connections>
+                                    <outlet property="delegate" destination="PtO-Vs-Ut1" id="EIa-5L-tgV"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-tX-hVa">
+                                <rect key="frame" x="3" y="691" width="408" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Floor Plans" id="Gj7-Yw-kPF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kuy-Qt-mwq">
+                            <connections>
+                                <segue destination="eHL-e2-RlV" kind="unwind" unwindAction="cancelToMapViewController:" id="2e2-kG-PFt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="pageControl" destination="Kgo-tX-hVa" id="e28-h8-uki"/>
+                        <outlet property="scrollView" destination="dq7-eR-Djf" id="ERJ-j4-8uc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2A-Se-by6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="eHL-e2-RlV" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="1851"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="Ou0-u7-6v0">
@@ -518,7 +564,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="g6d-cM-Wbu"/>
         <segue reference="a7d-1Q-8Ga"/>
+        <segue reference="SF7-2X-cyR"/>
     </inferredMetricsTieBreakers>
 </document>

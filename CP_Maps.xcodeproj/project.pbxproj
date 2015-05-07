@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1157A9EC1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */; };
+		1157A9F01AFAAAFE004CA294 /* 0140-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9ED1AFAAAFE004CA294 /* 0140-1.png */; };
+		1157A9F11AFAAAFE004CA294 /* 0140-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EE1AFAAAFE004CA294 /* 0140-2.png */; };
+		1157A9F21AFAAAFE004CA294 /* 0140-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EF1AFAAAFE004CA294 /* 0140-3.png */; };
 		1167C1CE1A783FB600E6C780 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1CD1A783FB600E6C780 /* UIKit.framework */; };
 		1167C1CF1A783FC600E6C780 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C81A783EF200E6C780 /* CoreGraphics.framework */; };
 		1167C1D01A783FD000E6C780 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C91A783EF200E6C780 /* CoreLocation.framework */; };
@@ -70,6 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorPlanPagedScrollViewController.swift; sourceTree = "<group>"; };
+		1157A9ED1AFAAAFE004CA294 /* 0140-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-1.png"; sourceTree = "<group>"; };
+		1157A9EE1AFAAAFE004CA294 /* 0140-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-2.png"; sourceTree = "<group>"; };
+		1157A9EF1AFAAAFE004CA294 /* 0140-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-3.png"; sourceTree = "<group>"; };
 		1167C1C81A783EF200E6C780 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1167C1C91A783EF200E6C780 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1167C1CD1A783FB600E6C780 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -160,6 +168,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1157A9F31AFAAB0A004CA294 /* FloorPlans */ = {
+			isa = PBXGroup;
+			children = (
+				1157A9ED1AFAAAFE004CA294 /* 0140-1.png */,
+				1157A9EE1AFAAAFE004CA294 /* 0140-2.png */,
+				1157A9EF1AFAAAFE004CA294 /* 0140-3.png */,
+			);
+			name = FloorPlans;
+			sourceTree = "<group>";
+		};
 		1167C1CC1A783F3200E6C780 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +211,7 @@
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
+				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +284,7 @@
 		B23536DF1A709D7500E4391B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1157A9F31AFAAB0A004CA294 /* FloorPlans */,
 				1171B44D1AF0AE0E00564ABE /* Building_Info.csv */,
 				B2748F451AB9337D00411FAA /* Const.swift */,
 				11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */,
@@ -390,8 +410,11 @@
 				B23536EA1A709D7500E4391B /* Main.storyboard in Resources */,
 				11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */,
 				118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */,
+				1157A9F21AFAAAFE004CA294 /* 0140-3.png in Resources */,
+				1157A9F01AFAAAFE004CA294 /* 0140-1.png in Resources */,
 				11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */,
 				11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */,
+				1157A9F11AFAAAFE004CA294 /* 0140-2.png in Resources */,
 				B23536EC1A709D7500E4391B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2644D381A990C4800513903 /* Course.swift in Sources */,
+				1157A9EC1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift in Sources */,
 				11E139CF1A9BB2B30074B985 /* GoogleDataProvider.swift in Sources */,
 				B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */,
 				B2485FCE1ADF677E00430CD9 /* CPMapsLibraryAPI.swift in Sources */,
