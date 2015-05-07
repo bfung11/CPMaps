@@ -53,7 +53,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          controller.selectedTypes = searchedTypes
          controller.delegate = self
       }
-      else if segue.identifier == chooseBuildingSegueIdentifier {
+      else if segue.identifier == segueToChooseBuildingViewController {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
