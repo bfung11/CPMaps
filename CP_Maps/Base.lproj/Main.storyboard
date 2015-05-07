@@ -262,7 +262,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="fz7-XB-OHL" kind="show" identifier="chooseBuilding" id="Bkd-na-fPM"/>
+                                            <segue destination="fz7-XB-OHL" kind="show" identifier="segueToChooseBuildingViewController" id="Bkd-na-fPM"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="bzK-OV-31z">
@@ -565,6 +565,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="a7d-1Q-8Ga"/>
-        <segue reference="SF7-2X-cyR"/>
+        <segue reference="Bkd-na-fPM"/>
     </inferredMetricsTieBreakers>
 </document>
