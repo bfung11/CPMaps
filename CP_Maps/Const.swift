@@ -30,16 +30,16 @@ let numberOfSectionsInChooseBuildingRoomViewController = 1
 let numberOfSectionsInDaysViewController = 1
 
 // Segue Identifiers
-let finishedChoosingBuildingSegueIdentifier = "finishedChoosingBuilding"
+let chooseBuildingForMapViewController = "finishedChoosingBuilding"
 let chooseLocationSegueIdentifier = "chooseLocation"
 let editLocationSegueIdentifier = "editLocation"
 let saveLocationSegueIdentifer = "saveLocation"
-let chooseBuildingSegueIdentifier = "chooseBuilding"
-let saveBuildingSegueIdentifer = "saveBuilding"
+let segueToChooseBuildingViewController = "segueToChooseBuildingViewController"
+let chooseBuildingForAddEditViewController = "saveBuilding"
 let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
 let findBuildingSegueIdentifer = "findBuilding"
-let chooseDaysSegueIdentifier = "chooseDays"
+let segueToChooseDaysViewController = "chooseDaysSegueIdentifier"
 
 // UIAlertView Messages
 let saveNewLocationTitle = "No Building Selected"

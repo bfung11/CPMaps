@@ -73,7 +73,7 @@ class AddEditLocationViewController: UITableViewController {
 //         forControlEvents: UIControlEvents.ValueChanged)
    }
    
-   @IBAction func cancelAddEditLocationDetails(segue:UIStoryboardSegue) {
+   @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
    }
    
    // save selected building and display selected building
@@ -124,8 +124,8 @@ class AddEditLocationViewController: UITableViewController {
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
       
-      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil { //if they have not selected a building
-         let alert =
+      // if they have not selected a building
+      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil {          let alert =
          UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: cancelButtonTitleOK)
          alert.show()
          shouldPerform = false
@@ -135,14 +135,14 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == chooseBuildingSegueIdentifier {
+      if segue.identifier == segueToChooseBuildingViewController {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first as! ChooseBuildingRoomViewController
-         viewController.identifier = saveBuildingSegueIdentifer
+         viewController.identifier = chooseBuildingForAddEditViewController
          viewController.buildingIndexPath = buildingIndexPath
       }
-      if segue.identifier == chooseDaysSegueIdentifier {
+      if segue.identifier == segueToChooseDaysViewController {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = selectedDaysAsArray
       }
