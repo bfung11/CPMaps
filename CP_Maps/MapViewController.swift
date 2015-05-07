@@ -16,9 +16,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    let locationManager = CLLocationManager()
    let locationLibraryAPI = CPMapsLibraryAPI.sharedInstance
+   let dataProvider = GoogleDataProvider()
    
    var overlay = GMSGroundOverlay()
    var marker = GMSMarker()
+   var line = GMSPolyline(path: nil)
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -69,7 +71,9 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!.row)
       locationTitle.text = String(building.getNumber()) + " - " + building.getName()
       
-      marker.map = nil      
+      marker.map = nil
+      line.map = nil
+      
       if(building.getLatitude() != 0) {
          var position = CLLocationCoordinate2DMake(building.getLatitude(), building.getLongtitude())
          marker = GMSMarker(position: position)
@@ -81,6 +85,24 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          
          // animate to marker
          mapView.animateToLocation(position)
+         
+         
+         // INITIAL MAPPING
+         // 2
+         dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
+            if let encodedRoute = optionalRoute {
+
+               let path = GMSPath(fromEncodedPath: encodedRoute)
+               self.line = GMSPolyline(path: path)
+               
+               self.line.strokeWidth = 4.0
+               self.line.tappable = true
+               self.line.map = self.mapView
+               
+               // 5
+               //self.mapView.selectedMarker = nil
+            }
+         }
       }
    }
    
