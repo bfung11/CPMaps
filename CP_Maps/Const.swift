@@ -39,7 +39,7 @@ let saveBuildingSegueIdentifer = "saveBuilding"
 let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
 let findBuildingSegueIdentifer = "findBuilding"
-let chooseDaysSegueIdentifier = "chooseDays"
+let segueToChooseDaysViewController = "chooseDaysSegueIdentifier"
 
 // UIAlertView Messages
 let saveNewLocationTitle = "No Building Selected"

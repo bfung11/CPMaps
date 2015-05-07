@@ -124,8 +124,8 @@ class AddEditLocationViewController: UITableViewController {
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
       
-      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil { //if they have not selected a building
-         let alert =
+      // if they have not selected a building
+      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil {          let alert =
          UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: cancelButtonTitleOK)
          alert.show()
          shouldPerform = false
@@ -142,7 +142,7 @@ class AddEditLocationViewController: UITableViewController {
          viewController.identifier = saveBuildingSegueIdentifer
          viewController.buildingIndexPath = buildingIndexPath
       }
-      if segue.identifier == chooseDaysSegueIdentifier {
+      if segue.identifier == segueToChooseDaysViewController {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = selectedDaysAsArray
       }

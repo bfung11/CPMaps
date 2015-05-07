@@ -373,7 +373,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="g60-TJ-JGu" kind="show" id="GEz-PY-Efx"/>
+                                            <segue destination="g60-TJ-JGu" kind="show" identifier="segueToChooseDaysViewController" id="GEz-PY-Efx"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -565,6 +565,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="a7d-1Q-8Ga"/>
-        <segue reference="Bkd-na-fPM"/>
+        <segue reference="g6d-cM-Wbu"/>
     </inferredMetricsTieBreakers>
 </document>
