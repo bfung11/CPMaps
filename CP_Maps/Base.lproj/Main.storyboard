@@ -43,7 +43,7 @@
                                         </segmentedControl>
                                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="ZnS-fd-ijj">
                                             <connections>
-                                                <segue destination="fz7-XB-OHL" kind="show" identifier="chooseBuilding" id="SF7-2X-cyR"/>
+                                                <segue destination="fz7-XB-OHL" kind="show" identifier="segueToChooseBuildingViewController" id="SF7-2X-cyR"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -564,7 +564,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="SF7-2X-cyR"/>
         <segue reference="a7d-1Q-8Ga"/>
-        <segue reference="g6d-cM-Wbu"/>
     </inferredMetricsTieBreakers>
 </document>
