@@ -58,7 +58,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! ChooseBuildingRoomViewController
-         viewController.identifier = finishedChoosingBuildingSegueIdentifier
+         viewController.identifier = chooseBuildingForMapViewController
       }
    }
    
