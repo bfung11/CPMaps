@@ -12,7 +12,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    @IBOutlet weak var mapView: GMSMapView!
    @IBOutlet weak var locationTitle: UILabel!
-   var searchedTypes = ["bakery", "bar", "cafe", "grocery_or_supermarket", "restaurant"]
+   @IBOutlet weak var floorPlanButton: UIBarButtonItem!
    
    let locationManager = CLLocationManager()
    let locationLibraryAPI = CPMapsLibraryAPI.sharedInstance
@@ -33,7 +33,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          var startingPosition_UU = CLLocationCoordinate2DMake(35.299776974257, -120.65926909446716)
          mapView.camera = GMSCameraPosition(target: startingPosition_UU, zoom: 15, bearing: 0, viewingAngle: 0)
          
-         // initialize overlay 
+         // initialize overlay
          var southWest = CLLocationCoordinate2DMake(35.295115, -120.6855869)
          var northEast = CLLocationCoordinate2DMake(35.312691, -120.6521129)
          var overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast)
@@ -52,7 +52,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       if segue.identifier == "Types Segue" {
          let navigationController = segue.destinationViewController as! UINavigationController
          let controller = segue.destinationViewController.topViewController as! TypesTableViewController
-         controller.selectedTypes = searchedTypes
          controller.delegate = self
       }
       else if segue.identifier == segueToChooseBuildingViewController {
@@ -74,7 +73,10 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       marker.map = nil
       line.map = nil
       
-      if(building.getLatitude() != 0) {
+      
+      // show directions on a map
+      if(building.getLatitude() != 0 && building.getLongtitude() != 0) {
+         
          var position = CLLocationCoordinate2DMake(building.getLatitude(), building.getLongtitude())
          marker = GMSMarker(position: position)
          marker.title = building.getName()
@@ -87,23 +89,28 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          mapView.animateToLocation(position)
          
          
-         // INITIAL MAPPING
-         // 2
-         dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
-            if let encodedRoute = optionalRoute {
-
-               let path = GMSPath(fromEncodedPath: encodedRoute)
-               self.line = GMSPolyline(path: path)
-               
-               self.line.strokeWidth = 4.0
-               self.line.tappable = true
-               self.line.map = self.mapView
-               
-               // 5
-               //self.mapView.selectedMarker = nil
-            }
+         // INITIAL MAPPING         
+         if(locationManager.location != nil) {
+               dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
+                  if let encodedRoute = optionalRoute {
+                     
+                     let path = GMSPath(fromEncodedPath: encodedRoute)
+                     self.line = GMSPolyline(path: path)
+                     
+                     self.line.strokeWidth = 4.0
+                     self.line.tappable = true
+                     self.line.map = self.mapView
+                     
+                     // 5
+                     //self.mapView.selectedMarker = nil
+                  }
+               }
          }
       }
+      
+      //enable floor plan button and load images
+      floorPlanButton.enabled = true
+      
    }
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
@@ -125,18 +132,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    // MARK: - Types Controller Delegate
    func typesController(controller: TypesTableViewController, didSelectTypes types: [String]) {
-      searchedTypes = sorted(controller.selectedTypes)
       dismissViewControllerAnimated(true, completion: nil)
-   }
-   
-   
-   // find selected building and display info
-   @IBAction func findBuilding(segue:UIStoryboardSegue) {
-      // save building and display selected building
-//      let viewController = segue.sourceViewController as! ChooseBuildingMapController
-      //let building = locationLibraryAPI.getBuildingAtLocation(viewController.buildingIndexPath?.item)
-      
-      //println(building.name)
    }
    
    @IBAction func mapTypeSegmentPressed(sender: AnyObject) {

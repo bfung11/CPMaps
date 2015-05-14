@@ -75,7 +75,7 @@
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cxw-Su-LIk"/>
-                                    <barButtonItem systemItem="action" id="vhg-KE-o3N">
+                                    <barButtonItem enabled="NO" systemItem="action" id="vhg-KE-o3N">
                                         <connections>
                                             <segue destination="PtO-Vs-Ut1" kind="show" id="nby-7V-GSU"/>
                                         </connections>
@@ -99,6 +99,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="floorPlanButton" destination="vhg-KE-o3N" id="nIn-NY-I90"/>
                         <outlet property="locationTitle" destination="54e-UY-bu7" id="D2C-P2-8dP"/>
                         <outlet property="mapView" destination="52w-FN-aei" id="rEd-4q-ECZ"/>
                     </connections>

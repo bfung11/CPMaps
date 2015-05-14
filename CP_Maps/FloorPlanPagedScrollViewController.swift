@@ -1,5 +1,5 @@
 //
-//  Paged scroll view to display room flor plans
+//  Paged scroll view to display room floor plans
 //
 //
 
@@ -38,6 +38,10 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       
       // 5
       loadVisiblePages()
+   }
+   
+   func setPages(newPageImages : [UIImage]) {
+      pageImages = newPageImages
    }
    
    func loadPage(page: Int) {
