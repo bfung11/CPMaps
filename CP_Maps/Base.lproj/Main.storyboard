@@ -119,21 +119,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-tX-hVa">
-                                <rect key="frame" x="3" y="691" width="408" height="37"/>
-                            </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-eR-Djf">
                                 <rect key="frame" x="0.0" y="64" width="414" height="619"/>
                                 <connections>
                                     <outlet property="delegate" destination="PtO-Vs-Ut1" id="EIa-5L-tgV"/>
                                 </connections>
                             </scrollView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YH5-4s-pac">
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-tX-hVa">
+                                <rect key="frame" x="3" y="691" width="408" height="37"/>
+                            </pageControl>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YH5-4s-pac">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <items>
-                                    <navigationItem prompt="" id="DKc-ba-561">
-                                        <nil key="title"/>
+                                    <navigationItem title="Floor Plans" prompt="" id="DKc-ba-561">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="uSA-oM-daJ">
                                             <connections>
                                                 <segue destination="eHL-e2-RlV" kind="unwind" unwindAction="cancelToMapViewController:" id="xRd-A2-421"/>

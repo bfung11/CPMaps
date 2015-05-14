@@ -19,7 +19,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       // 1
       pageImages = [UIImage(named:"0140-1.png")!,
          UIImage(named:"0140-2.png")!,
-         UIImage(named:"0140-1.png")!]
+         UIImage(named:"0140-3.png")!]
       
       let pageCount = pageImages.count
       
