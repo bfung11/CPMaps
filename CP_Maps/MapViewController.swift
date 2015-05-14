@@ -23,6 +23,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    var overlay = GMSGroundOverlay()
    var marker = GMSMarker()
    var line = GMSPolyline(path: nil)
+   var selectedBuilding = Building()
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -51,17 +52,18 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == "Types Segue" {
-         let navigationController = segue.destinationViewController as! UINavigationController
-         let controller = segue.destinationViewController.topViewController as! TypesTableViewController
-         controller.delegate = self
-      }
-      else if segue.identifier == segueToChooseBuildingViewController {
+      // Building View
+      if segue.identifier == segueToChooseBuildingViewController {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! ChooseBuildingRoomViewController
          viewController.identifier = chooseBuildingForMapViewController
+      }
+      else if segue.identifier == segueToFloorPlanPagedScrollViewController {
+         let viewController = segue.destinationViewController
+            as! FloorPlanPagedScrollViewController
+         viewController.setPages(selectedBuilding)
       }
    }
    
@@ -70,6 +72,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       let buildingIndexPath = viewController.buildingIndexPath
       let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!.row)
+      selectedBuilding = building
       locationTitle.text = String(building.getNumber()) + " - " + building.getName()
       
       marker.map = nil

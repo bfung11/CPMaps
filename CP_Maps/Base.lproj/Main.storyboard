@@ -77,7 +77,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cxw-Su-LIk"/>
                                     <barButtonItem enabled="NO" systemItem="action" id="vhg-KE-o3N">
                                         <connections>
-                                            <segue destination="PtO-Vs-Ut1" kind="show" id="nby-7V-GSU"/>
+                                            <segue destination="PtO-Vs-Ut1" kind="show" identifier="floorPlanPagedScrollViewController" id="nby-7V-GSU"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

@@ -17,6 +17,16 @@ class Building: NSObject {
    var latitude: Double!
    var longitude: Double!
    
+   override init() {
+      self.name = ""
+      self.number = nil
+      self.rooms = nil
+      self.numberOfFloors = nil
+      self.latitude = nil
+      self.longitude = nil
+      super.init()
+   }
+   
    init(name: String, number: String, rooms: [Room]) {
       self.name = name
       self.number = number

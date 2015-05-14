@@ -16,14 +16,8 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // 1
-      pageImages = [UIImage(named:"0140-1.png")!,
-         UIImage(named:"0140-2.png")!,
-         UIImage(named:"0140-3.png")!]
-      
+      // initialize the pages
       let pageCount = pageImages.count
-      
-      // 2
       pageControl.currentPage = 0
       pageControl.numberOfPages = pageCount
       
@@ -32,7 +26,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
          pageViews.append(nil)
       }
       
-      // 4
+      // size page
       let pagesScrollViewSize = scrollView.frame.size
       scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height)
       
@@ -40,9 +34,16 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       loadVisiblePages()
    }
    
-   func setPages(newPageImages : [UIImage]) {
-      pageImages = newPageImages
+   
+   func setPages(building : Building) {
+      pageImages.removeAll(keepCapacity: false)
+      
+      for var floor = 1; floor <= building.numberOfFloors; ++floor {
+         var fileName: String! = building.number + "-" + String(floor) + ".png"
+         pageImages.append(UIImage(named:fileName)!)
+      }
    }
+   
    
    func loadPage(page: Int) {
       
