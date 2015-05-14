@@ -10,6 +10,8 @@ import UIKit
 
 class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate {
    
+   let TAG = "MapViewController: "
+   
    @IBOutlet weak var mapView: GMSMapView!
    @IBOutlet weak var locationTitle: UILabel!
    @IBOutlet weak var floorPlanButton: UIBarButtonItem!
@@ -79,7 +81,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          
          var position = CLLocationCoordinate2DMake(building.getLatitude(), building.getLongtitude())
          marker = GMSMarker(position: position)
-         marker.title = building.getName()
+         marker.title = building.number + " - " + building.getName()
          marker.snippet = "Floors: " + String(building.getNumberOfFloors())
          marker.infoWindowAnchor = CGPointMake(0.5, 0.1)
          marker.appearAnimation = kGMSMarkerAnimationPop
@@ -89,7 +91,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          mapView.animateToLocation(position)
          
          
-         // INITIAL MAPPING         
+         // INITIAL MAPPING
          if(locationManager.location != nil) {
                dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
                   if let encodedRoute = optionalRoute {
@@ -105,6 +107,9 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
                      //self.mapView.selectedMarker = nil
                   }
                }
+         }
+         else {
+            NSLog(TAG + "Location is not shared - cannot map directions")
          }
       }
       
@@ -167,7 +172,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
          }
          else {
-            NSLog("MapView is nil");
+            NSLog(TAG + "MapView is nil");
          }
       }
    }
@@ -179,7 +184,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             locationManager.stopUpdatingLocation()
          }
          else {
-            NSLog("MapView is nil");
+            NSLog(TAG + "MapView is nil");
          }
       }
    }
