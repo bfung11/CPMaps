@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <deployment version="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -107,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="101" y="967"/>
         </scene>
-        <!--Floor Plans-->
+        <!--Floor Plan Paged Scroll View Controller-->
         <scene sceneID="Fr8-2D-a5z">
             <objects>
                 <viewController modalTransitionStyle="flipHorizontal" id="PtO-Vs-Ut1" customClass="FloorPlanPagedScrollViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,26 +119,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-eR-Djf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="683"/>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-tX-hVa">
+                                <rect key="frame" x="3" y="691" width="408" height="37"/>
+                            </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dq7-eR-Djf">
+                                <rect key="frame" x="0.0" y="64" width="414" height="619"/>
                                 <connections>
                                     <outlet property="delegate" destination="PtO-Vs-Ut1" id="EIa-5L-tgV"/>
                                 </connections>
                             </scrollView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Kgo-tX-hVa">
-                                <rect key="frame" x="3" y="691" width="408" height="37"/>
-                            </pageControl>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YH5-4s-pac">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <items>
+                                    <navigationItem prompt="" id="DKc-ba-561">
+                                        <nil key="title"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="uSA-oM-daJ">
+                                            <connections>
+                                                <segue destination="eHL-e2-RlV" kind="unwind" unwindAction="cancelToMapViewController:" id="xRd-A2-421"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YH5-4s-pac" firstAttribute="trailing" secondItem="dq7-eR-Djf" secondAttribute="trailing" id="TZ6-NA-OJh"/>
+                            <constraint firstItem="YH5-4s-pac" firstAttribute="leading" secondItem="dq7-eR-Djf" secondAttribute="leading" id="Zf3-JQ-Jbe"/>
+                            <constraint firstAttribute="trailing" secondItem="YH5-4s-pac" secondAttribute="trailing" id="hWI-ga-hfw"/>
+                            <constraint firstItem="YH5-4s-pac" firstAttribute="top" secondItem="EZQ-BH-ZRQ" secondAttribute="top" id="mF4-9n-sGb"/>
+                            <constraint firstItem="YH5-4s-pac" firstAttribute="centerX" secondItem="Kgo-tX-hVa" secondAttribute="centerX" id="qA8-k9-BrQ"/>
+                            <constraint firstItem="YH5-4s-pac" firstAttribute="leading" secondItem="EZQ-BH-ZRQ" secondAttribute="leading" id="sca-Tk-gh7"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Floor Plans" id="Gj7-Yw-kPF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="kuy-Qt-mwq">
-                            <connections>
-                                <segue destination="eHL-e2-RlV" kind="unwind" unwindAction="cancelToMapViewController:" id="2e2-kG-PFt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="pageControl" destination="Kgo-tX-hVa" id="e28-h8-uki"/>
                         <outlet property="scrollView" destination="dq7-eR-Djf" id="ERJ-j4-8uc"/>
