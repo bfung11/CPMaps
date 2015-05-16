@@ -16,9 +16,6 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var datePicker: UIDatePicker!
-   @IBOutlet weak var startTimeDatePicker: UIDatePicker!
-   @IBOutlet weak var endTimeLabel: UILabel!
-//   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
@@ -113,14 +110,6 @@ class AddEditLocationViewController: UITableViewController {
          
          self.navigationItem.title = addLocationViewControllerTitle
       }
-      
-      // initialize date pickers
-      startTimeDatePicker.addTarget(self,
-         action: Selector("changeStartDatePicker:"),
-         forControlEvents: UIControlEvents.ValueChanged)
-//      endTimeDatePicker.addTarget(self,
-//         action: Selector("changeEndDatePicker:"),
-//         forControlEvents: UIControlEvents.ValueChanged)
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
@@ -159,28 +148,6 @@ class AddEditLocationViewController: UITableViewController {
       //
       tableView.reloadData()
    }
-   
-   //redundant code
-   func changeStartDatePicker(datePicker:UIDatePicker) {
-      var dateFormatter = NSDateFormatter()
-      
-      //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-      //save time
-      dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-      startTime = dateFormatter.stringFromDate(startTimeDatePicker.date)
-      
-      //display date and time
-      dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-      startTimeLabel.text = dateFormatter.stringFromDate(startTimeDatePicker.date)
-   }
-//   //redundant code
-//   func changeEndDatePicker(datePicker:UIDatePicker) {
-//      var dateFormatter = NSDateFormatter()
-//      
-//      //dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-//      dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-//      endTimeLabel.text = dateFormatter.stringFromDate(endTimeDatePicker.date)
-//   }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       var shouldPerform = true
