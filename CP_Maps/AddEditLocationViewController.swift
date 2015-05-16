@@ -31,8 +31,47 @@ class AddEditLocationViewController: UITableViewController {
    var startTime: String?
    var endTime: String?
    
+   
+   let kPickerAnimationDuration = 0.40 // duration for the animation to slide the date picker into view
+   let kDatePickerTag           = 99   // view tag identifiying the date picker view
+   
+   let kTitleKey = "title" // key for obtaining the data source item's title
+   let kDateKey  = "date"  // key for obtaining the data source item's date value
+   
+   // keep track of which rows have date cells
+   let kDateStartRow = 1
+   let kDateEndRow   = 2
+   
+   let kDateCellID       = "dateCell";       // the cells with the start or end date
+   let kDatePickerCellID = "datePickerCell"; // the cell containing the date picker
+   let kOtherCellID      = "otherCell";      // the remaining cells at the end
+   
+   var dataArray: [[String: AnyObject]] = []
+   var dateFormatter = NSDateFormatter()
+   
+   // keep track which indexPath points to the cell with UIDatePicker
+   var datePickerIndexPath: NSIndexPath?
+   
+   var pickerCellRowHeight: CGFloat = 216
+   
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      // setup our data source
+      let itemOne = [kTitleKey : "Tap a cell to change its date:"]
+      let itemTwo = [kTitleKey : "Start Date", kDateKey : NSDate()]
+      let itemThree = [kTitleKey : "End Date", kDateKey : NSDate()]
+      let itemFour = [kTitleKey : "(other item1)"]
+      let itemFive = [kTitleKey : "(other item2)"]
+      dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
+      
+      dateFormatter.dateStyle = .ShortStyle // show short-style date format
+      dateFormatter.timeStyle = .ShortStyle
+      
+      // if the local changes while in the background, we need to be notified so we can update the date
+      // format in the table view cells
+      //
+      NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged:", name: NSCurrentLocaleDidChangeNotification, object: nil)
       
       // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
