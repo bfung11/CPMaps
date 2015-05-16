@@ -15,6 +15,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var nameTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
+   @IBOutlet weak var datePicker: UIDatePicker!
    @IBOutlet weak var startTimeDatePicker: UIDatePicker!
    @IBOutlet weak var endTimeLabel: UILabel!
 //   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
@@ -72,6 +73,16 @@ class AddEditLocationViewController: UITableViewController {
       // format in the table view cells
       //
       NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged:", name: NSCurrentLocaleDidChangeNotification, object: nil)
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
@@ -136,6 +147,17 @@ class AddEditLocationViewController: UITableViewController {
       if !selectedDaysAsArray!.isEmpty {
          daysDetail.text = self.getCourseDays() as String
       }
+   }
+   
+   // MARK: - Locale
+   
+   /*! Responds to region format or locale changes.
+   */
+   func localeChanged(notif: NSNotification) {
+      // the user changed the locale (region format) in Settings, so we are notified here to
+      // update the date format in the table view cells
+      //
+      tableView.reloadData()
    }
    
    //redundant code
