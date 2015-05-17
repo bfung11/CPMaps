@@ -9,7 +9,19 @@
 import UIKit
 
 class DateCellTableViewController: UITableViewController {
+   // exclamation point - does not instantiate, but must do so before use
+   var selectedLocation: NSIndexPath!  // location passed as index
+   var locations: CPMapsLibraryAPI!    // location as sharedInstance
+   var buildings: [Building]!          // holds the data for all buildings
+   var buildingIndexPath: NSIndexPath! // selected building as index (of the list of all buildings)
+   var selectedRoom: String?           // room from choosing a room or from editing a location with room
+   var name: String?
+   var selectedDays: String?
+   var selectedDaysAsArray: [Day]?
+   var startTime: String?
+   var endTime: String?
    
+   // variables for inline UIDatePicker
    let kPickerAnimationDuration = 0.40 // duration for the animation to slide the date picker into view
    let kDatePickerTag           = 99   // view tag identifiying the date picker view
    
