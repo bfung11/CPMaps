@@ -32,7 +32,7 @@ class DateCellTableViewController: UITableViewController {
    
    var pickerCellRowHeight: CGFloat = 216
    
-   @IBOutlet var pickerView: UIDatePicker!
+   @IBOutlet weak var pickerView: UIDatePicker!
    
    override func viewDidLoad() {
       super.viewDidLoad()

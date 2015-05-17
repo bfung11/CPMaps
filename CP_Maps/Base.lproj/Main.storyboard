@@ -263,13 +263,18 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K44-yV-Jyx" id="CQX-fk-Mur">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FIe-df-ETg">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
+                                        <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FIe-df-ETg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="163"/>
                                             <date key="date" timeIntervalSinceReferenceDate="453513777.17459297">
                                                 <!--2015-05-17 00:02:57 +0000-->
                                             </date>
                                         </datePicker>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FIe-df-ETg" secondAttribute="trailing" constant="-8" id="UcA-r3-Ub9"/>
+                                        <constraint firstAttribute="centerY" secondItem="FIe-df-ETg" secondAttribute="centerY" id="dlz-PS-y0l"/>
+                                        <constraint firstItem="FIe-df-ETg" firstAttribute="leading" secondItem="CQX-fk-Mur" secondAttribute="leadingMargin" constant="-8" id="zrs-sh-o5A"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="otherCell" textLabel="NFu-ih-PSE" style="IBUITableViewCellStyleDefault" id="Aaz-t8-jhA">
