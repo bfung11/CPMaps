@@ -214,7 +214,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="dKT-ae-OGQ">
                             <connections>
-                                <segue destination="SkE-ef-w4j" kind="showDetail" identifier="addLocation" id="a7d-1Q-8Ga"/>
+                                <segue destination="ZEA-jQ-o1U" kind="showDetail" id="SSP-Iz-QBF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -228,6 +228,90 @@
                 <exit id="xvd-gA-kuH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2138" y="975"/>
+        </scene>
+        <!--Date Cell-->
+        <scene sceneID="zQB-Nd-JCo">
+            <objects>
+                <tableViewController id="iVT-gg-aja" customClass="DateCellTableViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="KVJ-TR-hpO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dateCell" textLabel="yrT-B4-xLn" detailTextLabel="uzJ-hj-S1Y" style="IBUITableViewCellStyleValue1" id="anI-Lt-gcP">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="anI-Lt-gcP" id="E3r-cN-hCf">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yrT-B4-xLn">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uzJ-hj-S1Y">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="datePickerCell" rowHeight="163" id="K44-yV-Jyx">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K44-yV-Jyx" id="CQX-fk-Mur">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="FIe-df-ETg">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
+                                            <date key="date" timeIntervalSinceReferenceDate="453513777.17459297">
+                                                <!--2015-05-17 00:02:57 +0000-->
+                                            </date>
+                                        </datePicker>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="otherCell" textLabel="NFu-ih-PSE" style="IBUITableViewCellStyleDefault" id="Aaz-t8-jhA">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aaz-t8-jhA" id="Klo-GE-j7Z">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NFu-ih-PSE">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="iVT-gg-aja" id="9Wl-P2-Eeu"/>
+                            <outlet property="delegate" destination="iVT-gg-aja" id="ZWw-Ar-qmk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Date Cell" id="XcP-01-fC1">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="62x-8X-9GD">
+                            <connections>
+                                <segue destination="B9j-07-M1Q" kind="unwind" unwindAction="cancelToLocationsViewController:" id="vzT-AU-dDV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Llr-0i-jMp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="B9j-07-M1Q" userLabel="Exit" sceneMemberID="exit"/>
+                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="mzb-J1-oY8">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <date key="date" timeIntervalSinceReferenceDate="453514055.58517802">
+                        <!--2015-05-17 00:07:35 +0000-->
+                    </date>
+                </datePicker>
+            </objects>
+            <point key="canvasLocation" x="3020" y="87"/>
         </scene>
         <!--Add / Edit Location-->
         <scene sceneID="cMe-hx-1RE">
@@ -551,9 +635,26 @@
             </objects>
             <point key="canvasLocation" x="684" y="255"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tJA-Xo-Eyz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZEA-jQ-o1U" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TWE-nJ-taR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iVT-gg-aja" kind="relationship" relationship="rootViewController" id="9yl-7h-LiZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HCB-KO-def" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2248" y="87"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="a7d-1Q-8Ga"/>
-        <segue reference="g6d-cM-Wbu"/>
+        <segue reference="SF7-2X-cyR"/>
     </inferredMetricsTieBreakers>
 </document>

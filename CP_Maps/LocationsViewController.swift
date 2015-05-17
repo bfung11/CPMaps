@@ -92,6 +92,9 @@ UITableViewDataSource {
    @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
    }
    
+   @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
+   }
+   
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
       let buildingNumber = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getNumber()
