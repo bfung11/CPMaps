@@ -65,24 +65,26 @@ class AddEditLocationViewController: UITableViewController {
          self.navigationItem.title = addLocationViewControllerTitle
       }
       // This may need to be moved in or out depending on whether or not it is edited
-      self.dateFormatter = createNSDateFormatter()
-      setUpLabelForDatePicker(startTimeLabel)
-      startTimeDatePicker.addTarget(self, action: Selector("updateDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
-      setUpLabelForDatePicker(endTimeLabel)
-      endTimeDatePicker.addTarget(self, action: Selector("updateDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
-
+      setupDatePickerAndLabel()
    }
    
-   func createNSDateFormatter() -> NSDateFormatter {
-      
-      let dateFormatter = NSDateFormatter()
+   private func setupDatePickerAndLabel() {
+      self.dateFormatter = NSDateFormatter()
       dateFormatter.dateStyle = .MediumStyle
       dateFormatter.timeStyle = .MediumStyle
       
-      return dateFormatter
+      setupLabelForDatePicker(startTimeLabel)
+      setupDatePicker(startTimeDatePicker)
+      setupLabelForDatePicker(endTimeLabel)
+      setupDatePicker(endTimeDatePicker)
+   }
+   
+   private func setupDatePicker(datePicker: UIDatePicker) {
+      datePicker.addTarget(self, action: Selector("updateDatePicker:"),
+         forControlEvents: UIControlEvents.ValueChanged)
    }
 
-   private func setUpLabelForDatePicker(label: UILabel) {
+   private func setupLabelForDatePicker(label: UILabel) {
       
       let defaultDate = NSDate()
       label.text = self.dateFormatter.stringFromDate(defaultDate)
