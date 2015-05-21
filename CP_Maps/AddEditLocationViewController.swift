@@ -88,7 +88,6 @@ class AddEditLocationViewController: UITableViewController {
       let defaultDate = NSDate()
       label.text = self.dateFormatter.stringFromDate(defaultDate)
       label.tintColor = self.tableView.tintColor
-      //      self.selectedBirthday = defaultDate;
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
