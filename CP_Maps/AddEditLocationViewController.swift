@@ -177,19 +177,15 @@ class AddEditLocationViewController: UITableViewController {
       let secondDatePickerIndex = 3
       let kDatePickerCellHeight = 163
       var datePickerIsShowing: Bool?
+      var datePicker = startTimeDatePicker
       
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
-         if (indexPath.row == firstDatePickerIndex) {
-            if (startTimeDatePicker.isShowing()) {
-               height = CGFloat(kDatePickerCellHeight)
-            }
-            else {
-               height = 0
-            }
-         }
-         else if (indexPath.row == secondDatePickerIndex) {
-            if (endTimeDatePicker.isShowing()) {
+         if (indexPath.row == firstDatePickerIndex ||
+            indexPath.row == secondDatePickerIndex) {
+            // need to keep inside or else affects regular cells in section
+            datePicker = chooseDatePicker(indexPath.row)
+            if (datePicker.isShowing()) {
                height = CGFloat(kDatePickerCellHeight)
             }
             else {
