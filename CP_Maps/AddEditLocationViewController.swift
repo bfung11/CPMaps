@@ -189,9 +189,6 @@ class AddEditLocationViewController: UITableViewController {
             }
          }
          else if (indexPath.row == secondDatePickerIndex) {
-//            print(endTimeDatePickerIsShowing)
-//            print(" ")
-//            println(endTimeDatePicker.isShowing())
             if (endTimeDatePicker.isShowing()) {
                height = CGFloat(kDatePickerCellHeight)
             }
