@@ -28,6 +28,7 @@ class AddEditLocationViewController: UITableViewController {
    var name: String?
    var selectedDays: String?
    var selectedDaysAsArray: [Day]?
+   var dateFormatter: NSDateFormatter! // optimization; recreating each time is slow
    var startTime: String?
    var endTime: String?
    
@@ -64,10 +65,21 @@ class AddEditLocationViewController: UITableViewController {
          self.navigationItem.title = addLocationViewControllerTitle
       }
       // This may need to be moved in or out depending on whether or not it is edited
+      self.dateFormatter = createNSDateFormatter()
       setUpLabelForDatePicker(startTimeLabel)
       startTimeDatePicker.addTarget(self, action: Selector("updateDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
       setUpLabelForDatePicker(endTimeLabel)
       endTimeDatePicker.addTarget(self, action: Selector("updateDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+
+   }
+   
+   func createNSDateFormatter() -> NSDateFormatter {
+      
+      let dateFormatter = NSDateFormatter()
+      dateFormatter.dateStyle = .MediumStyle
+      dateFormatter.timeStyle = .MediumStyle
+      
+      return dateFormatter
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
@@ -83,11 +95,7 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    func updateDatePicker(datePicker: UIDatePicker) {
-      var dateFormatter = NSDateFormatter()
-      dateFormatter.dateStyle = .MediumStyle
-      dateFormatter.timeStyle = .MediumStyle
-      //      datePicker.date = dateFormatter.dateFromString(<#string: String#>)
-      var strDate = dateFormatter.stringFromDate(datePicker.date)
+      var strDate = self.dateFormatter.stringFromDate(datePicker.date)
       if (datePicker.tag == startTimeDatePickerTag) {
          self.startTimeLabel.text = strDate
       }
@@ -100,14 +108,9 @@ class AddEditLocationViewController: UITableViewController {
    
    */
    private func setUpLabelForDatePicker(label: UILabel) {
-      var dateFormatter = NSDateFormatter()
-      dateFormatter.dateStyle = .MediumStyle
-      dateFormatter.timeStyle = .MediumStyle
-      
+
       let defaultDate = NSDate()
-      
-//      println(dateFormatter.stringFromDate(defaultDate))
-      label.text = dateFormatter.stringFromDate(defaultDate)
+      label.text = self.dateFormatter.stringFromDate(defaultDate)
       label.tintColor = self.tableView.tintColor
       //      self.selectedBirthday = defaultDate;
    }
