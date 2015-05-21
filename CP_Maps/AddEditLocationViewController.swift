@@ -16,6 +16,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: UIDatePicker!
+   @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
@@ -65,6 +66,7 @@ class AddEditLocationViewController: UITableViewController {
       }
       // This may need to be moved in or out depending on whether or not it is edited
       setUpDatePicker(startTimeLabel)
+      setUpDatePicker(endTimeLabel)
       self.startTimeDatePickerIsShowing = false
    }
    
