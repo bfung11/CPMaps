@@ -219,10 +219,10 @@ class AddEditLocationViewController: UITableViewController {
          }
          else if (indexPath.row == secondDateCell) {
             if (self.endTimeDatePickerIsShowing!) {
-               self.hideEndTimeDatePicker()
+               self.hideEndTimeDatePicker(endTimeDatePicker)
             }
             else {
-               self.showEndTimeDatePickerCell()
+               self.showEndTimeDatePickerCell(endTimeDatePicker)
             }
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
          }
@@ -246,18 +246,18 @@ class AddEditLocationViewController: UITableViewController {
          completion: ({(finished: Bool) in self.startTimeDatePicker.hidden = true}))
    }
    
-   private func showEndTimeDatePickerCell() {
+   private func showEndTimeDatePickerCell(datePicker: StartEndDatePicker) {
       self.endTimeDatePickerIsShowing = true
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-      endTimeDatePicker.show()
+      datePicker.show()
    }
    
-   private func hideEndTimeDatePicker() {
+   private func hideEndTimeDatePicker(datePicker: StartEndDatePicker) {
       self.endTimeDatePickerIsShowing = false
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-      endTimeDatePicker.hide()
+      datePicker.hide()
 
    }
 }
