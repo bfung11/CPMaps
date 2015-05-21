@@ -16,6 +16,10 @@ class StartEndDatePicker: UIDatePicker {
       isDatePickerShowing = false
    }
    
+   func isShowing() -> Bool {
+      return isDatePickerShowing
+   }
+   
    func show() {
       self.isDatePickerShowing = true
       self.hidden = false

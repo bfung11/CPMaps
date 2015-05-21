@@ -181,14 +181,15 @@ class AddEditLocationViewController: UITableViewController {
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
          if (indexPath.row == firstDatePickerIndex) {
-            datePickerIsShowing = startTimeDatePickerIsShowing
+            if (startTimeDatePickerIsShowing == true) {
+               height = CGFloat(kDatePickerCellHeight)
+            }
+            else {
+               height = 0
+            }
          }
          else if (indexPath.row == secondDatePickerIndex) {
-            datePickerIsShowing = endTimeDatePickerIsShowing
-         }
-         
-         if (datePickerIsShowing != nil) {
-            if (datePickerIsShowing == true) {
+            if (endTimeDatePickerIsShowing == true) {
                height = CGFloat(kDatePickerCellHeight)
             }
             else {
@@ -218,7 +219,7 @@ class AddEditLocationViewController: UITableViewController {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
          }
          else if (indexPath.row == secondDateCell) {
-            if (self.endTimeDatePickerIsShowing!) {
+            if (endTimeDatePicker.isShowing()) {
                self.hideEndTimeDatePicker(endTimeDatePicker)
             }
             else {
