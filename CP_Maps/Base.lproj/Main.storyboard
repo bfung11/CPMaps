@@ -330,13 +330,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvb-Of-UO6" id="hDb-Wb-KsL">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
                                                     </date>
                                                 </datePicker>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="cWO-1N-B87" firstAttribute="top" secondItem="hDb-Wb-KsL" secondAttribute="top" id="AN5-Bg-J3Z"/>
+                                                <constraint firstAttribute="bottom" secondItem="cWO-1N-B87" secondAttribute="bottom" constant="-1" id="H3i-EG-b3r"/>
+                                                <constraint firstItem="cWO-1N-B87" firstAttribute="leading" secondItem="hDb-Wb-KsL" secondAttribute="leading" id="ThS-yG-znm"/>
+                                                <constraint firstAttribute="trailing" secondItem="cWO-1N-B87" secondAttribute="trailing" id="adO-74-jiO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
