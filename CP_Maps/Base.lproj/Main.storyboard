@@ -330,7 +330,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvb-Of-UO6" id="hDb-Wb-KsL">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
@@ -440,7 +440,7 @@
                         <outlet property="endTimeLabel" destination="f14-c1-ko7" id="l7z-Jg-2gc"/>
                         <outlet property="nameTextField" destination="dLa-c0-3zy" id="20S-PS-KSO"/>
                         <outlet property="roomTextField" destination="Jsf-JQ-gFe" id="glY-hC-Ikk"/>
-                        <outlet property="startTimeDatePicker" destination="cWO-1N-B87" id="T0D-X7-BZR"/>
+                        <outlet property="startTimeDatePicker" destination="cWO-1N-B87" id="iPk-Mq-cDy"/>
                         <outlet property="startTimeLabel" destination="tf2-ij-ODa" id="GDS-hG-phl"/>
                     </connections>
                 </tableViewController>

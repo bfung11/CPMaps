@@ -15,7 +15,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var nameTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
-   @IBOutlet weak var startTimeDatePicker: UIDatePicker!
+   @IBOutlet weak var startTimeDatePicker: StartEndDatePicker!
    @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: StartEndDatePicker!
    
@@ -181,7 +181,7 @@ class AddEditLocationViewController: UITableViewController {
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
          if (indexPath.row == firstDatePickerIndex) {
-            if (startTimeDatePickerIsShowing == true) {
+            if (startTimeDatePicker.isShowing()) {
                height = CGFloat(kDatePickerCellHeight)
             }
             else {
@@ -213,44 +213,44 @@ class AddEditLocationViewController: UITableViewController {
       
       if (indexPath.section == sectionWithUIDatePickers) {
          if (indexPath.row == firstDateCell) {
-            if (self.startTimeDatePickerIsShowing!) {
-               self.hideDatePickerCell()
+            if (startTimeDatePicker.isShowing()) {
+               self.hideDatePickerCell(startTimeDatePicker)
             }
             else {
-               self.showDatePickerCell()
+               self.showDatePickerCell(startTimeDatePicker)
             }
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
          }
          else if (indexPath.row == secondDateCell) {
             if (endTimeDatePicker.isShowing()) {
-               self.hideEndTimeDatePicker(endTimeDatePicker)
+               self.hideDatePickerCell(endTimeDatePicker)
             }
             else {
-               self.showEndTimeDatePickerCell(endTimeDatePicker)
+               self.showDatePickerCell(endTimeDatePicker)
             }
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
          }
       }
    }
    
-   private func showDatePickerCell() {
-      self.startTimeDatePickerIsShowing = true
-      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-      self.tableView.endUpdates()
-      self.startTimeDatePicker.hidden = false
-      self.startTimeDatePicker.alpha = 0
-      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 1.0})
-   }
+//   private func showDatePickerCell() {
+//      self.startTimeDatePickerIsShowing = true
+//      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+//      self.tableView.endUpdates()
+//      self.startTimeDatePicker.hidden = false
+//      self.startTimeDatePicker.alpha = 0
+//      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 1.0})
+//   }
+//   
+//   private func hideDatePickerCell() {
+//      self.startTimeDatePickerIsShowing = false
+//      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+//      self.tableView.endUpdates()
+//      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 0},
+//         completion: ({(finished: Bool) in self.startTimeDatePicker.hidden = true}))
+//   }
    
-   private func hideDatePickerCell() {
-      self.startTimeDatePickerIsShowing = false
-      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-      self.tableView.endUpdates()
-      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 0},
-         completion: ({(finished: Bool) in self.startTimeDatePicker.hidden = true}))
-   }
-   
-   private func showEndTimeDatePickerCell(datePicker: StartEndDatePicker) {
+   private func showDatePickerCell(datePicker: StartEndDatePicker) {
 //      println("\ncontroller show")
 //      print(endTimeDatePickerIsShowing)
 //      print(" ")
@@ -272,7 +272,7 @@ class AddEditLocationViewController: UITableViewController {
 //      println("end\n")
    }
    
-   private func hideEndTimeDatePicker(datePicker: StartEndDatePicker) {
+   private func hideDatePickerCell(datePicker: StartEndDatePicker) {
 //      println("\ncontroller hide")
 //      print(endTimeDatePickerIsShowing)
 //      print(" ")
