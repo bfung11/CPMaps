@@ -197,12 +197,14 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       // get selected days from view controller
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
-      selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
+//      selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
       // display selected days
-      daysDetail.text = "None"
-      if !selectedDaysAsArray!.isEmpty {
-         daysDetail.text = self.getCourseDays() as String
-      }
+      selectedDays = chooseDaysViewController.selectedDays
+      daysDetail.text = selectedDays
+      
+//      if !selectedDaysAsArray!.isEmpty {
+//         daysDetail.text = self.getCourseDays() as String
+//      }
    }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
@@ -231,7 +233,7 @@ class AddEditLocationViewController: UITableViewController {
       }
       if segue.identifier == segueToChooseDaysViewController {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
-         viewController.selectedDays = selectedDaysAsArray
+//         viewController.selectedDays = selectedDaysAsArray
       }
       if segue.identifier == saveLocationSegueIdentifer {
          if selectedLocation != nil { // if from editing
@@ -260,5 +262,53 @@ class AddEditLocationViewController: UITableViewController {
       finalTitle = finalTitle.substringToIndex(finalTitle.length - numCharactersToRemoveForFinalLengthOfSelectedDaysString)
       
       return finalTitle
+   }
+   
+   private func convertToShorthand(longName: String) -> String {
+      var shortName = "Please select a day"
+      
+      switch longName {
+      case "Sunday":
+         shortName = "Su"
+      case "Monday":
+         shortName = "M"
+      case "Tuesday":
+         shortName = "Tu"
+      case "Wednesday":
+         shortName = "W"
+      case "Thursday":
+         shortName = "Th"
+      case "Friday":
+         shortName = "F"
+      case "Saturday":
+         shortName = "Sa"
+      default: ()
+      }
+      
+      return shortName
+   }
+   
+   private func convertToLongName(shortName: String) -> String {
+      var longName = "Please select a day"
+      
+      switch shortName {
+      case "Su":
+         longName = "Sunday"
+      case "M":
+         longName = "Monday"
+      case "Tu":
+         longName = "Tuesday"
+      case "W":
+         longName = "Wednesday"
+      case "Th":
+         longName = "Thursday"
+      case "F":
+         longName = "Friday"
+      case "Sa":
+         longName = "Saturday"
+      default: ()
+      }
+      
+      return longName
    }
 }

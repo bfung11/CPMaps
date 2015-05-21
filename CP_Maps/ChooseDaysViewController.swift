@@ -13,6 +13,7 @@ class ChooseDaysViewController: UITableViewController {
    var selectedDayIndex: Int?
    var selectedDaysAsBool: [Bool]! // toggles for selecting and deselecting days
    var selectedDaysAsDays: [Day]?        // final selection of days
+   var selectedDays: String!
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -20,13 +21,15 @@ class ChooseDaysViewController: UITableViewController {
       // set up data
       days = daysData
       selectedDayIndex = nil
-      selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount, repeatedValue: selectedDaysAsBoolIntialValue)
+      selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount,
+         repeatedValue: selectedDaysAsBoolIntialValue)
       
       // if from adding a location
-      if selectedDaysAsDays == nil {
+      if selectedDays == nil {
          selectedDaysAsDays = [Day]()
       }
       else {
+         selectedDays = "Monday, Tuesday, Saturday" // will need to change late
          println("here")
          for day in selectedDaysAsDays! { // set days that need checkmarks
             selectedDaysAsBool[day.value] = true
@@ -57,74 +60,63 @@ class ChooseDaysViewController: UITableViewController {
    //MARK: - Table view delegate
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      selectedDayIndex = indexPath.row
+      let index = indexPath.row
       let cell = tableView.cellForRowAtIndexPath(indexPath)
       // if has been selected, unselect it; else select it
-      if selectedDaysAsBool[selectedDayIndex!] == true {
-         selectedDaysAsBool[selectedDayIndex!] = false
+      
+      if selectedDaysAsBool[index] == true {
+         selectedDaysAsBool[index] = false
          cell?.accessoryType = .None
       }
       else {
-         selectedDaysAsBool[selectedDayIndex!] = true
+         selectedDaysAsBool[index] = true
          cell?.accessoryType = .Checkmark
       }      
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      selectedDaysAsDays = [Day]() // destroy the old list and count just the curently selected days
-      // add all selected days into final selection
-      for var index = 0; index < selectedDaysAsBool.count; ++index {
-         if selectedDaysAsBool[index] == true {
-            selectedDaysAsDays!.append(days![index])
+//      selectedDaysAsDays = [Day]() // destroy the old list and count just the curently selected days
+//      // add all selected days into final selection
+//      for var index = 0; index < selectedDaysAsBool.count; ++index {
+//         if selectedDaysAsBool[index] == true {
+//            selectedDaysAsDays!.append(days![index])
+//         }
+//      }
+      
+      var index: Int
+      selectedDays = "" // clear - not sure if necessary
+      
+      for (index = 0; index < selectedDaysAsBool.count; ++index) {
+         if (selectedDaysAsBool[index] == true) {
+            selectedDays! += getDay(index)
+            if (index != selectedDaysAsBool.count - 1) { // better way of doing it?
+               selectedDays! += ", "
+            }
          }
       }
    }
    
-   private func convertToShorthand(longName: String) -> String {
-      var shortName = "Please select a day"
+   private func getDay(index: Int) -> String {
+      var day = "None"
       
-      switch longName {
-      case "Sunday":
-         shortName = "Su"
-      case "Monday":
-         shortName = "M"
-      case "Tuesday":
-         shortName = "Tu"
-      case "Wednesday":
-         shortName = "W"
-      case "Thursday":
-         shortName = "Th"
-      case "Friday":
-         shortName = "F"
-      case "Saturday":
-         shortName = "Sa"
+      switch index {
+      case 0:
+         day = "Sunday"
+      case 1:
+         day = "Monday"
+      case 2:
+         day = "Tuesday"
+      case 3:
+         day = "Wednesday"
+      case 4:
+         day = "Thursday"
+      case 5:
+         day = "Friday"
+      case 6:
+         day = "Saturday"
       default: ()
       }
       
-      return shortName
-   }
-   
-   private func convertToLongName(shortName: String) -> String {
-      var longName = "Please select a day"
-      
-      switch shortName {
-      case "Su":
-         longName = "Sunday"
-      case "M":
-         longName = "Monday"
-      case "Tu":
-         longName = "Tuesday"
-      case "W":
-         longName = "Wednesday"
-      case "Th":
-         longName = "Thursday"
-      case "F":
-         longName = "Friday"
-      case "Sa":
-         longName = "Saturday"
-      default: ()
-      }
-      
-      return longName
+      return day
    }
 }
