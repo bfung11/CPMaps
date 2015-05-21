@@ -97,6 +97,103 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
+   /* !
+   
+   */
+   private func setUpLabelForDatePicker(label: UILabel) {
+      var dateFormatter = NSDateFormatter()
+      dateFormatter.dateStyle = .MediumStyle
+      dateFormatter.timeStyle = .MediumStyle
+      
+      let defaultDate = NSDate()
+      
+      println(dateFormatter.stringFromDate(defaultDate))
+      label.text = dateFormatter.stringFromDate(defaultDate)
+      label.tintColor = self.tableView.tintColor
+      //      self.selectedBirthday = defaultDate;
+   }
+   
+   /*! Hides the cell of the datePicker if not selected by making the height of the cell equal to 0
+   */
+   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+      // sections and cell numbers start counting at 0
+      let firstDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
+      let secondDatePickerIndex = 3
+      let kDatePickerCellHeight = 163
+      var height = self.tableView.rowHeight
+      
+      if (indexPath.section == sectionWithUIDatePickers) {
+         if (indexPath.row == firstDatePickerIndex ||
+            indexPath.row == secondDatePickerIndex) {
+               // need to keep inside or else affects regular cells in section
+               let datePicker = chooseDatePickerWithIndex(indexPath.row)
+               if (datePicker.isShowing()) {
+                  height = CGFloat(kDatePickerCellHeight)
+               }
+               else {
+                  height = 0
+               }
+         }
+      }
+      
+      return height
+   }
+   
+   /*! Deselects the selected row with UIDatePicker
+   
+   */
+   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      if (indexPath.section == sectionWithUIDatePickers) {
+         let datePicker = chooseDatePickerWithIndex(indexPath.row)
+         if (datePicker.isShowing()) {
+            self.hideDatePickerCell(datePicker)
+         }
+         else {
+            self.showDatePickerCell(datePicker)
+         }
+         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      }
+   }
+   
+   private func chooseDatePickerWithTag(tag: Int) -> StartEndDatePicker {
+      var datePicker = self.startTimeDatePicker
+      
+      if (tag == startTimeDatePickerTag) {
+         datePicker = self.endTimeDatePicker
+      }
+      
+      return datePicker
+   }
+   
+   /*! Choose a either start or end time date picker
+   Assume that it is the first one but check to see if it is the second
+   */
+   private func chooseDatePickerWithIndex(index: Int) -> StartEndDatePicker {
+      let secondDateCellIndex = 2
+      let secondDatePickerCellIndex = 3
+      var datePicker = self.startTimeDatePicker
+      
+      if (index == secondDateCellIndex || index == secondDatePickerCellIndex) {
+         datePicker = self.endTimeDatePicker
+      }
+      
+      return datePicker
+   }
+   
+   private func showDatePickerCell(datePicker: StartEndDatePicker) {
+      datePicker.reverseIsShowing()
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+      self.tableView.endUpdates()
+      datePicker.show()
+   }
+   
+   private func hideDatePickerCell(datePicker: StartEndDatePicker) {
+      datePicker.reverseIsShowing()
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+      self.tableView.endUpdates()
+      datePicker.hide()
+   }
+   
    // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       // get selected days from view controller
@@ -164,102 +261,5 @@ class AddEditLocationViewController: UITableViewController {
       finalTitle = finalTitle.substringToIndex(finalTitle.length - numCharactersToRemoveForFinalLengthOfSelectedDaysString)
       
       return finalTitle
-   }
-   
-   /* ! 
-   
-   */
-   private func setUpLabelForDatePicker(label: UILabel) {
-      var dateFormatter = NSDateFormatter()
-      dateFormatter.dateStyle = .MediumStyle
-      dateFormatter.timeStyle = .MediumStyle
-      
-      let defaultDate = NSDate()
-      
-      println(dateFormatter.stringFromDate(defaultDate))
-      label.text = dateFormatter.stringFromDate(defaultDate)
-      label.tintColor = self.tableView.tintColor
-//      self.selectedBirthday = defaultDate;
-   }
-   
-   /*! Hides the cell of the datePicker if not selected by making the height of the cell equal to 0
-   */
-   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-      // sections and cell numbers start counting at 0
-      let firstDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
-      let secondDatePickerIndex = 3
-      let kDatePickerCellHeight = 163
-      var height = self.tableView.rowHeight
-      
-      if (indexPath.section == sectionWithUIDatePickers) {
-         if (indexPath.row == firstDatePickerIndex ||
-            indexPath.row == secondDatePickerIndex) {
-            // need to keep inside or else affects regular cells in section
-            let datePicker = chooseDatePickerWithIndex(indexPath.row)
-            if (datePicker.isShowing()) {
-               height = CGFloat(kDatePickerCellHeight)
-            }
-            else {
-               height = 0
-            }
-         }
-      }
-   
-      return height
-   }
-   
-   /*! Deselects the selected row with UIDatePicker
-   
-   */
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      if (indexPath.section == sectionWithUIDatePickers) {
-         let datePicker = chooseDatePickerWithIndex(indexPath.row)
-         if (datePicker.isShowing()) {
-            self.hideDatePickerCell(datePicker)
-         }
-         else {
-            self.showDatePickerCell(datePicker)
-         }
-         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      }
-   }
-   
-   private func chooseDatePickerWithTag(tag: Int) -> StartEndDatePicker {
-      var datePicker = self.startTimeDatePicker
-      
-      if (tag == startTimeDatePickerTag) {
-         datePicker = self.endTimeDatePicker
-      }
-      
-      return datePicker
-   }
-   
-   /*! Choose a either start or end time date picker
-       Assume that it is the first one but check to see if it is the second
-   */
-   private func chooseDatePickerWithIndex(index: Int) -> StartEndDatePicker {
-      let secondDateCellIndex = 2
-      let secondDatePickerCellIndex = 3
-      var datePicker = self.startTimeDatePicker
-      
-      if (index == secondDateCellIndex || index == secondDatePickerCellIndex) {
-         datePicker = self.endTimeDatePicker
-      }
-      
-      return datePicker
-   }
-   
-   private func showDatePickerCell(datePicker: StartEndDatePicker) {
-      datePicker.reverseIsShowing()
-      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-      self.tableView.endUpdates()
-      datePicker.show()
-   }
-   
-   private func hideDatePickerCell(datePicker: StartEndDatePicker) {
-      datePicker.reverseIsShowing()
-      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-      self.tableView.endUpdates()
-      datePicker.hide()
    }
 }
