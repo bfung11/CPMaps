@@ -12,7 +12,7 @@ class ChooseDaysViewController: UITableViewController {
    var days: [Day]!                // days data
    var selectedDayIndex: Int?
    var selectedDaysAsBool: [Bool]! // toggles for selecting and deselecting days
-   var selectedDays: [Day]?        // final selection of days
+   var selectedDaysAsDays: [Day]?        // final selection of days
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -23,12 +23,12 @@ class ChooseDaysViewController: UITableViewController {
       selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount, repeatedValue: selectedDaysAsBoolIntialValue)
       
       // if from adding a location
-      if selectedDays == nil {
-         selectedDays = [Day]()
+      if selectedDaysAsDays == nil {
+         selectedDaysAsDays = [Day]()
       }
       else {
          println("here")
-         for day in selectedDays! { // set days that need checkmarks
+         for day in selectedDaysAsDays! { // set days that need checkmarks
             selectedDaysAsBool[day.value] = true
          }
       }
@@ -71,11 +71,11 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      selectedDays = [Day]() // destroy the old list and count just the curently selected days
+      selectedDaysAsDays = [Day]() // destroy the old list and count just the curently selected days
       // add all selected days into final selection
       for var index = 0; index < selectedDaysAsBool.count; ++index {
          if selectedDaysAsBool[index] == true {
-            selectedDays!.append(days![index])
+            selectedDaysAsDays!.append(days![index])
          }
       }
    }
