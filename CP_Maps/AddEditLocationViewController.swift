@@ -16,6 +16,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: UIDatePicker!
+   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
@@ -26,7 +27,7 @@ class AddEditLocationViewController: UITableViewController {
    var name: String?
    var selectedDays: String?
    var selectedDaysAsArray: [Day]?
-   var datePickerIsShowing: Bool!
+   var startTimeDatePickerIsShowing: Bool!
    var startTime: String?
    var endTime: String?
    
@@ -64,7 +65,7 @@ class AddEditLocationViewController: UITableViewController {
       }
       // This may need to be moved in or out depending on whether or not it is edited
       setupStartTimeLabel()
-      self.datePickerIsShowing = false
+      self.startTimeDatePickerIsShowing = false
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
@@ -175,7 +176,7 @@ class AddEditLocationViewController: UITableViewController {
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
          if (indexPath.row == firstDatePickerIndex || indexPath.row == secondDatePickerIndex) {
-            if (self.datePickerIsShowing!) {
+            if (self.startTimeDatePickerIsShowing!) {
                height = CGFloat(kDatePickerCellHeight)
             }
             else {
@@ -196,7 +197,7 @@ class AddEditLocationViewController: UITableViewController {
       
       if (indexPath.section == sectionWithUIDatePickers) {
          if (indexPath.row == firstDateCell || indexPath.row == secondDateCell) {
-            if (self.datePickerIsShowing!) {
+            if (self.startTimeDatePickerIsShowing!) {
                self.hideDatePickerCell()
             }
             else {
@@ -208,7 +209,7 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    private func showDatePickerCell() {
-      self.datePickerIsShowing = true
+      self.startTimeDatePickerIsShowing = true
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
       self.startTimeDatePicker.hidden = false
@@ -217,7 +218,7 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    private func hideDatePickerCell() {
-      self.datePickerIsShowing = false
+      self.startTimeDatePickerIsShowing = false
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
       UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 0},
