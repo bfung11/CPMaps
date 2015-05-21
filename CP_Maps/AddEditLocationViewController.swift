@@ -69,6 +69,7 @@ class AddEditLocationViewController: UITableViewController {
       setUpDatePicker(startTimeLabel)
       setUpDatePicker(endTimeLabel)
       self.startTimeDatePickerIsShowing = false
+      self.endTimeDatePickerIsShowing = false
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
@@ -217,11 +218,11 @@ class AddEditLocationViewController: UITableViewController {
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
          }
          else if (indexPath.row == secondDateCell) {
-            if (self.startTimeDatePickerIsShowing!) {
-               self.hideDatePickerCell()
+            if (self.endTimeDatePickerIsShowing!) {
+               self.hideEndTimeDatePicker()
             }
             else {
-               self.showDatePickerCell()
+               self.showEndTimeDatePickerCell()
             }
             self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
          }
@@ -243,5 +244,22 @@ class AddEditLocationViewController: UITableViewController {
       self.tableView.endUpdates()
       UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 0},
          completion: ({(finished: Bool) in self.startTimeDatePicker.hidden = true}))
+   }
+   
+   private func showEndTimeDatePickerCell() {
+      self.endTimeDatePickerIsShowing = true
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+      self.tableView.endUpdates()
+      self.endTimeDatePicker.hidden = false
+      self.endTimeDatePicker.alpha = 0
+      UIView.animateWithDuration(0.25, animations: {self.endTimeDatePicker.alpha = 1.0})
+   }
+   
+   private func hideEndTimeDatePicker() {
+      self.endTimeDatePickerIsShowing = false
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+      self.tableView.endUpdates()
+      UIView.animateWithDuration(0.25, animations: {self.endTimeDatePicker.alpha = 0},
+         completion: ({(finished: Bool) in self.endTimeDatePicker.hidden = true}))
    }
 }
