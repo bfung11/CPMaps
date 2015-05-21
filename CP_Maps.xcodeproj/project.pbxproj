@@ -61,6 +61,7 @@
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
 		B2748F461AB9337D00411FAA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F451AB9337D00411FAA /* Const.swift */; };
 		B2748F501AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */; };
+		B28064891B0DD27100122A48 /* StartEndDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28064881B0DD27100122A48 /* StartEndDatePicker.swift */; };
 		B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
@@ -137,6 +138,7 @@
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		B2748F451AB9337D00411FAA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingRoomTableViewController.swift; sourceTree = "<group>"; };
+		B28064881B0DD27100122A48 /* StartEndDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartEndDatePicker.swift; sourceTree = "<group>"; };
 		B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsPersistencyManager.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 		11FFA9FB1A79D1BC007BBBF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				B28064881B0DD27100122A48 /* StartEndDatePicker.swift */,
 				B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */,
 				B25647341AA0179000315E46 /* Room.swift */,
 				B2644D351A990A9300513903 /* Building.swift */,
@@ -471,6 +474,7 @@
 				B2644D361A990A9300513903 /* Building.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
 				B25647351AA0179000315E46 /* Room.swift in Sources */,
+				B28064891B0DD27100122A48 /* StartEndDatePicker.swift in Sources */,
 				B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
 				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,

@@ -17,7 +17,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: UIDatePicker!
    @IBOutlet weak var endTimeLabel: UILabel!
-   @IBOutlet weak var endTimeDatePicker: UIDatePicker!
+   @IBOutlet weak var endTimeDatePicker: StartEndDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
