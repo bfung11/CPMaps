@@ -81,6 +81,14 @@ class AddEditLocationViewController: UITableViewController {
       
       return dateFormatter
    }
+
+   private func setUpLabelForDatePicker(label: UILabel) {
+      
+      let defaultDate = NSDate()
+      label.text = self.dateFormatter.stringFromDate(defaultDate)
+      label.tintColor = self.tableView.tintColor
+      //      self.selectedBirthday = defaultDate;
+   }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
    }
@@ -102,17 +110,6 @@ class AddEditLocationViewController: UITableViewController {
       else if (datePicker.tag == endTimeDatePickerTag) {
          self.endTimeLabel.text = strDate
       }
-   }
-   
-   /* !
-   
-   */
-   private func setUpLabelForDatePicker(label: UILabel) {
-
-      let defaultDate = NSDate()
-      label.text = self.dateFormatter.stringFromDate(defaultDate)
-      label.tintColor = self.tableView.tintColor
-      //      self.selectedBirthday = defaultDate;
    }
    
    /*! Hides the cell of the datePicker if not selected by making the height of the cell equal to 0
