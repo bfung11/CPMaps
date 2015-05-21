@@ -15,7 +15,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var nameTextField: UITextField!
    @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
-   @IBOutlet weak var datePicker: UIDatePicker!
+   @IBOutlet weak var startTimeDatePicker: UIDatePicker!
    
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
@@ -168,16 +168,19 @@ class AddEditLocationViewController: UITableViewController {
    */
    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
       // sections and cell numbers start counting at 0
-      let kDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
+      let firstDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
+      let secondDatePickerIndex = 3
       let kDatePickerCellHeight = 163
       
       var height = self.tableView.rowHeight
-      if (indexPath.section == sectionWithUIDatePickers && indexPath.row == kDatePickerIndex) {
-         if (self.datePickerIsShowing!) {
-            height = CGFloat(kDatePickerCellHeight)
-         }
-         else {
-            height = 0
+      if (indexPath.section == sectionWithUIDatePickers) {
+         if (indexPath.row == firstDatePickerIndex || indexPath.row == secondDatePickerIndex) {
+            if (self.datePickerIsShowing!) {
+               height = CGFloat(kDatePickerCellHeight)
+            }
+            else {
+               height = 0
+            }
          }
       }
       
@@ -188,14 +191,19 @@ class AddEditLocationViewController: UITableViewController {
    
    */
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      if (indexPath.section == sectionWithUIDatePickers && indexPath.row == 0) {
-         if (self.datePickerIsShowing!) {
-            self.hideDatePickerCell()
+      let firstDateCell = 0
+      let secondDateCell = 2
+      
+      if (indexPath.section == sectionWithUIDatePickers) {
+         if (indexPath.row == firstDateCell || indexPath.row == secondDateCell) {
+            if (self.datePickerIsShowing!) {
+               self.hideDatePickerCell()
+            }
+            else {
+               self.showDatePickerCell()
+            }
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
          }
-         else {
-            self.showDatePickerCell()
-         }
-         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
       }
    }
    
@@ -203,16 +211,16 @@ class AddEditLocationViewController: UITableViewController {
       self.datePickerIsShowing = true
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-      self.datePicker.hidden = false
-      self.datePicker.alpha = 0
-      UIView.animateWithDuration(0.25, animations: {self.datePicker.alpha = 1.0})
+      self.startTimeDatePicker.hidden = false
+      self.startTimeDatePicker.alpha = 0
+      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 1.0})
    }
    
    private func hideDatePickerCell() {
       self.datePickerIsShowing = false
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-      UIView.animateWithDuration(0.25, animations: {self.datePicker.alpha = 0},
-         completion: ({(finished: Bool) in self.datePicker.hidden = true}))
+      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 0},
+         completion: ({(finished: Bool) in self.startTimeDatePicker.hidden = true}))
    }
 }
