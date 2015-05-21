@@ -175,19 +175,19 @@ class AddEditLocationViewController: UITableViewController {
       let firstDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
       let secondDatePickerIndex = 3
       let kDatePickerCellHeight = 163
+      var datePickerIsShowing: Bool?
       
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
          if (indexPath.row == firstDatePickerIndex) {
-            if (self.startTimeDatePickerIsShowing!) {
-               height = CGFloat(kDatePickerCellHeight)
-            }
-            else {
-               height = 0
-            }
+            datePickerIsShowing = startTimeDatePickerIsShowing
          }
          else if (indexPath.row == secondDatePickerIndex) {
-            if (self.startTimeDatePickerIsShowing!) {
+            datePickerIsShowing = endTimeDatePickerIsShowing
+         }
+         
+         if (datePickerIsShowing != nil) {
+            if (datePickerIsShowing == true) {
                height = CGFloat(kDatePickerCellHeight)
             }
             else {
@@ -195,7 +195,7 @@ class AddEditLocationViewController: UITableViewController {
             }
          }
       }
-      
+   
       return height
    }
    
