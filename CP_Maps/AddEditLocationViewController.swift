@@ -180,6 +180,17 @@ class AddEditLocationViewController: UITableViewController {
       
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
+//         if (indexPath.row == firstDatePickerIndex && startTimeDatePicker.isShowing()) {
+//            height = CGFloat(kDatePickerCellHeight)
+//         }
+//         else if (indexPath.row == secondDatePickerIndex && endTimeDatePicker.isShowing()) {
+//            height = CGFloat(kDatePickerCellHeight)
+//         }
+//         else if (indexPath.row == secondDatePickerIndex && !endTimeDatePicker.isShowing()){
+//            height = 0
+//         }
+         
+         
          if (indexPath.row == firstDatePickerIndex) {
             if (startTimeDatePicker.isShowing()) {
                height = CGFloat(kDatePickerCellHeight)
@@ -209,25 +220,30 @@ class AddEditLocationViewController: UITableViewController {
       let secondDateCell = 2
       
       if (indexPath.section == sectionWithUIDatePickers) {
-         if (indexPath.row == firstDateCell) {
-            if (startTimeDatePicker.isShowing()) {
-               self.hideDatePickerCell(startTimeDatePicker)
-            }
-            else {
-               self.showDatePickerCell(startTimeDatePicker)
-            }
-            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+         let datePicker = chooseDatePicker(indexPath.row)
+         if (datePicker.isShowing()) {
+            self.hideDatePickerCell(datePicker)
          }
-         else if (indexPath.row == secondDateCell) {
-            if (endTimeDatePicker.isShowing()) {
-               self.hideDatePickerCell(endTimeDatePicker)
-            }
-            else {
-               self.showDatePickerCell(endTimeDatePicker)
-            }
-            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+         else {
+            self.showDatePickerCell(datePicker)
          }
+         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
       }
+   }
+   
+   /*! Choose a either start or end time date picker
+       Assume that it is the first one but check to see if it is the second
+   */
+   private func chooseDatePicker(index: Int) -> StartEndDatePicker {
+      let secondDateCellIndex = 2
+      let secondDatePickerCellIndex = 3
+      var datePicker = self.startTimeDatePicker
+      
+      if (index == secondDateCellIndex || index == secondDatePickerCellIndex) {
+         datePicker = self.endTimeDatePicker
+      }
+      
+      return datePicker
    }
    
    private func showDatePickerCell(datePicker: StartEndDatePicker) {
