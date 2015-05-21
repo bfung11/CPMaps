@@ -28,8 +28,6 @@ class AddEditLocationViewController: UITableViewController {
    var name: String?
    var selectedDays: String?
    var selectedDaysAsArray: [Day]?
-   var startTimeDatePickerIsShowing: Bool!
-   var endTimeDatePickerIsShowing: Bool!
    var startTime: String?
    var endTime: String?
    
@@ -68,8 +66,6 @@ class AddEditLocationViewController: UITableViewController {
       // This may need to be moved in or out depending on whether or not it is edited
       setUpDatePicker(startTimeLabel)
       setUpDatePicker(endTimeLabel)
-      self.startTimeDatePickerIsShowing = false
-      self.endTimeDatePickerIsShowing = false
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
