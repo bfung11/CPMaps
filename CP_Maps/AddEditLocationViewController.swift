@@ -171,12 +171,6 @@ class AddEditLocationViewController: UITableViewController {
       let kDatePickerCellHeight = 163
       
       var height = self.tableView.rowHeight
-//      print("section ")
-//      println(indexPath.section)
-//      print(" ")
-//      if (indexPath.section == 2) {
-//         println(indexPath.row)
-//      }
       if (indexPath.section == 2 && indexPath.row == kDatePickerIndex) {
          if (self.datePickerIsShowing!) {
             height = CGFloat(kDatePickerCellHeight)
@@ -206,13 +200,8 @@ class AddEditLocationViewController: UITableViewController {
    
    private func showDatePickerCell() {
       self.datePickerIsShowing = true
-//      Need to call coreData reload?
-//      [self.tableView beginUpdates];
-//      [self.tableView endUpdates];
-      self.tableView.beginUpdates()
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-//      self.tableView.reloadData()
-      
       self.datePicker.hidden = false
       self.datePicker.alpha = 0
       UIView.animateWithDuration(0.25, animations: {self.datePicker.alpha = 1.0})
@@ -220,13 +209,9 @@ class AddEditLocationViewController: UITableViewController {
    
    private func hideDatePickerCell() {
       self.datePickerIsShowing = false
-//       Need to call coreData reload?
-//      [self.tableView beginUpdates];
-//      [self.tableView endUpdates];
-      self.tableView.beginUpdates()
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-//      self.tableView.reloadData()
-//      self.datePicker.hidden = true
-      UIView.animateWithDuration(0.25, animations: {self.datePicker.alpha = 0}, completion: ({(finished: Bool) in self.datePicker.hidden = true}))
+      UIView.animateWithDuration(0.25, animations: {self.datePicker.alpha = 0},
+         completion: ({(finished: Bool) in self.datePicker.hidden = true}))
    }
 }
