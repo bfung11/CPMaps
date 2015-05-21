@@ -16,19 +16,28 @@ class StartEndDatePicker: UIDatePicker {
       isDatePickerShowing = false
    }
    
+   /*! Need to reverse before tableView.beginUpdates() and tableView.endUpdates()
+   
+   */
+   func reverseIsShowing() {
+      isDatePickerShowing = !isDatePickerShowing
+   }
+   
    func isShowing() -> Bool {
       return isDatePickerShowing
    }
    
    func show() {
-      self.isDatePickerShowing = true
+      println("show")
+//      self.isDatePickerShowing = true
       self.hidden = false
       self.alpha = 0
       UIView.animateWithDuration(0.25, animations: {self.alpha = 1.0})
    }
    
    func hide() {
-      self.isDatePickerShowing = false
+      println("hide")
+//      self.isDatePickerShowing = false
       UIView.animateWithDuration(0.25, animations: {self.alpha = 0},
          completion: ({(finished: Bool) in self.hidden = true}))
    }

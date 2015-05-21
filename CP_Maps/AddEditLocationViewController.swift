@@ -189,7 +189,10 @@ class AddEditLocationViewController: UITableViewController {
             }
          }
          else if (indexPath.row == secondDatePickerIndex) {
-            if (endTimeDatePickerIsShowing == true) {
+//            print(endTimeDatePickerIsShowing)
+//            print(" ")
+//            println(endTimeDatePicker.isShowing())
+            if (endTimeDatePicker.isShowing()) {
                height = CGFloat(kDatePickerCellHeight)
             }
             else {
@@ -248,17 +251,47 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    private func showEndTimeDatePickerCell(datePicker: StartEndDatePicker) {
-      self.endTimeDatePickerIsShowing = true
+//      println("\ncontroller show")
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
+//      self.endTimeDatePickerIsShowing = true
+      datePicker.reverseIsShowing()
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
       datePicker.show()
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
+//      println("end\n")
    }
    
    private func hideEndTimeDatePicker(datePicker: StartEndDatePicker) {
-      self.endTimeDatePickerIsShowing = false
+//      println("\ncontroller hide")
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
+//      self.endTimeDatePickerIsShowing = false
+      datePicker.reverseIsShowing()
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
       datePicker.hide()
+//      print(endTimeDatePickerIsShowing)
+//      print(" ")
+//      println(endTimeDatePicker.isShowing())
+//      println("end\n")
 
    }
 }
