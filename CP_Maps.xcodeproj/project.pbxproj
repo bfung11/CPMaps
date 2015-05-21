@@ -246,7 +246,6 @@
 		11FFA9FB1A79D1BC007BBBF1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B28064881B0DD27100122A48 /* StartEndDatePicker.swift */,
 				B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */,
 				B25647341AA0179000315E46 /* Room.swift */,
 				B2644D351A990A9300513903 /* Building.swift */,
@@ -255,6 +254,7 @@
 				B2CB2AA81A91AC1200FDF096 /* Location.swift */,
 				B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */,
 				1171B44B1AF0AD2400564ABE /* StreamReader.swift */,
+				B28064881B0DD27100122A48 /* StartEndDatePicker.swift */,
 				11E139CD1A9BB2B30074B985 /* GoogleDataProvider.swift */,
 				11E139CE1A9BB2B30074B985 /* GooglePlace.swift */,
 			);

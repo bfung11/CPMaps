@@ -233,65 +233,17 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-//   private func showDatePickerCell() {
-//      self.startTimeDatePickerIsShowing = true
-//      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-//      self.tableView.endUpdates()
-//      self.startTimeDatePicker.hidden = false
-//      self.startTimeDatePicker.alpha = 0
-//      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 1.0})
-//   }
-//   
-//   private func hideDatePickerCell() {
-//      self.startTimeDatePickerIsShowing = false
-//      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-//      self.tableView.endUpdates()
-//      UIView.animateWithDuration(0.25, animations: {self.startTimeDatePicker.alpha = 0},
-//         completion: ({(finished: Bool) in self.startTimeDatePicker.hidden = true}))
-//   }
-   
    private func showDatePickerCell(datePicker: StartEndDatePicker) {
-//      println("\ncontroller show")
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
-//      self.endTimeDatePickerIsShowing = true
       datePicker.reverseIsShowing()
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
       datePicker.show()
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
-//      println("end\n")
    }
    
    private func hideDatePickerCell(datePicker: StartEndDatePicker) {
-//      println("\ncontroller hide")
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
-//      self.endTimeDatePickerIsShowing = false
       datePicker.reverseIsShowing()
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
       datePicker.hide()
-//      print(endTimeDatePickerIsShowing)
-//      print(" ")
-//      println(endTimeDatePicker.isShowing())
-//      println("end\n")
-
    }
 }
