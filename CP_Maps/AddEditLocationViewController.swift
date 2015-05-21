@@ -173,7 +173,7 @@ class AddEditLocationViewController: UITableViewController {
       let kDatePickerCellHeight = 163
       
       var height = self.tableView.rowHeight
-      if (indexPath.section == 2 && indexPath.row == kDatePickerIndex) {
+      if (indexPath.section == sectionWithUIDatePickers && indexPath.row == kDatePickerIndex) {
          if (self.datePickerIsShowing!) {
             height = CGFloat(kDatePickerCellHeight)
          }
@@ -189,7 +189,7 @@ class AddEditLocationViewController: UITableViewController {
    
    */
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      if (indexPath.section == 2 && indexPath.row == 0) {
+      if (indexPath.section == sectionWithUIDatePickers && indexPath.row == 0) {
          if (self.datePickerIsShowing!) {
             self.hideDatePickerCell()
          }

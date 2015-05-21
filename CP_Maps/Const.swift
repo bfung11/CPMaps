@@ -25,6 +25,9 @@ let addLocationViewControllerTitle = "Add Location"
 let chooseBuildingViewControllerTitle = "Building"
 let chooseRoomViewControllerTitle = "Room"
 
+// Sections with UIDatePickers
+let sectionWithUIDatePickers = 2
+
 // Number of Sections in view controllers
 let numberOfSectionsInChooseBuildingRoomViewController = 1
 let numberOfSectionsInDaysViewController = 1
