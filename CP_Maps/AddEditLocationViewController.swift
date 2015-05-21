@@ -29,6 +29,7 @@ class AddEditLocationViewController: UITableViewController {
    var selectedDays: String?
    var selectedDaysAsArray: [Day]?
    var startTimeDatePickerIsShowing: Bool!
+   var endTimeDatePickerIsShowing: Bool!
    var startTime: String?
    var endTime: String?
    
@@ -177,7 +178,15 @@ class AddEditLocationViewController: UITableViewController {
       
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
-         if (indexPath.row == firstDatePickerIndex || indexPath.row == secondDatePickerIndex) {
+         if (indexPath.row == firstDatePickerIndex) {
+            if (self.startTimeDatePickerIsShowing!) {
+               height = CGFloat(kDatePickerCellHeight)
+            }
+            else {
+               height = 0
+            }
+         }
+         else if (indexPath.row == secondDatePickerIndex) {
             if (self.startTimeDatePickerIsShowing!) {
                height = CGFloat(kDatePickerCellHeight)
             }
@@ -198,7 +207,16 @@ class AddEditLocationViewController: UITableViewController {
       let secondDateCell = 2
       
       if (indexPath.section == sectionWithUIDatePickers) {
-         if (indexPath.row == firstDateCell || indexPath.row == secondDateCell) {
+         if (indexPath.row == firstDateCell) {
+            if (self.startTimeDatePickerIsShowing!) {
+               self.hideDatePickerCell()
+            }
+            else {
+               self.showDatePickerCell()
+            }
+            self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+         }
+         else if (indexPath.row == secondDateCell) {
             if (self.startTimeDatePickerIsShowing!) {
                self.hideDatePickerCell()
             }
