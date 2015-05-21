@@ -330,6 +330,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="datePickerAction:" destination="Agc-E3-Fux" eventType="valueChanged" id="GsI-Il-aQV"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -365,11 +368,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8lg-9n-Ccx" id="GXU-0N-kVx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-0v-aTQ" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
+                                                <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-0v-aTQ" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="datePickerAction:" destination="Agc-E3-Fux" eventType="valueChanged" id="dgN-1M-aYa"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>

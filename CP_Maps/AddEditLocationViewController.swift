@@ -19,6 +19,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: StartEndDatePicker!
    
+
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
    var locations: CPMapsLibraryAPI!    // location as sharedInstance
@@ -89,6 +90,22 @@ class AddEditLocationViewController: UITableViewController {
       daysDetail.text = "None"
       if !selectedDaysAsArray!.isEmpty {
          daysDetail.text = self.getCourseDays() as String
+      }
+   }
+   
+   @IBAction func datePickerAction(sender: AnyObject) {
+      let tag = (sender as! StartEndDatePicker).tag
+      var dateFormatter = NSDateFormatter()
+      dateFormatter.dateStyle = .MediumStyle
+      dateFormatter.timeStyle = .MediumStyle
+      let datePicker = chooseDatePickerWithTag(tag)
+      var strDate = dateFormatter.stringFromDate(datePicker.date)
+      
+      if (tag == 0) {
+         self.startTimeLabel.text = strDate
+      }
+      else if (tag == 1) {
+         self.endTimeLabel.text = strDate
       }
    }
    
@@ -178,7 +195,7 @@ class AddEditLocationViewController: UITableViewController {
          if (indexPath.row == firstDatePickerIndex ||
             indexPath.row == secondDatePickerIndex) {
             // need to keep inside or else affects regular cells in section
-            let datePicker = chooseDatePicker(indexPath.row)
+            let datePicker = chooseDatePickerWithIndex(indexPath.row)
             if (datePicker.isShowing()) {
                height = CGFloat(kDatePickerCellHeight)
             }
@@ -196,7 +213,7 @@ class AddEditLocationViewController: UITableViewController {
    */
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       if (indexPath.section == sectionWithUIDatePickers) {
-         let datePicker = chooseDatePicker(indexPath.row)
+         let datePicker = chooseDatePickerWithIndex(indexPath.row)
          if (datePicker.isShowing()) {
             self.hideDatePickerCell(datePicker)
          }
@@ -207,10 +224,20 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
+   private func chooseDatePickerWithTag(tag: Int) -> StartEndDatePicker {
+      var datePicker = self.startTimeDatePicker
+      
+      if (tag == 1) {
+         datePicker = self.endTimeDatePicker
+      }
+      
+      return datePicker
+   }
+   
    /*! Choose a either start or end time date picker
        Assume that it is the first one but check to see if it is the second
    */
-   private func chooseDatePicker(index: Int) -> StartEndDatePicker {
+   private func chooseDatePickerWithIndex(index: Int) -> StartEndDatePicker {
       let secondDateCellIndex = 2
       let secondDatePickerCellIndex = 3
       var datePicker = self.startTimeDatePicker
