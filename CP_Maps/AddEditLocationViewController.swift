@@ -64,7 +64,7 @@ class AddEditLocationViewController: UITableViewController {
          self.navigationItem.title = addLocationViewControllerTitle
       }
       // This may need to be moved in or out depending on whether or not it is edited
-      setupStartTimeLabel()
+      setUpDatePicker(startTimeLabel)
       self.startTimeDatePickerIsShowing = false
    }
    
@@ -152,7 +152,7 @@ class AddEditLocationViewController: UITableViewController {
    /* ! 
    
    */
-   private func setupStartTimeLabel() {
+   private func setUpDatePicker(label: UILabel) {
       var dateFormatter = NSDateFormatter()
       dateFormatter.dateStyle = .MediumStyle
       dateFormatter.timeStyle = .MediumStyle
@@ -160,8 +160,8 @@ class AddEditLocationViewController: UITableViewController {
       let defaultDate = NSDate()
       
       println(dateFormatter.stringFromDate(defaultDate))
-      self.startTimeLabel.text = dateFormatter.stringFromDate(defaultDate)
-      self.startTimeLabel.tintColor = self.tableView.tintColor
+      label.text = dateFormatter.stringFromDate(defaultDate)
+      label.tintColor = self.tableView.tintColor
 //      self.selectedBirthday = defaultDate;
    }
    
