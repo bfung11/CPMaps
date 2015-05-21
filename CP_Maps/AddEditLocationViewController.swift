@@ -96,8 +96,10 @@ class AddEditLocationViewController: UITableViewController {
       var shouldPerform = true
       
       // if they have not selected a building
-      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil {          let alert =
-         UIAlertView(title: saveNewLocationTitle, message: saveNewLocationMessage, delegate: self, cancelButtonTitle: cancelButtonTitleOK)
+      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil {
+         let alert = UIAlertView(title: saveNewLocationTitle,
+            message: saveNewLocationMessage, delegate: self,
+            cancelButtonTitle: cancelButtonTitleOK)
          alert.show()
          shouldPerform = false
       }
