@@ -180,17 +180,6 @@ class AddEditLocationViewController: UITableViewController {
       
       var height = self.tableView.rowHeight
       if (indexPath.section == sectionWithUIDatePickers) {
-//         if (indexPath.row == firstDatePickerIndex && startTimeDatePicker.isShowing()) {
-//            height = CGFloat(kDatePickerCellHeight)
-//         }
-//         else if (indexPath.row == secondDatePickerIndex && endTimeDatePicker.isShowing()) {
-//            height = CGFloat(kDatePickerCellHeight)
-//         }
-//         else if (indexPath.row == secondDatePickerIndex && !endTimeDatePicker.isShowing()){
-//            height = 0
-//         }
-         
-         
          if (indexPath.row == firstDatePickerIndex) {
             if (startTimeDatePicker.isShowing()) {
                height = CGFloat(kDatePickerCellHeight)
