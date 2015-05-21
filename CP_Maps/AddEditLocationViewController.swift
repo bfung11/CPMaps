@@ -96,24 +96,6 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-   @IBAction func datePickerAction(sender: AnyObject) {
-      let tag = (sender as! StartEndDatePicker).tag
-      var dateFormatter = NSDateFormatter()
-      dateFormatter.dateStyle = .MediumStyle
-      dateFormatter.timeStyle = .MediumStyle
-      let datePicker = chooseDatePickerWithTag(tag)
-//      datePicker.date = dateFormatter.dateFromString(<#string: String#>)
-      var strDate = dateFormatter.stringFromDate(datePicker.date)
-      println(datePicker.date)
-      
-      if (tag == startTimeDatePickerTag) {
-         self.startTimeLabel.text = strDate
-      }
-      else if (tag == endTimeDatePickerTag) {
-         self.endTimeLabel.text = strDate
-      }
-   }
-   
    /* !
    
    */

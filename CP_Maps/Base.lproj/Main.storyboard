@@ -330,9 +330,6 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
                                                     </date>
-                                                    <connections>
-                                                        <action selector="datePickerAction:" destination="Agc-E3-Fux" eventType="valueChanged" id="GsI-Il-aQV"/>
-                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -373,9 +370,6 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
                                                     </date>
-                                                    <connections>
-                                                        <action selector="datePickerAction:" destination="Agc-E3-Fux" eventType="valueChanged" id="dgN-1M-aYa"/>
-                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
