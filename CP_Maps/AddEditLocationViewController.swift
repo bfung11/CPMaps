@@ -85,7 +85,6 @@ class AddEditLocationViewController: UITableViewController {
    }
 
    private func setupLabelForDatePicker(label: UILabel) {
-      
       let defaultDate = NSDate()
       label.text = self.dateFormatter.stringFromDate(defaultDate)
       label.tintColor = self.tableView.tintColor
