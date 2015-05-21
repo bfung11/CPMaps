@@ -250,16 +250,14 @@ class AddEditLocationViewController: UITableViewController {
       self.endTimeDatePickerIsShowing = true
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-      self.endTimeDatePicker.hidden = false
-      self.endTimeDatePicker.alpha = 0
-      UIView.animateWithDuration(0.25, animations: {self.endTimeDatePicker.alpha = 1.0})
+      endTimeDatePicker.show()
    }
    
    private func hideEndTimeDatePicker() {
       self.endTimeDatePickerIsShowing = false
       self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
       self.tableView.endUpdates()
-      UIView.animateWithDuration(0.25, animations: {self.endTimeDatePicker.alpha = 0},
-         completion: ({(finished: Bool) in self.endTimeDatePicker.hidden = true}))
+      endTimeDatePicker.hide()
+
    }
 }

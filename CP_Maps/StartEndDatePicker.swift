@@ -16,14 +16,14 @@ class StartEndDatePicker: UIDatePicker {
       isDatePickerShowing = false
    }
    
-   private func showEndTimeDatePickerCell() {
+   func show() {
       self.isDatePickerShowing = true
       self.hidden = false
       self.alpha = 0
       UIView.animateWithDuration(0.25, animations: {self.alpha = 1.0})
    }
    
-   private func hideEndTimeDatePicker() {
+   func hide() {
       self.isDatePickerShowing = false
       UIView.animateWithDuration(0.25, animations: {self.alpha = 0},
          completion: ({(finished: Bool) in self.hidden = true}))
