@@ -64,8 +64,8 @@ class AddEditLocationViewController: UITableViewController {
          self.navigationItem.title = addLocationViewControllerTitle
       }
       // This may need to be moved in or out depending on whether or not it is edited
-      setUpDatePicker(startTimeLabel)
-      setUpDatePicker(endTimeLabel)
+      setUpLabelForDatePicker(startTimeLabel)
+      setUpLabelForDatePicker(endTimeLabel)
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
@@ -152,7 +152,7 @@ class AddEditLocationViewController: UITableViewController {
    /* ! 
    
    */
-   private func setUpDatePicker(label: UILabel) {
+   private func setUpLabelForDatePicker(label: UILabel) {
       var dateFormatter = NSDateFormatter()
       dateFormatter.dateStyle = .MediumStyle
       dateFormatter.timeStyle = .MediumStyle
