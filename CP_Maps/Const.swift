@@ -27,6 +27,8 @@ let chooseRoomViewControllerTitle = "Room"
 
 // Sections with UIDatePickers
 let sectionWithUIDatePickers = 2
+let startTimeDatePickerTag = 0
+let endTimeDatePickerTag = 1
 
 // Number of Sections in view controllers
 let numberOfSectionsInChooseBuildingRoomViewController = 1

@@ -81,6 +81,22 @@ class AddEditLocationViewController: UITableViewController {
       buildingDetail.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
    }
    
+   @IBAction func datePickerAction(sender: AnyObject) {
+      let tag = (sender as! StartEndDatePicker).tag
+      var dateFormatter = NSDateFormatter()
+      dateFormatter.dateStyle = .MediumStyle
+      dateFormatter.timeStyle = .MediumStyle
+      let datePicker = chooseDatePickerWithTag(tag)
+      var strDate = dateFormatter.stringFromDate(datePicker.date)
+      
+      if (tag == startTimeDatePickerTag) {
+         self.startTimeLabel.text = strDate
+      }
+      else if (tag == endTimeDatePickerTag) {
+         self.endTimeLabel.text = strDate
+      }
+   }
+   
    // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       // get selected days from view controller
@@ -90,22 +106,6 @@ class AddEditLocationViewController: UITableViewController {
       daysDetail.text = "None"
       if !selectedDaysAsArray!.isEmpty {
          daysDetail.text = self.getCourseDays() as String
-      }
-   }
-   
-   @IBAction func datePickerAction(sender: AnyObject) {
-      let tag = (sender as! StartEndDatePicker).tag
-      var dateFormatter = NSDateFormatter()
-      dateFormatter.dateStyle = .MediumStyle
-      dateFormatter.timeStyle = .MediumStyle
-      let datePicker = chooseDatePickerWithTag(tag)
-      var strDate = dateFormatter.stringFromDate(datePicker.date)
-      
-      if (tag == 0) {
-         self.startTimeLabel.text = strDate
-      }
-      else if (tag == 1) {
-         self.endTimeLabel.text = strDate
       }
    }
    
