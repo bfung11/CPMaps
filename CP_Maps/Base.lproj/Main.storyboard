@@ -482,7 +482,7 @@
                     <navigationItem key="navigationItem" title="Building / Room" id="vAl-71-3Ga">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxk-t9-rb4">
                             <connections>
-                                <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelToMapViewController:" id="rMZ-dr-1wh"/>
+                                <action selector="cancelFromChooseBuildingRoomViewController:" destination="reh-xF-wIR" id="7aF-7T-auZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -491,6 +491,8 @@
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="saveBuilding:" id="HWa-f6-O2R"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="wxG-2A-tdJ"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="finishedChoosingBuilding" unwindAction="finishedChoosingBuilding:" id="2vf-3c-IRW"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToAddEditViewController" unwindAction="cancelToAddEditViewController:" id="3BX-Xj-iOy"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToMapViewController" unwindAction="cancelToMapViewController:" id="dwY-ix-znx"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>

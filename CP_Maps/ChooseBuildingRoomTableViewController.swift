@@ -21,6 +21,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
       data = CPMapsLibraryAPI.sharedInstance
       self.navigationItem.title = chooseBuildingViewControllerTitle
    }
+   @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
+      if identifier == chooseBuildingForAddEditViewController {
+         performSegueWithIdentifier("cancelToAddEditViewController", sender: self)
+      }
+      else if identifier == chooseBuildingForMapViewController {
+         performSegueWithIdentifier("cancelToMapViewController", sender: self)
+      }   }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return numberOfSectionsInChooseBuildingRoomViewController
