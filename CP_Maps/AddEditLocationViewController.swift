@@ -227,7 +227,7 @@ class AddEditLocationViewController: UITableViewController {
    private func chooseDatePickerWithTag(tag: Int) -> StartEndDatePicker {
       var datePicker = self.startTimeDatePicker
       
-      if (tag == 1) {
+      if (tag == startTimeDatePickerTag) {
          datePicker = self.endTimeDatePicker
       }
       
