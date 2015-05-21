@@ -26,60 +26,12 @@ class AddEditLocationViewController: UITableViewController {
    var name: String?
    var selectedDays: String?
    var selectedDaysAsArray: [Day]?
+   var datePickerIsShowing: Bool!
    var startTime: String?
    var endTime: String?
    
-   
-   let kPickerAnimationDuration = 0.40 // duration for the animation to slide the date picker into view
-   let kDatePickerTag           = 99   // view tag identifiying the date picker view
-   
-   let kTitleKey = "title" // key for obtaining the data source item's title
-   let kDateKey  = "date"  // key for obtaining the data source item's date value
-   
-   // keep track of which rows have date cells
-   let kDateStartRow = 1
-   let kDateEndRow   = 2
-   
-   let kDateCellID       = "dateCell";       // the cells with the start or end date
-   let kDatePickerCellID = "datePickerCell"; // the cell containing the date picker
-   let kOtherCellID      = "otherCell";      // the remaining cells at the end
-   
-   var dataArray: [[String: AnyObject]] = []
-   var dateFormatter = NSDateFormatter()
-   
-   // keep track which indexPath points to the cell with UIDatePicker
-   var datePickerIndexPath: NSIndexPath?
-   
-   var pickerCellRowHeight: CGFloat = 216
-   
    override func viewDidLoad() {
       super.viewDidLoad()
-      
-      // setup our data source
-      let itemOne = [kTitleKey : "Tap a cell to change its date:"]
-      let itemTwo = [kTitleKey : "Start Date", kDateKey : NSDate()]
-      let itemThree = [kTitleKey : "End Date", kDateKey : NSDate()]
-      let itemFour = [kTitleKey : "(other item1)"]
-      let itemFive = [kTitleKey : "(other item2)"]
-      dataArray = [itemOne, itemTwo, itemThree, itemFour, itemFive]
-      
-      dateFormatter.dateStyle = .ShortStyle // show short-style date format
-      dateFormatter.timeStyle = .ShortStyle
-      
-      // if the local changes while in the background, we need to be notified so we can update the date
-      // format in the table view cells
-      //
-      NSNotificationCenter.defaultCenter().addObserver(self, selector: "localeChanged:", name: NSCurrentLocaleDidChangeNotification, object: nil)
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
       
       // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
@@ -110,6 +62,9 @@ class AddEditLocationViewController: UITableViewController {
          
          self.navigationItem.title = addLocationViewControllerTitle
       }
+      // This may need to be moved in or out depending on whether or not it is edited
+      setupStartTimeLabel()
+      self.datePickerIsShowing = false
    }
    
    @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
@@ -129,8 +84,6 @@ class AddEditLocationViewController: UITableViewController {
       // get selected days from view controller
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
       selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
-//      selectedDays = chooseDaysViewController.selectedDays // can be empty, not nil
-      
       // display selected days
       daysDetail.text = "None"
       if !selectedDaysAsArray!.isEmpty {
@@ -138,18 +91,8 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-   // MARK: - Locale
-   
-   /*! Responds to region format or locale changes.
-   */
-   func localeChanged(notif: NSNotification) {
-      // the user changed the locale (region format) in Settings, so we are notified here to
-      // update the date format in the table view cells
-      //
-      tableView.reloadData()
-   }
-   
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+      
       var shouldPerform = true
       
       // if they have not selected a building
@@ -201,5 +144,89 @@ class AddEditLocationViewController: UITableViewController {
       finalTitle = finalTitle.substringToIndex(finalTitle.length - numCharactersToRemoveForFinalLengthOfSelectedDaysString)
       
       return finalTitle
+   }
+   
+   
+   /* ! 
+   
+   */
+   private func setupStartTimeLabel() {
+      var dateFormatter = NSDateFormatter()
+      dateFormatter.dateStyle = .MediumStyle
+      dateFormatter.timeStyle = .MediumStyle
+      
+      let defaultDate = NSDate()
+      
+      println(dateFormatter.stringFromDate(defaultDate))
+      self.startTimeLabel.text = dateFormatter.stringFromDate(defaultDate)
+      self.startTimeLabel.tintColor = self.tableView.tintColor
+//      self.selectedBirthday = defaultDate;
+   }
+   
+   /*! Hides the cell of the datePicker if not selected by making the height of the cell equal to 0
+   */
+   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+      // sections and cell numbers start counting at 0
+      let kDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
+      let kDatePickerCellHeight = 163
+      
+      var height = self.tableView.rowHeight
+//      print("section ")
+//      println(indexPath.section)
+//      print(" ")
+//      if (indexPath.section == 2) {
+//         println(indexPath.row)
+//      }
+      if (indexPath.section == 2 && indexPath.row == kDatePickerIndex) {
+         if (self.datePickerIsShowing!) {
+            height = CGFloat(kDatePickerCellHeight)
+         }
+         else {
+            height = 0
+         }
+      }
+      
+      return height
+   }
+   
+   /*! Deselects the selected row with UIDatePicker
+   
+   */
+   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      if (indexPath.section == 2 && indexPath.row == 0) {
+         if (self.datePickerIsShowing!) {
+            self.hideDatePickerCell()
+         }
+         else {
+            self.showDatePickerCell()
+         }
+         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      }
+   }
+   
+   private func showDatePickerCell() {
+      self.datePickerIsShowing = true
+//      Need to call coreData reload?
+//      [self.tableView beginUpdates];
+//      [self.tableView endUpdates];
+      self.tableView.beginUpdates()
+      self.tableView.endUpdates()
+//      self.tableView.reloadData()
+      
+      self.datePicker.hidden = false
+      self.datePicker.alpha = 0
+      UIView.animateWithDuration(0.25, animations: {self.datePicker.alpha = 1.0})
+   }
+   
+   private func hideDatePickerCell() {
+      self.datePickerIsShowing = false
+//       Need to call coreData reload?
+//      [self.tableView beginUpdates];
+//      [self.tableView endUpdates];
+      self.tableView.beginUpdates()
+      self.tableView.endUpdates()
+//      self.tableView.reloadData()
+//      self.datePicker.hidden = true
+      UIView.animateWithDuration(0.25, animations: {self.datePicker.alpha = 0}, completion: ({(finished: Bool) in self.datePicker.hidden = true}))
    }
 }
