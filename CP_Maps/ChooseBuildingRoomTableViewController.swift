@@ -22,10 +22,10 @@ class ChooseBuildingRoomViewController: UITableViewController {
       self.navigationItem.title = chooseBuildingViewControllerTitle
    }
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
-      if identifier == chooseBuildingForAddEditViewController {
+      if identifier == chooseBuildingFromAddEditViewController {
          performSegueWithIdentifier("cancelToAddEditViewController", sender: self)
       }
-      else if identifier == chooseBuildingForMapViewController {
+      else if identifier == chooseBuildingFromMapViewController {
          performSegueWithIdentifier("cancelToMapViewController", sender: self)
       }   }
    
@@ -57,11 +57,11 @@ class ChooseBuildingRoomViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       self.buildingIndexPath = indexPath
 
-      if identifier == chooseBuildingForAddEditViewController {
-         performSegueWithIdentifier(chooseBuildingForAddEditViewController, sender: self)
+      if identifier == chooseBuildingFromAddEditViewController {
+         performSegueWithIdentifier(chooseBuildingFromAddEditViewController, sender: self)
       }
-      else if identifier == chooseBuildingForMapViewController {
-         performSegueWithIdentifier(chooseBuildingForMapViewController, sender: self)
+      else if identifier == chooseBuildingFromMapViewController {
+         performSegueWithIdentifier(chooseBuildingFromMapViewController, sender: self)
       }
    }
 }

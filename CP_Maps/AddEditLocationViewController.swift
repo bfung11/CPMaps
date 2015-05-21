@@ -130,7 +130,7 @@ class AddEditLocationViewController: UITableViewController {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first as! ChooseBuildingRoomViewController
-         viewController.identifier = chooseBuildingForAddEditViewController
+         viewController.identifier = chooseBuildingFromAddEditViewController
          viewController.buildingIndexPath = buildingIndexPath
       }
       if segue.identifier == segueToChooseDaysViewController {
