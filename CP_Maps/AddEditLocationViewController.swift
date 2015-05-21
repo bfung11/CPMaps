@@ -176,7 +176,6 @@ class AddEditLocationViewController: UITableViewController {
       let firstDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
       let secondDatePickerIndex = 3
       let kDatePickerCellHeight = 163
-      var datePickerIsShowing: Bool?
       var height = self.tableView.rowHeight
       
       if (indexPath.section == sectionWithUIDatePickers) {
@@ -200,9 +199,6 @@ class AddEditLocationViewController: UITableViewController {
    
    */
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      let firstDateCell = 0
-      let secondDateCell = 2
-      
       if (indexPath.section == sectionWithUIDatePickers) {
          let datePicker = chooseDatePicker(indexPath.row)
          if (datePicker.isShowing()) {
