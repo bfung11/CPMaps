@@ -39,7 +39,7 @@ let segueToChooseBuildingFromMapViewController = "chooseBuildingForMapViewContro
 let chooseLocationSegueIdentifier = "chooseLocation"
 let editLocationSegueIdentifier = "editLocation"
 let saveLocationSegueIdentifer = "saveLocation"
-let segueToChooseBuildingFromAddEditViewController = "chooseBuildingForAddEditViewController"
+let segueToChooseBuildingFromAddEditLocationViewController = "chooseBuildingForAddEditLocationViewController"
 let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
 let findBuildingSegueIdentifer = "findBuilding"
@@ -48,7 +48,7 @@ let segueToChooseBuildingViewController = "segueToChooseBuildingViewController"
 let segueToChooseDaysViewController = "segueToChooseDaysViewController"
 let segueToFloorPlanPagedScrollViewController = "floorPlanPagedScrollViewController"
 let cancelToMapViewController = "cancelToMapViewController"
-let cancelToAddEditViewController = "cancelToAddEditViewController"
+let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
 
 // UIAlertView Messages
 let saveNewLocationTitle = "No Building Selected"

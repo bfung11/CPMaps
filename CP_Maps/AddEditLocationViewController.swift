@@ -90,11 +90,11 @@ class AddEditLocationViewController: UITableViewController {
       label.tintColor = self.tableView.tintColor
    }
    
-   @IBAction func cancelToAddEditViewController(segue:UIStoryboardSegue) {
+   @IBAction func cancelToAddEditLocationViewController(segue:UIStoryboardSegue) {
    }
    
    // save selected building and display selected building
-   @IBAction func chooseBuildingForAddEditViewController(segue:UIStoryboardSegue) {
+   @IBAction func chooseBuildingForAddEditLocationViewController(segue:UIStoryboardSegue) {
       // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
@@ -232,7 +232,7 @@ class AddEditLocationViewController: UITableViewController {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first as! ChooseBuildingRoomViewController
-         viewController.identifier = segueToChooseBuildingFromAddEditViewController
+         viewController.identifier = segueToChooseBuildingFromAddEditLocationViewController
          viewController.buildingIndexPath = buildingIndexPath
       }
       if segue.identifier == segueToChooseDaysViewController {

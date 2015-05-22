@@ -482,10 +482,10 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="chooseBuildingForAddEditViewController" unwindAction="chooseBuildingForAddEditViewController:" id="HWa-f6-O2R"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="chooseBuildingForAddEditLocationViewController" unwindAction="chooseBuildingForAddEditLocationViewController:" id="HWa-f6-O2R"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="wxG-2A-tdJ"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="chooseBuildingForMapViewController" unwindAction="chooseBuildingForMapViewController:" id="2vf-3c-IRW"/>
-                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToAddEditViewController" unwindAction="cancelToAddEditViewController:" id="3BX-Xj-iOy"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToAddEditLocationViewController" unwindAction="cancelToAddEditLocationViewController:" id="3BX-Xj-iOy"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToMapViewController" unwindAction="cancelToMapViewController:" id="dwY-ix-znx"/>
                     </connections>
                 </tableViewController>
@@ -526,7 +526,7 @@
                     <navigationItem key="navigationItem" title="Days" id="f4Q-Ml-Pjc">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zZe-L4-08u">
                             <connections>
-                                <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="cancelToAddEditViewController:" id="g61-qg-3lc"/>
+                                <segue destination="CM4-5w-lzu" kind="unwind" unwindAction="cancelToAddEditLocationViewController:" id="g61-qg-3lc"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="dUV-zE-B3t">
