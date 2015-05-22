@@ -146,7 +146,7 @@ class AddEditLocationViewController: UITableViewController {
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
       println("here")
       if (indexPath.section == sectionWithUIDatePickers
-         && indexPath.row < 4) {
+         && indexPath.row < indexOfDaysCell) {
          let datePicker = chooseDatePickerWithIndex(indexPath.row)
          if (datePicker.isShowing()) {
             self.hideDatePickerCell(datePicker)
