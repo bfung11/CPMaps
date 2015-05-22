@@ -27,7 +27,6 @@ class AddEditLocationViewController: UITableViewController {
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
    var name: String?
    var selectedDays: String?
-   var selectedDaysAsArray: [Day]?
    var dateFormatter: NSDateFormatter! // optimization; recreating each time is slow
    var startTime: String?
    var endTime: String?
