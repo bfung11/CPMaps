@@ -75,29 +75,21 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//      selectedDaysAsDays = [Day]() // destroy the old list and count just the curently selected days
-//      // add all selected days into final selection
-//      for var index = 0; index < selectedDaysAsBool.count; ++index {
-//         if selectedDaysAsBool[index] == true {
-//            selectedDaysAsDays!.append(days![index])
-//         }
-//      }
-      
       var index: Int
       selectedDays = "" // clear - not sure if necessary
       
       for (index = 0; index < selectedDaysAsBool.count; ++index) {
          if (selectedDaysAsBool[index] == true) {
-            selectedDays! += getDay(index)
-            if (index != selectedDaysAsBool.count - 1) { // better way of doing it?
-               selectedDays! += ", "
-            }
+            selectedDays! += getDay(index) + ", "
          }
       }
+      
+      var temp = NSString(string: selectedDays)
+      selectedDays = temp.substringToIndex(temp.length - 2)
    }
    
    private func getDay(index: Int) -> String {
-      var day = "None"
+      var day = ""
       
       switch index {
       case 0:
