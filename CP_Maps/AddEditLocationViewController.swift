@@ -145,7 +145,8 @@ class AddEditLocationViewController: UITableViewController {
    override func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
       println("here")
-      if (indexPath.section == sectionWithUIDatePickers) {
+      if (indexPath.section == sectionWithUIDatePickers
+         && indexPath.row < 4) {
          let datePicker = chooseDatePickerWithIndex(indexPath.row)
          if (datePicker.isShowing()) {
             self.hideDatePickerCell(datePicker)
