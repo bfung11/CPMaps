@@ -27,7 +27,8 @@ class ChooseBuildingRoomViewController: UITableViewController {
       }
       else if identifier == chooseBuildingFromMapViewController {
          performSegueWithIdentifier("cancelToMapViewController", sender: self)
-      }   }
+      }
+   }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return numberOfSectionsInChooseBuildingRoomViewController
