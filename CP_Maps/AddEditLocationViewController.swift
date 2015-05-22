@@ -142,7 +142,9 @@ class AddEditLocationViewController: UITableViewController {
    /*! Deselects the selected row with UIDatePicker
    
    */
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   override func tableView(tableView: UITableView,
+      didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      println("here")
       if (indexPath.section == sectionWithUIDatePickers) {
          let datePicker = chooseDatePickerWithIndex(indexPath.row)
          if (datePicker.isShowing()) {
@@ -196,20 +198,9 @@ class AddEditLocationViewController: UITableViewController {
    
    // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
-      // get selected days from view controller
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
-//      selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
-      // display selected days
-      print("addedit ")
-      println(self.selectedDays)
       self.selectedDays = chooseDaysViewController.selectedDays
-      print("addedit ")
-      println(self.selectedDays)
       daysDetail.text = selectedDays
-      
-//      if !selectedDaysAsArray!.isEmpty {
-//         daysDetail.text = self.getCourseDays() as String
-//      }
    }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
@@ -238,10 +229,7 @@ class AddEditLocationViewController: UITableViewController {
       }
       if segue.identifier == segueToChooseDaysViewController {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
-         print("prepare for segue ")
-         println(self.selectedDays)
          viewController.selectedDays = self.selectedDays
-//         viewController.selectedDays = selectedDaysAsArray
       }
       if segue.identifier == saveLocationSegueIdentifer {
          if selectedLocation != nil { // if from editing
