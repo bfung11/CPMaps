@@ -58,7 +58,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! ChooseBuildingRoomViewController
-         viewController.identifier = chooseBuildingFromMapViewController
+         viewController.identifier = segueToChooseBuildingFromMapViewController
       }
       else if segue.identifier == segueToFloorPlanPagedScrollViewController {
          let viewController = segue.destinationViewController

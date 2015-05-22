@@ -35,14 +35,15 @@ let numberOfSectionsInChooseBuildingRoomViewController = 1
 let numberOfSectionsInDaysViewController = 1
 
 // Segue Identifiers
-let chooseBuildingFromMapViewController = "finishedChoosingBuilding"
+let segueToChooseBuildingFromMapViewController = "finishedChoosingBuilding"
 let chooseLocationSegueIdentifier = "chooseLocation"
 let editLocationSegueIdentifier = "editLocation"
 let saveLocationSegueIdentifer = "saveLocation"
-let chooseBuildingFromAddEditViewController = "saveBuilding"
+let segueToChooseBuildingFromAddEditViewController = "saveBuilding"
 let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
 let findBuildingSegueIdentifer = "findBuilding"
+
 let segueToChooseBuildingViewController = "segueToChooseBuildingViewController"
 let segueToChooseDaysViewController = "segueToChooseDaysViewController"
 let segueToFloorPlanPagedScrollViewController = "floorPlanPagedScrollViewController"
