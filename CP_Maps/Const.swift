@@ -46,6 +46,8 @@ let findBuildingSegueIdentifer = "findBuilding"
 let segueToChooseBuildingViewController = "segueToChooseBuildingViewController"
 let segueToChooseDaysViewController = "segueToChooseDaysViewController"
 let segueToFloorPlanPagedScrollViewController = "floorPlanPagedScrollViewController"
+let cancelToMapViewController = "cancelToMapViewController"
+let cancelToAddEditViewController = "cancelToAddEditViewController"
 
 // UIAlertView Messages
 let saveNewLocationTitle = "No Building Selected"

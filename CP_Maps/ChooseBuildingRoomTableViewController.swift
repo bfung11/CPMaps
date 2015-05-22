@@ -23,10 +23,10 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
       if identifier == chooseBuildingFromAddEditViewController {
-         performSegueWithIdentifier("cancelToAddEditViewController", sender: self)
+         performSegueWithIdentifier(cancelToAddEditViewController, sender: self)
       }
       else if identifier == chooseBuildingFromMapViewController {
-         performSegueWithIdentifier("cancelToMapViewController", sender: self)
+         performSegueWithIdentifier(cancelToMapViewController, sender: self)
       }
    }
    
