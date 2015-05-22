@@ -80,6 +80,7 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    private func setupDatePicker(datePicker: UIDatePicker) {
+      datePicker.hidden = true
       datePicker.addTarget(self, action: Selector("updateDatePicker:"),
          forControlEvents: UIControlEvents.ValueChanged)
    }
