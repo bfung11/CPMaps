@@ -167,7 +167,7 @@
         <!--Saved Locations-->
         <scene sceneID="Ou0-u7-6v0">
             <objects>
-                <tableViewController id="ziA-tw-Dgi" customClass="LocationsViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="ziA-tw-Dgi" customClass="LocationsTableViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="TI7-h2-8Et">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,7 +417,7 @@
                     <navigationItem key="navigationItem" title="Add / Edit Location" id="Nwf-FL-NmI">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="QIJ-Kb-RvT">
                             <connections>
-                                <segue destination="R2J-hs-uon" kind="unwind" identifier="cancelToLocationsViewController" unwindAction="cancelAddEditLocation:" id="tyc-RO-mdj"/>
+                                <segue destination="R2J-hs-uon" kind="unwind" identifier="cancelToLocationsTableViewController" unwindAction="cancelAddEditLocation:" id="tyc-RO-mdj"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="Ids-Lk-OJr">

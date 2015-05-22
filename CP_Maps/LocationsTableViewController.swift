@@ -1,5 +1,5 @@
 //
-//  LocationsViewController.swift
+//  LocationsTableViewController.swift
 //  CP_Maps
 //
 //  Created by Brian Fung on 2/11/15.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class LocationsViewController: UITableViewController, NSFetchedResultsControllerDelegate,
+class LocationsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,
 UITableViewDataSource {
    
    @IBOutlet var locationsTableView: UITableView!
@@ -92,7 +92,7 @@ UITableViewDataSource {
    @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
    }
    
-   @IBAction func cancelToLocationsViewController(segue:UIStoryboardSegue) {
+   @IBAction func cancelToLocationsTableViewController(segue:UIStoryboardSegue) {
    }
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
