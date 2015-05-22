@@ -44,7 +44,7 @@ let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
 let findBuildingSegueIdentifer = "findBuilding"
 let segueToChooseBuildingViewController = "segueToChooseBuildingViewController"
-let segueToChooseDaysViewController = "chooseDaysSegueIdentifier"
+let segueToChooseDaysViewController = "ChooseDaysViewControllerSegue"
 let segueToFloorPlanPagedScrollViewController = "floorPlanPagedScrollViewController"
 
 // UIAlertView Messages

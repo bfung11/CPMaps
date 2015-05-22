@@ -24,17 +24,59 @@ class ChooseDaysViewController: UITableViewController {
       selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount,
          repeatedValue: selectedDaysAsBoolIntialValue)
       
+      println(selectedDays)
       // if from adding a location
       if selectedDays == nil {
          selectedDaysAsDays = [Day]()
       }
       else {
-         selectedDays = "Monday, Tuesday, Saturday" // will need to change late
-         println("here")
-         for day in selectedDaysAsDays! { // set days that need checkmarks
-            selectedDaysAsBool[day.value] = true
+         self.chooseDays(selectedDays)
+//         println("here")
+//         for day in selectedDaysAsDays! { // set days that need checkmarks
+//            selectedDaysAsBool[day.value] = true
+//         }
+      }
+   }
+   
+   private func chooseDays(selectedDays: String) {
+      let selectedDaysNSString = NSString(string: selectedDays)
+      let arr = selectedDaysNSString.componentsSeparatedByString(", ")
+      
+      for day in arr {
+         if (isDayChosen(day as! String)) {
+            selectedDaysAsBool[indexForDay(day as! String)] = true
          }
       }
+   }
+   
+   private func isDayChosen(day: String) -> Bool {
+      return day == "Sunday" || day == "Monday" || day == "Tuesday" ||
+         day == "Wednesday" || day == "Thursday" || day == "Friday" ||
+         day == "Saturday"
+   }
+   
+   private func indexForDay(day: String) -> Int {
+      var index = -1
+      
+      switch day {
+      case "Sunday":
+         index = 0
+      case "Monday":
+         index = 1
+      case "Tuesday":
+         index = 2
+      case "Wednesday":
+         index = 3
+      case "Thursday":
+         index = 4
+      case "Friday":
+         index = 5
+      case "Saturday":
+         index = 6
+      default: ()
+      }
+      
+      return index
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

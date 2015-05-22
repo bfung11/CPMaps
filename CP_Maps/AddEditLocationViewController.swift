@@ -199,7 +199,11 @@ class AddEditLocationViewController: UITableViewController {
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
 //      selectedDaysAsArray = chooseDaysViewController.selectedDays // can be empty, not nil
       // display selected days
-      selectedDays = chooseDaysViewController.selectedDays
+      print("addedit ")
+      println(self.selectedDays)
+      self.selectedDays = chooseDaysViewController.selectedDays
+      print("addedit ")
+      println(self.selectedDays)
       daysDetail.text = selectedDays
       
 //      if !selectedDaysAsArray!.isEmpty {
@@ -233,6 +237,9 @@ class AddEditLocationViewController: UITableViewController {
       }
       if segue.identifier == segueToChooseDaysViewController {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
+         print("prepare for segue ")
+         println(self.selectedDays)
+         viewController.selectedDays = self.selectedDays
 //         viewController.selectedDays = selectedDaysAsArray
       }
       if segue.identifier == saveLocationSegueIdentifer {
