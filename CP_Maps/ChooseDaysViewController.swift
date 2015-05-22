@@ -10,9 +10,7 @@ import UIKit
 
 class ChooseDaysViewController: UITableViewController {
    var days: [Day]!                // days data
-   var selectedDayIndex: Int?
    var selectedDaysAsBool: [Bool]! // toggles for selecting and deselecting days
-   var selectedDaysAsDays: [Day]?        // final selection of days
    var selectedDays: String!
    
    override func viewDidLoad() {
@@ -20,21 +18,15 @@ class ChooseDaysViewController: UITableViewController {
       
       // set up data
       days = daysData
-      selectedDayIndex = nil
       selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount,
          repeatedValue: selectedDaysAsBoolIntialValue)
       
       println(selectedDays)
       // if from adding a location
       if selectedDays == nil {
-         selectedDaysAsDays = [Day]()
       }
       else {
          self.chooseDays(selectedDays)
-//         println("here")
-//         for day in selectedDaysAsDays! { // set days that need checkmarks
-//            selectedDaysAsBool[day.value] = true
-//         }
       }
    }
    
@@ -56,6 +48,7 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    private func indexForDay(day: String) -> Int {
+      
       var index = -1
       
       switch day {
@@ -88,10 +81,12 @@ class ChooseDaysViewController: UITableViewController {
       return days.count
    }
    
-   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCellWithIdentifier("DayCell", forIndexPath: indexPath) as! UITableViewCell
+   override func tableView(tableView: UITableView,
+      cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+         
+      let cell = tableView.dequeueReusableCellWithIdentifier("DayCell",
+         forIndexPath: indexPath) as! UITableViewCell
       cell.textLabel?.text = days[indexPath.row].name
-//      cell.accessoryType = .None // mark all days as none to prevent random days from having checkmarks
       if selectedDaysAsBool[indexPath.row] == true { // if day was selected
          cell.accessoryType = .Checkmark
       }
@@ -100,7 +95,9 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    //MARK: - Table view delegate
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   override func tableView(tableView: UITableView,
+      didSelectRowAtIndexPath indexPath: NSIndexPath) {
+      
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       let index = indexPath.row
       let cell = tableView.cellForRowAtIndexPath(indexPath)
@@ -117,6 +114,7 @@ class ChooseDaysViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      
       var index: Int
       selectedDays = "" // clear - not sure if necessary
       
