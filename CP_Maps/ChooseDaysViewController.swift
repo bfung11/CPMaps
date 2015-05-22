@@ -8,6 +8,9 @@
 
 import UIKit
 
+/*! Accepts days as a string and converts them as selection in the 
+    view controller. After user finishes, returns the selected days as a string.
+*/
 class ChooseDaysViewController: UITableViewController {
    var days: [Day]!                // days data
    var selectedDaysAsBool: [Bool]! // toggles for selecting and deselecting days
