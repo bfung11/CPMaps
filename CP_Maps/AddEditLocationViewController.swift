@@ -94,7 +94,7 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    // save selected building and display selected building
-   @IBAction func saveBuilding(segue:UIStoryboardSegue) {
+   @IBAction func chooseBuildingForAddEditViewController(segue:UIStoryboardSegue) {
       // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
