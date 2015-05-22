@@ -400,7 +400,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="g60-TJ-JGu" kind="show" identifier="ChooseDaysViewControllerSegue" id="GEz-PY-Efx"/>
+                                            <segue destination="g60-TJ-JGu" kind="show" identifier="segueToChooseDaysViewController" id="GEz-PY-Efx"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -598,6 +598,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dNb-ah-2UI"/>
-        <segue reference="g6d-cM-Wbu"/>
+        <segue reference="Bkd-na-fPM"/>
     </inferredMetricsTieBreakers>
 </document>
