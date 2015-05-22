@@ -484,7 +484,7 @@
                     <connections>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveBuilding" unwindAction="chooseBuildingForAddEditViewController:" id="HWa-f6-O2R"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="saveRoom" unwindAction="saveRoom:" id="wxG-2A-tdJ"/>
-                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="finishedChoosingBuilding" unwindAction="finishedChoosingBuilding:" id="2vf-3c-IRW"/>
+                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="finishedChoosingBuilding" unwindAction="chooseBuildingForMapViewController:" id="2vf-3c-IRW"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToAddEditViewController" unwindAction="cancelToAddEditViewController:" id="3BX-Xj-iOy"/>
                         <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToMapViewController" unwindAction="cancelToMapViewController:" id="dwY-ix-znx"/>
                     </connections>
