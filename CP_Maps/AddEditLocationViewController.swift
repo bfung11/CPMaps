@@ -200,6 +200,9 @@ class AddEditLocationViewController: UITableViewController {
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
       self.selectedDays = chooseDaysViewController.selectedDays
       daysDetail.text = selectedDays
+      if (selectedDays == "") {
+         daysDetail.text = "None"
+      }
    }
    
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
