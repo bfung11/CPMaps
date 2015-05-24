@@ -84,11 +84,12 @@ class ChooseDaysViewController: UITableViewController {
    
    override func tableView(tableView: UITableView,
       cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-         
+      
+      // add day to table cell and add checkmark if previously selected
       let cell = tableView.dequeueReusableCellWithIdentifier("DayCell",
          forIndexPath: indexPath) as! UITableViewCell
-      cell.textLabel?.text = days[indexPath.row].name
-      if selectedDaysAsBool[indexPath.row] == true { // if day was selected
+      cell.textLabel?.text = getDay(indexPath.row)
+      if selectedDaysAsBool[indexPath.row] == true {
          cell.accessoryType = .Checkmark
       }
    
@@ -99,11 +100,11 @@ class ChooseDaysViewController: UITableViewController {
    override func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
       
+      // if user selects it, add a checkmark; 
+      // if user unselects it, remove checkmark
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       let index = indexPath.row
       let cell = tableView.cellForRowAtIndexPath(indexPath)
-      // if has been selected, unselect it; else select it
-      
       if selectedDaysAsBool[index] == true {
          selectedDaysAsBool[index] = false
          cell?.accessoryType = .None
