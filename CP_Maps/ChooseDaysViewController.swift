@@ -119,14 +119,18 @@ class ChooseDaysViewController: UITableViewController {
       var index: Int
       selectedDays = "" // clear - not sure if necessary
       
+      // convert the selectedDays as Bool to string
       for (index = 0; index < selectedDaysAsBool.count; ++index) {
          if (selectedDaysAsBool[index] == true) {
             selectedDays! += getDay(index) + ", "
          }
       }
       
-      var temp = NSString(string: selectedDays)
-      selectedDays = temp.substringToIndex(temp.length - 2)
+      // remove the final comma, if possible
+      let temp = NSString(string: selectedDays)
+      if (temp.length > 0) {
+         selectedDays = temp.substringToIndex(temp.length - 2)
+      }
    }
    
    private func getDay(index: Int) -> String {
