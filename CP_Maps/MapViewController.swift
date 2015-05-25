@@ -139,15 +139,9 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    }
    
    @IBAction func chooseMapType(segue:UIStoryboardSegue) {
-      overlay.map = nil
-      
-//      let navViewController = segue.sourceViewController
-//         as! UINavigationController
-//      let viewController = navViewController.viewControllers.first as! MapViewTypeTableViewController
-      
       let viewController = segue.sourceViewController as! MapViewTypeTableViewController
       
-      println(viewController.selectedType)
+      overlay.map = nil
       switch viewController.selectedType {
       case "Normal":
          mapView.mapType = kGMSTypeNormal
