@@ -23,10 +23,10 @@ class AddEditLocationViewController: UITableViewController {
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
    var locations: CPMapsLibraryAPI!    // location as sharedInstance
+   var name: String?
    var buildings: [Building]!          // holds the data for all buildings
    var buildingIndexPath: NSIndexPath! // selected building as index (of the list of all buildings)
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
-   var name: String?
    var selectedDays: String?
    var dateFormatter: NSDateFormatter! // optimization; recreating each time is slow
    var startTime: String?
