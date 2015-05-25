@@ -56,6 +56,7 @@
 		B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */; };
 		B2485FCE1ADF677E00430CD9 /* CPMapsLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */; };
 		B2485FD11ADF6C4200430CD9 /* LocationsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */; };
+		B24DD84F1B13961700F2EE55 /* MapViewTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */; };
 		B25647351AA0179000315E46 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25647341AA0179000315E46 /* Room.swift */; };
 		B2644D361A990A9300513903 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D351A990A9300513903 /* Building.swift */; };
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
@@ -133,6 +134,7 @@
 		B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMapsLibraryAPI.swift; sourceTree = "<group>"; };
 		B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsPersistencyManager.swift; sourceTree = "<group>"; };
+		B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTypeTableViewController.swift; sourceTree = "<group>"; };
 		B25647341AA0179000315E46 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B2644D351A990A9300513903 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		11FFA9F91A79D1AA007BBBF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
 				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */,
@@ -478,6 +481,7 @@
 				B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
 				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,
+				B24DD84F1B13961700F2EE55 /* MapViewTypeTableViewController.swift in Sources */,
 				B2372FA51A8C5B3F006EA3C9 /* LocationsTableViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,
 				B2748F461AB9337D00411FAA /* Const.swift in Sources */,

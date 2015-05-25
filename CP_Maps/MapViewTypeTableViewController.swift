@@ -1,17 +1,19 @@
 //
 //  MapViewTypeTableViewController.swift
-//  
+//  CP_Maps
 //
 //  Created by Brian Fung on 5/25/15.
-//
+//  Copyright (c) 2015 Carl-Brian. All rights reserved.
 //
 
 import UIKit
 
-class MapViewTypeTableViewController: TableViewController {
+class MapViewTypeTableViewController: UITableViewController {
+   var mapTypes: [String]!
+   
    override func viewDidLoad() {
       super.viewDidLoad()
-      locations = CPMapsLibraryAPI.sharedInstance
+      mapTypes = mapTypeData
    }
    
    override func didReceiveMemoryWarning() {
@@ -19,10 +21,11 @@ class MapViewTypeTableViewController: TableViewController {
    }
    
    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-      return fetchedResultsController.getNumberOfSectionsInTableView()
+      return 1
    }
    
-   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return fetchedResultsController.getNumberOfRowsInSection(section)
+   override func tableView(tableView: UITableView,
+      numberOfRowsInSection section: Int) -> Int {
+      return mapTypes.count
    }
 }
