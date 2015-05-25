@@ -35,7 +35,8 @@ class MapViewTypeTableViewController: UITableViewController {
       indexPath: NSIndexPath) -> UITableViewCell {
          
          let cell = self.tableView.dequeueReusableCellWithIdentifier(mapTypeCellReuseIdentifier,
-            forIndexPath: indexPath) as! UITableViewCell
+            forIndexPath: indexPath) as! MapViewTypeTableViewCell
+         cell.mapTypeLabel.text = mapTypeData[indexPath.row]
          
          return cell
    }

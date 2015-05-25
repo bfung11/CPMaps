@@ -28,6 +28,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="mapTypeLabel" destination="69N-zL-R9Q" id="x9i-Ti-MFI"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
