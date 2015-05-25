@@ -24,7 +24,7 @@ UITableViewDataSource {
       fetchedResultsController = CPMapsLibraryAPI.sharedInstance
       fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
-      self.editing = true
+//      self.editing = true
 //      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
    }
    
@@ -69,6 +69,10 @@ UITableViewDataSource {
    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
       self.selectedLocation = indexPath
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+   }
+   
+   override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+       return true
    }
    
    // called when a row deletion action is confirmed
