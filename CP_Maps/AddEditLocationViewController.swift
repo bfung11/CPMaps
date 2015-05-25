@@ -114,7 +114,9 @@ class AddEditLocationViewController: UITableViewController {
    
    /*! Hides the cell of the datePicker if not selected by making the height of the cell equal to 0
    */
-   override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+   override func tableView(tableView: UITableView,
+      heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+         
       // sections and cell numbers start counting at 0
       let firstDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
       let secondDatePickerIndex = 3
