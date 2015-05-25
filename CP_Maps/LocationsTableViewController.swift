@@ -96,7 +96,9 @@ UITableViewDataSource {
    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
       var editAction = UITableViewRowAction(style: .Default, title: "Edit",handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
          // maybe show an action sheet with more options
-         self.tableView.setEditing(false, animated: false)
+         self.selectedLocation = indexPath
+         self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+//         self.tableView.setEditing(false, animated: false)
          }
       )
       editAction.backgroundColor = UIColor.lightGrayColor()
@@ -110,7 +112,7 @@ UITableViewDataSource {
 //            self.deleteModelAt(indexPath.row)
 //            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic);
          }
-      );
+      )
       deleteAction.backgroundColor = UIColor.redColor()
       
       return [deleteAction, editAction]
