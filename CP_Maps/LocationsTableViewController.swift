@@ -89,8 +89,7 @@ UITableViewDataSource {
             locations.performFetch(nil)
             // remove the deleted item from the `UITableView`
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-         default:
-            return
+         default: ()
          }
    }
    
