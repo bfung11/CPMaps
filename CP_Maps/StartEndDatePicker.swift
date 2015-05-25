@@ -14,6 +14,7 @@ class StartEndDatePicker: UIDatePicker {
    required init(coder aDecoder: NSCoder) {
       super.init(coder: aDecoder)
       isDatePickerShowing = false
+      self.datePickerMode = UIDatePickerMode.Time
    }
    
    /*! Need to reverse before tableView.beginUpdates() and tableView.endUpdates()
