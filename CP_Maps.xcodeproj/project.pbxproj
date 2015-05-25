@@ -57,6 +57,7 @@
 		B2485FCE1ADF677E00430CD9 /* CPMapsLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */; };
 		B2485FD11ADF6C4200430CD9 /* LocationsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */; };
 		B24DD84F1B13961700F2EE55 /* MapViewTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */; };
+		B24DD8511B13994E00F2EE55 /* MapViewTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DD8501B13994E00F2EE55 /* MapViewTypeTableViewCell.swift */; };
 		B25647351AA0179000315E46 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25647341AA0179000315E46 /* Room.swift */; };
 		B2644D361A990A9300513903 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D351A990A9300513903 /* Building.swift */; };
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
@@ -135,6 +136,7 @@
 		B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMapsLibraryAPI.swift; sourceTree = "<group>"; };
 		B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsPersistencyManager.swift; sourceTree = "<group>"; };
 		B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTypeTableViewController.swift; sourceTree = "<group>"; };
+		B24DD8501B13994E00F2EE55 /* MapViewTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTypeTableViewCell.swift; sourceTree = "<group>"; };
 		B25647341AA0179000315E46 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B2644D351A990A9300513903 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				B2644D371A990C4800513903 /* Course.swift */,
 				B2CB2AA81A91AC1200FDF096 /* Location.swift */,
 				B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */,
+				B24DD8501B13994E00F2EE55 /* MapViewTypeTableViewCell.swift */,
 				1171B44B1AF0AD2400564ABE /* StreamReader.swift */,
 				B28064881B0DD27100122A48 /* StartEndDatePicker.swift */,
 				11E139CD1A9BB2B30074B985 /* GoogleDataProvider.swift */,
@@ -478,6 +481,7 @@
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
 				B25647351AA0179000315E46 /* Room.swift in Sources */,
 				B28064891B0DD27100122A48 /* StartEndDatePicker.swift in Sources */,
+				B24DD8511B13994E00F2EE55 /* MapViewTypeTableViewCell.swift in Sources */,
 				B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
 				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,

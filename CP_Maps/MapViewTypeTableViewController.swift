@@ -10,8 +10,6 @@ import UIKit
 
 class MapViewTypeTableViewController: UITableViewController {
    
-   @IBOutlet weak var mapTypeLabel: UILabel!
-   
    var mapTypes: [String]!
    
    override func viewDidLoad() {
