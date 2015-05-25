@@ -66,10 +66,10 @@ UITableViewDataSource {
       performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
-   override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-      self.selectedLocation = indexPath
-      performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
-   }
+//   override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+//      self.selectedLocation = indexPath
+//      performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+//   }
    
    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
        return true
