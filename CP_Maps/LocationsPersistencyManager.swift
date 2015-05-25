@@ -55,6 +55,10 @@ class LocationsPersistencyManager: NSObject {
       return fetchedResultsController.objectAtIndexPath(indexPath) as! Location
    }
    
+   func deleteLocation(location: Location) {
+      managedObjectContext?.deleteObject(location)
+   }
+   
    private func getFetchedResultController() -> NSFetchedResultsController {
       return NSFetchedResultsController(fetchRequest: createFetchRequest(),
          managedObjectContext: managedObjectContext!,

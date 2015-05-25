@@ -56,6 +56,10 @@ class CPMapsLibraryAPI: NSObject {
       return locationsPersistencyManager.getLocation(indexPath)
    }
    
+   func deleteLocation(location: Location) {
+      locationsPersistencyManager.deleteLocation(location)
+   }
+   
    func getBuilding(buildingNumber: String) -> Building {
       return buildingsPersistencyManager.getBuilding(buildingNumber)
    }

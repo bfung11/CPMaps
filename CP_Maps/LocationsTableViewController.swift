@@ -26,6 +26,7 @@ UITableViewDataSource {
       fetchedResultsController = CPMapsLibraryAPI.sharedInstance
       fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
+      self.editing = true
 //      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
    }
    
@@ -70,6 +71,24 @@ UITableViewDataSource {
    override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
       self.selectedLocation = indexPath
       performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+   }
+   
+   // called when a row deletion action is confirmed
+   override func tableView(tableView: UITableView,
+      commitEditingStyle editingStyle: UITableViewCellEditingStyle,
+      forRowAtIndexPath indexPath: NSIndexPath) {
+         switch editingStyle {
+         case .Delete:
+            let location = locations.getLocation(indexPath)
+            locations.deleteLocation(location)
+            // remove the deleted item from the model
+//            self.items.removeAtIndex(indexPath.row)
+            
+            // remove the deleted item from the `UITableView`
+//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+         default:
+            return
+         }
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
