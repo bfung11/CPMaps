@@ -63,8 +63,8 @@ class Location: NSManagedObject {
       return self.roomNumber!
    }
    
-   func getDays() -> String {
-      return self.days!
+   func getDays() -> String? {
+      return self.days
    }
    
    func updateName(name: String) {

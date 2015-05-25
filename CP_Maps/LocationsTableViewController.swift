@@ -123,6 +123,11 @@ UITableViewDataSource {
    }
    
    private func getDays(location: Location) -> String {
-      return location.getDays()
+      var days = ""
+      
+      if location.getDays() != nil {
+         days = location.getDays()!
+      }
+      return days
    }
 }
