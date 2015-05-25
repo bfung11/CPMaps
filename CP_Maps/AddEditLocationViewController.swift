@@ -70,29 +70,6 @@ class AddEditLocationViewController: UITableViewController {
       chooseDaysCell.selectionStyle = .Default;
    }
    
-   private func setupDatePickerAndLabel() {
-      self.dateFormatter = NSDateFormatter()
-      dateFormatter.dateStyle = .NoStyle
-      dateFormatter.timeStyle = .ShortStyle
-      
-      setupLabelForDatePicker(startTimeLabel)
-      setupDatePicker(startTimeDatePicker)
-      setupLabelForDatePicker(endTimeLabel)
-      setupDatePicker(endTimeDatePicker)
-   }
-   
-   private func setupDatePicker(datePicker: UIDatePicker) {
-      datePicker.hidden = true
-      datePicker.addTarget(self, action: Selector("updateDatePicker:"),
-         forControlEvents: UIControlEvents.ValueChanged)
-   }
-
-   private func setupLabelForDatePicker(label: UILabel) {
-      let defaultDate = NSDate()
-      label.text = self.dateFormatter.stringFromDate(defaultDate)
-      label.tintColor = self.tableView.tintColor
-   }
-   
    @IBAction func cancelToAddEditLocationViewController(segue:UIStoryboardSegue) {
    }
    
@@ -103,16 +80,6 @@ class AddEditLocationViewController: UITableViewController {
       buildingIndexPath = viewController.buildingIndexPath
       let building = locations.getBuildingAtIndex(buildingIndexPath.row)
       buildingLabel.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
-   }
-   
-   func updateDatePicker(datePicker: UIDatePicker) {
-      var strDate = self.dateFormatter.stringFromDate(datePicker.date)
-      if (datePicker.tag == startTimeDatePickerTag) {
-         self.startTimeLabel.text = strDate
-      }
-      else if (datePicker.tag == endTimeDatePickerTag) {
-         self.endTimeLabel.text = strDate
-      }
    }
    
    /*! Hides the cell of the datePicker if not selected by making the height of the cell equal to 0
@@ -159,45 +126,6 @@ class AddEditLocationViewController: UITableViewController {
          }
          self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
       }
-   }
-   
-   private func chooseDatePickerUsingTag(tag: Int) -> StartEndDatePicker {
-      var datePicker = self.startTimeDatePicker
-      
-      if (tag == startTimeDatePickerTag) {
-         datePicker = self.endTimeDatePicker
-      }
-      
-      return datePicker
-   }
-   
-   /*! Choose a either start or end time date picker
-   Assume that it is the first one but check to see if it is the second
-   */
-   private func chooseDatePickerUsingIndex(index: Int) -> StartEndDatePicker {
-      let secondDateCellIndex = 2
-      let secondDatePickerCellIndex = 3
-      var datePicker = self.startTimeDatePicker
-      
-      if (index == secondDateCellIndex || index == secondDatePickerCellIndex) {
-         datePicker = self.endTimeDatePicker
-      }
-      
-      return datePicker
-   }
-   
-   private func showDatePickerCell(datePicker: StartEndDatePicker) {
-      datePicker.reverseIsShowing()
-      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-      self.tableView.endUpdates()
-      datePicker.show()
-   }
-   
-   private func hideDatePickerCell(datePicker: StartEndDatePicker) {
-      datePicker.reverseIsShowing()
-      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
-      self.tableView.endUpdates()
-      datePicker.hide()
    }
    
    // save selected days and display selected days
@@ -253,6 +181,79 @@ class AddEditLocationViewController: UITableViewController {
          }
          self.name = nameTextField.text
       }
+   }
+   
+   /* ----Start of DatePicker helper functions---- */
+   private func setupDatePickerAndLabel() {
+      self.dateFormatter = NSDateFormatter()
+      dateFormatter.dateStyle = .NoStyle
+      dateFormatter.timeStyle = .ShortStyle
+      
+      setupLabelForDatePicker(startTimeLabel)
+      setupDatePicker(startTimeDatePicker)
+      setupLabelForDatePicker(endTimeLabel)
+      setupDatePicker(endTimeDatePicker)
+   }
+   
+   private func setupDatePicker(datePicker: UIDatePicker) {
+      datePicker.hidden = true
+      datePicker.addTarget(self, action: Selector("updateDatePicker:"),
+         forControlEvents: UIControlEvents.ValueChanged)
+   }
+   
+   private func setupLabelForDatePicker(label: UILabel) {
+      let defaultDate = NSDate()
+      label.text = self.dateFormatter.stringFromDate(defaultDate)
+      label.tintColor = self.tableView.tintColor
+   }
+   
+   func updateDatePicker(datePicker: UIDatePicker) {
+      var strDate = self.dateFormatter.stringFromDate(datePicker.date)
+      if (datePicker.tag == startTimeDatePickerTag) {
+         self.startTimeLabel.text = strDate
+      }
+      else if (datePicker.tag == endTimeDatePickerTag) {
+         self.endTimeLabel.text = strDate
+      }
+   }
+   
+   private func chooseDatePickerUsingTag(tag: Int) -> StartEndDatePicker {
+      var datePicker = self.startTimeDatePicker
+      
+      if (tag == startTimeDatePickerTag) {
+         datePicker = self.endTimeDatePicker
+      }
+      
+      return datePicker
+   }
+   
+   /*! Choose a either start or end time date picker
+   Assume that it is the first one but check to see if it is the second
+   */
+   private func chooseDatePickerUsingIndex(index: Int) -> StartEndDatePicker {
+      let secondDateCellIndex = 2
+      let secondDatePickerCellIndex = 3
+      var datePicker = self.startTimeDatePicker
+      
+      if (index == secondDateCellIndex || index == secondDatePickerCellIndex) {
+         datePicker = self.endTimeDatePicker
+      }
+      
+      return datePicker
+   }
+   
+   private func showDatePickerCell(datePicker: StartEndDatePicker) {
+      datePicker.reverseIsShowing()
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+      self.tableView.endUpdates()
+      datePicker.show()
+   }
+   
+   private func hideDatePickerCell(datePicker: StartEndDatePicker) {
+      datePicker.reverseIsShowing()
+      self.tableView.beginUpdates() // if use tableView.reloadData() - no animation
+      self.tableView.endUpdates()
+      datePicker.hide()
    }
    
    private func convertToShortName(selectedDays: String) -> String {
