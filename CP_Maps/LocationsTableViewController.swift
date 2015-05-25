@@ -116,22 +116,23 @@ UITableViewDataSource {
       return [editAction, deleteAction]
    }
    
-   // called when a row deletion action is confirmed
+   /*! Called when a row deletion action is confirmed
+   */
    override func tableView(tableView: UITableView,
       commitEditingStyle editingStyle: UITableViewCellEditingStyle,
       forRowAtIndexPath indexPath: NSIndexPath) {
-         switch editingStyle {
-//         case .Delete:
-//            // remove the deleted item from the model
-//            let location = locations.getLocation(indexPath)
-//            locations.deleteLocation(location)
-//            
-//            // Refresh the table view to indicate that it's deleted
-//            locations.performFetch(nil)
-//            // remove the deleted item from the `UITableView`
-//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-         default: ()
-         }
+//         switch editingStyle {
+////         case .Delete:
+////            // remove the deleted item from the model
+////            let location = locations.getLocation(indexPath)
+////            locations.deleteLocation(location)
+////            
+////            // Refresh the table view to indicate that it's deleted
+////            locations.performFetch(nil)
+////            // remove the deleted item from the `UITableView`
+////            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//         default: ()
+//         }
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
