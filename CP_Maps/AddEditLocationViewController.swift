@@ -9,10 +9,10 @@
 import UIKit
 
 class AddEditLocationViewController: UITableViewController {
+   @IBOutlet weak var nameTextField: UITextField!
    @IBOutlet weak var buildingLabel: UILabel!
    @IBOutlet weak var chooseRoomCell: UITableViewCell!
    @IBOutlet weak var roomTextField: UITextField!
-   @IBOutlet weak var nameTextField: UITextField!
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: StartEndDatePicker!
    @IBOutlet weak var endTimeLabel: UILabel!
