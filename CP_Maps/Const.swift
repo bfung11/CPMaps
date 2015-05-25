@@ -38,6 +38,7 @@ let numberOfSectionsInChooseBuildingRoomViewController = 1
 let numberOfSectionsInDaysViewController = 1
 
 // Segue Identifiers
+let chooseMapType = "chooseMapType"
 let segueToChooseBuildingFromMapViewController = "chooseBuildingForMapViewController"
 let chooseLocationSegueIdentifier = "chooseLocation"
 let editLocationSegueIdentifier = "editLocation"

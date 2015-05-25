@@ -138,6 +138,31 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       //performSegueWithIdentifier("cancelToMyLocations", sender: self)
    }
    
+   @IBAction func chooseMapType(segue:UIStoryboardSegue) {
+      overlay.map = nil
+      
+//      let navViewController = segue.sourceViewController
+//         as! UINavigationController
+//      let viewController = navViewController.viewControllers.first as! MapViewTypeTableViewController
+      
+      let viewController = segue.sourceViewController as! MapViewTypeTableViewController
+      
+      println(viewController.selectedType)
+      switch viewController.selectedType {
+      case "Normal":
+         mapView.mapType = kGMSTypeNormal
+      case "Satellite":
+         mapView.mapType = kGMSTypeSatellite
+      case "Hybrid":
+         mapView.mapType = kGMSTypeHybrid
+      case "Map":
+         // overlay cal polys map
+         overlay.map = mapView
+      default:
+         mapView.mapType = mapView.mapType
+      }
+   }
+   
    // MARK: - Types Controller Delegate
    func typesController(controller: TypesTableViewController, didSelectTypes types: [String]) {
       dismissViewControllerAnimated(true, completion: nil)

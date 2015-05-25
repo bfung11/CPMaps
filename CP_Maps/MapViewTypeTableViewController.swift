@@ -11,10 +11,12 @@ import UIKit
 class MapViewTypeTableViewController: UITableViewController {
    
    var mapTypes: [String]!
+   var selectedType: String!
    
    override func viewDidLoad() {
       super.viewDidLoad()
       mapTypes = mapTypeData
+      selectedType = "Normal"
    }
    
    override func didReceiveMemoryWarning() {
@@ -39,5 +41,15 @@ class MapViewTypeTableViewController: UITableViewController {
          cell.mapTypeLabel.text = mapTypeData[indexPath.row]
          
          return cell
+   }
+   
+   override func tableView(tableView: UITableView,
+      didSelectRowAtIndexPath indexPath: NSIndexPath) {
+         
+      tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      let cell = self.tableView.dequeueReusableCellWithIdentifier(mapTypeCellReuseIdentifier,
+            forIndexPath: indexPath) as! MapViewTypeTableViewCell
+      self.selectedType = mapTypeData[indexPath.row]
+      performSegueWithIdentifier(chooseMapType, sender: self)
    }
 }

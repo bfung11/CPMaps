@@ -45,6 +45,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="oaJ-No-KCt" kind="unwind" identifier="chooseMapType" unwindAction="chooseMapType:" id="WEA-sA-Bkc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKI-K5-tiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oaJ-No-KCt" userLabel="Exit" sceneMemberID="exit"/>
