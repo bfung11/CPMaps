@@ -51,22 +51,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       locationManager.requestWhenInUseAuthorization()
    }
    
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      // Building View
-      if segue.identifier == segueToChooseBuildingViewController {
-         let navViewController = segue.destinationViewController
-            as! UINavigationController
-         let viewController = navViewController.viewControllers.first
-            as! ChooseBuildingRoomViewController
-         viewController.identifier = segueToChooseBuildingFromMapViewController
-      }
-      else if segue.identifier == segueToFloorPlanPagedScrollViewController {
-         let viewController = segue.destinationViewController
-            as! FloorPlanPagedScrollViewController
-         viewController.setPages(selectedBuilding)
-      }
-   }
-   
    // Called after selecting a building
    @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
@@ -178,6 +162,22 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          overlay.map = mapView
       default:
          mapView.mapType = mapView.mapType
+      }
+   }
+   
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      // Building View
+      if segue.identifier == segueToChooseBuildingViewController {
+         let navViewController = segue.destinationViewController
+            as! UINavigationController
+         let viewController = navViewController.viewControllers.first
+            as! ChooseBuildingRoomViewController
+         viewController.identifier = segueToChooseBuildingFromMapViewController
+      }
+      else if segue.identifier == segueToFloorPlanPagedScrollViewController {
+         let viewController = segue.destinationViewController
+            as! FloorPlanPagedScrollViewController
+         viewController.setPages(selectedBuilding)
       }
    }
    
