@@ -75,20 +75,61 @@ UITableViewDataSource {
        return true
    }
    
+//   (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+//   
+//   UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+//   
+//   
+//   
+//   }];
+//   editAction.backgroundColor = [UIColor blueColor];;
+//   
+//   
+//   UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+//   
+//   
+//   }];
+//   
+//   return @[deleteAction,editAction];
+//   }
+   
+   override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+      var editAction = UITableViewRowAction(style: .Default, title: "Edit",handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+         // maybe show an action sheet with more options
+         self.tableView.setEditing(false, animated: false)
+         }
+      )
+      editAction.backgroundColor = UIColor.lightGrayColor()
+      
+      var deleteAction = UITableViewRowAction(style: .Normal, title: "Delete",
+         handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+            let location = self.locations.getLocation(indexPath)
+            self.locations.deleteLocation(location)
+            self.locations.performFetch(nil)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//            self.deleteModelAt(indexPath.row)
+//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic);
+         }
+      );
+      deleteAction.backgroundColor = UIColor.redColor()
+      
+      return [editAction, deleteAction]
+   }
+   
    // called when a row deletion action is confirmed
    override func tableView(tableView: UITableView,
       commitEditingStyle editingStyle: UITableViewCellEditingStyle,
       forRowAtIndexPath indexPath: NSIndexPath) {
          switch editingStyle {
-         case .Delete:
-            // remove the deleted item from the model
-            let location = locations.getLocation(indexPath)
-            locations.deleteLocation(location)
-            
-            // Refresh the table view to indicate that it's deleted
-            locations.performFetch(nil)
-            // remove the deleted item from the `UITableView`
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//         case .Delete:
+//            // remove the deleted item from the model
+//            let location = locations.getLocation(indexPath)
+//            locations.deleteLocation(location)
+//            
+//            // Refresh the table view to indicate that it's deleted
+//            locations.performFetch(nil)
+//            // remove the deleted item from the `UITableView`
+//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
          default: ()
          }
    }
