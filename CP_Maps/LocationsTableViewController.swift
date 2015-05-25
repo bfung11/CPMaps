@@ -60,18 +60,24 @@ UITableViewDataSource {
          return cell
    }
    
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   override func tableView(tableView: UITableView,
+      didSelectRowAtIndexPath indexPath: NSIndexPath) {
+         
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       self.selectedLocation = indexPath
       performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
-      
-   override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+   
+   override func tableView(tableView: UITableView!,
+      canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
        return true
    }
    
-   override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
-      var editAction = UITableViewRowAction(style: .Default, title: "Edit",handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+   override func tableView(tableView: UITableView,
+      editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+         
+      var editAction = UITableViewRowAction(style: .Default, title: "Edit",
+         handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
             self.selectedLocation = indexPath
             self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
          }
