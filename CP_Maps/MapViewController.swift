@@ -71,7 +71,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       let buildingIndexPath = viewController.buildingIndexPath
-      let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!.row)
+      let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!)
       selectedBuilding = building
       locationTitle.text = String(building.getNumber()) + " - " + building.getName()
       

@@ -40,7 +40,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       var cell: UITableViewCell?
-      var building = data.getBuildingAtIndex(indexPath.row) // for readability
+      var building = data.getBuildingAtIndex(indexPath) // for readability
       
       // display buildings
       cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
@@ -48,7 +48,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
       cell!.accessoryType = .None //prevents random buildings from having checkmarks
       
       // if there is a selected building, put a checkmark next to the selected building
-      if buildingIndexPath != nil && data.getBuildingAtIndex(buildingIndexPath!.row).getName() == building.getName() {
+      if buildingIndexPath != nil && data.getBuildingAtIndex(buildingIndexPath!).getName() == building.getName() {
          cell!.accessoryType = .Checkmark
       }
       

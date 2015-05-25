@@ -41,7 +41,7 @@ class AddEditLocationViewController: UITableViewController {
       
       if self.selectedLocationIndexPath != nil { // if editing a location, then location must always be passed
          let location = locations.getLocation(selectedLocationIndexPath)
-         let building = locations.getBuildingAtIndex(selectedLocationIndexPath.row)
+         let building = locations.getBuildingAtIndex(selectedLocationIndexPath!)
          buildingLabel.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
          if location.hasRoomNumber() {
@@ -78,7 +78,7 @@ class AddEditLocationViewController: UITableViewController {
       // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
-      let building = locations.getBuildingAtIndex(buildingIndexPath.row)
+      let building = locations.getBuildingAtIndex(buildingIndexPath!)
       buildingLabel.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
    }
    

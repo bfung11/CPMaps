@@ -142,7 +142,7 @@ UITableViewDataSource {
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
-      let buildingNumber = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getNumber()
+      let buildingNumber = locations.getBuildingAtIndex(viewController.buildingIndexPath!).getNumber()
       
       if isEditLocation == true {
          let location = locations.getLocation(viewController.selectedLocationIndexPath)
