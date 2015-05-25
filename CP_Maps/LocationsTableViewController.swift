@@ -83,9 +83,9 @@ UITableViewDataSource {
             locations.deleteLocation(location)
             // remove the deleted item from the model
 //            self.items.removeAtIndex(indexPath.row)
-            
+            locations.performFetch(nil)
             // remove the deleted item from the `UITableView`
-//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
          default:
             return
          }
