@@ -52,7 +52,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eKI-K5-tiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="oaJ-No-KCt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="147" y="1533"/>
+            <point key="canvasLocation" x="312" y="2893"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -80,10 +80,8 @@
                                             <rect key="frame" x="80" y="37" width="255" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <segments>
-                                                <segment title="Normal"/>
-                                                <segment title="Satellite"/>
-                                                <segment title="Hybrid"/>
                                                 <segment title="Map"/>
+                                                <segment title="Locations"/>
                                             </segments>
                                             <connections>
                                                 <action selector="mapTypeSegmentPressed:" destination="vXZ-lx-hvc" eventType="valueChanged" id="fRR-Sc-hyA"/>
@@ -154,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="727" y="967"/>
+            <point key="canvasLocation" x="667" y="1094"/>
         </scene>
         <!--Floor Plan Paged Scroll View Controller-->
         <scene sceneID="Fr8-2D-a5z">
@@ -210,7 +208,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2A-Se-by6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eHL-e2-RlV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="1851"/>
+            <point key="canvasLocation" x="1148" y="1977"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="Ou0-u7-6v0">
@@ -540,7 +538,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1310" y="255"/>
+            <point key="canvasLocation" x="1764" y="239"/>
         </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
@@ -641,7 +639,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iwx-Q3-dIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="255"/>
+            <point key="canvasLocation" x="1184" y="239"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Fah-sT-LR4">
@@ -659,7 +657,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KGq-gJ-uVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-479" y="1533"/>
+            <point key="canvasLocation" x="312" y="1977"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
