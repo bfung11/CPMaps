@@ -219,7 +219,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="locationsTableView" destination="TI7-h2-8Et" id="jFp-MR-WOH"/>
                         <segue destination="SkE-ef-w4j" kind="showDetail" identifier="editLocation" id="SoB-9N-PPc"/>
                         <segue destination="xvd-gA-kuH" kind="unwind" identifier="chooseLocation" unwindAction="chooseLocation:" id="IFd-7H-Ao6"/>
                     </connections>

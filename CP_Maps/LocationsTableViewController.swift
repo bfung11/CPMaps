@@ -11,9 +11,7 @@ import CoreData
 
 class LocationsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,
 UITableViewDataSource {
-   
-   @IBOutlet var locationsTableView: UITableView!
-   
+      
    var locations: CPMapsLibraryAPI!
    var fetchedResultsController: CPMapsLibraryAPI!
    var selectedLocation: NSIndexPath?
