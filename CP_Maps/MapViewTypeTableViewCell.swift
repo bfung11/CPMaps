@@ -9,6 +9,5 @@
 import UIKit
 
 class MapViewTypeTableViewCell: UITableViewCell {
-
    @IBOutlet weak var mapTypeLabel: UILabel!
 }
