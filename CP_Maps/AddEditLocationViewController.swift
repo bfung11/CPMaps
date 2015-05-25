@@ -13,12 +13,12 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var chooseRoomCell: UITableViewCell!
    @IBOutlet weak var roomTextField: UITextField!
    @IBOutlet weak var nameTextField: UITextField!
-   @IBOutlet weak var daysDetail: UILabel!
    @IBOutlet weak var startTimeLabel: UILabel!
    @IBOutlet weak var startTimeDatePicker: StartEndDatePicker!
    @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: StartEndDatePicker!
    @IBOutlet weak var chooseDaysCell: UITableViewCell!
+   @IBOutlet weak var daysLabel: UILabel!
 
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
@@ -206,9 +206,9 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
       self.selectedDays = chooseDaysViewController.selectedDays
-      daysDetail.text = selectedDays
+      daysLabel.text = selectedDays
       if (selectedDays == "") {
-         daysDetail.text = "None"
+         daysLabel.text = "None"
       }
    }
    
