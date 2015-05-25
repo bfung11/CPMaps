@@ -123,7 +123,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! LocationsTableViewController
-      let location = locationLibraryAPI.getLocation(viewController.selectedLocation!)
+      let location = locationLibraryAPI.getLocation(viewController.selectedLocationIndexPath!)
       locationTitle.text = location.getName()
    }
    
