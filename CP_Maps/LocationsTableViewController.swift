@@ -113,7 +113,7 @@ UITableViewDataSource {
       );
       deleteAction.backgroundColor = UIColor.redColor()
       
-      return [editAction, deleteAction]
+      return [deleteAction, editAction]
    }
    
    /*! Called when a row deletion action is confirmed
