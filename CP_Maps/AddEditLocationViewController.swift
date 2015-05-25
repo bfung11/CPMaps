@@ -21,8 +21,8 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var daysLabel: UILabel!
 
    // exclamation point - does not instantiate, but must do so before use
-   var selectedLocationIndexPath: NSIndexPath!  // location passed as index
    var locations: CPMapsLibraryAPI!    // location as sharedInstance
+   var selectedLocationIndexPath: NSIndexPath!  // location passed as index
    var name: String?
    var buildings: [Building]!          // holds the data for all buildings
    var buildingIndexPath: NSIndexPath! // selected building as index (of the list of all buildings)
@@ -39,7 +39,7 @@ class AddEditLocationViewController: UITableViewController {
       locations = CPMapsLibraryAPI.sharedInstance
       buildingIndexPath = nil
       
-      if selectedLocationIndexPath != nil { // if editing a location, then location must always be passed
+      if self.selectedLocationIndexPath != nil { // if editing a location, then location must always be passed
          let location = locations.getLocation(selectedLocationIndexPath)
          let building = locations.getBuildingAtIndex(selectedLocationIndexPath.row)
          buildingLabel.text = "Building " + building.getNumber() + " (" +

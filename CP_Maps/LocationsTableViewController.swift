@@ -14,7 +14,6 @@ UITableViewDataSource {
       
    var locations: CPMapsLibraryAPI!
    var fetchedResultsController: CPMapsLibraryAPI!
-   var selectedLocation: Location?
    var selectedLocationIndexPath: NSIndexPath?
    var isEditLocation: Bool?
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -65,7 +64,6 @@ UITableViewDataSource {
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
          
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      self.selectedLocation = self.locations.getLocation(indexPath)
       self.selectedLocationIndexPath = indexPath
       performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
@@ -80,7 +78,6 @@ UITableViewDataSource {
          
       var editAction = UITableViewRowAction(style: .Default, title: "Edit",
          handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
-            self.selectedLocation = self.locations.getLocation(indexPath)
             self.selectedLocationIndexPath = indexPath
             self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
          }
