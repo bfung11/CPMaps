@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../CP_Maps/MapViewTypeTableViewController.swift">
+   </FileRef>
+   <FileRef
       location = "self:CP_Maps.xcodeproj">
    </FileRef>
 </Workspace>

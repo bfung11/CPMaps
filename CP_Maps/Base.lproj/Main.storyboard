@@ -6,6 +6,48 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Table View Controller-->
+        <scene sceneID="kU8-yd-hfb">
+            <objects>
+                <tableViewController id="JG2-aT-58n" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="e6s-7p-hrQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="69N-zL-R9Q" style="IBUITableViewCellStyleDefault" id="0wm-YF-PK7">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0wm-YF-PK7" id="kK1-Up-whC">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69N-zL-R9Q">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JG2-aT-58n" id="fAc-eW-OAN"/>
+                            <outlet property="delegate" destination="JG2-aT-58n" id="UP3-oX-nek"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="cmq-yx-m23">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="W3S-87-y4M">
+                            <connections>
+                                <segue destination="oaJ-No-KCt" kind="unwind" unwindAction="cancelToMapViewController:" id="J0H-FF-iNN"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eKI-K5-tiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="oaJ-No-KCt" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="147" y="1533"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -54,7 +96,7 @@
                                 <items>
                                     <barButtonItem systemItem="bookmarks" id="Fqs-xv-OCA">
                                         <connections>
-                                            <segue destination="6ma-5b-rqX" kind="show" id="TLx-hb-XZO"/>
+                                            <segue destination="Fda-Bs-l2A" kind="show" id="If6-ib-BoA"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="UUG-c1-dQO"/>
@@ -106,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101" y="967"/>
+            <point key="canvasLocation" x="727" y="967"/>
         </scene>
         <!--Floor Plan Paged Scroll View Controller-->
         <scene sceneID="Fr8-2D-a5z">
@@ -162,14 +204,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2A-Se-by6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="eHL-e2-RlV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="684" y="1851"/>
+            <point key="canvasLocation" x="1310" y="1851"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="Ou0-u7-6v0">
             <objects>
                 <tableViewController id="ziA-tw-Dgi" customClass="LocationsTableViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="TI7-h2-8Et">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -226,14 +268,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGN-S7-Gdi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="xvd-gA-kuH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2138" y="975"/>
+            <point key="canvasLocation" x="2764" y="975"/>
         </scene>
         <!--Add / Edit Location-->
         <scene sceneID="cMe-hx-1RE">
             <objects>
                 <tableViewController id="Agc-E3-Fux" customClass="AddEditLocationViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BVV-Tm-Xhx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -324,7 +366,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvb-Of-UO6" id="hDb-Wb-KsL">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
+                                                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
@@ -364,7 +406,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8lg-9n-Ccx" id="GXU-0N-kVx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-0v-aTQ" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
+                                                <datePicker tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-0v-aTQ" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
@@ -442,7 +484,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPf-e0-Eaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="R2J-hs-uon" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3416" y="975"/>
+            <point key="canvasLocation" x="4042" y="975"/>
         </scene>
         <!--Choose Building-->
         <scene sceneID="wca-wQ-xqa">
@@ -499,7 +541,7 @@
             <objects>
                 <tableViewController title="Choose Days" id="g60-TJ-JGu" customClass="ChooseDaysViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1FA-yR-KMd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -539,7 +581,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4k-ND-PsW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="CM4-5w-lzu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3959" y="975"/>
+            <point key="canvasLocation" x="4585" y="975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2DV-J0-r0q">
@@ -557,7 +599,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mrc-Xe-cBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1398" y="967"/>
+            <point key="canvasLocation" x="2024" y="967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qDO-Zz-ShO">
@@ -575,7 +617,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y2h-1b-xII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2790" y="975"/>
+            <point key="canvasLocation" x="3416" y="975"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ICY-Y7-wD0">
@@ -595,9 +637,27 @@
             </objects>
             <point key="canvasLocation" x="684" y="255"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Fah-sT-LR4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fda-Bs-l2A" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kdA-Fw-sZR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JG2-aT-58n" kind="relationship" relationship="rootViewController" id="0vD-Pb-9ee"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KGq-gJ-uVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-479" y="1533"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dNb-ah-2UI"/>
-        <segue reference="Bkd-na-fPM"/>
+        <segue reference="SF7-2X-cyR"/>
     </inferredMetricsTieBreakers>
 </document>
