@@ -72,8 +72,8 @@ class AddEditLocationViewController: UITableViewController {
    
    private func setupDatePickerAndLabel() {
       self.dateFormatter = NSDateFormatter()
-      dateFormatter.dateStyle = .MediumStyle
-      dateFormatter.timeStyle = .MediumStyle
+      dateFormatter.dateStyle = .NoStyle
+      dateFormatter.timeStyle = .ShortStyle
       
       setupLabelForDatePicker(startTimeLabel)
       setupDatePicker(startTimeDatePicker)
