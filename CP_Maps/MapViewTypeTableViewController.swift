@@ -16,6 +16,7 @@ class MapViewTypeTableViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       mapTypes = mapTypeData
+      println(selectedType)
    }
    
    override func didReceiveMemoryWarning() {
@@ -38,6 +39,10 @@ class MapViewTypeTableViewController: UITableViewController {
          let cell = self.tableView.dequeueReusableCellWithIdentifier(mapTypeCellReuseIdentifier,
             forIndexPath: indexPath) as! MapViewTypeTableViewCell
          cell.mapTypeLabel.text = mapTypeData[indexPath.row]
+         
+         if (self.selectedType == mapTypeData[indexPath.row]) {
+            cell.accessoryType = .Checkmark
+         }
          
          return cell
    }
