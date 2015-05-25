@@ -18,6 +18,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var startTimeDatePicker: StartEndDatePicker!
    @IBOutlet weak var endTimeLabel: UILabel!
    @IBOutlet weak var endTimeDatePicker: StartEndDatePicker!
+   @IBOutlet weak var chooseDaysCell: UITableViewCell!
 
    // exclamation point - does not instantiate, but must do so before use
    var selectedLocation: NSIndexPath!  // location passed as index
@@ -65,6 +66,8 @@ class AddEditLocationViewController: UITableViewController {
       }
       // This may need to be moved in or out depending on whether or not it is edited
       setupDatePickerAndLabel()
+      // for some reason, code removes default selection style for days
+      chooseDaysCell.selectionStyle = .Default;
    }
    
    private func setupDatePickerAndLabel() {
