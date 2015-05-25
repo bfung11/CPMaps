@@ -75,30 +75,10 @@ UITableViewDataSource {
        return true
    }
    
-//   (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-//   
-//   UITableViewRowAction *editAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Edit" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-//   
-//   
-//   
-//   }];
-//   editAction.backgroundColor = [UIColor blueColor];;
-//   
-//   
-//   UITableViewRowAction *deleteAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Delete"  handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
-//   
-//   
-//   }];
-//   
-//   return @[deleteAction,editAction];
-//   }
-   
    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
       var editAction = UITableViewRowAction(style: .Default, title: "Edit",handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
-         // maybe show an action sheet with more options
-         self.selectedLocation = indexPath
-         self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
-//         self.tableView.setEditing(false, animated: false)
+            self.selectedLocation = indexPath
+            self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
          }
       )
       editAction.backgroundColor = UIColor.lightGrayColor()
@@ -109,8 +89,6 @@ UITableViewDataSource {
             self.locations.deleteLocation(location)
             self.locations.performFetch(nil)
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//            self.deleteModelAt(indexPath.row)
-//            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic);
          }
       )
       deleteAction.backgroundColor = UIColor.redColor()
