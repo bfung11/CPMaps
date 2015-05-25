@@ -56,7 +56,7 @@ UITableViewDataSource {
          else {
             cell.roomLabel?.text = ""
          }
-         cell.locationDetailsLabel?.text = //getName(location) + " "
+         cell.locationDetailsLabel?.text = getName(location) + " "
             getTime(location) + " " + getDays(location)
          return cell
    }
@@ -115,7 +115,13 @@ UITableViewDataSource {
    }
    
    private func getName(location: Location) -> String {
-      return location.getName()!
+      var name = ""
+      
+      if (location.getName() != nil) {
+         name = location.getName()!
+      }
+      
+      return name
    }
    
    private func getTime(location: Location) -> String {
@@ -125,9 +131,10 @@ UITableViewDataSource {
    private func getDays(location: Location) -> String {
       var days = ""
       
-      if location.getDays() != nil {
+      if (location.getDays() != nil) {
          days = location.getDays()!
       }
+      
       return days
    }
 }
