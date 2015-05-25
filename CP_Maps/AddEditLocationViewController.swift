@@ -40,7 +40,6 @@ class AddEditLocationViewController: UITableViewController {
       buildingIndexPath = nil
       
       self.selectedDays = ""
-      self.name = ""
       
       if selectedLocation != nil { // if editing a location, then location must always be passed
          let location = locations.getLocation(selectedLocation)
