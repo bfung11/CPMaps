@@ -244,6 +244,10 @@ class AddEditLocationViewController: UITableViewController {
             let location = locations.getLocation(selectedLocation)
             location.updateRoomNumber(selectedRoom!)
          }
+         self.startTime =
+            self.dateFormatter.stringFromDate(startTimeDatePicker.date)
+         self.endTime =
+            self.dateFormatter.stringFromDate(endTimeDatePicker.date)
       }
    }
    

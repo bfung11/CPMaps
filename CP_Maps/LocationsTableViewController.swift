@@ -56,7 +56,7 @@ UITableViewDataSource {
          else {
             cell.roomLabel?.text = ""
          }
-         cell.timesLabel?.text = "This is where cool text goes"
+         cell.timesLabel?.text = setTimesLabelText(location)
          return cell
    }
    
@@ -111,5 +111,10 @@ UITableViewDataSource {
             startTime: viewController.startTime, endTime: viewController.endTime,
             days: viewController.selectedDays)
       }
+   }
+   
+   
+   private func setTimesLabelText(location: Location) -> String {
+      return location.startTime! + " - " + location.endTime!
    }
 }
