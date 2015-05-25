@@ -127,7 +127,7 @@ class AddEditLocationViewController: UITableViewController {
          if (indexPath.row == firstDatePickerIndex ||
             indexPath.row == secondDatePickerIndex) {
                // need to keep inside or else affects regular cells in section
-               let datePicker = chooseDatePickerWithIndex(indexPath.row)
+               let datePicker = chooseDatePickerUsingIndex(indexPath.row)
                if (datePicker.isShowing()) {
                   height = CGFloat(kDatePickerCellHeight)
                }
@@ -147,7 +147,7 @@ class AddEditLocationViewController: UITableViewController {
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
       if (indexPath.section == sectionWithUIDatePickers
          && indexPath.row < indexOfDaysCell) {
-         let datePicker = chooseDatePickerWithIndex(indexPath.row)
+         let datePicker = chooseDatePickerUsingIndex(indexPath.row)
          if (datePicker.isShowing()) {
             self.hideDatePickerCell(datePicker)
          }
@@ -158,7 +158,7 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-   private func chooseDatePickerWithTag(tag: Int) -> StartEndDatePicker {
+   private func chooseDatePickerUsingTag(tag: Int) -> StartEndDatePicker {
       var datePicker = self.startTimeDatePicker
       
       if (tag == startTimeDatePickerTag) {
@@ -171,7 +171,7 @@ class AddEditLocationViewController: UITableViewController {
    /*! Choose a either start or end time date picker
    Assume that it is the first one but check to see if it is the second
    */
-   private func chooseDatePickerWithIndex(index: Int) -> StartEndDatePicker {
+   private func chooseDatePickerUsingIndex(index: Int) -> StartEndDatePicker {
       let secondDateCellIndex = 2
       let secondDatePickerCellIndex = 3
       var datePicker = self.startTimeDatePicker
