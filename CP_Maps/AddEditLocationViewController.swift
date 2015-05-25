@@ -45,7 +45,7 @@ class AddEditLocationViewController: UITableViewController {
          buildingDetail.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
          if location.hasRoomNumber() {
-            roomTextField.text = "Room " + location.getRoomNumber()
+            roomTextField.text = "Room " + location.getRoomNumber()!
             selectedRoom = location.getRoomNumber()
          }
          if location.hasName() {

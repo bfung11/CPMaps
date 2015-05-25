@@ -59,8 +59,8 @@ class Location: NSManagedObject {
       return self.buildingNumber
    }
    
-   func getRoomNumber() -> String {
-      return self.roomNumber!
+   func getRoomNumber() -> String? {
+      return self.roomNumber
    }
    
    func getDays() -> String? {
