@@ -38,9 +38,7 @@ class AddEditLocationViewController: UITableViewController {
       // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
       buildingIndexPath = nil
-      
-      self.selectedDays = ""
-      
+            
       if selectedLocation != nil { // if editing a location, then location must always be passed
          let location = locations.getLocation(selectedLocation)
          let building = locations.getBuildingAtIndex(selectedLocation.row)
@@ -250,7 +248,9 @@ class AddEditLocationViewController: UITableViewController {
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
          self.endTime =
             self.dateFormatter.stringFromDate(endTimeDatePicker.date)
-         self.selectedDays = convertToShortName(self.selectedDays!)
+         if (selectedDays != nil) {
+            self.selectedDays = convertToShortName(self.selectedDays!)
+         }
          self.name = nameTextField.text
       }
    }
