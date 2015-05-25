@@ -16,7 +16,7 @@ class MapViewTypeTableViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       mapTypes = mapTypeData
-      println(selectedType)
+      self.navigationItem.title = choooseMapTypeTableViewControllerTitle
    }
    
    override func didReceiveMemoryWarning() {

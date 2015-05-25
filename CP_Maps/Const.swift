@@ -20,11 +20,13 @@ let selectedDaysAsBoolIntialValue = false
 let locationCellReuseIdentifier = "LocationCell"
 
 // View Controller Titles
+let choooseMapTypeTableViewControllerTitle = "Choose Map Type"
 let editLocationViewControllerTitle = "Edit Location"
 let addLocationViewControllerTitle = "Add Location"
 let chooseBuildingViewControllerTitle = "Building"
 let chooseRoomViewControllerTitle = "Room"
 
+// Cell Reuse Identifiers
 let mapTypeCellReuseIdentifier = "MapTypeCell"
 
 // Sections with UIDatePickers
