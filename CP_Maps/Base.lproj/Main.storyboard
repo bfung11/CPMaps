@@ -428,7 +428,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="RoomTextField" destination="Jsf-JQ-gFe" id="rhk-iE-Tks"/>
-                        <outlet property="buildingDetail" destination="h8T-Tk-MmD" id="fwA-rQ-5IE"/>
+                        <outlet property="buildingLabel" destination="h8T-Tk-MmD" id="290-WS-cKk"/>
                         <outlet property="chooseDaysCell" destination="Daz-6y-ua4" id="Au3-6o-wtL"/>
                         <outlet property="chooseRoomCell" destination="bzK-OV-31z" id="UYP-gk-QqS"/>
                         <outlet property="daysDetail" destination="Whc-CM-SRp" id="cXF-Pt-Ljk"/>

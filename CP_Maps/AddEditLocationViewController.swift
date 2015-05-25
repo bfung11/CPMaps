@@ -9,7 +9,7 @@
 import UIKit
 
 class AddEditLocationViewController: UITableViewController {
-   @IBOutlet weak var buildingDetail: UILabel!
+   @IBOutlet weak var buildingLabel: UILabel!
    @IBOutlet weak var chooseRoomCell: UITableViewCell!
    @IBOutlet weak var roomTextField: UITextField!
    @IBOutlet weak var nameTextField: UITextField!
@@ -44,7 +44,7 @@ class AddEditLocationViewController: UITableViewController {
       if selectedLocation != nil { // if editing a location, then location must always be passed
          let location = locations.getLocation(selectedLocation)
          let building = locations.getBuildingAtIndex(selectedLocation.row)
-         buildingDetail.text = "Building " + building.getNumber() + " (" +
+         buildingLabel.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
          if location.hasRoomNumber() {
             roomTextField.text = "Room " + location.getRoomNumber()!
@@ -104,7 +104,7 @@ class AddEditLocationViewController: UITableViewController {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
       let building = locations.getBuildingAtIndex(buildingIndexPath.row)
-      buildingDetail.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
+      buildingLabel.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
    }
    
    func updateDatePicker(datePicker: UIDatePicker) {
