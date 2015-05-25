@@ -11,5 +11,5 @@ import UIKit
 class LocationCell: UITableViewCell {
    @IBOutlet weak var buildingLabel: UILabel!
    @IBOutlet weak var roomLabel: UILabel!
-   @IBOutlet weak var timesLabel: UILabel!
+   @IBOutlet weak var locationDetailsLabel: UILabel!
 }

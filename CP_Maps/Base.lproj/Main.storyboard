@@ -200,8 +200,8 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="buildingLabel" destination="foB-RT-LcD" id="cvK-e8-95b"/>
+                                    <outlet property="locationDetailsLabel" destination="zCN-UD-U2h" id="71v-Vm-daz"/>
                                     <outlet property="roomLabel" destination="eiD-uK-uf1" id="hPZ-n6-jTm"/>
-                                    <outlet property="timesLabel" destination="zCN-UD-U2h" id="71v-Vm-daz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
