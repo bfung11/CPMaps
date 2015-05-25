@@ -255,7 +255,9 @@ class AddEditLocationViewController: UITableViewController {
       self.tableView.endUpdates()
       datePicker.hide()
    }
+   /* ----End of DatePicker helper functions---- */
    
+   /* ----Start of Days conversion helper functions---- */
    private func convertToShortName(selectedDays: String) -> String {
       var shortName = ""
       let selectedDaysNSString = NSString(string: selectedDays)
@@ -315,4 +317,5 @@ class AddEditLocationViewController: UITableViewController {
       
       return longName
    }
+   /* ----End of Days conversion helper functions---- */
 }
