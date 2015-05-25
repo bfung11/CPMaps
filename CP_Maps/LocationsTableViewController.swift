@@ -79,10 +79,11 @@ UITableViewDataSource {
       forRowAtIndexPath indexPath: NSIndexPath) {
          switch editingStyle {
          case .Delete:
+            // remove the deleted item from the model
             let location = locations.getLocation(indexPath)
             locations.deleteLocation(location)
-            // remove the deleted item from the model
-//            self.items.removeAtIndex(indexPath.row)
+            
+            // Refresh the table view to indicate that it's deleted
             locations.performFetch(nil)
             // remove the deleted item from the `UITableView`
             self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
