@@ -24,6 +24,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    var marker = GMSMarker()
    var line = GMSPolyline(path: nil)
    var selectedBuilding = Building()
+   var selectedType: String!
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -49,6 +50,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       
       locationManager.delegate = self
       locationManager.requestWhenInUseAuthorization()
+      selectedType = "Normal"
    }
    
    // Called after selecting a building
@@ -178,6 +180,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          let viewController = segue.destinationViewController
             as! FloorPlanPagedScrollViewController
          viewController.setPages(selectedBuilding)
+      }
+      else if segue.identifier == segueToMapViewTypeTableViewController {
+         let navViewController = segue.destinationViewController as! UINavigationController
+         let viewController = navViewController.viewControllers.first as! MapViewTypeTableViewController
+         viewController.selectedType = self.selectedType
       }
    }
    

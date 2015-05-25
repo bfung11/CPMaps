@@ -16,7 +16,6 @@ class MapViewTypeTableViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       mapTypes = mapTypeData
-      selectedType = "Normal"
    }
    
    override func didReceiveMemoryWarning() {
