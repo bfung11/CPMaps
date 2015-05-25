@@ -14,6 +14,7 @@ UITableViewDataSource {
       
    var locations: CPMapsLibraryAPI!
    var fetchedResultsController: CPMapsLibraryAPI!
+   var selectedLocation: Location?
    var selectedLocationIndexPath: NSIndexPath?
    var isEditLocation: Bool?
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -64,6 +65,7 @@ UITableViewDataSource {
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
          
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
+      self.selectedLocation = self.locations.getLocation(indexPath)
       self.selectedLocationIndexPath = indexPath
       performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
@@ -78,6 +80,7 @@ UITableViewDataSource {
          
       var editAction = UITableViewRowAction(style: .Default, title: "Edit",
          handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+            self.selectedLocation = self.locations.getLocation(indexPath)
             self.selectedLocationIndexPath = indexPath
             self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
          }
@@ -122,7 +125,7 @@ UITableViewDataSource {
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
-         viewController.selectedLocation = selectedLocationIndexPath
+         viewController.selectedLocationIndexPath = selectedLocationIndexPath
          isEditLocation = true
       }
       else {
@@ -145,7 +148,7 @@ UITableViewDataSource {
       let buildingNumber = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getNumber()
       
       if isEditLocation == true {
-         let location = locations.getLocation(viewController.selectedLocation)
+         let location = locations.getLocation(viewController.selectedLocationIndexPath)
          location.updateBuildingNumber(buildingNumber)
          location.updateRoomNumber(viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell

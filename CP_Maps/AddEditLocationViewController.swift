@@ -21,7 +21,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var daysLabel: UILabel!
 
    // exclamation point - does not instantiate, but must do so before use
-   var selectedLocation: NSIndexPath!  // location passed as index
+   var selectedLocationIndexPath: NSIndexPath!  // location passed as index
    var locations: CPMapsLibraryAPI!    // location as sharedInstance
    var name: String?
    var buildings: [Building]!          // holds the data for all buildings
@@ -39,9 +39,9 @@ class AddEditLocationViewController: UITableViewController {
       locations = CPMapsLibraryAPI.sharedInstance
       buildingIndexPath = nil
       
-      if selectedLocation != nil { // if editing a location, then location must always be passed
-         let location = locations.getLocation(selectedLocation)
-         let building = locations.getBuildingAtIndex(selectedLocation.row)
+      if selectedLocationIndexPath != nil { // if editing a location, then location must always be passed
+         let location = locations.getLocation(selectedLocationIndexPath)
+         let building = locations.getBuildingAtIndex(selectedLocationIndexPath.row)
          buildingLabel.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
          if location.hasRoomNumber() {
@@ -167,9 +167,9 @@ class AddEditLocationViewController: UITableViewController {
          viewController.selectedDays = self.selectedDays
       }
       if segue.identifier == saveLocationSegueIdentifer {
-         if selectedLocation != nil { // if from editing
+         if selectedLocationIndexPath != nil { // if from editing
             // TODO: update building
-            let location = locations.getLocation(selectedLocation)
+            let location = locations.getLocation(selectedLocationIndexPath)
             location.updateRoomNumber(selectedRoom!)
          }
          self.startTime =
