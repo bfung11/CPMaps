@@ -224,8 +224,8 @@
 		11FFA9F91A79D1AA007BBBF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
+				B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */,
 				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,

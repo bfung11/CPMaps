@@ -25,6 +25,8 @@ let addLocationViewControllerTitle = "Add Location"
 let chooseBuildingViewControllerTitle = "Building"
 let chooseRoomViewControllerTitle = "Room"
 
+let mapTypeCellReuseIdentifier = "MapTypeCell"
+
 // Sections with UIDatePickers
 let sectionWithUIDatePickers = 2
 let startTimeDatePickerTag = 0

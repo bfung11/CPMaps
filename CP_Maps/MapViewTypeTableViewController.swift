@@ -9,6 +9,9 @@
 import UIKit
 
 class MapViewTypeTableViewController: UITableViewController {
+   
+   @IBOutlet weak var mapTypeLabel: UILabel!
+   
    var mapTypes: [String]!
    
    override func viewDidLoad() {
@@ -26,6 +29,16 @@ class MapViewTypeTableViewController: UITableViewController {
    
    override func tableView(tableView: UITableView,
       numberOfRowsInSection section: Int) -> Int {
+         
       return mapTypes.count
+   }
+   
+   override func tableView(tableView: UITableView, cellForRowAtIndexPath
+      indexPath: NSIndexPath) -> UITableViewCell {
+         
+         let cell = self.tableView.dequeueReusableCellWithIdentifier(mapTypeCellReuseIdentifier,
+            forIndexPath: indexPath) as! UITableViewCell
+         
+         return cell
    }
 }
