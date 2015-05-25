@@ -56,7 +56,7 @@ UITableViewDataSource {
          else {
             cell.roomLabel?.text = ""
          }
-         cell.locationDetailsLabel?.text = //getName(location) + " "
+         cell.locationDetailsLabel?.text = getName(location) + " " + 
             getTime(location) + " " + getDays(location)
          return cell
    }

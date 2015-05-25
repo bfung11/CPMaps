@@ -40,6 +40,7 @@ class AddEditLocationViewController: UITableViewController {
       buildingIndexPath = nil
       
       self.selectedDays = ""
+      self.name = ""
       
       if selectedLocation != nil { // if editing a location, then location must always be passed
          let location = locations.getLocation(selectedLocation)
@@ -251,6 +252,7 @@ class AddEditLocationViewController: UITableViewController {
          self.endTime =
             self.dateFormatter.stringFromDate(endTimeDatePicker.date)
          self.selectedDays = convertToShortName(self.selectedDays!)
+         self.name = nameTextField.text
       }
    }
    
