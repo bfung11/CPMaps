@@ -248,10 +248,13 @@ class AddEditLocationViewController: UITableViewController {
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
          self.endTime =
             self.dateFormatter.stringFromDate(endTimeDatePicker.date)
+         
       }
    }
    
-   private func convertToShorthand(longName: String) -> String {
+//   private func get
+   
+   private func getShortName(longName: String) -> String {
       var shortName = "Please select a day"
       
       switch longName {
@@ -275,7 +278,7 @@ class AddEditLocationViewController: UITableViewController {
       return shortName
    }
    
-   private func convertToLongName(shortName: String) -> String {
+   private func getLongName(shortName: String) -> String {
       var longName = "Please select a day"
       
       switch shortName {
