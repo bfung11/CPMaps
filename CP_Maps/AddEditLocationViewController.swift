@@ -43,7 +43,7 @@ class AddEditLocationViewController: UITableViewController {
       // if editing a location
       if self.selectedLocation != nil {
 //         setNameLabel()
-         setBuildingLabel()
+         setBuildingLabel(locations.getBuilding(self.selectedLocation.getBuildingNumber()))
 //         setRoomLabel()
          setDaysLabel()
          if self.selectedLocation.hasRoomNumber() {
@@ -75,8 +75,9 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func chooseBuildingForAddEditLocationViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
-      let building = locations.getBuildingAtIndex(buildingIndexPath!)
-      buildingLabel.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
+      setBuildingLabel(locations.getBuildingAtIndex(buildingIndexPath!))
+//      let building = locations.getBuildingAtIndex(buildingIndexPath!)
+//      buildingLabel.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
    }
    
    /*! Hides the cell of the datePicker if not selected 
@@ -185,8 +186,7 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-   private func setBuildingLabel() {
-      let building = locations.getBuilding(self.selectedLocation.getBuildingNumber())
+   private func setBuildingLabel(building: Building) {
       buildingLabel.text = "Building " + building.getNumber() + " (" +
          building.getName() + ")"
    }
