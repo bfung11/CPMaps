@@ -43,7 +43,7 @@ class AddEditLocationViewController: UITableViewController {
       
       // if editing a location
       if self.selectedLocation != nil {
-//         setNameLabel()
+         setNameLabel()
          setBuildingLabel(locations.getBuilding(self.selectedLocation.getBuildingNumber()))
 //         setRoomLabel()
          setDaysLabel()
@@ -51,9 +51,7 @@ class AddEditLocationViewController: UITableViewController {
             roomTextField.text = "Room " + self.selectedLocation.getRoomNumber()!
             selectedRoom = self.selectedLocation.getRoomNumber()
          }
-         if self.selectedLocation.hasName() {
-            nameTextField.text = self.selectedLocation.getName()
-         }
+
          self.navigationItem.title = editLocationViewControllerTitle
       }
       else {
@@ -278,42 +276,4 @@ class AddEditLocationViewController: UITableViewController {
       datePicker.hide()
    }
    /* ----End of DatePicker helper functions---- */
-   
-   /* ----Start of Days conversion helper functions---- */
-   private func convertToLongName(selectedDays: String) -> String {
-      var longName = ""
-      let selectedDaysNSString = NSString(string: selectedDays)
-      let arr = selectedDaysNSString.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: ""))
-      
-      for day in arr {
-         longName += getLongName(day as! String)
-      }
-      
-      return longName
-   }
-   
-   private func getLongName(shortName: String) -> String {
-      var longName = "Please select a day"
-      
-      switch shortName {
-      case "Su":
-         longName = "Sunday"
-      case "M":
-         longName = "Monday"
-      case "Tu":
-         longName = "Tuesday"
-      case "W":
-         longName = "Wednesday"
-      case "Th":
-         longName = "Thursday"
-      case "F":
-         longName = "Friday"
-      case "Sa":
-         longName = "Saturday"
-      default: ()
-      }
-      
-      return longName
-   }
-   /* ----End of Days conversion helper functions---- */
 }
