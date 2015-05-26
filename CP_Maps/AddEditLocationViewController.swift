@@ -42,6 +42,10 @@ class AddEditLocationViewController: UITableViewController {
       
       // if editing a location
       if self.selectedLocation != nil {
+//         setNameLabel()
+//         setBuildingLabel()
+//         setRoomLabel()
+//         setDaysLabel()
          let building = locations.getBuilding(self.selectedLocation.getBuildingNumber())
          buildingLabel.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
@@ -52,9 +56,8 @@ class AddEditLocationViewController: UITableViewController {
          if self.selectedLocation.hasName() {
             nameTextField.text = self.selectedLocation.getName()
          }
-         self.selectedDays = self.selectedLocation.getDays()
          if self.selectedLocation.hasDays() {
-            self.daysLabel.text = self.convertToLongName(self.selectedDays!)
+            self.daysLabel.text = self.selectedLocation.getDays()
          }
          self.navigationItem.title = editLocationViewControllerTitle
       }
@@ -256,18 +259,6 @@ class AddEditLocationViewController: UITableViewController {
    /* ----End of DatePicker helper functions---- */
    
    /* ----Start of Days conversion helper functions---- */
-   private func convertToShortName(selectedDays: String) -> String {
-      var shortName = ""
-      let selectedDaysNSString = NSString(string: selectedDays)
-      let arr = selectedDaysNSString.componentsSeparatedByString(", ")
-      
-      for day in arr {
-         shortName += getShortName(day as! String)
-      }
-      
-      return shortName
-   }
-   
    private func convertToLongName(selectedDays: String) -> String {
       var longName = ""
       let selectedDaysNSString = NSString(string: selectedDays)
@@ -278,30 +269,6 @@ class AddEditLocationViewController: UITableViewController {
       }
       
       return longName
-   }
-   
-   private func getShortName(longName: String) -> String {
-      var shortName = "Please select a day"
-      
-      switch longName {
-      case "Sunday":
-         shortName = "Su"
-      case "Monday":
-         shortName = "M"
-      case "Tuesday":
-         shortName = "Tu"
-      case "Wednesday":
-         shortName = "W"
-      case "Thursday":
-         shortName = "Th"
-      case "Friday":
-         shortName = "F"
-      case "Saturday":
-         shortName = "Sa"
-      default: ()
-      }
-      
-      return shortName
    }
    
    private func getLongName(shortName: String) -> String {
