@@ -181,8 +181,45 @@ UITableViewDataSource {
       
       if (location.getDays() != nil) {
          days = location.getDays()!
+         days = self.convertToShortName(days)
       }
       
       return days
+   }
+   
+   private func convertToShortName(selectedDays: String) -> String {
+      var shortName = ""
+      let selectedDaysNSString = NSString(string: selectedDays)
+      let arr = selectedDaysNSString.componentsSeparatedByString(", ")
+      
+      for day in arr {
+         shortName += getShortName(day as! String)
+      }
+      
+      return shortName
+   }
+   
+   private func getShortName(longName: String) -> String {
+      var shortName = "Please select a day"
+      
+      switch longName {
+      case "Sunday":
+         shortName = "Su"
+      case "Monday":
+         shortName = "M"
+      case "Tuesday":
+         shortName = "Tu"
+      case "Wednesday":
+         shortName = "W"
+      case "Thursday":
+         shortName = "Th"
+      case "Friday":
+         shortName = "F"
+      case "Saturday":
+         shortName = "Sa"
+      default: ()
+      }
+      
+      return shortName
    }
 }

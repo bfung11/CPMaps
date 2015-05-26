@@ -54,6 +54,7 @@ class AddEditLocationViewController: UITableViewController {
          }
          self.selectedDays = self.selectedLocation.getDays()
          if self.selectedLocation.hasDays() {
+            self.daysLabel.text = self.convertToLongName(self.selectedDays!)
          }
          self.navigationItem.title = editLocationViewControllerTitle
       }
@@ -176,9 +177,6 @@ class AddEditLocationViewController: UITableViewController {
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
          self.endTime =
             self.dateFormatter.stringFromDate(endTimeDatePicker.date)
-         if (selectedDays != nil) {
-            self.selectedDays = convertToShortName(self.selectedDays!)
-         }
          self.name = nameTextField.text
       }
    }
@@ -268,6 +266,18 @@ class AddEditLocationViewController: UITableViewController {
       }
       
       return shortName
+   }
+   
+   private func convertToLongName(selectedDays: String) -> String {
+      var longName = ""
+      let selectedDaysNSString = NSString(string: selectedDays)
+      let arr = selectedDaysNSString.componentsSeparatedByCharactersInSet(NSCharacterSet(charactersInString: ""))
+      
+      for day in arr {
+         longName += getLongName(day as! String)
+      }
+      
+      return longName
    }
    
    private func getShortName(longName: String) -> String {

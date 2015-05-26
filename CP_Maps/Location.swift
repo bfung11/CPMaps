@@ -11,11 +11,11 @@ import CoreData
 
 class Location: NSManagedObject {
    @NSManaged var name: String?
-   @NSManaged var buildingNumber: String!
+   @NSManaged var buildingNumber: String!  
    @NSManaged var roomNumber: String?
    @NSManaged var startTime: String?
    @NSManaged var endTime: String?
-   @NSManaged var days: String?
+   @NSManaged var days: String?            // Stores the entire string with commas
    
    
    class func createInManagedObjectContext(name: String?, buildingNumber: String!, roomNumber: String?,
