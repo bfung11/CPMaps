@@ -68,6 +68,11 @@ UITableViewDataSource {
    }
    
    override func tableView(tableView: UITableView,
+      accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+         self.presentAllOptionsActionSheet(indexPath)
+   }
+   
+   override func tableView(tableView: UITableView,
       canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
        return true
    }
@@ -85,27 +90,12 @@ UITableViewDataSource {
       
       var deleteAction = UITableViewRowAction(style: .Normal, title: "Delete",
          handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
-            self.presentSettingsActionSheet(indexPath)
+            self.presentDeleteActionSheet(indexPath)
          }
       )
       deleteAction.backgroundColor = UIColor.redColor()
       
       return [deleteAction, editAction]
-   }
-   
-   private func presentSettingsActionSheet(indexPath: NSIndexPath) {
-      let settingsActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
-//      settingsActionSheet.addAction(UIAlertAction(title:"Send Feedback", style:UIAlertActionStyle.Default, handler:{ action in
-////         self.presentFeedbackForm()
-//      }))
-      settingsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
-         let location = self.locations.getLocation(indexPath)
-         self.locations.deleteLocation(location)
-         self.locations.performFetch(nil)
-         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-      }))
-      settingsActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
-      presentViewController(settingsActionSheet, animated:true, completion:nil)
    }
    
    /*! Called when a row deletion action is confirmed
@@ -219,4 +209,35 @@ UITableViewDataSource {
       
       return shortName
    }
+   
+   /* ----Start of UIActionSheet functions---- */
+   private func presentAllOptionsActionSheet(indexPath: NSIndexPath) {
+      let allOptionsActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Move", style:UIAlertActionStyle.Default, handler:{ action in
+      }))
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Edit", style:UIAlertActionStyle.Default, handler:{ action in
+         self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+      }))
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
+         let location = self.locations.getLocation(indexPath)
+         self.locations.deleteLocation(location)
+         self.locations.performFetch(nil)
+         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+      }))
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      presentViewController(allOptionsActionSheet, animated:true, completion:nil)
+   }
+   
+   private func presentDeleteActionSheet(indexPath: NSIndexPath) {
+      let deleteActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+      deleteActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
+         let location = self.locations.getLocation(indexPath)
+         self.locations.deleteLocation(location)
+         self.locations.performFetch(nil)
+         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+      }))
+      deleteActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      presentViewController(deleteActionSheet, animated:true, completion:nil)
+   }
+   /* ----End of UIActionSheet functions---- */
 }
