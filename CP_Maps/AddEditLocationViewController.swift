@@ -23,6 +23,7 @@ class AddEditLocationViewController: UITableViewController {
    // exclamation point - does not instantiate, but must do so before use
    var locations: CPMapsLibraryAPI!    // location as sharedInstance
    var selectedLocationIndexPath: NSIndexPath!  // location passed as index
+   var selectedLocation: Location!
    var name: String?
    var buildings: [Building]!          // holds the data for all buildings
    var buildingIndexPath: NSIndexPath! // selected building as index (of the list of all buildings)
@@ -39,21 +40,20 @@ class AddEditLocationViewController: UITableViewController {
       locations = CPMapsLibraryAPI.sharedInstance
       buildingIndexPath = nil
       
-      if self.selectedLocationIndexPath != nil { // if editing a location, then location must always be passed
-         let location = locations.getLocation(selectedLocationIndexPath)
-         let building = locations.getBuildingAtIndex(selectedLocationIndexPath!)
+      // if editing a location
+      if self.selectedLocation != nil {
+         let building = locations.getBuilding(self.selectedLocation.getBuildingNumber())
          buildingLabel.text = "Building " + building.getNumber() + " (" +
             building.getName() + ")"
-         if location.hasRoomNumber() {
-            roomTextField.text = "Room " + location.getRoomNumber()!
-            selectedRoom = location.getRoomNumber()
+         if self.selectedLocation.hasRoomNumber() {
+            roomTextField.text = "Room " + self.selectedLocation.getRoomNumber()!
+            selectedRoom = self.selectedLocation.getRoomNumber()
          }
-         if location.hasName() {
-            nameTextField.text = location.getName()
+         if self.selectedLocation.hasName() {
+            nameTextField.text = self.selectedLocation.getName()
          }
-         self.selectedDays = location.getDays()
-         if location.hasDays() {
-//            daysDetail.text = self.getCourseDays() as String
+         self.selectedDays = self.selectedLocation.getDays()
+         if self.selectedLocation.hasDays() {
          }
          self.navigationItem.title = editLocationViewControllerTitle
       }
@@ -75,20 +75,21 @@ class AddEditLocationViewController: UITableViewController {
    
    // save selected building and display selected building
    @IBAction func chooseBuildingForAddEditLocationViewController(segue:UIStoryboardSegue) {
-      // save building and display selected building
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
       let building = locations.getBuildingAtIndex(buildingIndexPath!)
       buildingLabel.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
    }
    
-   /*! Hides the cell of the datePicker if not selected by making the height of the cell equal to 0
+   /*! Hides the cell of the datePicker if not selected 
+       by making the height of the cell equal to 0
+   
    */
    override func tableView(tableView: UITableView,
       heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
          
       // sections and cell numbers start counting at 0
-      let firstDatePickerIndex = 1 // constant in code; is the cell index where the datePicker is
+      let firstDatePickerIndex = 1 // cell index where the datePicker is
       let secondDatePickerIndex = 3
       let kDatePickerCellHeight = 163
       var height = self.tableView.rowHeight
@@ -128,7 +129,6 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-   // save selected days and display selected days
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
       self.selectedDays = chooseDaysViewController.selectedDays
@@ -142,7 +142,7 @@ class AddEditLocationViewController: UITableViewController {
       
       var shouldPerform = true
       
-      // if they have not selected a building
+      // if they have not selected a building, send UIAlertView
       if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil {
          let alert = UIAlertView(title: saveNewLocationTitle,
             message: saveNewLocationMessage, delegate: self,
@@ -170,7 +170,7 @@ class AddEditLocationViewController: UITableViewController {
          if selectedLocationIndexPath != nil { // if from editing
             // TODO: update building
             let location = locations.getLocation(selectedLocationIndexPath)
-            location.updateRoomNumber(selectedRoom!)
+//            location.updateRoomNumber(selectedRoom!)
          }
          self.startTime =
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
