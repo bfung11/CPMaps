@@ -37,9 +37,10 @@ class AddEditLocationViewController: UITableViewController {
       locations = CPMapsLibraryAPI.sharedInstance
       if (self.isEditing() == true) {
          setNameLabel()
-         selectedBuilding = locations.getBuilding(self.selectedLocation.getBuildingNumber())
+         self.selectedBuilding = locations.getBuilding(self.selectedLocation.getBuildingNumber())
          setBuildingLabel(selectedBuilding)
          setRoomLabel()
+         self.selectedDays = self.selectedLocation.getDays()
          setDaysLabel()
          self.navigationItem.title = editLocationViewControllerTitle
       }
