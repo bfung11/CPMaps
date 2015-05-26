@@ -85,15 +85,27 @@ UITableViewDataSource {
       
       var deleteAction = UITableViewRowAction(style: .Normal, title: "Delete",
          handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
-            let location = self.locations.getLocation(indexPath)
-            self.locations.deleteLocation(location)
-            self.locations.performFetch(nil)
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            self.presentSettingsActionSheet(indexPath)
          }
       )
       deleteAction.backgroundColor = UIColor.redColor()
       
       return [deleteAction, editAction]
+   }
+   
+   private func presentSettingsActionSheet(indexPath: NSIndexPath) {
+      let settingsActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+//      settingsActionSheet.addAction(UIAlertAction(title:"Send Feedback", style:UIAlertActionStyle.Default, handler:{ action in
+////         self.presentFeedbackForm()
+//      }))
+      settingsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
+         let location = self.locations.getLocation(indexPath)
+         self.locations.deleteLocation(location)
+         self.locations.performFetch(nil)
+         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+      }))
+      settingsActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      presentViewController(settingsActionSheet, animated:true, completion:nil)
    }
    
    /*! Called when a row deletion action is confirmed
