@@ -22,24 +22,20 @@ class AddEditLocationViewController: UITableViewController {
 
    // exclamation point - does not instantiate, but must do so before use
    var locations: CPMapsLibraryAPI!    // location as sharedInstance
-   var selectedLocationIndexPath: NSIndexPath!  // location passed as index
    var selectedLocation: Location!
    var name: String?
-   var buildings: [Building]!          // holds the data for all buildings
    var selectedBuilding: Building!
-   var buildingIndexPath: NSIndexPath! // selected building as index (of the list of all buildings)
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
-   var selectedDays: String?
    var dateFormatter: NSDateFormatter! // optimization; recreating each time is slow
    var startTime: String?
    var endTime: String?
+   var selectedDays: String?
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
       // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
-      buildingIndexPath = nil
       
       // if editing a location
       if (self.isEditing() == true) {
