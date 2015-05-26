@@ -63,6 +63,14 @@ class Location: NSManagedObject {
       return self.roomNumber
    }
    
+   func getStartTime() -> String? {
+      return self.startTime
+   }
+   
+   func getEndTime() -> String? {
+      return self.endTime
+   }
+   
    func getDays() -> String? {
       return self.days
    }
