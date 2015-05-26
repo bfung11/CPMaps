@@ -43,21 +43,15 @@ class AddEditLocationViewController: UITableViewController {
       // if editing a location
       if self.selectedLocation != nil {
 //         setNameLabel()
-//         setBuildingLabel()
+         setBuildingLabel()
 //         setRoomLabel()
-//         setDaysLabel()
-         let building = locations.getBuilding(self.selectedLocation.getBuildingNumber())
-         buildingLabel.text = "Building " + building.getNumber() + " (" +
-            building.getName() + ")"
+         setDaysLabel()
          if self.selectedLocation.hasRoomNumber() {
             roomTextField.text = "Room " + self.selectedLocation.getRoomNumber()!
             selectedRoom = self.selectedLocation.getRoomNumber()
          }
          if self.selectedLocation.hasName() {
             nameTextField.text = self.selectedLocation.getName()
-         }
-         if self.selectedLocation.hasDays() {
-            self.daysLabel.text = self.selectedLocation.getDays()
          }
          self.navigationItem.title = editLocationViewControllerTitle
       }
@@ -184,6 +178,33 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
+   /* ----Start of setting label functions---- */
+   private func setNameLabel() {
+      if self.selectedLocation.hasName() {
+         nameTextField.text = self.selectedLocation.getName()
+      }
+   }
+   
+   private func setBuildingLabel() {
+      let building = locations.getBuilding(self.selectedLocation.getBuildingNumber())
+      buildingLabel.text = "Building " + building.getNumber() + " (" +
+         building.getName() + ")"
+   }
+   
+   private func setRoomLabel() {
+      if self.selectedLocation.hasRoomNumber() {
+         roomTextField.text = "Room " + self.selectedLocation.getRoomNumber()!
+         selectedRoom = self.selectedLocation.getRoomNumber()
+      }
+   }
+   
+   private func setDaysLabel() {
+      if self.selectedLocation.hasDays() {
+         self.daysLabel.text = self.selectedLocation.getDays()
+      }
+   }
+   /* ----End of setting label functions---- */
+
    /* ----Start of DatePicker helper functions---- */
    private func setupDatePickerAndLabel() {
       self.dateFormatter = NSDateFormatter()
