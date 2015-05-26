@@ -103,6 +103,10 @@ UITableViewDataSource {
       forRowAtIndexPath indexPath: NSIndexPath) {
    }
    
+   func controllerDidChangeContent(controller: NSFetchedResultsController) {
+      self.tableView.reloadData()
+   }
+   
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == editLocationSegueIdentifier {
          let navViewController = segue.destinationViewController
@@ -117,24 +121,14 @@ UITableViewDataSource {
       }
    }
    
-   func controllerDidChangeContent(controller: NSFetchedResultsController) {
-      self.tableView.reloadData()
-   }
-   
-   @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
-   }
-   
-   @IBAction func cancelToLocationsTableViewController(segue:UIStoryboardSegue) {
-   }
-   
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
       let buildingNumber = viewController.selectedBuilding.getNumber()
       
       if isEditLocation == true {
-         let location = locations.getLocation(viewController.selectedLocationIndexPath)
+         let location = viewController.selectedLocation
          location.updateBuildingNumber(buildingNumber)
-         location.updateRoomNumber(viewController.selectedRoom!)
+//         location.updateRoomNumber(viewController.selectedRoom!)
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
@@ -143,6 +137,12 @@ UITableViewDataSource {
             startTime: viewController.startTime, endTime: viewController.endTime,
             days: viewController.selectedDays)
       }
+   }
+   
+   @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
+   }
+   
+   @IBAction func cancelToLocationsTableViewController(segue:UIStoryboardSegue) {
    }
    
    private func getName(location: Location) -> String {

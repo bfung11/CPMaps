@@ -42,7 +42,7 @@ class AddEditLocationViewController: UITableViewController {
       buildingIndexPath = nil
       
       // if editing a location
-      if self.selectedLocation != nil {
+      if (self.isEditing() == true) {
          setNameLabel()
          selectedBuilding = locations.getBuilding(self.selectedLocation.getBuildingNumber())
          setBuildingLabel(selectedBuilding)
@@ -169,11 +169,11 @@ class AddEditLocationViewController: UITableViewController {
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
          self.endTime =
             self.dateFormatter.stringFromDate(endTimeDatePicker.date)
-         
-         if selectedLocationIndexPath != nil { // if from editing
-            let location = locations.getLocation(selectedLocationIndexPath)
-         }
       }
+   }
+   
+   private func isEditing() -> Bool {
+      return self.selectedLocation != nil
    }
    
    /* ----Start of setting label functions---- */
