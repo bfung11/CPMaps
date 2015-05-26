@@ -67,6 +67,16 @@ class Location: NSManagedObject {
       return self.days
    }
    
+   func update(name: String?, buildingNumber: String!, roomNumber: String?,
+      startTime: String?, endTime: String?, days: String?) {
+         self.name = name
+         self.buildingNumber = buildingNumber
+         self.roomNumber = roomNumber
+         self.startTime = startTime
+         self.endTime = endTime
+         self.days = days
+   }
+   
    func updateName(name: String) {
       self.name = name
    }

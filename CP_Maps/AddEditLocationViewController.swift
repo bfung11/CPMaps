@@ -46,13 +46,8 @@ class AddEditLocationViewController: UITableViewController {
          setNameLabel()
          selectedBuilding = locations.getBuilding(self.selectedLocation.getBuildingNumber())
          setBuildingLabel(selectedBuilding)
-//         setRoomLabel()
+         setRoomLabel()
          setDaysLabel()
-         if self.selectedLocation.hasRoomNumber() {
-            roomTextField.text = "Room " + self.selectedLocation.getRoomNumber()!
-            selectedRoom = self.selectedLocation.getRoomNumber()
-         }
-
          self.navigationItem.title = editLocationViewControllerTitle
       }
       else {
@@ -165,6 +160,7 @@ class AddEditLocationViewController: UITableViewController {
       }
       if segue.identifier == saveLocationSegueIdentifer {
          self.name = self.nameTextField.text
+         self.selectedRoom = "Please select a room"
          self.startTime =
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
          self.endTime =

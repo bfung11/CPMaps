@@ -127,8 +127,10 @@ UITableViewDataSource {
       
       if isEditLocation == true {
          let location = viewController.selectedLocation
-         location.updateBuildingNumber(buildingNumber)
-//         location.updateRoomNumber(viewController.selectedRoom!)
+         location.update(viewController.name,
+            buildingNumber: buildingNumber, roomNumber: viewController.selectedRoom,
+            startTime: viewController.startTime, endTime: viewController.endTime,
+            days: viewController.selectedDays)
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
