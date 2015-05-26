@@ -70,8 +70,8 @@ UITableViewDataSource {
       performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
-   override func tableView(tableView: UITableView!,
-      canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
+   override func tableView(tableView: UITableView,
+      canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
        return true
    }
    
