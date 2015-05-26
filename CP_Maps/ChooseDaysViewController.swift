@@ -24,9 +24,7 @@ class ChooseDaysViewController: UITableViewController {
       selectedDaysAsBool = [Bool](count: selectedDaysAsBoolInitialCount,
          repeatedValue: selectedDaysAsBoolIntialValue)      
       // if from adding a location
-      if selectedDays == nil {
-      }
-      else {
+      if selectedDays != nil {
          self.chooseDays(selectedDays)
       }
    }
