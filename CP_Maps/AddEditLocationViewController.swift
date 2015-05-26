@@ -202,6 +202,8 @@ class AddEditLocationViewController: UITableViewController {
    private func setupDatePickerAndLabel() {
       var startTime = ""
       var endTime = ""
+      var startDate: NSDate
+      var endDate: NSDate
       
       self.dateFormatter = NSDateFormatter()
       dateFormatter.dateStyle = .NoStyle
@@ -216,21 +218,24 @@ class AddEditLocationViewController: UITableViewController {
          endTime = self.dateFormatter.stringFromDate(NSDate())
       }
       
-      setupLabelForDatePicker(startTimeLabel, timeForDatePicker: startTime)
-      setupDatePicker(startTimeDatePicker)
-      setupLabelForDatePicker(endTimeLabel, timeForDatePicker: endTime)
-      setupDatePicker(endTimeDatePicker)
+      startDate = self.dateFormatter.dateFromString(startTime)!
+      endDate = self.dateFormatter.dateFromString(endTime)!
+      
+      setupLabelForDatePicker(startTimeLabel, time: startTime)
+      setupDatePicker(startTimeDatePicker, date: startDate)
+      setupLabelForDatePicker(endTimeLabel, time: endTime)
+      setupDatePicker(endTimeDatePicker, date: endDate)
    }
    
-   private func setupDatePicker(datePicker: UIDatePicker) {
+   private func setupDatePicker(datePicker: UIDatePicker, date: NSDate) {
       datePicker.hidden = true
       datePicker.addTarget(self, action: Selector("updateDatePicker:"),
          forControlEvents: UIControlEvents.ValueChanged)
+      datePicker.setDate(date, animated: false)
    }
    
-   private func setupLabelForDatePicker(label: UILabel, timeForDatePicker: String) {
-      println(timeForDatePicker)
-      label.text = timeForDatePicker
+   private func setupLabelForDatePicker(label: UILabel, time: String) {
+      label.text = time
       label.tintColor = self.tableView.tintColor
    }
    
