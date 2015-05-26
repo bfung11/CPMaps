@@ -76,8 +76,6 @@ class AddEditLocationViewController: UITableViewController {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       buildingIndexPath = viewController.buildingIndexPath
       setBuildingLabel(locations.getBuildingAtIndex(buildingIndexPath!))
-//      let building = locations.getBuildingAtIndex(buildingIndexPath!)
-//      buildingLabel.text = "Building " + building.getNumber() + " (" + building.getName() + ")"
    }
    
    /*! Hides the cell of the datePicker if not selected 
@@ -169,7 +167,6 @@ class AddEditLocationViewController: UITableViewController {
          if selectedLocationIndexPath != nil { // if from editing
             // TODO: update building
             let location = locations.getLocation(selectedLocationIndexPath)
-//            location.updateRoomNumber(selectedRoom!)
          }
          self.startTime =
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
@@ -249,9 +246,6 @@ class AddEditLocationViewController: UITableViewController {
       return datePicker
    }
    
-   /*! Choose a either start or end time date picker
-   Assume that it is the first one but check to see if it is the second
-   */
    private func chooseDatePickerUsingIndex(index: Int) -> StartEndDatePicker {
       let secondDateCellIndex = 2
       let secondDatePickerCellIndex = 3

@@ -25,8 +25,6 @@ UITableViewDataSource {
       fetchedResultsController = CPMapsLibraryAPI.sharedInstance
       fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
-//      self.editing = true
-//      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
    }
    
    override func didReceiveMemoryWarning() {
@@ -66,7 +64,6 @@ UITableViewDataSource {
          
       tableView.deselectRowAtIndexPath(indexPath, animated: true)
       self.selectedLocation = self.locations.getLocation(indexPath)
-//      self.selectedLocationIndexPath = indexPath
       performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
@@ -81,7 +78,6 @@ UITableViewDataSource {
       var editAction = UITableViewRowAction(style: .Default, title: "Edit",
          handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
             self.selectedLocation = self.locations.getLocation(indexPath)
-//            self.selectedLocationIndexPath = indexPath
             self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
          }
       )
@@ -105,18 +101,6 @@ UITableViewDataSource {
    override func tableView(tableView: UITableView,
       commitEditingStyle editingStyle: UITableViewCellEditingStyle,
       forRowAtIndexPath indexPath: NSIndexPath) {
-//         switch editingStyle {
-////         case .Delete:
-////            // remove the deleted item from the model
-////            let location = locations.getLocation(indexPath)
-////            locations.deleteLocation(location)
-////            
-////            // Refresh the table view to indicate that it's deleted
-////            locations.performFetch(nil)
-////            // remove the deleted item from the `UITableView`
-////            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//         default: ()
-//         }
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -126,7 +110,6 @@ UITableViewDataSource {
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
          viewController.selectedLocation = self.selectedLocation
-//         viewController.selectedLocationIndexPath = selectedLocationIndexPath
          isEditLocation = true
       }
       else {
