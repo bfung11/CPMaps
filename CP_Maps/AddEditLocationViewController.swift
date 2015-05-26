@@ -44,7 +44,8 @@ class AddEditLocationViewController: UITableViewController {
       // if editing a location
       if self.selectedLocation != nil {
          setNameLabel()
-         setBuildingLabel(locations.getBuilding(self.selectedLocation.getBuildingNumber()))
+         selectedBuilding = locations.getBuilding(self.selectedLocation.getBuildingNumber())
+         setBuildingLabel(selectedBuilding)
 //         setRoomLabel()
          setDaysLabel()
          if self.selectedLocation.hasRoomNumber() {
@@ -65,16 +66,6 @@ class AddEditLocationViewController: UITableViewController {
       setupDatePickerAndLabel()
       // for some reason, code removes default selection style for days
       chooseDaysCell.selectionStyle = .Default;
-   }
-   
-   @IBAction func cancelToAddEditLocationViewController(segue:UIStoryboardSegue) {
-   }
-   
-   // save selected building and display selected building
-   @IBAction func chooseBuildingForAddEditLocationViewController(segue:UIStoryboardSegue) {
-      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      buildingIndexPath = viewController.buildingIndexPath
-      setBuildingLabel(locations.getBuildingAtIndex(buildingIndexPath!))
    }
    
    /*! Hides the cell of the datePicker if not selected 
@@ -125,6 +116,13 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
+   // save selected building and display selected building
+   @IBAction func chooseBuildingForAddEditLocationViewController(segue:UIStoryboardSegue) {
+      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
+      self.selectedBuilding = viewController.selectedBuilding
+      setBuildingLabel(self.selectedBuilding)
+   }
+   
    @IBAction func saveDays(segue:UIStoryboardSegue) {
       let chooseDaysViewController = segue.sourceViewController as! ChooseDaysViewController
       self.selectedDays = chooseDaysViewController.selectedDays
@@ -134,12 +132,15 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
+   @IBAction func cancelToAddEditLocationViewController(segue:UIStoryboardSegue) {
+   }
+   
    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
       
       var shouldPerform = true
       
       // if they have not selected a building, send UIAlertView
-      if identifier == saveLocationSegueIdentifer && buildingIndexPath == nil {
+      if identifier == saveLocationSegueIdentifer && selectedBuilding == nil {
          let alert = UIAlertView(title: saveNewLocationTitle,
             message: saveNewLocationMessage, delegate: self,
             cancelButtonTitle: cancelButtonTitleOK)
@@ -156,23 +157,22 @@ class AddEditLocationViewController: UITableViewController {
             as! UINavigationController
          let viewController = navViewController.viewControllers.first as! ChooseBuildingRoomViewController
          viewController.identifier = segueToChooseBuildingFromAddEditLocationViewController
-         viewController.buildingIndexPath = buildingIndexPath
+         viewController.selectedBuilding = self.selectedBuilding
       }
       if segue.identifier == segueToChooseDaysViewController {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = self.selectedDays
       }
       if segue.identifier == saveLocationSegueIdentifer {
-         self.selectedBuilding = self.locations.getBuildingAtIndex(buildingIndexPath!)
-         if selectedLocationIndexPath != nil { // if from editing
-            // TODO: update building
-            let location = locations.getLocation(selectedLocationIndexPath)
-         }
+         self.name = self.nameTextField.text
          self.startTime =
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
          self.endTime =
             self.dateFormatter.stringFromDate(endTimeDatePicker.date)
-         self.name = nameTextField.text
+         
+         if selectedLocationIndexPath != nil { // if from editing
+            let location = locations.getLocation(selectedLocationIndexPath)
+         }
       }
    }
    
@@ -186,10 +186,6 @@ class AddEditLocationViewController: UITableViewController {
    private func setBuildingLabel(building: Building) {
       buildingLabel.text = "Building " + building.getNumber() + " (" +
          building.getName() + ")"
-   }
-   
-   private func updateRoomAndLabel() {
-      
    }
    
    private func setRoomLabel() {

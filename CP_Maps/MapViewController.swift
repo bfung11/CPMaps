@@ -70,14 +70,12 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    // Called after selecting a building
    @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      let buildingIndexPath = viewController.buildingIndexPath
-      let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!)
-      selectedBuilding = building
+      let building = viewController.selectedBuilding
+      self.selectedBuilding = building
       locationTitle.text = String(building.getNumber()) + " - " + building.getName()
       
       marker.map = nil
       line.map = nil
-      
       
       // show directions on a map
       if(building.getLatitude() != 0 && building.getLongtitude() != 0) {
