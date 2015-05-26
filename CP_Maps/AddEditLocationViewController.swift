@@ -34,10 +34,7 @@ class AddEditLocationViewController: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // set up data source
       locations = CPMapsLibraryAPI.sharedInstance
-      
-      // if editing a location
       if (self.isEditing() == true) {
          setNameLabel()
          selectedBuilding = locations.getBuilding(self.selectedLocation.getBuildingNumber())
@@ -88,10 +85,7 @@ class AddEditLocationViewController: UITableViewController {
       
       return height
    }
-   
-   /*! Deselects the selected row with UIDatePicker
-   
-   */
+
    override func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
       if (indexPath.section == sectionWithUIDatePickers
@@ -107,7 +101,7 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    
-   // save selected building and display selected building
+   /*! Save display selected building */
    @IBAction func chooseBuildingForAddEditLocationViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       self.selectedBuilding = viewController.selectedBuilding
