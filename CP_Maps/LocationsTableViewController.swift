@@ -98,6 +98,16 @@ UITableViewDataSource {
       return [deleteAction, editAction]
    }
    
+   override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+      return true
+   }
+   
+   override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+//      var itemToMove = tableData[fromIndexPath.row]
+//      tableData.removeAtIndex(fromIndexPath.row)
+//      tableData.insert(itemToMove, atIndex: toIndexPath.row)
+   }
+   
    /*! Called when a row deletion action is confirmed
    */
    override func tableView(tableView: UITableView,
