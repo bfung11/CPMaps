@@ -216,6 +216,7 @@ UITableViewDataSource {
       allOptionsActionSheet.addAction(UIAlertAction(title:"Move", style:UIAlertActionStyle.Default, handler:{ action in
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Edit", style:UIAlertActionStyle.Default, handler:{ action in
+         self.selectedLocation = self.locations.getLocation(indexPath)
          self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
