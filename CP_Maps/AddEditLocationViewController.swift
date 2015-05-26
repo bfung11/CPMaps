@@ -26,6 +26,7 @@ class AddEditLocationViewController: UITableViewController {
    var selectedLocation: Location!
    var name: String?
    var buildings: [Building]!          // holds the data for all buildings
+   var selectedBuilding: Building!
    var buildingIndexPath: NSIndexPath! // selected building as index (of the list of all buildings)
    var selectedRoom: String?           // room from choosing a room or from editing a location with room
    var selectedDays: String?
@@ -164,6 +165,7 @@ class AddEditLocationViewController: UITableViewController {
          viewController.selectedDays = self.selectedDays
       }
       if segue.identifier == saveLocationSegueIdentifer {
+         self.selectedBuilding = self.locations.getBuildingAtIndex(buildingIndexPath!)
          if selectedLocationIndexPath != nil { // if from editing
             // TODO: update building
             let location = locations.getLocation(selectedLocationIndexPath)
@@ -186,6 +188,10 @@ class AddEditLocationViewController: UITableViewController {
    private func setBuildingLabel(building: Building) {
       buildingLabel.text = "Building " + building.getNumber() + " (" +
          building.getName() + ")"
+   }
+   
+   private func updateRoomAndLabel() {
+      
    }
    
    private func setRoomLabel() {
