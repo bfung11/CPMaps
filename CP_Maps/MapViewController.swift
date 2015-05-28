@@ -102,6 +102,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
                      
                      self.line.strokeWidth = 4.0
                      self.line.tappable = true
+                     self.line.zIndex = 1;         // draw over overlay
                      self.line.map = self.mapView
                      
                      // 5
