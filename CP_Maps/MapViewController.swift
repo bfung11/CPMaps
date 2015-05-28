@@ -24,7 +24,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    var marker = GMSMarker()
    var line = GMSPolyline(path: nil)
    var selectedBuilding = Building()
-   var selectedType: String!
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -38,8 +37,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          mapView.camera = GMSCameraPosition(target: startingPosition_UU, zoom: 15, bearing: 0, viewingAngle: 0)
          
          // initialize overlay
-         var southWest = CLLocationCoordinate2DMake(35.295115, -120.6855869)
-         var northEast = CLLocationCoordinate2DMake(35.312691, -120.6521129)
+         var southWest = CLLocationCoordinate2DMake(35.295115, -120.6864869)
+         var northEast = CLLocationCoordinate2DMake(35.313691, -120.6521129)
          var overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast)
          var icon = UIImage(named: "PolyMap_Extended.jpg")
          overlay = GMSGroundOverlay(bounds: overlayBounds, icon: icon)
@@ -50,20 +49,33 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       
       locationManager.delegate = self
       locationManager.requestWhenInUseAuthorization()
-      selectedType = "Normal"
+   }
+   
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      // Building View
+      if segue.identifier == segueToChooseBuildingViewController {
+         let navViewController = segue.destinationViewController
+            as! UINavigationController
+         let viewController = navViewController.viewControllers.first
+            as! ChooseBuildingRoomViewController
+         viewController.identifier = segueToChooseBuildingFromMapViewController
+      }
+      else if segue.identifier == segueToFloorPlanPagedScrollViewController {
+         let viewController = segue.destinationViewController
+            as! FloorPlanPagedScrollViewController
+         viewController.setPages(selectedBuilding)
+      }
    }
    
    // Called after selecting a building
    @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      let buildingIndexPath = viewController.buildingIndexPath
-      let building = locationLibraryAPI.getBuildingAtIndex(buildingIndexPath!.row)
-      selectedBuilding = building
+      let building = viewController.selectedBuilding
+      self.selectedBuilding = building
       locationTitle.text = String(building.getNumber()) + " - " + building.getName()
       
       marker.map = nil
       line.map = nil
-      
       
       // show directions on a map
       if(building.getLatitude() != 0 && building.getLongtitude() != 0) {
@@ -82,20 +94,21 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          
          // INITIAL MAPPING
          if(locationManager.location != nil) {
-               dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
-                  if let encodedRoute = optionalRoute {
-                     
-                     let path = GMSPath(fromEncodedPath: encodedRoute)
-                     self.line = GMSPolyline(path: path)
-                     
-                     self.line.strokeWidth = 4.0
-                     self.line.tappable = true
-                     self.line.map = self.mapView
-                     
-                     // 5
-                     //self.mapView.selectedMarker = nil
-                  }
+            dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
+               if let encodedRoute = optionalRoute {
+                  
+                  let path = GMSPath(fromEncodedPath: encodedRoute)
+                  self.line = GMSPolyline(path: path)
+                  
+                  self.line.strokeWidth = 4.0
+                  self.line.tappable = true
+                  self.line.zIndex = 1;         // draw over overlay
+                  self.line.map = self.mapView
+                  
+                  // 5
+                  //self.mapView.selectedMarker = nil
                }
+            }
          }
          else {
             NSLog(TAG + "Location is not shared - cannot map directions")
@@ -109,8 +122,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! LocationsTableViewController
-      let location = locationLibraryAPI.getLocation(viewController.selectedLocation!)
-      locationTitle.text = location.getName()
+      let location = viewController.selectedLocation
+      locationTitle.text = location!.getName()
    }
    
    @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
@@ -122,26 +135,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {
       dismissViewControllerAnimated(true, completion: nil)
       //performSegueWithIdentifier("cancelToMyLocations", sender: self)
-   }
-   
-   @IBAction func chooseMapType(segue:UIStoryboardSegue) {
-      let viewController = segue.sourceViewController as! MapViewTypeTableViewController
-      self.selectedType = viewController.selectedType
-      
-      overlay.map = nil
-      switch self.selectedType {
-      case "Normal":
-         mapView.mapType = kGMSTypeNormal
-      case "Satellite":
-         mapView.mapType = kGMSTypeSatellite
-      case "Hybrid":
-         mapView.mapType = kGMSTypeHybrid
-      case "Map":
-         // overlay cal polys map
-         overlay.map = mapView
-      default:
-         mapView.mapType = mapView.mapType
-      }
    }
    
    // MARK: - Types Controller Delegate
@@ -165,27 +158,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          overlay.map = mapView
       default:
          mapView.mapType = mapView.mapType
-      }
-   }
-   
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      // Building View
-      if segue.identifier == segueToChooseBuildingViewController {
-         let navViewController = segue.destinationViewController
-            as! UINavigationController
-         let viewController = navViewController.viewControllers.first
-            as! ChooseBuildingRoomViewController
-         viewController.identifier = segueToChooseBuildingFromMapViewController
-      }
-      else if segue.identifier == segueToFloorPlanPagedScrollViewController {
-         let viewController = segue.destinationViewController
-            as! FloorPlanPagedScrollViewController
-         viewController.setPages(selectedBuilding)
-      }
-      else if segue.identifier == segueToMapViewTypeTableViewController {
-         let navViewController = segue.destinationViewController as! UINavigationController
-         let viewController = navViewController.viewControllers.first as! MapViewTypeTableViewController
-         viewController.selectedType = self.selectedType
       }
    }
    

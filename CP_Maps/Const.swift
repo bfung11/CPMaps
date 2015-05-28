@@ -18,16 +18,14 @@ let selectedDaysAsBoolIntialValue = false
 
 // Cell Reuse Identifiers
 let locationCellReuseIdentifier = "LocationCell"
+let mapTypeCellReuseIdentifier = "MapTypeCell"
 
 // View Controller Titles
-let choooseMapTypeTableViewControllerTitle = "Choose Map Type"
 let editLocationViewControllerTitle = "Edit Location"
 let addLocationViewControllerTitle = "Add Location"
 let chooseBuildingViewControllerTitle = "Building"
 let chooseRoomViewControllerTitle = "Room"
-
-// Cell Reuse Identifiers
-let mapTypeCellReuseIdentifier = "MapTypeCell"
+let choooseMapTypeTableViewControllerTitle = "Map Type"
 
 // Sections with UIDatePickers
 let sectionWithUIDatePickers = 2
@@ -40,8 +38,6 @@ let numberOfSectionsInChooseBuildingRoomViewController = 1
 let numberOfSectionsInDaysViewController = 1
 
 // Segue Identifiers
-let chooseMapType = "chooseMapType"
-let segueToMapViewTypeTableViewController = "segueToMapViewTypeTableViewController"
 let segueToChooseBuildingFromMapViewController = "chooseBuildingForMapViewController"
 let chooseLocationSegueIdentifier = "chooseLocation"
 let editLocationSegueIdentifier = "editLocation"
@@ -50,6 +46,8 @@ let segueToChooseBuildingFromAddEditLocationViewController = "chooseBuildingForA
 let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
 let findBuildingSegueIdentifer = "findBuilding"
+
+let chooseMapType = "chooseMapType"
 
 let segueToChooseBuildingViewController = "segueToChooseBuildingViewController"
 let segueToChooseDaysViewController = "segueToChooseDaysViewController"

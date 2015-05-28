@@ -16,7 +16,7 @@ class CPMapsLibraryAPI: NSObject {
    private let locationsPersistencyManager: LocationsPersistencyManager
    private let buildingsPersistencyManager: BuildingsPersistencyManager
    private let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-
+   
    static let sharedInstance = CPMapsLibraryAPI()
    
    override init() {
@@ -64,8 +64,8 @@ class CPMapsLibraryAPI: NSObject {
       return buildingsPersistencyManager.getBuilding(buildingNumber)
    }
    
-   func getBuildingAtIndex(index: Int) -> Building {
-      return buildingsPersistencyManager.getBuildingAtIndex(index)
+   func getBuildingAtIndex(indexPath: NSIndexPath) -> Building {
+      return buildingsPersistencyManager.getBuildingAtIndex(indexPath)
    }
    
    func getNumberOfBuildings() -> Int {

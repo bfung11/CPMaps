@@ -15,19 +15,19 @@ class Location: NSManagedObject {
    @NSManaged var roomNumber: String?
    @NSManaged var startTime: String?
    @NSManaged var endTime: String?
-   @NSManaged var days: String?
+   @NSManaged var days: String?            // Stores the entire string with commas
    
    
    class func createInManagedObjectContext(name: String?, buildingNumber: String!, roomNumber: String?,
       startTime: String?, endTime: String?, days: String?,
       insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-      let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: context!) as! Location
-      location.setValue(name, forKey: "name")
-      location.setValue(buildingNumber, forKey: "buildingNumber")
-      location.setValue(roomNumber, forKey: "roomNumber")
-      location.setValue(startTime, forKey: "startTime")
-      location.setValue(endTime, forKey: "endTime")
-      location.setValue(days, forKey: "days")
+         let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: context!) as! Location
+         location.setValue(name, forKey: "name")
+         location.setValue(buildingNumber, forKey: "buildingNumber")
+         location.setValue(roomNumber, forKey: "roomNumber")
+         location.setValue(startTime, forKey: "startTime")
+         location.setValue(endTime, forKey: "endTime")
+         location.setValue(days, forKey: "days")
    }
    
    func updateBuilding(buildingNumber: String) {
@@ -63,8 +63,26 @@ class Location: NSManagedObject {
       return self.roomNumber
    }
    
+   func getStartTime() -> String? {
+      return self.startTime
+   }
+   
+   func getEndTime() -> String? {
+      return self.endTime
+   }
+   
    func getDays() -> String? {
       return self.days
+   }
+   
+   func update(name: String?, buildingNumber: String!, roomNumber: String?,
+      startTime: String?, endTime: String?, days: String?) {
+         self.name = name
+         self.buildingNumber = buildingNumber
+         self.roomNumber = roomNumber
+         self.startTime = startTime
+         self.endTime = endTime
+         self.days = days
    }
    
    func updateName(name: String) {

@@ -25,8 +25,8 @@ class BuildingsPersistencyManager: NSObject {
       return buildings[calculateIndex(buildingNumber)]
    }
    
-   func getBuildingAtIndex(index: Int) -> Building {
-      return buildings[index]
+   func getBuildingAtIndex(indexPath: NSIndexPath) -> Building {
+      return buildings[indexPath.row]
    }
    
    func getNumberOfBuildings() -> Int {

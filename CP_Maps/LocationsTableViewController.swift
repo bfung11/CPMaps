@@ -11,10 +11,11 @@ import CoreData
 
 class LocationsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,
 UITableViewDataSource {
-      
+   
    var locations: CPMapsLibraryAPI!
    var fetchedResultsController: CPMapsLibraryAPI!
-   var selectedLocation: NSIndexPath?
+   var selectedLocation: Location?
+   var selectedLocationIndexPath: NSIndexPath?
    var isEditLocation: Bool?
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
@@ -24,8 +25,38 @@ UITableViewDataSource {
       fetchedResultsController = CPMapsLibraryAPI.sharedInstance
       fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
-      self.editing = true
-//      locationsTableView.registerClass(LocationCell.self, forCellReuseIdentifier: locationCellReuseIdentifier)
+      
+      var swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+      swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+      self.view.addGestureRecognizer(swipeRight)
+      
+      var swipeDown = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+      swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+      self.view.addGestureRecognizer(swipeDown)
+      
+      var longPress = UILongPressGestureRecognizer(target: self, action: "respondToLongPress:")
+      self.view.addGestureRecognizer(longPress)
+   }
+   
+   func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+      
+      if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+         
+         switch swipeGesture.direction {
+         case UISwipeGestureRecognizerDirection.Right:
+            println("Swiped right")
+         case UISwipeGestureRecognizerDirection.Down:
+            println("Swiped down")
+         default:
+            break
+         }
+      }
+   }
+   
+   func respondToLongPress(gesture: UIGestureRecognizer) {
+      if let longPressGesture = gesture as? UILongPressGestureRecognizer {
+         println("Long Press")
+      }
    }
    
    override func didReceiveMemoryWarning() {
@@ -55,39 +86,69 @@ UITableViewDataSource {
          else {
             cell.roomLabel?.text = ""
          }
-         cell.locationDetailsLabel?.text = getName(location) + " " + 
+         cell.locationDetailsLabel?.text = getName(location) + " " +
             getTime(location) + " " + getDays(location)
          return cell
    }
    
-   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      self.selectedLocation = indexPath
-      performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
+   override func tableView(tableView: UITableView,
+      didSelectRowAtIndexPath indexPath: NSIndexPath) {
+         
+         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+         self.selectedLocation = self.locations.getLocation(indexPath)
+         performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
-   override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
-      self.selectedLocation = indexPath
-      performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+   override func tableView(tableView: UITableView,
+      accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+         self.presentAllOptionsActionSheet(indexPath)
    }
    
-   // called when a row deletion action is confirmed
+   override func tableView(tableView: UITableView,
+      canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+         return true
+   }
+   
+   override func tableView(tableView: UITableView,
+      editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+         
+         var editAction = UITableViewRowAction(style: .Default, title: "Edit",
+            handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+               self.selectedLocation = self.locations.getLocation(indexPath)
+               self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+            }
+         )
+         editAction.backgroundColor = UIColor.lightGrayColor()
+         
+         var deleteAction = UITableViewRowAction(style: .Normal, title: "Delete",
+            handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
+               self.presentDeleteActionSheet(indexPath)
+            }
+         )
+         deleteAction.backgroundColor = UIColor.redColor()
+         
+         return [deleteAction, editAction]
+   }
+   
+   override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+      return true
+   }
+   
+   override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+      //      var itemToMove = tableData[fromIndexPath.row]
+      //      tableData.removeAtIndex(fromIndexPath.row)
+      //      tableData.insert(itemToMove, atIndex: toIndexPath.row)
+   }
+   
+   /*! Called when a row deletion action is confirmed
+   */
    override func tableView(tableView: UITableView,
       commitEditingStyle editingStyle: UITableViewCellEditingStyle,
       forRowAtIndexPath indexPath: NSIndexPath) {
-         switch editingStyle {
-         case .Delete:
-            // remove the deleted item from the model
-            let location = locations.getLocation(indexPath)
-            locations.deleteLocation(location)
-            
-            // Refresh the table view to indicate that it's deleted
-            locations.performFetch(nil)
-            // remove the deleted item from the `UITableView`
-            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-         default:
-            return
-         }
+   }
+   
+   func controllerDidChangeContent(controller: NSFetchedResultsController) {
+      self.tableView.reloadData()
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -96,7 +157,7 @@ UITableViewDataSource {
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
             as! AddEditLocationViewController
-         viewController.selectedLocation = selectedLocation
+         viewController.selectedLocation = self.selectedLocation
          isEditLocation = true
       }
       else {
@@ -104,24 +165,16 @@ UITableViewDataSource {
       }
    }
    
-   func controllerDidChangeContent(controller: NSFetchedResultsController) {
-      self.tableView.reloadData()
-   }
-   
-   @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
-   }
-   
-   @IBAction func cancelToLocationsTableViewController(segue:UIStoryboardSegue) {
-   }
-   
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
-      let buildingNumber = locations.getBuildingAtIndex(viewController.buildingIndexPath.row).getNumber()
+      let buildingNumber = viewController.selectedBuilding.getNumber()
       
       if isEditLocation == true {
-         let location = locations.getLocation(viewController.selectedLocation)
-         location.updateBuildingNumber(buildingNumber)
-         location.updateRoomNumber(viewController.selectedRoom!)
+         let location = viewController.selectedLocation
+         location.update(viewController.name,
+            buildingNumber: buildingNumber, roomNumber: viewController.selectedRoom,
+            startTime: viewController.startTime, endTime: viewController.endTime,
+            days: viewController.selectedDays)
          self.tableView.reloadData() //may need to reload only one table cell
       }
       else {
@@ -130,6 +183,18 @@ UITableViewDataSource {
             startTime: viewController.startTime, endTime: viewController.endTime,
             days: viewController.selectedDays)
       }
+   }
+   
+   @IBAction func cancelAddEditLocation(segue:UIStoryboardSegue) {
+   }
+   
+   @IBAction func cancelToLocationsTableViewController(segue:UIStoryboardSegue) {
+   }
+   
+   private func deleteLocation(indexPath: NSIndexPath) {
+      let location = self.locations.getLocation(indexPath)
+      self.locations.deleteLocation(location)
+      self.locations.performFetch(nil)
    }
    
    private func getName(location: Location) -> String {
@@ -151,8 +216,73 @@ UITableViewDataSource {
       
       if (location.getDays() != nil) {
          days = location.getDays()!
+         days = self.convertToShortName(days)
       }
       
       return days
    }
+   
+   private func convertToShortName(selectedDays: String) -> String {
+      var shortName = ""
+      let selectedDaysNSString = NSString(string: selectedDays)
+      let arr = selectedDaysNSString.componentsSeparatedByString(", ")
+      
+      for day in arr {
+         shortName += getShortName(day as! String)
+      }
+      
+      return shortName
+   }
+   
+   private func getShortName(longName: String) -> String {
+      var shortName = "Please select a day"
+      
+      switch longName {
+      case "Sunday":
+         shortName = "Su"
+      case "Monday":
+         shortName = "M"
+      case "Tuesday":
+         shortName = "Tu"
+      case "Wednesday":
+         shortName = "W"
+      case "Thursday":
+         shortName = "Th"
+      case "Friday":
+         shortName = "F"
+      case "Saturday":
+         shortName = "Sa"
+      default: ()
+      }
+      
+      return shortName
+   }
+   
+   /* ----Start of UIActionSheet functions---- */
+   private func presentAllOptionsActionSheet(indexPath: NSIndexPath) {
+      let allOptionsActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Move", style:UIAlertActionStyle.Default, handler:{ action in
+      }))
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Edit", style:UIAlertActionStyle.Default, handler:{ action in
+         self.selectedLocation = self.locations.getLocation(indexPath)
+         self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+      }))
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
+         self.deleteLocation(indexPath)
+         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+      }))
+      allOptionsActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      presentViewController(allOptionsActionSheet, animated:true, completion:nil)
+   }
+   
+   private func presentDeleteActionSheet(indexPath: NSIndexPath) {
+      let deleteActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+      deleteActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
+         self.deleteLocation(indexPath)
+         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+      }))
+      deleteActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      presentViewController(deleteActionSheet, animated:true, completion:nil)
+   }
+   /* ----End of UIActionSheet functions---- */
 }

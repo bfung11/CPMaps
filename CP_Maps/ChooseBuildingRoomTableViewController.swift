@@ -11,9 +11,9 @@
 import UIKit
 
 class ChooseBuildingRoomViewController: UITableViewController {
-   var identifier: String?      // determines whether to display building or room data 
+   var identifier: String?      // determines whether to display building or room data
    var data: CPMapsLibraryAPI!       // building data or room data
-   var buildingIndexPath: NSIndexPath? // selected building or room
+   var selectedBuilding: Building!
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -40,7 +40,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
       var cell: UITableViewCell?
-      var building = data.getBuildingAtIndex(indexPath.row) // for readability
+      var building = data.getBuildingAtIndex(indexPath) // for readability
       
       // display buildings
       cell = tableView.dequeueReusableCellWithIdentifier("BuildingRoomCell", forIndexPath: indexPath) as? UITableViewCell
@@ -48,7 +48,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
       cell!.accessoryType = .None //prevents random buildings from having checkmarks
       
       // if there is a selected building, put a checkmark next to the selected building
-      if buildingIndexPath != nil && data.getBuildingAtIndex(buildingIndexPath!.row).getName() == building.getName() {
+      if self.selectedBuilding != nil && selectedBuilding.getName() == building.getName() {
          cell!.accessoryType = .Checkmark
       }
       
@@ -56,8 +56,8 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      self.buildingIndexPath = indexPath
-
+      self.selectedBuilding = data.getBuildingAtIndex(indexPath)
+      
       if identifier == segueToChooseBuildingFromAddEditLocationViewController {
          performSegueWithIdentifier(segueToChooseBuildingFromAddEditLocationViewController, sender: self)
       }
