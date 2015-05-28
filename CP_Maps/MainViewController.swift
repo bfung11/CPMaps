@@ -17,13 +17,13 @@ class MainViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      mainSegmentedControl.addTarget(self, action: "mainSegmentPressed",
+      mainSegmentedControl.addTarget(self, action: "mainSegmentPressed:",
          forControlEvents: UIControlEvents.ValueChanged)
       self.instantiateUIViews()
       // Do any additional setup after loading the view.
    }
    
-   func mainSegmentPressed(sender: AnyObject) {
+   @IBAction func mainSegmentPressed(sender: AnyObject) {
       let segmentedControl = sender as! UISegmentedControl
       
       switch segmentedControl.selectedSegmentIndex {
