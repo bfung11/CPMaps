@@ -191,6 +191,12 @@ UITableViewDataSource {
    @IBAction func cancelToLocationsTableViewController(segue:UIStoryboardSegue) {
    }
    
+   private func deleteLocation(indexPath: NSIndexPath) {
+      let location = self.locations.getLocation(indexPath)
+      self.locations.deleteLocation(location)
+      self.locations.performFetch(nil)
+   }
+   
    private func getName(location: Location) -> String {
       var name = ""
       
@@ -262,10 +268,8 @@ UITableViewDataSource {
          self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
-         let location = self.locations.getLocation(indexPath)
-         self.locations.deleteLocation(location)
-         self.locations.performFetch(nil)
-         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+         self.deleteLocation(indexPath)
+         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
       presentViewController(allOptionsActionSheet, animated:true, completion:nil)
@@ -274,10 +278,8 @@ UITableViewDataSource {
    private func presentDeleteActionSheet(indexPath: NSIndexPath) {
       let deleteActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
       deleteActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
-         let location = self.locations.getLocation(indexPath)
-         self.locations.deleteLocation(location)
-         self.locations.performFetch(nil)
-         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+         self.deleteLocation(indexPath)
+         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
       }))
       deleteActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
       presentViewController(deleteActionSheet, animated:true, completion:nil)
