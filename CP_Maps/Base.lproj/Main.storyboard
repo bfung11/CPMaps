@@ -23,7 +23,7 @@
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="69N-zL-R9Q">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -76,11 +76,6 @@
                                 <items>
                                     <navigationItem prompt="" id="ZxJ-qA-FyO">
                                         <nil key="title"/>
-                                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="search" id="kVW-fy-eZk">
-                                            <connections>
-                                                <segue destination="fz7-XB-OHL" kind="show" identifier="segueToChooseBuildingViewController" id="Hpa-3g-49m"/>
-                                            </connections>
-                                        </barButtonItem>
                                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="kve-ux-pF3">
                                             <rect key="frame" x="80" y="37" width="255" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -92,9 +87,9 @@
                                                 <action selector="mapTypeSegmentPressed:" destination="vXZ-lx-hvc" eventType="valueChanged" id="fRR-Sc-hyA"/>
                                             </connections>
                                         </segmentedControl>
-                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="SRl-Fh-Z6I">
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="search" id="mWj-fg-N1W">
                                             <connections>
-                                                <segue destination="SkE-ef-w4j" kind="show" id="78O-aH-qUH"/>
+                                                <segue destination="fz7-XB-OHL" kind="show" id="Qb9-C2-IEN"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -284,7 +279,7 @@
             <objects>
                 <tableViewController id="Agc-E3-Fux" customClass="AddEditLocationViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BVV-Tm-Xhx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
@@ -375,7 +370,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nvb-Of-UO6" id="hDb-Wb-KsL">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
+                                                <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="cWO-1N-B87" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
@@ -415,7 +410,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8lg-9n-Ccx" id="GXU-0N-kVx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-0v-aTQ" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
+                                                <datePicker tag="1" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Oie-0v-aTQ" customClass="StartEndDatePicker" customModule="CP_Maps" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="453504582.52007502">
                                                         <!--2015-05-16 21:29:42 +0000-->
@@ -528,6 +523,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxk-t9-rb4">
                             <connections>
                                 <action selector="cancelFromChooseBuildingRoomViewController:" destination="reh-xF-wIR" id="7aF-7T-auZ"/>
+                                <segue destination="bdo-WV-BjI" kind="unwind" identifier="cancelToMapViewController" unwindAction="cancelToMapViewController:" id="I1J-p8-GUD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -550,7 +546,7 @@
             <objects>
                 <tableViewController title="Choose Days" id="g60-TJ-JGu" customClass="ChooseDaysViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1FA-yR-KMd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -666,7 +662,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="78O-aH-qUH"/>
-        <segue reference="g6d-cM-Wbu"/>
+        <segue reference="Qb9-C2-IEN"/>
+        <segue reference="dNb-ah-2UI"/>
     </inferredMetricsTieBreakers>
 </document>
