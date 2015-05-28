@@ -25,6 +25,38 @@ UITableViewDataSource {
       fetchedResultsController = CPMapsLibraryAPI.sharedInstance
       fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
+      
+      var swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+      swipeRight.direction = UISwipeGestureRecognizerDirection.Right
+      self.view.addGestureRecognizer(swipeRight)
+      
+      var swipeDown = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
+      swipeDown.direction = UISwipeGestureRecognizerDirection.Down
+      self.view.addGestureRecognizer(swipeDown)
+      
+      var longPress = UILongPressGestureRecognizer(target: self, action: "respondToLongPress:")
+      self.view.addGestureRecognizer(longPress)
+   }
+   
+   func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+      
+      if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+         
+         switch swipeGesture.direction {
+         case UISwipeGestureRecognizerDirection.Right:
+            println("Swiped right")
+         case UISwipeGestureRecognizerDirection.Down:
+            println("Swiped down")
+         default:
+            break
+         }
+      }
+   }
+   
+   func respondToLongPress(gesture: UIGestureRecognizer) {
+      if let longPressGesture = gesture as? UILongPressGestureRecognizer {
+         println("Long Press")
+      }
    }
    
    override func didReceiveMemoryWarning() {
