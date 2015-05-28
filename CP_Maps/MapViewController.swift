@@ -37,8 +37,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          mapView.camera = GMSCameraPosition(target: startingPosition_UU, zoom: 15, bearing: 0, viewingAngle: 0)
          
          // initialize overlay
-         var southWest = CLLocationCoordinate2DMake(35.295115, -120.6855869)
-         var northEast = CLLocationCoordinate2DMake(35.312691, -120.6521129)
+         var southWest = CLLocationCoordinate2DMake(35.295115, -120.6864869)
+         var northEast = CLLocationCoordinate2DMake(35.313691, -120.6521129)
          var overlayBounds = GMSCoordinateBounds(coordinate: southWest, coordinate: northEast)
          var icon = UIImage(named: "PolyMap_Extended.jpg")
          overlay = GMSGroundOverlay(bounds: overlayBounds, icon: icon)
