@@ -32,7 +32,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       // Do any additional setup after loading the view, typically from a nib.
       
       if(mapView == nil) {
-         NSLog("MapView starts off nil");
+//         NSLog("MapView starts off nil");
       }
       else {
          var startingPosition_UU = CLLocationCoordinate2DMake(35.299776974257, -120.65926909446716)
@@ -181,7 +181,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
          }
          else {
-            NSLog(TAG + "MapView is nil");
+//            NSLog(TAG + "MapView is nil");
          }
       }
    }
@@ -193,7 +193,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             locationManager.stopUpdatingLocation()
          }
          else {
-            NSLog(TAG + "MapView is nil");
+//            NSLog(TAG + "MapView is nil");
          }
       }
    }

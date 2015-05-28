@@ -80,6 +80,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="detailView" destination="45f-X7-bk9" id="NrR-OB-Ymh"/>
                         <outlet property="mainSegmentedControl" destination="OqN-2v-ToL" id="33Y-rg-9CP"/>
                     </connections>
                 </viewController>
