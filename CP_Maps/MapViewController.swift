@@ -115,7 +115,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
       marker.map = nil
       line.map = nil
+      
+      locationTitle.text = "CP Maps"
+      floorPlanButton.enabled = false
    }
+   
    
    func mapToLocation(destinationLocation : CLLocationCoordinate2D) {
       self.line.map = nil
