@@ -40,7 +40,11 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       
       for var floor = 1; floor <= building.numberOfFloors; ++floor {
          var fileName: String! = building.number + "-" + String(floor) + ".png"
-         pageImages.append(UIImage(named:fileName)!)
+         var image: UIImage? = UIImage(named:fileName)
+         // only add the image if it exists
+         if(image != nil) {
+            pageImages.append(image!)
+         }
       }
    }
    
