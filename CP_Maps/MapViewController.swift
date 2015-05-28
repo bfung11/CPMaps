@@ -8,9 +8,11 @@
 
 import UIKit
 
-class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate, GMSMapViewDelegate {
    
    let TAG = "MapViewController: "
+   
+   //TODO Marker and Line objects are instantianting new objects every time. Just reset the positions...
    
    @IBOutlet weak var mapView: GMSMapView!
    @IBOutlet weak var locationTitle: UILabel!
@@ -28,6 +30,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    override func viewDidLoad() {
       super.viewDidLoad()
       // Do any additional setup after loading the view, typically from a nib.
+      
+      mapView.delegate = self
       
       if(mapView == nil) {
          NSLog("MapView starts off nil");
@@ -88,36 +92,52 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          marker.appearAnimation = kGMSMarkerAnimationPop
          marker.map = mapView
          
-         // animate to marker
+         mapToLocation(position)
          mapView.animateToLocation(position)
-         
-         
-         // INITIAL MAPPING
-         if(locationManager.location != nil) {
-               dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
-                  if let encodedRoute = optionalRoute {
-                     
-                     let path = GMSPath(fromEncodedPath: encodedRoute)
-                     self.line = GMSPolyline(path: path)
-                     
-                     self.line.strokeWidth = 4.0
-                     self.line.tappable = true
-                     self.line.zIndex = 1;         // draw over overlay
-                     self.line.map = self.mapView
-                     
-                     // 5
-                     //self.mapView.selectedMarker = nil
-                  }
-               }
-         }
-         else {
-            NSLog(TAG + "Location is not shared - cannot map directions")
-         }
       }
       
       //enable floor plan button and load images
       floorPlanButton.enabled = true
       
+   }
+   
+   func mapView(mapView: GMSMapView!, didLongPressAtCoordinate coordinate: CLLocationCoordinate2D) {
+      marker.map = nil
+      line.map = nil
+      marker = GMSMarker(position: coordinate)
+      marker.map = mapView
+      
+      //directions and animate
+      mapToLocation(coordinate)
+      mapView.animateToLocation(coordinate)
+   }
+   
+   func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+      //remove marker and map
+      marker.map = nil
+      line.map = nil
+   }
+   
+   func mapToLocation(destinationLocation : CLLocationCoordinate2D) {
+      var currentLocation = locationManager.location
+      
+      if(currentLocation != nil) {
+         dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: destinationLocation) {optionalRoute in
+            if let encodedRoute = optionalRoute {
+               
+               let path = GMSPath(fromEncodedPath: encodedRoute)
+               self.line = GMSPolyline(path: path)
+               
+               self.line.strokeWidth = 4.0
+               self.line.tappable = true
+               self.line.zIndex = 1;         // draw over overlay
+               self.line.map = self.mapView
+            }
+         }
+      }
+      else {
+         NSLog(TAG + "Location is not shared - cannot map directions")
+      }
    }
    
    @IBAction func chooseLocation(segue:UIStoryboardSegue) {
