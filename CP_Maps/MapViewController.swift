@@ -85,7 +85,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       if(building.getLatitude() != 0 && building.getLongtitude() != 0) {
          
          var position = CLLocationCoordinate2DMake(building.getLatitude(), building.getLongtitude())
-         marker = GMSMarker(position: position)
+         marker.position = position
          marker.title = building.number + " - " + building.getName()
          marker.snippet = "Floors: " + String(building.getNumberOfFloors())
          marker.infoWindowAnchor = CGPointMake(0.5, 0.1)
@@ -102,23 +102,23 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    }
    
    func mapView(mapView: GMSMapView!, didLongPressAtCoordinate coordinate: CLLocationCoordinate2D) {
-      marker.map = nil
-      line.map = nil
-      marker = GMSMarker(position: coordinate)
-      marker.map = mapView
+      self.marker.map = nil
+      self.marker = GMSMarker(position: coordinate)
+      self.marker.map = self.mapView
       
       //directions and animate
       mapToLocation(coordinate)
       mapView.animateToLocation(coordinate)
    }
    
+   //remove marker and directional line from map
    func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
-      //remove marker and map
       marker.map = nil
       line.map = nil
    }
    
    func mapToLocation(destinationLocation : CLLocationCoordinate2D) {
+      self.line.map = nil
       var currentLocation = locationManager.location
       
       if(currentLocation != nil) {
@@ -126,7 +126,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             if let encodedRoute = optionalRoute {
                
                let path = GMSPath(fromEncodedPath: encodedRoute)
-               self.line = GMSPolyline(path: path)
+               self.line.path = path
                
                self.line.strokeWidth = 4.0
                self.line.tappable = true
