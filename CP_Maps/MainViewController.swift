@@ -12,13 +12,22 @@ class MainViewController: UIViewController {
 
    @IBOutlet weak var mainSegmentedControl: UISegmentedControl!
    
-   var locationsTableView: UITableView!
+   var mapViewController: UIViewController!
+   var locationsViewController: UITableViewController!
    var mapView: UIView!
+   var locationsTableView: UITableView!
    
    override func viewDidLoad() {
       super.viewDidLoad()
       mainSegmentedControl.addTarget(self, action: "mainSegmentPressed:",
          forControlEvents: UIControlEvents.ValueChanged)
+//      let vc = self.viewControllerForSegmentIndex(self.mainSegmentedControl.selectedSegmentIndex)
+//      self.addChildViewController(vc)
+//      vc.view.frame = self.view.bounds;
+//      self.view.addSubview(vc.view)
+//      self.currentViewController = vc
+      
+      // probably should add into container controller
       self.instantiateUIViews()
       // Do any additional setup after loading the view.
    }
@@ -37,28 +46,42 @@ class MainViewController: UIViewController {
          self.showMapView()
       }
    }
-   
+
    private func instantiateUIViews() {
-      let locationsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
-         as! LocationsTableViewController
-      locationsTableView = locationsViewController.view as! UITableView
-      let mapViewController =
-         self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
+      mapViewController =
+      self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
       mapView = mapViewController.view as! UIView
+      locationsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
+         as! LocationsTableViewController
+      locationsTableView = locationsViewController.view as! UITableView
+      self.view.addSubview(mapView)
+      self.view.addSubview(locationsTableView)
    }
    
    private func showMapView() {
-      // !hidden may not work because they may hit the same one twice
-      mapView.hidden = true
-      locationsTableView.hidden = false
+      self.view.viewWithTag(mapViewTag)!.hidden = false
+      self.view.viewWithTag(locationsTableViewTag)!.hidden = true
    }
    
    private func showLocationsTableView() {
-      // !hidden may not work because they may hit the same one twice
-      mapView.hidden = false
-      locationsTableView.hidden = true
+      self.view.viewWithTag(mapViewTag)?.hidden = true
+      self.view.viewWithTag(locationsTableViewTag)?.hidden = false
    }
+   
+//   private func initializeMapView() -> UIView {
+//      let mapViewController =
+//      self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
+//         as! MapViewController
+//      return mapViewController.view
+//   }
+//   
+//   private func initializeLocationsView() -> UIView {
+//      let locationsViewController =
+//         self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
+//         as! LocationsTableViewController
+//      return locationsViewController.view
+//   }
 
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()

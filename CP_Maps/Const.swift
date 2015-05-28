@@ -27,6 +27,10 @@ let chooseBuildingViewControllerTitle = "Building"
 let chooseRoomViewControllerTitle = "Room"
 let choooseMapTypeTableViewControllerTitle = "Map Type"
 
+// Tags for UIViews
+let mapViewTag = 100
+let locationsTableViewTag = 101
+
 // Sections with UIDatePickers
 let sectionWithUIDatePickers = 2
 let startTimeDatePickerTag = 0
