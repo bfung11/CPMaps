@@ -45,6 +45,7 @@
 		11E139D51A9BB4AD0074B985 /* GoogleMaps.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */; };
 		11E139D61A9BB4AF0074B985 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D11A9BB47A0074B985 /* GoogleMaps.framework */; };
 		11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */; };
+		B208DACC1B16AF8A00FB1288 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B208DACB1B16AF8A00FB1288 /* MainViewController.swift */; };
 		B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536E11A709D7500E4391B /* AppDelegate.swift */; };
 		B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */; };
 		B23536EA1A709D7500E4391B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23536E81A709D7500E4391B /* Main.storyboard */; };
@@ -120,6 +121,7 @@
 		11E139D11A9BB47A0074B985 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		11EEA6731AF5FFA500053ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B208DACB1B16AF8A00FB1288 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B23536DC1A709D7500E4391B /* CP_Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP_Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536E01A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536E11A709D7500E4391B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		11FFA9F91A79D1AA007BBBF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
 				B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */,
 				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
@@ -475,6 +478,7 @@
 				B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */,
 				B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */,
 				11E139CC1A9BB1660074B985 /* UIViewExtension.swift in Sources */,
+				B208DACC1B16AF8A00FB1288 /* MainViewController.swift in Sources */,
 				1171B44C1AF0AD2400564ABE /* StreamReader.swift in Sources */,
 				11E139CA1A9BB1660074B985 /* MarkerInfoView.swift in Sources */,
 				B2644D361A990A9300513903 /* Building.swift in Sources */,

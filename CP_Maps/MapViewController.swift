@@ -16,6 +16,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    @IBOutlet weak var locationTitle: UILabel!
    @IBOutlet weak var floorPlanButton: UIBarButtonItem!
    
+   var locationsTableView: UITableView?
+   
    let locationManager = CLLocationManager()
    let locationLibraryAPI = CPMapsLibraryAPI.sharedInstance
    let dataProvider = GoogleDataProvider()
@@ -150,7 +152,12 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       case 0:
          mapView.mapType = kGMSTypeNormal
       case 1:
-         mapView.mapType = kGMSTypeSatellite
+         let viewController =
+         self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
+            as! LocationsTableViewController
+         let locationsTableView = viewController.view as! UITableView
+         locationsTableView.hidden = false
+//         mapView.hidden = true
       case 2:
          mapView.mapType = kGMSTypeHybrid
       case 3:
