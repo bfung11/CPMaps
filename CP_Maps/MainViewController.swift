@@ -48,8 +48,8 @@ class MainViewController: UIViewController {
       let segmentedControl = UISegmentedControl(items: ["Map", "Locations"])
       
 //      segmentedControl.frame = CGRectMake(35, 200, 250, 50)
-      segmentedControl.setWidth(standardUISegmentedControlWidth, forSegmentAtIndex: 0)
-      segmentedControl.setWidth(standardUISegmentedControlWidth, forSegmentAtIndex: 1)
+      segmentedControl.setWidth(standardUISegmentedControlWidth - 5, forSegmentAtIndex: 0)
+      segmentedControl.setWidth(standardUISegmentedControlWidth - 5, forSegmentAtIndex: 1)
       
       segmentedControl.addTarget(self, action: "mainSegmentPressed:",
          forControlEvents: UIControlEvents.ValueChanged)
