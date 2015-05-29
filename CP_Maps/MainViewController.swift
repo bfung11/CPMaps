@@ -36,8 +36,12 @@ class MainViewController: UIViewController {
 //      self.view.addSubview(navBar)
       
       self.navigationItem.rightBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "searchBuildingsButtonPressed:")
+         UIBarButtonItem(barButtonSystemItem: .Search,
+            target: self, action: "searchBuildingsButtonPressed:")
       self.navigationItem.titleView = self.createSegmentedControl()
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
+            target: self, action: "mapTypesButtonPressed:")
    }
    
    private func createSegmentedControl() -> UISegmentedControl {
@@ -52,10 +56,6 @@ class MainViewController: UIViewController {
 //      segmentedControl.momentary = true
       
       return segmentedControl
-   }
-   
-   @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
-      println("here")
    }
    
    @IBAction func mainSegmentPressed(sender: AnyObject) {
@@ -75,6 +75,14 @@ class MainViewController: UIViewController {
       default:
          self.showMapView()
       }
+   }
+   
+   @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
+      println("here")
+   }
+   
+   @IBAction func mapTypesButtonPressed(sender: AnyObject) {
+      println("right button")
    }
    
    private func presentDetailController(detailVC: UIViewController) {
