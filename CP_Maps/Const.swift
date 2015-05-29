@@ -14,6 +14,7 @@ import UIKit
 
 
 let standardNavigationBarHeight: CGFloat = 74
+let standardUISegmentedControlWidth: CGFloat = 110
 
 let dayEnumStartValue = -1
 let selectedDaysAsBoolInitialCount = 7
