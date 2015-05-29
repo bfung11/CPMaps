@@ -15,21 +15,10 @@ class MainViewController: UIViewController {
    
    var currentDetailViewController: UIViewController!
    
-   
    var mapViewController: UIViewController!
    var locationsViewController: UITableViewController!
    var mapView: UIView!
    var locationsTableView: UITableView!
-   
-//   func initWithViewController(viewController: UIViewController) -> UIView {
-//      self = super.init()
-//      
-//      if (self != nil) {
-//         self.presentDetailController(viewController)
-//      }
-//      
-//      return self
-//   }
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -40,8 +29,6 @@ class MainViewController: UIViewController {
          as! MapViewController
       
       self.presentDetailController(detailOne)
-      
-//      self.instantiateUIViews()
    }
    
    @IBAction func mainSegmentPressed(sender: AnyObject) {
@@ -52,13 +39,11 @@ class MainViewController: UIViewController {
          let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
             as! MapViewController
          self.swapCurrentControllerWith(detailVC)
-//         self.showMapView()
          println("Map")
       case 1:
          let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
             as! LocationsTableViewController
          self.swapCurrentControllerWith(detailVC)
-//         self.showLocationsTableView()
          println("Locations")
       default:
          self.showMapView()
