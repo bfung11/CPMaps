@@ -22,13 +22,16 @@ class MainViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      mainSegmentedControl.addTarget(self, action: "mainSegmentPressed:",
-         forControlEvents: UIControlEvents.ValueChanged)
-      
+//      mainSegmentedControl.addTarget(self, action: "mainSegmentPressed:",
+//         forControlEvents: UIControlEvents.ValueChanged)
       let detailOne = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
-      
       self.presentDetailController(detailOne)
+      var navBar: UINavigationBar = UINavigationBar(frame: CGRect(x:0, y:0, width:320, height:80))
+      self.view .addSubview(navBar)
+
+      
+      
    }
    
    @IBAction func mainSegmentPressed(sender: AnyObject) {
