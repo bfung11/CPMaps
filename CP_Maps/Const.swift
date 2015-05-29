@@ -12,6 +12,9 @@ import UIKit
 //let carlPath = "/Users/carllindiii/Desktop/Brians CPMaps/CP_Maps/Building_Info.csv"
 //let brianPath = "/Users/brianfung/Downloads/16_Spring2015/SeniorProject/CPMaps/CP_Maps/Building_Info.csv"
 
+
+let standardNavigationBarHeight: CGFloat = 74
+
 let dayEnumStartValue = -1
 let selectedDaysAsBoolInitialCount = 7
 let selectedDaysAsBoolIntialValue = false

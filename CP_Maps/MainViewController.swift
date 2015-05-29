@@ -27,7 +27,9 @@ class MainViewController: UIViewController {
       let detailOne = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
       self.presentDetailController(detailOne)
-      var navBar: UINavigationBar = UINavigationBar(frame: CGRect(x:0, y:0, width:320, height:80))
+      var navBar = UINavigationBar(frame:
+         CGRect(x:0, y:0, width:CGRectGetWidth(self.view.frame),
+         height:standardNavigationBarHeight))
       self.view .addSubview(navBar)
 
       

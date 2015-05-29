@@ -11,7 +11,7 @@
             <objects>
                 <tableViewController id="JG2-aT-58n" customClass="MapViewTypeTableViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="e6s-7p-hrQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -713,8 +713,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dNb-ah-2UI"/>
+        <segue reference="If6-ib-BoA"/>
         <segue reference="Qb9-C2-IEN"/>
-        <segue reference="4Mo-m4-rmg"/>
+        <segue reference="dNb-ah-2UI"/>
     </inferredMetricsTieBreakers>
 </document>
