@@ -58,16 +58,52 @@ class MainViewController: UIViewController {
       return segmentedControl
    }
    
+   private func swapButtonsForMapView() {
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Search,
+            target: self, action: "searchBuildingsButtonPressed:")
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
+            target: self, action: "mapTypesButtonPressed:")
+   }
+   
+   private func swapButtonsForLocationsView() {
+//      self.navigationItem.leftBarButtonItem =
+//         UIBarButtonItem(barButtonSystemItem: .Edit,
+//            target: self, action: "editButtonPressed:")
+//      self.navigationItem.rightBarButtonItem =
+//         UIBarButtonItem(barButtonSystemItem: .Add,
+//            target: self, action: "addLocationButtonPressed:")
+   }
+   
+   @IBAction func mapTypesButtonPressed(sender: AnyObject) {
+      println("left button for maps")
+   }
+   
+   @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
+      println("right button for maps")
+   }
+   
+   @IBAction func editButtonPressed(sender: AnyObject) {
+      println("left button for location")
+   }
+   
+   @IBAction func addLocationButtonPressed(sender: AnyObject) {
+      println("right button for location")
+   }
+
    @IBAction func mainSegmentPressed(sender: AnyObject) {
       let segmentedControl = sender as! UISegmentedControl
       
       switch segmentedControl.selectedSegmentIndex {
       case 0:
+         self.swapButtonsForMapView()
          let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
             as! MapViewController
          self.swapCurrentControllerWith(detailVC)
          println("Map")
       case 1:
+         self.swapButtonsForLocationsView()
          let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
             as! LocationsTableViewController
          self.swapCurrentControllerWith(detailVC)
@@ -77,13 +113,7 @@ class MainViewController: UIViewController {
       }
    }
    
-   @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
-      println("here")
-   }
-   
-   @IBAction func mapTypesButtonPressed(sender: AnyObject) {
-      println("right button")
-   }
+
    
    private func presentDetailController(detailVC: UIViewController) {
       
