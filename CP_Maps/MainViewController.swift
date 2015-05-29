@@ -34,6 +34,9 @@ class MainViewController: UIViewController {
 //      navBar.setItems(["Hello", "World", "!"], animated: false)
 //      navBar.topItem!.title = "Hello"
 //      self.view.addSubview(navBar)
+      
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: "searchBuildingsButtonPressed:")
       self.navigationItem.titleView = self.createSegmentedControl()
    }
    
@@ -49,6 +52,10 @@ class MainViewController: UIViewController {
 //      segmentedControl.momentary = true
       
       return segmentedControl
+   }
+   
+   @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
+      println("here")
    }
    
    @IBAction func mainSegmentPressed(sender: AnyObject) {
