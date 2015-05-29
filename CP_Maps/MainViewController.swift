@@ -27,13 +27,28 @@ class MainViewController: UIViewController {
       let detailOne = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
       self.presentDetailController(detailOne)
-      var navBar = UINavigationBar(frame:
-         CGRect(x:0, y:0, width:CGRectGetWidth(self.view.frame),
-         height:standardNavigationBarHeight))
-      self.view .addSubview(navBar)
-
       
+//      var navBar = UINavigationBar(frame:
+//         CGRect(x:0, y:0, width:CGRectGetWidth(self.view.frame),
+//         height:standardNavigationBarHeight))
+//      navBar.setItems(["Hello", "World", "!"], animated: false)
+//      navBar.topItem!.title = "Hello"
+//      self.view.addSubview(navBar)
+      self.navigationItem.titleView = self.createSegmentedControl()
+   }
+   
+   private func createSegmentedControl() -> UISegmentedControl {
+      let segmentedControl = UISegmentedControl(items: ["Map", "Locations"])
       
+//      segmentedControl.frame = CGRectMake(35, 200, 250, 50)
+      segmentedControl.setWidth(0, forSegmentAtIndex: 0)
+      segmentedControl.setWidth(0, forSegmentAtIndex: 1)
+      
+      segmentedControl.addTarget(self, action: "mainSegmentPressed:",
+         forControlEvents: UIControlEvents.ValueChanged)
+      segmentedControl.momentary = true
+      
+      return segmentedControl
    }
    
    @IBAction func mainSegmentPressed(sender: AnyObject) {
