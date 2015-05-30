@@ -81,7 +81,7 @@ class MainViewController: UIViewController {
    }
    
    @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
-      println("right button for maps")
+      self.performSegueWithIdentifier(segueToChooseBuildingFromMapViewController, sender: self)
    }
    
    @IBAction func editButtonPressed(sender: AnyObject) {
@@ -90,6 +90,10 @@ class MainViewController: UIViewController {
    
    @IBAction func addLocationButtonPressed(sender: AnyObject) {
       println("right button for location")
+   }
+   
+   @IBAction func cancelToMainViewController(segue: UIStoryboardSegue) {
+      
    }
 
    @IBAction func mainSegmentPressed(sender: AnyObject) {
@@ -112,9 +116,7 @@ class MainViewController: UIViewController {
          self.showMapView()
       }
    }
-   
 
-   
    private func presentDetailController(detailVC: UIViewController) {
       
       //0. Remove the current Detail View Controller showed
