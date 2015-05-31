@@ -68,6 +68,7 @@
 		B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
+		B2E728F21B1AB41B00B7A0D6 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
 		B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -148,6 +149,7 @@
 		B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsPersistencyManager.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
 		B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
+				B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
 				B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */,
 				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
@@ -441,6 +444,7 @@
 				118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */,
 				1157A9F21AFAAAFE004CA294 /* 14-3.png in Resources */,
 				113A94161B04986900C082C6 /* 1-3.png in Resources */,
+				B2E728F21B1AB41B00B7A0D6 /* MainViewController.storyboard in Resources */,
 				1157A9F01AFAAAFE004CA294 /* 14-1.png in Resources */,
 				11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */,
 				113A94181B04986900C082C6 /* 1-5.png in Resources */,
