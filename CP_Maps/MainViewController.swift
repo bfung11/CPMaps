@@ -68,12 +68,12 @@ class MainViewController: UIViewController {
    }
    
    private func swapButtonsForLocationsView() {
-//      self.navigationItem.leftBarButtonItem =
-//         UIBarButtonItem(barButtonSystemItem: .Edit,
-//            target: self, action: "editButtonPressed:")
-//      self.navigationItem.rightBarButtonItem =
-//         UIBarButtonItem(barButtonSystemItem: .Add,
-//            target: self, action: "addLocationButtonPressed:")
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Edit,
+            target: self, action: "editButtonPressed:")
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Add,
+            target: self, action: "addLocationButtonPressed:")
    }
    
    @IBAction func mapTypesButtonPressed(sender: AnyObject) {
@@ -176,37 +176,57 @@ class MainViewController: UIViewController {
       //3b. Attach the new view to the views hierarchy
       self.detailView.addSubview(viewController.view)
       
-      //TODO: Animations go left and then right
-      UIView.animateWithDuration(1.3,
-         
-         //4. Animate the views to create a transition effect
-         animations: {
-            
-            //The new controller's view is going to take the position of the current controller's view
-            viewController.view.frame = self.currentDetailViewController.view.frame
-            
-            //The current controller's view will be moved outside the window
-            self.currentDetailViewController.view.frame = CGRectMake(-2000,
-               0,
-               self.currentDetailViewController.view.frame.size.width,
-               self.currentDetailViewController.view.frame.size.width)
-         },
-         
-         //5. At the end of the animations we remove the previous view and update the hierarchy.
-         completion: {
-            (finished: Bool) in
-            
-            //Remove the old Detail Controller view from superview
-            self.currentDetailViewController.view.removeFromSuperview()
-            
-            //Remove the old Detail controller from the hierarchy
-            self.currentDetailViewController.removeFromParentViewController()
-            
-            //Set the new view controller as current
-            self.currentDetailViewController = viewController
-            self.currentDetailViewController.didMoveToParentViewController(self)
-         }
-      )
+//      //TODO: Animations go left and then right
+//      UIView.animateWithDuration(1.3,
+//         
+//         //4. Animate the views to create a transition effect
+//         animations: {
+//            
+//            //The new controller's view is going to take the position of the current controller's view
+//            viewController.view.frame = self.currentDetailViewController.view.frame
+//            
+//            //The current controller's view will be moved outside the window
+//            self.currentDetailViewController.view.frame = CGRectMake(-2000,
+//               0,
+//               self.currentDetailViewController.view.frame.size.width,
+//               self.currentDetailViewController.view.frame.size.width)
+//         },
+//         
+//         //5. At the end of the animations we remove the previous view and update the hierarchy.
+//         completion: {
+//            (finished: Bool) in
+//            
+//            //Remove the old Detail Controller view from superview
+//            self.currentDetailViewController.view.removeFromSuperview()
+//            
+//            //Remove the old Detail controller from the hierarchy
+//            self.currentDetailViewController.removeFromParentViewController()
+//            
+//            //Set the new view controller as current
+//            self.currentDetailViewController = viewController
+//            self.currentDetailViewController.didMoveToParentViewController(self)
+//         }
+//      )
+      
+      //The new controller's view is going to take the position of the current controller's view
+      viewController.view.frame = self.currentDetailViewController.view.frame
+
+      //The current controller's view will be moved outside the window
+      self.currentDetailViewController.view.frame = CGRectMake(-2000,
+         0,
+         self.currentDetailViewController.view.frame.size.width,
+         self.currentDetailViewController.view.frame.size.width)
+
+      
+      //Remove the old Detail Controller view from superview
+      self.currentDetailViewController.view.removeFromSuperview()
+      
+      //Remove the old Detail controller from the hierarchy
+      self.currentDetailViewController.removeFromParentViewController()
+      
+      //Set the new view controller as current
+      self.currentDetailViewController = viewController
+      self.currentDetailViewController.didMoveToParentViewController(self)
    }
    
    private func frameForDetailController() -> CGRect {
