@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class LocationsTableViewController: UITableViewController, NSFetchedResultsControllerDelegate,
-UITableViewDataSource {
-   
+class LocationsTableViewController: UIViewController, NSFetchedResultsControllerDelegate,
+UITableViewDataSource, UITableViewDelegate {
+      
    @IBOutlet var locationsTableView: UITableView!
    
    var locations: CPMapsLibraryAPI!
@@ -27,6 +27,9 @@ UITableViewDataSource {
       fetchedResultsController = CPMapsLibraryAPI.sharedInstance
       fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
+      
+      self.locationsTableView.delegate = self
+      self.locationsTableView.dataSource = self
       
       var swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
       swipeRight.direction = UISwipeGestureRecognizerDirection.Right
@@ -65,15 +68,15 @@ UITableViewDataSource {
       super.didReceiveMemoryWarning()
    }
    
-   override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+   func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return fetchedResultsController.getNumberOfSectionsInTableView()
    }
    
-   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return fetchedResultsController.getNumberOfRowsInSection(section)
    }
    
-   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
+   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath)
       -> UITableViewCell {
          let cell = tableView.dequeueReusableCellWithIdentifier(locationCellReuseIdentifier, forIndexPath: indexPath) as! LocationCell
          let location = locations.getLocation(indexPath)
@@ -93,7 +96,7 @@ UITableViewDataSource {
          return cell
    }
    
-   override func tableView(tableView: UITableView,
+   func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
          
          tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -101,17 +104,17 @@ UITableViewDataSource {
          performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
-   override func tableView(tableView: UITableView,
+   func tableView(tableView: UITableView,
       accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
          self.presentAllOptionsActionSheet(indexPath)
    }
    
-   override func tableView(tableView: UITableView,
+   func tableView(tableView: UITableView,
       canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
          return true
    }
    
-   override func tableView(tableView: UITableView,
+   func tableView(tableView: UITableView,
       editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
          
          var editAction = UITableViewRowAction(style: .Default, title: "Edit",
@@ -132,11 +135,11 @@ UITableViewDataSource {
          return [deleteAction, editAction]
    }
    
-   override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+   func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
       return true
    }
    
-   override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
+   func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
       //      var itemToMove = tableData[fromIndexPath.row]
       //      tableData.removeAtIndex(fromIndexPath.row)
       //      tableData.insert(itemToMove, atIndex: toIndexPath.row)
@@ -144,13 +147,13 @@ UITableViewDataSource {
    
    /*! Called when a row deletion action is confirmed
    */
-   override func tableView(tableView: UITableView,
+   func tableView(tableView: UITableView,
       commitEditingStyle editingStyle: UITableViewCellEditingStyle,
       forRowAtIndexPath indexPath: NSIndexPath) {
    }
    
    func controllerDidChangeContent(controller: NSFetchedResultsController) {
-      self.tableView.reloadData()
+      self.locationsTableView.reloadData()
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -177,7 +180,7 @@ UITableViewDataSource {
             buildingNumber: buildingNumber, roomNumber: viewController.selectedRoom,
             startTime: viewController.startTime, endTime: viewController.endTime,
             days: viewController.selectedDays)
-         self.tableView.reloadData() //may need to reload only one table cell
+         self.locationsTableView.reloadData() //may need to reload only one table cell
       }
       else {
          locations.addLocation(viewController.name,
@@ -271,7 +274,7 @@ UITableViewDataSource {
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
          self.deleteLocation(indexPath)
-         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+         self.locationsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
       presentViewController(allOptionsActionSheet, animated:true, completion:nil)
@@ -281,7 +284,7 @@ UITableViewDataSource {
       let deleteActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
       deleteActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
          self.deleteLocation(indexPath)
-         self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
+         self.locationsTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Left)
       }))
       deleteActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
       presentViewController(deleteActionSheet, animated:true, completion:nil)

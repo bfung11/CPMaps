@@ -124,10 +124,10 @@
             </objects>
             <point key="canvasLocation" x="-1234" y="359"/>
         </scene>
-        <!--View Controller-->
+        <!--Locations Table View Controller-->
         <scene sceneID="jnf-b3-n8b">
             <objects>
-                <viewController storyboardIdentifier="savedLocationsTableViewController" id="Yn3-6z-xuj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="savedLocationsTableViewController" id="Yn3-6z-xuj" customClass="LocationsTableViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bmy-Nj-hsJ"/>
                         <viewControllerLayoutGuide type="bottom" id="NQw-Zs-KVe"/>
@@ -142,14 +142,56 @@
                                     <barButtonItem title="Item" id="oyU-Vl-pdX"/>
                                 </items>
                             </toolbar>
+                            <tableView clipsSubviews="YES" tag="101" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="TIE-t5-z4W">
+                                <rect key="frame" x="0.0" y="44" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="100" id="hJ9-bd-R3S" customClass="LocationCell" customModule="CP_Maps" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hJ9-bd-R3S" id="iQ0-Xg-quD">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BuildingName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86h-2o-H8y">
+                                                    <rect key="frame" x="21" y="10" width="360" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class Times" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt3-RH-0MA">
+                                                    <rect key="frame" x="21" y="68" width="360" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBr-ss-yN8">
+                                                    <rect key="frame" x="21" y="39" width="360" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buildingLabel" destination="86h-2o-H8y" id="ILG-ms-wQc"/>
+                                            <outlet property="locationDetailsLabel" destination="Wt3-RH-0MA" id="qg5-iM-5tN"/>
+                                            <outlet property="roomLabel" destination="DBr-ss-yN8" id="QhP-6Z-ulq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="8vr-7i-8Mi" secondAttribute="trailing" id="94h-qw-G2R"/>
                             <constraint firstItem="8vr-7i-8Mi" firstAttribute="top" secondItem="Bmy-Nj-hsJ" secondAttribute="bottom" id="Rky-Sw-VI1"/>
                             <constraint firstItem="8vr-7i-8Mi" firstAttribute="leading" secondItem="4TR-ZJ-awD" secondAttribute="leading" id="ZLN-yN-IaX"/>
+                            <constraint firstItem="TIE-t5-z4W" firstAttribute="leading" secondItem="4TR-ZJ-awD" secondAttribute="leadingMargin" constant="-16" id="fPC-vD-HPe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TIE-t5-z4W" secondAttribute="trailing" constant="-16" id="y3W-sb-BQd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationsTableView" destination="TIE-t5-z4W" id="Pmy-pu-8rY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvb-j9-5Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
