@@ -11,12 +11,12 @@ import UIKit
 class MainViewController: UIViewController {
 
    @IBOutlet var detailView: UIView!
-   @IBOutlet weak var mainSegmentedControl: UISegmentedControl!
    
    var currentDetailViewController: UIViewController!
    
-   var mapViewController: UIViewController!
-   var locationsViewController: UITableViewController!
+   var mapViewController: MapViewController!
+   var locationsStoryboard: UIStoryboard!
+   var locationsViewController: LocationsTableViewController!
    var mapView: UIView!
    var locationsTableView: UITableView!
    
@@ -24,10 +24,9 @@ class MainViewController: UIViewController {
       super.viewDidLoad()
 //      mainSegmentedControl.addTarget(self, action: "mainSegmentPressed:",
 //         forControlEvents: UIControlEvents.ValueChanged)
-      let storyboard = UIStoryboard(name: "Main", bundle: nil)
-      let detailOne = storyboard.instantiateViewControllerWithIdentifier("MapViewController")
-         as! MapViewController
-      self.presentDetailController(detailOne)
+      self.instantiate()
+      println(mapViewController)
+      self.presentDetailController(mapViewController)
       
 //      var navBar = UINavigationBar(frame:
 //         CGRect(x:0, y:0, width:CGRectGetWidth(self.view.frame),
@@ -45,6 +44,16 @@ class MainViewController: UIViewController {
             target: self, action: "mapTypesButtonPressed:")
    }
    
+   private func instantiate() {
+      let mapStoryboard = UIStoryboard(name: "Main", bundle: nil)
+      self.mapViewController = mapStoryboard.instantiateViewControllerWithIdentifier("MapViewController")
+         as! MapViewController
+      
+      self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
+//      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID)
+//         as! LocationsTableViewController
+   }
+   
    private func createSegmentedControl() -> UISegmentedControl {
       let segmentedControl = UISegmentedControl(items: ["Map", "Locations"])
       
@@ -58,31 +67,16 @@ class MainViewController: UIViewController {
       
       return segmentedControl
    }
-   
-   private func swapButtonsForMapView() {
-      self.navigationItem.rightBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Search,
-            target: self, action: "searchBuildingsButtonPressed:")
-      self.navigationItem.leftBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
-            target: self, action: "mapTypesButtonPressed:")
-   }
-   
-   private func swapButtonsForLocationsView() {
-      self.navigationItem.leftBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Edit,
-            target: self, action: "editButtonPressed:")
-      self.navigationItem.rightBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Add,
-            target: self, action: "addLocationButtonPressed:")
-   }
-   
+
    @IBAction func mapTypesButtonPressed(sender: AnyObject) {
       println("left button for maps")
    }
    
    @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
-      self.performSegueWithIdentifier(segueToChooseBuildingFromMapViewController, sender: self)
+      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID) as! ChooseBuildingRoomViewController
+      println("before prepare")
+      self.showViewController(vc, sender: self)
+      self.performSegueWithIdentifier("segueToChooseBuildingFromMapViewController", sender: self)
    }
    
    @IBAction func editButtonPressed(sender: AnyObject) {
@@ -113,19 +107,33 @@ class MainViewController: UIViewController {
       switch segmentedControl.selectedSegmentIndex {
       case 0:
          self.swapButtonsForMapView()
-         let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
-            as! MapViewController
-         self.swapCurrentControllerWith(detailVC)
+         self.swapCurrentControllerWith(mapViewController)
          println("Map")
       case 1:
          self.swapButtonsForLocationsView()
-         let detailVC = self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
-            as! LocationsTableViewController
-         self.swapCurrentControllerWith(detailVC)
+         self.swapCurrentControllerWith(locationsViewController)
          println("Locations")
       default:
          self.showMapView()
       }
+   }
+   
+   private func swapButtonsForMapView() {
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Search,
+            target: self, action: "searchBuildingsButtonPressed:")
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
+            target: self, action: "mapTypesButtonPressed:")
+   }
+   
+   private func swapButtonsForLocationsView() {
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Edit,
+            target: self, action: "editButtonPressed:")
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Add,
+            target: self, action: "addLocationButtonPressed:")
    }
 
    private func presentDetailController(detailVC: UIViewController) {
@@ -265,9 +273,11 @@ class MainViewController: UIViewController {
    }
 
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      
       if (segue.identifier == segueToChooseBuildingFromMapViewController) {
-         let navVC = segue.destinationViewController as! UINavigationController
-         let vc = navVC.viewControllers.first as! ChooseBuildingRoomViewController
+//         let navVC = segue.destinationViewController as! UINavigationController
+//         let vc = navVC.viewControllers.first as! ChooseBuildingRoomViewController
+         let vc = segue.destinationViewController as! ChooseBuildingRoomViewController
          vc.identifier = segueToChooseBuildingFromMapViewController
       }
    }

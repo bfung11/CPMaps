@@ -46,7 +46,7 @@
                     <navigationItem key="navigationItem" id="J9i-Mt-lrZ"/>
                     <connections>
                         <outlet property="detailView" destination="YDU-lp-kmd" id="o8w-wp-1Gn"/>
-                        <segue destination="vRZ-bf-t0Y" kind="unwind" unwindAction="chooseBuildingForMapViewController:" id="fBh-lg-q9F"/>
+                        <segue destination="vRZ-bf-t0Y" kind="unwind" identifier="segueToChooseBuildingFromMapViewController" unwindAction="chooseBuildingFromMapViewController:" id="fBh-lg-q9F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ht7-LT-16c" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -21,6 +21,11 @@ class ChooseBuildingRoomViewController: UITableViewController {
       data = CPMapsLibraryAPI.sharedInstance
       self.navigationItem.title = chooseBuildingViewControllerTitle
    }
+   
+   @IBAction func chooseBuildingFromMapViewController(sender: AnyObject) {
+      
+   }
+   
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
       if identifier == segueToChooseBuildingFromAddEditLocationViewController {
          performSegueWithIdentifier(cancelToAddEditLocationViewController, sender: self)
