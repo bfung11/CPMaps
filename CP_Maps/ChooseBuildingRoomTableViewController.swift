@@ -19,11 +19,25 @@ class ChooseBuildingRoomViewController: UITableViewController {
       super.viewDidLoad()
       
       data = CPMapsLibraryAPI.sharedInstance
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Cancel,
+            target: self, action: "cancelButtonPressed:")
       self.navigationItem.title = chooseBuildingViewControllerTitle
+   }
+   
+   @IBAction func cancelButtonPressed(sender: AnyObject) {
+      if identifier == segueToChooseBuildingVCFromMainVC {
+         performSegueWithIdentifier(cancelToMainViewController, sender: self)
+      }
    }
    
    @IBAction func chooseBuildingFromMapViewController(sender: AnyObject) {
       
+   }
+   
+   @IBAction func chooseBuildingFromMainViewController(sender: AnyObject) {
+      self.identifier = segueToChooseBuildingVCFromMainVC
+      println(identifier)
    }
    
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {

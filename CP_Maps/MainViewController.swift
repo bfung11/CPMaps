@@ -62,9 +62,9 @@ class MainViewController: UIViewController {
    
    @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
       let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID) as! ChooseBuildingRoomViewController
+      vc.identifier = segueToChooseBuildingVCFromMainVC
       println("before prepare")
       self.showViewController(vc, sender: self)
-      self.performSegueWithIdentifier("segueToChooseBuildingFromMapViewController", sender: self)
    }
    
    @IBAction func editButtonPressed(sender: AnyObject) {
@@ -79,7 +79,7 @@ class MainViewController: UIViewController {
       
    }
    
-   @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
+   @IBAction func chooseBuildingFromMapViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
 //      let viewController = navVC.viewControllers.first as! MapViewController
       (currentDetailViewController as! MapViewController).showSelectedBuilding(viewController.selectedBuilding)

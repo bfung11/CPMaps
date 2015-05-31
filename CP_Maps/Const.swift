@@ -12,6 +12,12 @@ import UIKit
 //let carlPath = "/Users/carllindiii/Desktop/Brians CPMaps/CP_Maps/Building_Info.csv"
 //let brianPath = "/Users/brianfung/Downloads/16_Spring2015/SeniorProject/CPMaps/CP_Maps/Building_Info.csv"
 
+/* ---- MainViewController Storyboard ---- */
+// Segues
+let segueToChooseBuildingVCFromMainVC = "segueToChooseBuildingFromMainViewController"
+let cancelToMainViewController = "cancelToMainViewController"
+
+
 // Saved Locations Storyboard
 let savedLocationsStoryboard = "SavedLocations"
 let chooseRoomBuildingVCStoryboardID = "chooseRoomBuildingViewController"
