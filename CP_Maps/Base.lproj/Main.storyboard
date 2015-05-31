@@ -54,50 +54,6 @@
             </objects>
             <point key="canvasLocation" x="312" y="2893"/>
         </scene>
-        <!--Main View Controller-->
-        <scene sceneID="gRM-yJ-hW2">
-            <objects>
-                <viewController id="ht3-ZZ-90f" customClass="MainViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="T8I-h7-tva"/>
-                        <viewControllerLayoutGuide type="bottom" id="fGw-2O-2so"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="45f-X7-bk9">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lLI-wC-O9g">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="bookmarks" id="SaF-7M-OKc"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="n0p-eX-LkP"/>
-                                    <barButtonItem width="310" id="PlV-PD-o5t"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NDf-VL-Atu"/>
-                                    <barButtonItem style="plain" systemItem="action" id="ShV-Oz-VLw"/>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ltU-gi-Xhc">
-                                <rect key="frame" x="279" y="567" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="msR-h4-5Xa">
-                        <nil key="title"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="detailView" destination="45f-X7-bk9" id="NrR-OB-Ymh"/>
-                        <outlet property="navigationItem" destination="msR-h4-5Xa" id="5Th-ac-9BO"/>
-                        <segue destination="fz7-XB-OHL" kind="show" identifier="segueToChooseBuildingFromMapViewController" id="0af-On-We0"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rWc-Rz-7yD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1659" y="1094"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -367,9 +323,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="fz7-XB-OHL" kind="show" identifier="segueToChooseBuildingViewController" id="Bkd-na-fPM"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="bzK-OV-31z">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -383,9 +336,6 @@
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="fz7-XB-OHL" kind="show" identifier="chooseRoom" id="g6d-cM-Wbu"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -536,54 +486,6 @@
             </objects>
             <point key="canvasLocation" x="1649" y="187"/>
         </scene>
-        <!--Choose Building-->
-        <scene sceneID="wca-wQ-xqa">
-            <objects>
-                <tableViewController title="Choose Building" id="reh-xF-wIR" customClass="ChooseBuildingRoomViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s3D-UV-dVW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuildingRoomCell" textLabel="UDb-dV-IAv" style="IBUITableViewCellStyleDefault" id="fCd-FV-pah">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fCd-FV-pah" id="RRf-Vr-3Gb">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UDb-dV-IAv">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="reh-xF-wIR" id="C6n-BB-PT6"/>
-                            <outlet property="delegate" destination="reh-xF-wIR" id="6Ac-jt-OjZ"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Building / Room" id="vAl-71-3Ga">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gxk-t9-rb4">
-                            <connections>
-                                <action selector="cancelFromChooseBuildingRoomViewController:" destination="reh-xF-wIR" id="7aF-7T-auZ"/>
-                                <segue destination="bdo-WV-BjI" kind="unwind" unwindAction="cancelToMainViewController:" id="Fk9-OV-4qQ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <connections>
-                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="chooseBuildingForAddEditLocationViewController" unwindAction="chooseBuildingForAddEditLocationViewController:" id="HWa-f6-O2R"/>
-                        <segue destination="bdo-WV-BjI" kind="unwind" identifier="segueToChooseBuildingFromMapViewController" unwindAction="chooseBuildingForMapViewController:" id="2vf-3c-IRW"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pRa-wM-9CV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="bdo-WV-BjI" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-332" y="187"/>
-        </scene>
         <!--Choose Days-->
         <scene sceneID="Sgd-is-2sI">
             <objects>
@@ -668,24 +570,6 @@
             <point key="canvasLocation" x="1072" y="187"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="ICY-Y7-wD0">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fz7-XB-OHL" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xfK-B0-fOg">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="reh-xF-wIR" kind="relationship" relationship="rootViewController" id="XrN-eG-Q2i"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iwx-Q3-dIh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="312" y="187"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="Fah-sT-LR4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fda-Bs-l2A" sceneMemberID="viewController">
@@ -703,27 +587,8 @@
             </objects>
             <point key="canvasLocation" x="312" y="1977"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="9nX-9u-QSa">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dqQ-MO-tZA" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Zt-yB-a9Y">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ht3-ZZ-90f" kind="relationship" relationship="rootViewController" id="q5n-Za-MG5"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YWz-t2-pvb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="847" y="1094"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dNb-ah-2UI"/>
-        <segue reference="g6d-cM-Wbu"/>
     </inferredMetricsTieBreakers>
 </document>
