@@ -41,7 +41,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
-      if identifier == segueToChooseBuildingFromAddEditLocationViewController {
+      if identifier == chooseBuildingForAddEditLocationVC {
          performSegueWithIdentifier(cancelToAddEditLocationViewController, sender: self)
       }
       else if identifier == segueToChooseBuildingFromMapViewController {
@@ -80,8 +80,8 @@ class ChooseBuildingRoomViewController: UITableViewController {
       if identifier == segueToChooseBuildingVCFromMainVC {
          performSegueWithIdentifier(chooseBuildingForMapViewController, sender: self)
       }
-      else if identifier == segueToChooseBuildingFromAddEditLocationViewController {
-         performSegueWithIdentifier(segueToChooseBuildingFromAddEditLocationViewController, sender: self)
+      else if identifier == chooseBuildingForAddEditLocationVC {
+         performSegueWithIdentifier(chooseBuildingForAddEditLocationVC, sender: self)
       }
 
    }

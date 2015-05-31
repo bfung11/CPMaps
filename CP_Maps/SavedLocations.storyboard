@@ -30,6 +30,8 @@
                     <connections>
                         <segue destination="jDo-ST-qh0" kind="unwind" identifier="cancelToMainViewController" unwindAction="cancelToMainViewController:" id="Wcl-cW-d8g"/>
                         <segue destination="jDo-ST-qh0" kind="unwind" identifier="chooseBuildingForMapViewController" unwindAction="chooseBuildingForMapViewController:" id="c5m-C9-YqQ"/>
+                        <segue destination="jDo-ST-qh0" kind="unwind" identifier="cancelToAddEditLocationViewController" unwindAction="cancelToAddEditLocationViewController:" id="d9G-lu-Uzb"/>
+                        <segue destination="jDo-ST-qh0" kind="unwind" identifier="chooseBuildingForAddEditLocationViewController" unwindAction="chooseBuildingForAddEditLocationViewController:" id="VOr-6r-a8i"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oq8-3N-hZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -162,6 +164,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="WL9-FD-WnL" kind="show" identifier="chooseBuildingForAddEditLocationViewController" id="na0-Na-Jle"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="TKl-fG-U0q">
                                         <autoresizingMask key="autoresizingMask"/>

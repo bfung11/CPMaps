@@ -29,6 +29,11 @@ let addEditLocationTVCStoryboardID = "addEditLocationTableViewController"
 let addEditLocationNCStoryboardID = "addEditLocationNavigationController"
 let chooseRoomBuildingVCStoryboardID = "chooseRoomBuildingViewController"
 
+let segueToChooseBuildingVC = "segueToChooseBuildingViewController"
+
+let chooseBuildingForAddEditLocationVC = "chooseBuildingForAddEditLocationViewController"
+let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
+
 
 let standardNavigationBarHeight: CGFloat = 74
 let standardUISegmentedControlWidth: CGFloat = 110
@@ -67,18 +72,16 @@ let segueToChooseBuildingFromMapViewController = "segueToChooseBuildingFromMapVi
 let chooseLocationSegueIdentifier = "chooseLocation"
 let editLocationSegueIdentifier = "editLocation"
 let saveLocationSegueIdentifer = "saveLocation"
-let segueToChooseBuildingFromAddEditLocationViewController = "chooseBuildingForAddEditLocationViewController"
+
 let chooseRoomSegueIdentifier = "chooseRoom"
 let saveRoomSegueIdentifer = "saveRoom"
 let findBuildingSegueIdentifer = "findBuilding"
 
 let chooseMapType = "chooseMapType"
 
-let segueToChooseBuildingViewController = "segueToChooseBuildingViewController"
 let segueToChooseDaysViewController = "segueToChooseDaysViewController"
 let segueToFloorPlanPagedScrollViewController = "floorPlanPagedScrollViewController"
 let cancelToMapViewController = "cancelToMapViewController"
-let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
 
 // UIAlertView Messages
 let saveNewLocationTitle = "No Building Selected"

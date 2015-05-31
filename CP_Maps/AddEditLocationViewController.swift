@@ -138,11 +138,14 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == segueToChooseBuildingViewController {
+      println("prepare for segue")
+      println(segue.identifier)
+      if segue.identifier == chooseBuildingForAddEditLocationVC {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first as! ChooseBuildingRoomViewController
-         viewController.identifier = segueToChooseBuildingFromAddEditLocationViewController
+         viewController.identifier = chooseBuildingForAddEditLocationVC
+         println(viewController.identifier)
          viewController.selectedBuilding = self.selectedBuilding
       }
       if segue.identifier == segueToChooseDaysViewController {
