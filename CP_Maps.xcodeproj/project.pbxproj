@@ -70,6 +70,7 @@
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
 		B2E728F21B1AB41B00B7A0D6 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */; };
 		B2E728F41B1AB6B200B7A0D6 /* SavedLocations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */; };
+		B2E728F71B1AC92E00B7A0D6 /* OldMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
 		B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -152,6 +153,7 @@
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
 		B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedLocations.storyboard; sourceTree = "<group>"; };
+		B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldMainViewController.swift; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
 		B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,6 +234,7 @@
 		11FFA9F91A79D1AA007BBBF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B2E728F51B1AC8F100B7A0D6 /* Controllers with useful code */,
 				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
 				B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
@@ -354,6 +357,14 @@
 				B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		B2E728F51B1AC8F100B7A0D6 /* Controllers with useful code */ = {
+			isa = PBXGroup;
+			children = (
+				B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */,
+			);
+			name = "Controllers with useful code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,6 +499,7 @@
 				11E139CC1A9BB1660074B985 /* UIViewExtension.swift in Sources */,
 				B208DACC1B16AF8A00FB1288 /* MainViewController.swift in Sources */,
 				1171B44C1AF0AD2400564ABE /* StreamReader.swift in Sources */,
+				B2E728F71B1AC92E00B7A0D6 /* OldMainViewController.swift in Sources */,
 				11E139CA1A9BB1660074B985 /* MarkerInfoView.swift in Sources */,
 				B2644D361A990A9300513903 /* Building.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
