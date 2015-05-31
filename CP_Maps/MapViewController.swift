@@ -118,7 +118,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       }
       
       //enable floor plan button and load images
-      floorPlanButton.enabled = true
+//      floorPlanButton.enabled = true
       
    }
    

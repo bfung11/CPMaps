@@ -71,6 +71,7 @@
 		B2E728F21B1AB41B00B7A0D6 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */; };
 		B2E728F41B1AB6B200B7A0D6 /* SavedLocations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */; };
 		B2E728F71B1AC92E00B7A0D6 /* OldMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */; };
+		B2E728F91B1B045B00B7A0D6 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
 		B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -154,6 +155,7 @@
 		B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
 		B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedLocations.storyboard; sourceTree = "<group>"; };
 		B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldMainViewController.swift; sourceTree = "<group>"; };
+		B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
 		B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -235,14 +237,16 @@
 			isa = PBXGroup;
 			children = (
 				B2E728F51B1AC8F100B7A0D6 /* Controllers with useful code */,
-				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
 				B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */,
+				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
+				B23536E81A709D7500E4391B /* Main.storyboard */,
+				B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
 				B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */,
 				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
+				B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
-				B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
 				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
@@ -303,7 +307,6 @@
 		B23536DE1A709D7500E4391B /* CP_Maps */ = {
 			isa = PBXGroup;
 			children = (
-				B23536E81A709D7500E4391B /* Main.storyboard */,
 				B23536E11A709D7500E4391B /* AppDelegate.swift */,
 				B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */,
 				B2485FCF1ADF678800430CD9 /* API */,
@@ -448,6 +451,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E728F91B1B045B00B7A0D6 /* MapViewController.storyboard in Resources */,
 				118C896B1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx in Resources */,
 				1185CBB51A797B1900987018 /* .gitignore in Resources */,
 				1171B44E1AF0AE0E00564ABE /* Building_Info.csv in Resources */,

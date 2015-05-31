@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
    }
    
    private func instantiate() {
-      let mapStoryboard = UIStoryboard(name: "Main", bundle: nil)
+      let mapStoryboard = UIStoryboard(name: "MapViewController", bundle: nil)
       self.mapViewController = mapStoryboard.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
       
