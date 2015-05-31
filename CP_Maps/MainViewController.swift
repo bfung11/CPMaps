@@ -79,6 +79,12 @@ class MainViewController: UIViewController {
       
    }
    
+   @IBAction func chooseBuildingForMapViewController(segue: UIStoryboardSegue) {
+      let vc = segue.sourceViewController as! ChooseBuildingRoomViewController
+      mapViewController.selectedBuilding = vc.selectedBuilding
+      mapViewController.showSelectedBuilding(vc.selectedBuilding)
+   }
+   
    @IBAction func chooseBuildingFromMapViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
 //      let viewController = navVC.viewControllers.first as! MapViewController

@@ -98,7 +98,7 @@ class OldMainViewController: UIViewController {
       
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
       //      let viewController = navVC.viewControllers.first as! MapViewController
-      (currentDetailViewController as! MapViewController).showSelectedBuilding(viewController.selectedBuilding)
+//      (currentDetailViewController as! MapViewController).showSelectedBuilding(viewController.selectedBuilding)
    }
    
    @IBAction func mainSegmentPressed(sender: AnyObject) {

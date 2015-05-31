@@ -28,6 +28,7 @@
                     <navigationItem key="navigationItem" id="XdM-j2-fNM"/>
                     <connections>
                         <segue destination="jDo-ST-qh0" kind="unwind" identifier="cancelToMainViewController" unwindAction="cancelToMainViewController:" id="Wcl-cW-d8g"/>
+                        <segue destination="jDo-ST-qh0" kind="unwind" identifier="chooseBuildingForMapViewController" unwindAction="chooseBuildingForMapViewController:" id="c5m-C9-YqQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oq8-3N-hZY" userLabel="First Responder" sceneMemberID="firstResponder"/>

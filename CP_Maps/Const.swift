@@ -13,9 +13,13 @@ import UIKit
 //let brianPath = "/Users/brianfung/Downloads/16_Spring2015/SeniorProject/CPMaps/CP_Maps/Building_Info.csv"
 
 /* ---- MainViewController Storyboard ---- */
-// Segues
+// Segues for ChooseBuildingVC
 let segueToChooseBuildingVCFromMainVC = "segueToChooseBuildingFromMainViewController"
 let cancelToMainViewController = "cancelToMainViewController"
+let chooseBuildingForMapViewController = "chooseBuildingForMapViewController"
+
+// Segues for MapViewController
+let showSelectedBuilding = "showSelectedBuilding"
 
 
 // Saved Locations Storyboard
