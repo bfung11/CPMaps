@@ -55,7 +55,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       // Building View
-      if segue.identifier == segueToChooseBuildingVC {
+      if segue.identifier == chooseBuildingForAddEditLocationVC {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first

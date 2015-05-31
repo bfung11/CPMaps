@@ -29,8 +29,6 @@ let addEditLocationTVCStoryboardID = "addEditLocationTableViewController"
 let addEditLocationNCStoryboardID = "addEditLocationNavigationController"
 let chooseRoomBuildingVCStoryboardID = "chooseRoomBuildingViewController"
 
-let segueToChooseBuildingVC = "segueToChooseBuildingViewController"
-
 let chooseBuildingForAddEditLocationVC = "chooseBuildingForAddEditLocationViewController"
 let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
 
