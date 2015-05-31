@@ -62,15 +62,21 @@ class MainViewController: UIViewController {
    @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
       let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID) as! ChooseBuildingRoomViewController
       vc.identifier = segueToChooseBuildingVCFromMainVC
-      println("before prepare")
       self.showViewController(vc, sender: self)
    }
    
    @IBAction func editButtonPressed(sender: AnyObject) {
+
       println("left button for location")
    }
    
    @IBAction func addLocationButtonPressed(sender: AnyObject) {
+      let navVC = locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationNCStoryboardID) as! UINavigationController
+      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
+      navVC.pushViewController(vc, animated: false)
+      
+//      self.showViewController(vc, sender: self)
+      self.presentViewController(navVC, animated: true, completion: nil)
       println("right button for location")
    }
    

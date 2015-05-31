@@ -541,7 +541,7 @@
             <objects>
                 <tableViewController title="Choose Building" id="reh-xF-wIR" customClass="ChooseBuildingRoomViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="s3D-UV-dVW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -652,7 +652,7 @@
         <!--Navigation Controller-->
         <scene sceneID="qDO-Zz-ShO">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SkE-ef-w4j" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="addEditLocationNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="SkE-ef-w4j" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uAm-Jn-aQN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -724,6 +724,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dNb-ah-2UI"/>
-        <segue reference="0af-On-We0"/>
+        <segue reference="g6d-cM-Wbu"/>
     </inferredMetricsTieBreakers>
 </document>
