@@ -41,8 +41,7 @@ class MainViewController: UIViewController {
          as! MapViewController
       
       self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
-//      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID)
-//         as! LocationsTableViewController
+      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
    }
    
    private func createSegmentedControl() -> UISegmentedControl {

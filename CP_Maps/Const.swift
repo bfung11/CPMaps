@@ -24,6 +24,7 @@ let showSelectedBuilding = "showSelectedBuilding"
 
 // Saved Locations Storyboard
 let savedLocationsStoryboard = "SavedLocations"
+let savedLocationsTVCStoryboardID = "savedLocationsTableViewController"
 let chooseRoomBuildingVCStoryboardID = "chooseRoomBuildingViewController"
 
 
