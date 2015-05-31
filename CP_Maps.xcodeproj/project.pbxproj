@@ -69,7 +69,7 @@
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
 		B2E728F21B1AB41B00B7A0D6 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */; };
-		B2E728F41B1AB6B200B7A0D6 /* ChooseBuildingRoomViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F31B1AB6B200B7A0D6 /* ChooseBuildingRoomViewController.storyboard */; };
+		B2E728F41B1AB6B200B7A0D6 /* SavedLocations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
 		B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -151,7 +151,7 @@
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
-		B2E728F31B1AB6B200B7A0D6 /* ChooseBuildingRoomViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChooseBuildingRoomViewController.storyboard; sourceTree = "<group>"; };
+		B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedLocations.storyboard; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
 		B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -239,7 +239,7 @@
 				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
-				B2E728F31B1AB6B200B7A0D6 /* ChooseBuildingRoomViewController.storyboard */,
+				B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
 				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
@@ -455,7 +455,7 @@
 				11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */,
 				1157A9F11AFAAAFE004CA294 /* 14-2.png in Resources */,
 				B23536EC1A709D7500E4391B /* Images.xcassets in Resources */,
-				B2E728F41B1AB6B200B7A0D6 /* ChooseBuildingRoomViewController.storyboard in Resources */,
+				B2E728F41B1AB6B200B7A0D6 /* SavedLocations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
