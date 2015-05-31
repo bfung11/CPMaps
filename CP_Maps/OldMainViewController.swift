@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class OldMainViewController: UIViewController {
    
    @IBOutlet var detailView: UIView!
    
