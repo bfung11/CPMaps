@@ -24,7 +24,8 @@ class MainViewController: UIViewController {
       super.viewDidLoad()
 //      mainSegmentedControl.addTarget(self, action: "mainSegmentPressed:",
 //         forControlEvents: UIControlEvents.ValueChanged)
-      let detailOne = self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
+      let storyboard = UIStoryboard(name: "Main", bundle: nil)
+      let detailOne = storyboard.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
       self.presentDetailController(detailOne)
       
@@ -230,6 +231,7 @@ class MainViewController: UIViewController {
    }
    
    private func frameForDetailController() -> CGRect {
+      println(self.detailView)
       let detailFrame = self.detailView.bounds
       
       return detailFrame
