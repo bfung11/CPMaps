@@ -95,6 +95,16 @@ class MainViewController: UIViewController {
    @IBAction func cancelToMainViewController(segue: UIStoryboardSegue) {
       
    }
+   
+   @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
+//      let navViewController = segue.destinationViewController
+//         as! UINavigationController
+//      let viewController = navViewController.viewControllers.first as!
+      
+      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
+//      let viewController = navVC.viewControllers.first as! MapViewController
+      (currentDetailViewController as! MapViewController).showSelectedBuilding(viewController.selectedBuilding)
+   }
 
    @IBAction func mainSegmentPressed(sender: AnyObject) {
       let segmentedControl = sender as! UISegmentedControl
@@ -232,15 +242,12 @@ class MainViewController: UIViewController {
       // Dispose of any resources that can be recreated.
    }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      if (segue.identifier == segueToChooseBuildingFromMapViewController) {
+         let navVC = segue.destinationViewController as! UINavigationController
+         let vc = navVC.viewControllers.first as! ChooseBuildingRoomViewController
+         vc.identifier = segueToChooseBuildingFromMapViewController
+      }
+   }
 
 }

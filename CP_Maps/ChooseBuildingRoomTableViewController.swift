@@ -62,6 +62,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
          performSegueWithIdentifier(segueToChooseBuildingFromAddEditLocationViewController, sender: self)
       }
       else if identifier == segueToChooseBuildingFromMapViewController {
+         println("Here")
          performSegueWithIdentifier(segueToChooseBuildingFromMapViewController, sender: self)
       }
    }

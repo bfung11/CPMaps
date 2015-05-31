@@ -32,7 +32,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       // Do any additional setup after loading the view, typically from a nib.
       
       if(mapView == nil) {
-//         NSLog("MapView starts off nil");
+         NSLog("MapView starts off nil");
       }
       else {
          var startingPosition_UU = CLLocationCoordinate2DMake(35.299776974257, -120.65926909446716)
@@ -46,8 +46,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          overlay = GMSGroundOverlay(bounds: overlayBounds, icon: icon)
          overlay.bearing = 0
          overlay.map = nil
-         
       }
+      
       
       locationManager.delegate = self
       locationManager.requestWhenInUseAuthorization()
@@ -70,9 +70,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    }
    
    // Called after selecting a building
-   @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
-      let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-      let building = viewController.selectedBuilding
+   func showSelectedBuilding(building: Building) {
       self.selectedBuilding = building
       locationTitle.text = String(building.getNumber()) + " - " + building.getName()
       
@@ -91,6 +89,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          marker.map = mapView
          
          // animate to marker
+         println(mapView)
+         println(position)
          mapView.animateToLocation(position)
          
          
