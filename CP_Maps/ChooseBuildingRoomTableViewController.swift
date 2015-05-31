@@ -77,12 +77,12 @@ class ChooseBuildingRoomViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       self.selectedBuilding = data.getBuildingAtIndex(indexPath)
       
-      if identifier == segueToChooseBuildingFromAddEditLocationViewController {
-         performSegueWithIdentifier(segueToChooseBuildingFromAddEditLocationViewController, sender: self)
-      }
-      else if identifier == segueToChooseBuildingFromMapViewController {
-         println("Here")
+      if identifier == segueToChooseBuildingFromMapViewController {
          performSegueWithIdentifier(segueToChooseBuildingFromMapViewController, sender: self)
       }
+      else if identifier == segueToChooseBuildingFromAddEditLocationViewController {
+         performSegueWithIdentifier(segueToChooseBuildingFromAddEditLocationViewController, sender: self)
+      }
+
    }
 }
