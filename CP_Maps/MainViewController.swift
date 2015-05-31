@@ -29,7 +29,7 @@ class MainViewController: UIViewController {
       self.navigationItem.rightBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Search,
             target: self, action: "searchBuildingsButtonPressed:")
-      self.navigationItem.titleView = self.createSegmentedControl()
+      self.navigationItem.titleView = self.instantiateSegmentedControl()
       self.navigationItem.leftBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Bookmarks,
             target: self, action: "mapTypesButtonPressed:")
@@ -44,13 +44,15 @@ class MainViewController: UIViewController {
       self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
    }
    
-   private func createSegmentedControl() -> UISegmentedControl {
+   private func instantiateSegmentedControl() -> UISegmentedControl {
       let segmentedControl = UISegmentedControl(items: ["Map", "Locations"])
       
       segmentedControl.setWidth(standardUISegmentedControlWidth - 5, forSegmentAtIndex: 0)
       segmentedControl.setWidth(standardUISegmentedControlWidth - 5, forSegmentAtIndex: 1)
       segmentedControl.addTarget(self, action: "mainSegmentPressed:",
          forControlEvents: UIControlEvents.ValueChanged)
+      
+      segmentedControl.selectedSegmentIndex = 0
       
       return segmentedControl
    }
