@@ -22,18 +22,9 @@ class MainViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-//      mainSegmentedControl.addTarget(self, action: "mainSegmentPressed:",
-//         forControlEvents: UIControlEvents.ValueChanged)
       self.instantiate()
       println(mapViewController)
       self.presentDetailController(mapViewController)
-      
-//      var navBar = UINavigationBar(frame:
-//         CGRect(x:0, y:0, width:CGRectGetWidth(self.view.frame),
-//         height:standardNavigationBarHeight))
-//      navBar.setItems(["Hello", "World", "!"], animated: false)
-//      navBar.topItem!.title = "Hello"
-//      self.view.addSubview(navBar)
       
       self.navigationItem.rightBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Search,
@@ -57,13 +48,10 @@ class MainViewController: UIViewController {
    private func createSegmentedControl() -> UISegmentedControl {
       let segmentedControl = UISegmentedControl(items: ["Map", "Locations"])
       
-//      segmentedControl.frame = CGRectMake(35, 200, 250, 50)
       segmentedControl.setWidth(standardUISegmentedControlWidth - 5, forSegmentAtIndex: 0)
       segmentedControl.setWidth(standardUISegmentedControlWidth - 5, forSegmentAtIndex: 1)
-      
       segmentedControl.addTarget(self, action: "mainSegmentPressed:",
          forControlEvents: UIControlEvents.ValueChanged)
-//      segmentedControl.momentary = true
       
       return segmentedControl
    }
@@ -92,10 +80,6 @@ class MainViewController: UIViewController {
    }
    
    @IBAction func chooseBuildingForMapViewController(segue:UIStoryboardSegue) {
-//      let navViewController = segue.destinationViewController
-//         as! UINavigationController
-//      let viewController = navViewController.viewControllers.first as!
-      
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
 //      let viewController = navVC.viewControllers.first as! MapViewController
       (currentDetailViewController as! MapViewController).showSelectedBuilding(viewController.selectedBuilding)
@@ -185,38 +169,6 @@ class MainViewController: UIViewController {
       //3b. Attach the new view to the views hierarchy
       self.detailView.addSubview(viewController.view)
       
-//      //TODO: Animations go left and then right
-//      UIView.animateWithDuration(1.3,
-//         
-//         //4. Animate the views to create a transition effect
-//         animations: {
-//            
-//            //The new controller's view is going to take the position of the current controller's view
-//            viewController.view.frame = self.currentDetailViewController.view.frame
-//            
-//            //The current controller's view will be moved outside the window
-//            self.currentDetailViewController.view.frame = CGRectMake(-2000,
-//               0,
-//               self.currentDetailViewController.view.frame.size.width,
-//               self.currentDetailViewController.view.frame.size.width)
-//         },
-//         
-//         //5. At the end of the animations we remove the previous view and update the hierarchy.
-//         completion: {
-//            (finished: Bool) in
-//            
-//            //Remove the old Detail Controller view from superview
-//            self.currentDetailViewController.view.removeFromSuperview()
-//            
-//            //Remove the old Detail controller from the hierarchy
-//            self.currentDetailViewController.removeFromParentViewController()
-//            
-//            //Set the new view controller as current
-//            self.currentDetailViewController = viewController
-//            self.currentDetailViewController.didMoveToParentViewController(self)
-//         }
-//      )
-      
       //The new controller's view is going to take the position of the current controller's view
       viewController.view.frame = self.currentDetailViewController.view.frame
 
@@ -275,8 +227,6 @@ class MainViewController: UIViewController {
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       
       if (segue.identifier == segueToChooseBuildingFromMapViewController) {
-//         let navVC = segue.destinationViewController as! UINavigationController
-//         let vc = navVC.viewControllers.first as! ChooseBuildingRoomViewController
          let vc = segue.destinationViewController as! ChooseBuildingRoomViewController
          vc.identifier = segueToChooseBuildingFromMapViewController
       }
