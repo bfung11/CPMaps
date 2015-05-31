@@ -239,7 +239,6 @@
 				B2E728F51B1AC8F100B7A0D6 /* Controllers with useful code */,
 				B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */,
 				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
-				B23536E81A709D7500E4391B /* Main.storyboard */,
 				B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
 				B24DD84E1B13961700F2EE55 /* MapViewTypeTableViewController.swift */,
@@ -307,6 +306,7 @@
 		B23536DE1A709D7500E4391B /* CP_Maps */ = {
 			isa = PBXGroup;
 			children = (
+				B23536E81A709D7500E4391B /* Main.storyboard */,
 				B23536E11A709D7500E4391B /* AppDelegate.swift */,
 				B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */,
 				B2485FCF1ADF678800430CD9 /* API */,

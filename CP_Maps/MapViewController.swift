@@ -15,6 +15,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    @IBOutlet weak var mapView: GMSMapView!
    @IBOutlet weak var locationTitle: UILabel!
    @IBOutlet weak var floorPlanButton: UIBarButtonItem!
+   @IBOutlet weak var mapTypeButton: UIButton!
    
    var locationsTableView: UITableView?
    
@@ -48,9 +49,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          overlay.map = nil
       }
       
-      
       locationManager.delegate = self
       locationManager.requestWhenInUseAuthorization()
+      
+      mapTypeButton.addTarget(self, action: "mapTypeButtonPressed:", forControlEvents: .TouchUpInside)
+
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -168,6 +171,24 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       }
    }
    
+   private func changeMapType(selectedType: Int) {
+      overlay.map = nil
+      
+      switch selectedType {
+      case 0:
+         mapView.mapType = kGMSTypeNormal
+      case 1:
+         mapView.mapType = kGMSTypeSatellite
+      case 2:
+         mapView.mapType = kGMSTypeHybrid
+      case 3:
+         // overlay cal polys map
+         overlay.map = mapView
+      default:
+         mapView.mapType = mapView.mapType
+      }
+   }
+   
    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
       if status == .AuthorizedWhenInUse {
          
@@ -184,6 +205,29 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
 //            NSLog(TAG + "MapView is nil");
          }
       }
+   }
+   
+   @IBAction func mapTypeButtonPressed(sender: AnyObject) {
+      self.presentMapTypeOptionsActionSheet()
+   }
+   
+   private func presentMapTypeOptionsActionSheet() {
+      let mapTypesActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Normal", style:UIAlertActionStyle.Default, handler:{ action in
+         self.changeMapType(0)
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Satellite", style:UIAlertActionStyle.Default, handler:{ action in
+         self.changeMapType(1)
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Hybrid", style:UIAlertActionStyle.Default, handler:{ action in
+         self.changeMapType(2)
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Overlay", style:UIAlertActionStyle.Default, handler:{ action in
+         self.changeMapType(3)
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      
+      presentViewController(mapTypesActionSheet, animated:true, completion:nil)
    }
    
    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {

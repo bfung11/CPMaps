@@ -87,6 +87,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="locationTitle" destination="qrM-iV-H7G" id="bAE-nJ-sj3"/>
+                        <outlet property="mapTypeButton" destination="c8m-KL-7Zl" id="rN2-ky-J6F"/>
                         <outlet property="mapView" destination="Abx-Dm-JLa" id="0uo-yE-MDc"/>
                     </connections>
                 </viewController>
