@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
    
    var mapViewController: MapViewController!
    var locationsStoryboard: UIStoryboard!
-   var locationsViewController: LocationsTableViewController!
+   var locationsViewController: UIViewController!
    var mapView: UIView!
    var locationsTableView: UITableView!
    
@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
          as! MapViewController
       
       self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
-      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
+      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! UIViewController
    }
    
    private func instantiateSegmentedControl() -> UISegmentedControl {
