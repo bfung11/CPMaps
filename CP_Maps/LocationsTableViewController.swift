@@ -14,9 +14,7 @@ UITableViewDataSource, UITableViewDelegate {
       
    @IBOutlet var locationsTableView: UITableView!
    @IBOutlet weak var locationsToolbar: UIToolbar!
-   
-   var topLayoutGuideHeight: CGFloat!
-   
+      
    var locations: CPMapsLibraryAPI!
    var fetchedResultsController: CPMapsLibraryAPI!
    var selectedLocation: Location?
@@ -30,10 +28,6 @@ UITableViewDataSource, UITableViewDelegate {
       fetchedResultsController = CPMapsLibraryAPI.sharedInstance
       fetchedResultsController.setDelegate(self)
       fetchedResultsController.performFetch(nil)
-      
-      println(topLayoutGuideHeight)
-      topLayoutGuideHeight = CGFloat()
-      locationsToolbar = UIToolbar(frame: CGRectMake(0, 0, self.view.frame.width, topLayoutGuideHeight))
       
       self.locationsTableView.delegate = self
       self.locationsTableView.dataSource = self

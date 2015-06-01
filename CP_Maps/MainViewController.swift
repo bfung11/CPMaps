@@ -42,7 +42,6 @@ class MainViewController: UIViewController {
       
       self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
       self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
-      self.locationsViewController.topLayoutGuideHeight = self.topLayoutGuide.length
    }
    
    private func instantiateSegmentedControl() -> UISegmentedControl {
