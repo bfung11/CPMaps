@@ -57,74 +57,6 @@
             </objects>
             <point key="canvasLocation" x="1072" y="-24"/>
         </scene>
-        <!--Saved Locations-->
-        <scene sceneID="J60-HU-nUo">
-            <objects>
-                <tableViewController id="Xdw-lQ-6tf" customClass="LocationsTableViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" tag="101" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" id="AMq-5T-N8c">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2AI-Tl-tnA">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem title="Item" id="Xeh-nB-7n7"/>
-                            </items>
-                        </toolbar>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="100" id="amY-0d-Ypf" customClass="LocationCell" customModule="CP_Maps" customModuleProvider="target">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="amY-0d-Ypf" id="K30-1H-a4U">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BuildingName" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmi-3v-dAS">
-                                            <rect key="frame" x="21" y="10" width="360" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class Times" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbF-5c-dIg">
-                                            <rect key="frame" x="21" y="68" width="360" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9K-2O-ZmM">
-                                            <rect key="frame" x="21" y="39" width="360" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="buildingLabel" destination="vmi-3v-dAS" id="ISd-MR-8DL"/>
-                                    <outlet property="locationDetailsLabel" destination="LbF-5c-dIg" id="tZ8-hh-Vqh"/>
-                                    <outlet property="roomLabel" destination="F9K-2O-ZmM" id="hUR-In-BHi"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Saved Locations" id="ygR-nk-G6a">
-                        <barButtonItem key="leftBarButtonItem" title="Map" id="qaK-yk-qkR">
-                            <connections>
-                                <segue destination="fZS-XA-iLd" kind="unwind" identifier="clickBackToMaps" unwindAction="clickBackToMaps:" id="vUS-zb-5it"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WGF-lq-hfR"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="locationsTableView" destination="AMq-5T-N8c" id="KDd-qD-4un"/>
-                        <segue destination="fZS-XA-iLd" kind="unwind" identifier="chooseLocation" unwindAction="chooseLocation:" id="txZ-hF-cfo"/>
-                        <segue destination="fZS-XA-iLd" kind="unwind" identifier="editLocation" unwindAction="cancelAddEditLocation:" id="fGy-z5-ete"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Vr-CQ-OvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="fZS-XA-iLd" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="-1234" y="359"/>
-        </scene>
         <!--Locations Table View Controller-->
         <scene sceneID="jnf-b3-n8b">
             <objects>
@@ -198,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvb-j9-5Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1168" y="1169"/>
+            <point key="canvasLocation" x="-1254" y="359"/>
         </scene>
         <!--Add / Edit Location-->
         <scene sceneID="LRo-GC-LfN">
