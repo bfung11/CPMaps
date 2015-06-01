@@ -89,10 +89,7 @@ class AddEditLocationViewController: UITableViewController {
    
    override func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
-         println("here")
          if (indexPath.section == sectionWithUIDatePickers) {
-            println("in section")
-            println(indexOfDaysCell)
             if (indexPath.row < indexOfDaysCell) {
                let datePicker = chooseDatePickerUsingIndex(indexPath.row)
                if (datePicker.isShowing()) {
