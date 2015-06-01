@@ -125,7 +125,7 @@
                     <connections>
                         <outlet property="locationsTableView" destination="TIE-t5-z4W" id="Pmy-pu-8rY"/>
                         <outlet property="locationsToolbar" destination="8vr-7i-8Mi" id="PI2-C3-bD5"/>
-                        <segue destination="1pR-g5-ZIM" kind="show" identifier="editLocation" id="PTW-Gd-Hyz"/>
+                        <segue destination="1pR-g5-ZIM" kind="showDetail" identifier="editLocation" id="PTW-Gd-Hyz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvb-j9-5Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
