@@ -44,31 +44,6 @@ UITableViewDataSource, UITableViewDelegate {
       self.view.addGestureRecognizer(longPress)
    }
    
-   func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-      
-      if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-         
-         switch swipeGesture.direction {
-         case UISwipeGestureRecognizerDirection.Right:
-            println("Swiped right")
-         case UISwipeGestureRecognizerDirection.Down:
-            println("Swiped down")
-         default:
-            break
-         }
-      }
-   }
-   
-   func respondToLongPress(gesture: UIGestureRecognizer) {
-      if let longPressGesture = gesture as? UILongPressGestureRecognizer {
-         println("Long Press")
-      }
-   }
-   
-   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-   }
-   
    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
       return fetchedResultsController.getNumberOfSectionsInTableView()
    }
@@ -197,6 +172,34 @@ UITableViewDataSource, UITableViewDelegate {
    @IBAction func cancelToLocationsTableViewController(segue:UIStoryboardSegue) {
    }
    
+   /* ---- Start of Response Functions ---- */
+   func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+      
+      if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+         
+         switch swipeGesture.direction {
+         case UISwipeGestureRecognizerDirection.Right:
+            println("Swiped right")
+         case UISwipeGestureRecognizerDirection.Down:
+            println("Swiped down")
+         default:
+            break
+         }
+      }
+   }
+   
+   func respondToLongPress(gesture: UIGestureRecognizer) {
+      if let longPressGesture = gesture as? UILongPressGestureRecognizer {
+         println("Long Press")
+      }
+   }
+   /* ---- End of Response Functions ---- */
+   
+   override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+   }
+   
+   /* ---- Start of Private and Helper Functions ---- */
    private func deleteLocation(indexPath: NSIndexPath) {
       let location = self.locations.getLocation(indexPath)
       self.locations.deleteLocation(location)
@@ -291,4 +294,5 @@ UITableViewDataSource, UITableViewDelegate {
       presentViewController(deleteActionSheet, animated:true, completion:nil)
    }
    /* ----End of UIActionSheet functions---- */
+   /* ---- End of Private and Helper Functions ---- */
 }
