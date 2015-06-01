@@ -315,11 +315,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Add / Edit Location" id="UV8-jJ-uo1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="I0u-Kb-HpH">
-                            <connections>
-                                <segue destination="o04-fa-ue0" kind="unwind" identifier="cancelToLocationsTableViewController" unwindAction="cancelAddEditLocation:" id="aKV-2W-bSu"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="I0u-Kb-HpH"/>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Tri-8b-I0v"/>
                     </navigationItem>
                     <connections>

@@ -158,6 +158,7 @@ class AddEditLocationViewController: UITableViewController {
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       println("prepare for segue")
       println(segue.identifier)
+      println(cancelToLocationsTVC)
       if segue.identifier == chooseBuildingForAddEditLocationVC {
          let navViewController = segue.destinationViewController
             as! UINavigationController
