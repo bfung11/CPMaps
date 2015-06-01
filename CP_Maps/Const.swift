@@ -25,12 +25,16 @@ let showSelectedBuilding = "showSelectedBuilding"
 // Saved Locations Storyboard
 let savedLocationsStoryboard = "SavedLocations"
 let savedLocationsTVCStoryboardID = "savedLocationsTableViewController"
+
 let addEditLocationTVCStoryboardID = "addEditLocationTableViewController"
 let addEditLocationNCStoryboardID = "addEditLocationNavigationController"
 let chooseRoomBuildingVCStoryboardID = "chooseRoomBuildingViewController"
-
 let chooseBuildingForAddEditLocationVC = "chooseBuildingForAddEditLocationViewController"
 let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
+
+let chooseDaysTVC = "chooseDaysTableViewControllerStoryboardID"
+let chooseDays = "chooseDays"
+
 
 
 let standardNavigationBarHeight: CGFloat = 74
@@ -77,7 +81,6 @@ let findBuildingSegueIdentifer = "findBuilding"
 
 let chooseMapType = "chooseMapType"
 
-let segueToChooseDaysViewController = "segueToChooseDaysViewController"
 let segueToFloorPlanPagedScrollViewController = "floorPlanPagedScrollViewController"
 let cancelToMapViewController = "cancelToMapViewController"
 

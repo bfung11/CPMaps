@@ -89,8 +89,11 @@ class AddEditLocationViewController: UITableViewController {
    
    override func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
-         if (indexPath.section == sectionWithUIDatePickers
-            && indexPath.row < indexOfDaysCell) {
+         println("here")
+         if (indexPath.section == sectionWithUIDatePickers) {
+            println("in section")
+            println(indexOfDaysCell)
+            if (indexPath.row < indexOfDaysCell) {
                let datePicker = chooseDatePickerUsingIndex(indexPath.row)
                if (datePicker.isShowing()) {
                   self.hideDatePickerCell(datePicker)
@@ -99,6 +102,7 @@ class AddEditLocationViewController: UITableViewController {
                   self.showDatePickerCell(datePicker)
                }
                self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
          }
    }
    
@@ -148,11 +152,11 @@ class AddEditLocationViewController: UITableViewController {
          println(viewController.identifier)
          viewController.selectedBuilding = self.selectedBuilding
       }
-      if segue.identifier == segueToChooseDaysViewController {
+      else if segue.identifier == chooseDays {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = self.selectedDays
       }
-      if segue.identifier == saveLocationSegueIdentifer {
+      else if segue.identifier == saveLocationSegueIdentifer {
          self.name = self.nameTextField.text
          self.selectedRoom = "Please select a room"
          self.startTime =

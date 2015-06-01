@@ -37,7 +37,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oq8-3N-hZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="jDo-ST-qh0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="374"/>
+            <point key="canvasLocation" x="1884" y="-24"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YNe-go-eQC">
@@ -55,7 +55,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y5l-xK-1FG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1102" y="374"/>
+            <point key="canvasLocation" x="1072" y="-24"/>
         </scene>
         <!--Saved Locations-->
         <scene sceneID="J60-HU-nUo">
@@ -365,6 +365,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="yDj-be-EXr" kind="show" identifier="chooseDays" id="G12-9A-mNI"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -425,6 +428,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VbV-et-Hq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-519" y="359"/>
+        </scene>
+        <!--Choose Days-->
+        <scene sceneID="hDF-BQ-Xtl">
+            <objects>
+                <tableViewController storyboardIdentifier="chooseDaysTableViewControllerStoryboardID" title="Choose Days" id="yDj-be-EXr" customClass="ChooseDaysViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="D3E-mR-wcP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DayCell" textLabel="xQd-y6-NBX" style="IBUITableViewCellStyleDefault" id="rvd-Sn-kEI">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rvd-Sn-kEI" id="Sba-2H-aqO">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xQd-y6-NBX">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yDj-be-EXr" id="erB-uk-DAs"/>
+                            <outlet property="delegate" destination="yDj-be-EXr" id="UDs-aJ-1bs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Days" id="9jS-qm-m6b">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="L4k-vr-wBn">
+                            <connections>
+                                <segue destination="j0V-Vj-D0A" kind="unwind" unwindAction="cancelToAddEditLocationViewController:" id="rpP-mZ-At6"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="O0k-iO-WWK">
+                            <connections>
+                                <segue destination="j0V-Vj-D0A" kind="unwind" identifier="saveDays" unwindAction="saveDays:" id="aOY-ng-CJL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjT-n5-csq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="j0V-Vj-D0A" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1072" y="775"/>
         </scene>
     </scenes>
 </document>
