@@ -117,7 +117,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="locationsTableView" destination="TI7-h2-8Et" id="Lsc-SR-m0H"/>
-                        <segue destination="SkE-ef-w4j" kind="showDetail" identifier="editLocation" id="SoB-9N-PPc"/>
+                        <segue destination="SkE-ef-w4j" kind="showDetail" identifier="" id="SoB-9N-PPc"/>
                         <segue destination="xvd-gA-kuH" kind="unwind" identifier="chooseLocation" unwindAction="chooseLocation:" id="IFd-7H-Ao6"/>
                     </connections>
                 </tableViewController>
@@ -421,6 +421,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dNb-ah-2UI"/>
+        <segue reference="SoB-9N-PPc"/>
     </inferredMetricsTieBreakers>
 </document>

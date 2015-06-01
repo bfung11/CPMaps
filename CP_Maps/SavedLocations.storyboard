@@ -117,6 +117,7 @@
                     <connections>
                         <outlet property="locationsTableView" destination="AMq-5T-N8c" id="KDd-qD-4un"/>
                         <segue destination="fZS-XA-iLd" kind="unwind" identifier="chooseLocation" unwindAction="chooseLocation:" id="txZ-hF-cfo"/>
+                        <segue destination="fZS-XA-iLd" kind="unwind" identifier="editLocation" unwindAction="cancelAddEditLocation:" id="fGy-z5-ete"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Vr-CQ-OvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -192,6 +193,7 @@
                     <connections>
                         <outlet property="locationsTableView" destination="TIE-t5-z4W" id="Pmy-pu-8rY"/>
                         <outlet property="locationsToolbar" destination="8vr-7i-8Mi" id="PI2-C3-bD5"/>
+                        <segue destination="1pR-g5-ZIM" kind="show" identifier="editLocation" id="PTW-Gd-Hyz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qvb-j9-5Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -386,11 +388,7 @@
                                 <segue destination="o04-fa-ue0" kind="unwind" identifier="cancelToLocationsTableViewController" unwindAction="cancelAddEditLocation:" id="aKV-2W-bSu"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Tri-8b-I0v">
-                            <connections>
-                                <segue destination="o04-fa-ue0" kind="unwind" identifier="saveLocation" unwindAction="saveLocation:" id="jj7-M6-dwh"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Tri-8b-I0v"/>
                     </navigationItem>
                     <connections>
                         <outlet property="RoomTextField" destination="BJS-xL-Imh" id="hNm-dC-2Bj"/>
@@ -404,6 +402,8 @@
                         <outlet property="roomTextField" destination="BJS-xL-Imh" id="UYb-2L-m0o"/>
                         <outlet property="startTimeDatePicker" destination="TaT-qd-lqA" id="3iF-s6-0cV"/>
                         <outlet property="startTimeLabel" destination="IIY-1q-CCF" id="nrs-ly-G4P"/>
+                        <segue destination="o04-fa-ue0" kind="unwind" identifier="cancelToLocationsTableViewController" unwindAction="cancelToLocationsTableViewController:" id="ZDt-SL-8GH"/>
+                        <segue destination="o04-fa-ue0" kind="unwind" identifier="saveLocation" unwindAction="saveLocation:" id="b0M-ym-CPb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NsV-yH-Ei6" userLabel="First Responder" sceneMemberID="firstResponder"/>

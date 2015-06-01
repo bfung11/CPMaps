@@ -96,7 +96,7 @@ UITableViewDataSource, UITableViewDelegate {
          var editAction = UITableViewRowAction(style: .Default, title: "Edit",
             handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
                self.selectedLocation = self.locations.getLocation(indexPath)
-               self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+               self.performSegueWithIdentifier(editLocation, sender: self)
             }
          )
          editAction.backgroundColor = UIColor.lightGrayColor()
@@ -133,7 +133,8 @@ UITableViewDataSource, UITableViewDelegate {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == editLocationSegueIdentifier {
+      println(segue.identifier)
+      if segue.identifier == editLocation {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first
@@ -274,7 +275,7 @@ UITableViewDataSource, UITableViewDelegate {
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Edit", style:UIAlertActionStyle.Default, handler:{ action in
          self.selectedLocation = self.locations.getLocation(indexPath)
-         self.performSegueWithIdentifier(editLocationSegueIdentifier, sender: self)
+         self.performSegueWithIdentifier(editLocation, sender: self)
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
          self.deleteLocation(indexPath)

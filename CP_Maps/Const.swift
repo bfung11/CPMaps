@@ -28,12 +28,22 @@ let savedLocationsTVCStoryboardID = "savedLocationsTableViewController"
 
 let addEditLocationTVCStoryboardID = "addEditLocationTableViewController"
 let addEditLocationNCStoryboardID = "addEditLocationNavigationController"
+let saveLocation = "saveLocation"
+let editLocation = "editLocation"
+let cancelToLocationsTVC = "cancelToLocationsTableViewController"
+
+let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
+
 let chooseRoomBuildingVCStoryboardID = "chooseRoomBuildingViewController"
 let chooseBuildingForAddEditLocationVC = "chooseBuildingForAddEditLocationViewController"
-let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
 
 let chooseDaysTVC = "chooseDaysTableViewControllerStoryboardID"
 let chooseDays = "chooseDays"
+
+
+
+
+
 
 
 
@@ -72,7 +82,6 @@ let numberOfSectionsInDaysViewController = 1
 // Segue Identifiers
 let segueToChooseBuildingFromMapViewController = "segueToChooseBuildingFromMapViewController"
 let chooseLocationSegueIdentifier = "chooseLocation"
-let editLocationSegueIdentifier = "editLocation"
 let saveLocationSegueIdentifer = "saveLocation"
 
 let chooseRoomSegueIdentifier = "chooseRoom"

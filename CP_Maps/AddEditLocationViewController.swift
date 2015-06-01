@@ -51,10 +51,27 @@ class AddEditLocationViewController: UITableViewController {
          
          self.navigationItem.title = addLocationViewControllerTitle
       }
-      // This may need to be moved in or out depending on whether or not it is edited
+      self.setupNavigationItems()
       setupDatePickerAndLabel()
       // for some reason, code removes default selection style for days
       chooseDaysCell.selectionStyle = .Default;
+   }
+   
+   private func setupNavigationItems() {
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Cancel,
+            target: self, action: "cancelButtonPressed:")
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Save,
+            target: self, action: "saveButtonPressed:")
+   }
+   
+   @IBAction func cancelButtonPressed(sender: AnyObject) {
+      self.performSegueWithIdentifier(cancelToLocationsTVC, sender: self)
+   }
+   
+   @IBAction func saveButtonPressed(sender: AnyObject) {
+      self.performSegueWithIdentifier(saveLocation, sender: self)
    }
    
    /*! Hides the cell of the datePicker if not selected
