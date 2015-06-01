@@ -314,10 +314,7 @@
                             <outlet property="delegate" destination="0Fe-3t-GQ2" id="9Gm-KW-iOg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Add / Edit Location" id="UV8-jJ-uo1">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="I0u-Kb-HpH"/>
-                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="Tri-8b-I0v"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add / Edit Location" id="UV8-jJ-uo1"/>
                     <connections>
                         <outlet property="RoomTextField" destination="BJS-xL-Imh" id="hNm-dC-2Bj"/>
                         <outlet property="buildingLabel" destination="e08-m3-BmB" id="Mz9-n4-9fG"/>
