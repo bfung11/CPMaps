@@ -212,18 +212,6 @@ class MainViewController: UIViewController {
             target: self, action: "addLocationButtonPressed:")
    }
    
-   private func instantiateUIViews() {
-      mapViewController =
-      self.storyboard!.instantiateViewControllerWithIdentifier("MapViewController")
-         as! MapViewController
-      mapView = mapViewController.view as! UIView
-      locationsViewController = self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
-         as! LocationsTableViewController
-      locationsTableView = locationsViewController.view as! UITableView
-      self.view.addSubview(mapView)
-      self.view.addSubview(locationsTableView)
-   }
-   
    private func showMapView() {
       self.view.viewWithTag(mapViewTag)!.hidden = false
       self.view.viewWithTag(locationsTableViewTag)!.hidden = true
@@ -234,17 +222,15 @@ class MainViewController: UIViewController {
       self.view.viewWithTag(locationsTableViewTag)?.hidden = false
    }
    
-   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
-   }
-
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      
       if (segue.identifier == segueToChooseBuildingFromMapViewController) {
          let vc = segue.destinationViewController as! ChooseBuildingRoomViewController
          vc.identifier = segueToChooseBuildingFromMapViewController
       }
    }
-
+   
+   override func didReceiveMemoryWarning() {
+      super.didReceiveMemoryWarning()
+      // Dispose of any resources that can be recreated.
+   }
 }
