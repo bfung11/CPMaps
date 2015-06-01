@@ -82,10 +82,6 @@ class MainViewController: UIViewController {
       println("right button for location")
    }
    
-   @IBAction func cancelToMainViewController(segue: UIStoryboardSegue) {
-      
-   }
-   
    @IBAction func chooseBuildingForMapViewController(segue: UIStoryboardSegue) {
       let vc = segue.sourceViewController as! ChooseBuildingRoomViewController
       mapViewController.selectedBuilding = vc.selectedBuilding
@@ -115,22 +111,8 @@ class MainViewController: UIViewController {
       }
    }
    
-   private func swapButtonsForMapView() {
-      self.navigationItem.rightBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Search,
-            target: self, action: "searchBuildingsButtonPressed:")
-      self.navigationItem.leftBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
-            target: self, action: "mapTypesButtonPressed:")
-   }
-   
-   private func swapButtonsForLocationsView() {
-      self.navigationItem.leftBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Edit,
-            target: self, action: "editButtonPressed:")
-      self.navigationItem.rightBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Add,
-            target: self, action: "addLocationButtonPressed:")
+   @IBAction func cancelToMainViewController(segue: UIStoryboardSegue) {
+      
    }
 
    private func presentDetailController(detailVC: UIViewController) {
@@ -208,6 +190,24 @@ class MainViewController: UIViewController {
       let detailFrame = self.detailView.bounds
       
       return detailFrame
+   }
+   
+   private func swapButtonsForMapView() {
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Search,
+            target: self, action: "searchBuildingsButtonPressed:")
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
+            target: self, action: "mapTypesButtonPressed:")
+   }
+   
+   private func swapButtonsForLocationsView() {
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Edit,
+            target: self, action: "editButtonPressed:")
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Add,
+            target: self, action: "addLocationButtonPressed:")
    }
    
    private func instantiateUIViews() {
