@@ -22,10 +22,21 @@ class MainViewController: UIViewController {
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      self.instantiate()
-      println(mapViewController)
+      self.instantiateStoryboardsAndControllers()
       self.presentDetailController(mapViewController)
+      self.instantiateNavigationItem()
+   }
+   
+   private func instantiateStoryboardsAndControllers() {
+      let mapStoryboard = UIStoryboard(name: "MapViewController", bundle: nil)
+      self.mapViewController = mapStoryboard.instantiateViewControllerWithIdentifier("MapViewController")
+         as! MapViewController
       
+      self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
+      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
+   }
+   
+   private func instantiateNavigationItem() {
       self.navigationItem.rightBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Search,
             target: self, action: "searchBuildingsButtonPressed:")
@@ -33,15 +44,6 @@ class MainViewController: UIViewController {
       self.navigationItem.leftBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Bookmarks,
             target: self, action: "mapTypesButtonPressed:")
-   }
-   
-   private func instantiate() {
-      let mapStoryboard = UIStoryboard(name: "MapViewController", bundle: nil)
-      self.mapViewController = mapStoryboard.instantiateViewControllerWithIdentifier("MapViewController")
-         as! MapViewController
-      
-      self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
-      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
    }
    
    private func instantiateSegmentedControl() -> UISegmentedControl {
