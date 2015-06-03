@@ -145,6 +145,7 @@ UITableViewDataSource, UITableViewDelegate {
             startTime: viewController.startTime, endTime: viewController.endTime,
             days: viewController.selectedDays)
          self.locationsTableView.reloadData() //may need to reload only one table cell
+         self.isEditLocation = false
       }
       else {
          locations.addLocation(viewController.name,
@@ -260,7 +261,7 @@ UITableViewDataSource, UITableViewDelegate {
       let vc = self.storyboard!.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
       navVC.pushViewController(vc, animated: false)
       vc.selectedLocation = self.selectedLocation
-      self.isEditLocation = !self.isEditLocation
+      self.isEditLocation = true
       self.presentViewController(navVC, animated: true, completion: nil)
    }
    
