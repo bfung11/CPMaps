@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
    
    let TAG = "MapViewController: "
    
@@ -197,12 +197,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {
       dismissViewControllerAnimated(true, completion: nil)
    }
-   
-   // MARK: - Types Controller Delegate
-   func typesController(controller: TypesTableViewController, didSelectTypes types: [String]) {
-      dismissViewControllerAnimated(true, completion: nil)
-   }
-   
+      
    private func changeMapType(selectedType: Int) {
       overlay.map = nil
       

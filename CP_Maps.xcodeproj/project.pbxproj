@@ -35,7 +35,6 @@
 		11E139BD1A9AE5800074B985 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139BC1A9AE5800074B985 /* SystemConfiguration.framework */; };
 		11E139BF1A9BA6310074B985 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139B01A9AE5580074B985 /* ImageIO.framework */; };
 		11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C31A9BB1040074B985 /* MapViewController.swift */; };
-		11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */; };
 		11E139CA1A9BB1660074B985 /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C71A9BB1660074B985 /* MarkerInfoView.swift */; };
 		11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E139C81A9BB1660074B985 /* MarkerInfoView.xib */; };
 		11E139CC1A9BB1660074B985 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C91A9BB1660074B985 /* UIViewExtension.swift */; };
@@ -114,7 +113,6 @@
 		11E139BC1A9AE5800074B985 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		11E139C01A9BAB450074B985 /* CP_Maps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CP_Maps-Bridging-Header.h"; sourceTree = "<group>"; };
 		11E139C31A9BB1040074B985 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
 		11E139C71A9BB1660074B985 /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
 		11E139C81A9BB1660074B985 /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
 		11E139C91A9BB1660074B985 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
 				B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
-				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
 				B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
@@ -505,7 +502,6 @@
 				B24DD8511B13994E00F2EE55 /* MapViewTypeTableViewCell.swift in Sources */,
 				B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
-				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,
 				B2372FA51A8C5B3F006EA3C9 /* LocationsTableViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,
 				B2748F461AB9337D00411FAA /* Const.swift in Sources */,
