@@ -37,7 +37,6 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    @IBAction func chooseBuildingFromMainViewController(sender: AnyObject) {
       self.identifier = segueToChooseBuildingVCFromMainVC
-      println(identifier)
    }
    
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
