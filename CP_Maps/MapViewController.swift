@@ -29,7 +29,9 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    var selectedBuilding = Building()
    
    
-   // view did load
+   /**
+    * View Did Load
+    */
    override func viewDidLoad() {
       super.viewDidLoad()
       mapView.delegate = self
@@ -55,25 +57,50 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       locationManager.requestWhenInUseAuthorization()
       
       mapTypeButton.addTarget(self, action: "mapTypeButtonPressed:", forControlEvents: .TouchUpInside)
+   }
+   
+   
+   /**
+    *
+    * Location Manager
+    *
+    */
+   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+      if let location = locations.first as? CLLocation {
+         if(mapView != nil) {
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            locationManager.stopUpdatingLocation()
+         }
+         else {
+            //            NSLog(TAG + "MapView is nil");
+         }
+      }
+   }
+   
+   func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+      if status == .AuthorizedWhenInUse {
+         
+         locationManager.startUpdatingLocation()
+         
+         if(mapView != nil) {
+            mapView.myLocationEnabled = true
+            mapView.settings.myLocationButton = true
+            
+            // make location button move past bottom bar
+            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+         }
+         else {
+            NSLog(TAG + "MapView is nil");
+         }
+      }
+   }
+   
 
-   }
-   
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      // Building View
-      if segue.identifier == chooseBuildingForAddEditLocationVC {
-         let navViewController = segue.destinationViewController
-            as! UINavigationController
-         let viewController = navViewController.viewControllers.first
-            as! ChooseBuildingRoomViewController
-         viewController.identifier = segueToChooseBuildingFromMapViewController
-      }
-      else if segue.identifier == segueToFloorPlanPagedScrollViewController {
-         let viewController = segue.destinationViewController
-            as! FloorPlanPagedScrollViewController
-         viewController.setPages(selectedBuilding)
-      }
-   }
-   
+   /**
+    *
+    * Google Map View Logic
+    *
+    */
    // Called after selecting a building
    func showSelectedBuilding(building: Building) {
       self.selectedBuilding = building
@@ -121,7 +148,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
 //      floorPlanButton.enabled = false
    }
 
-   
+   // maps to a specified location if current location exists
    func mapToLocation(destinationLocation : CLLocationCoordinate2D) {
       self.line.map = nil
       var currentLocation = locationManager.location
@@ -145,9 +172,26 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       }
    }
    
-   func chooseLocation(location: Location) {
-      let building = locationLibraryAPI.getBuilding(location.getBuildingNumber())
-      locationTitle.text = building.getNumber() + " " + building.getName()
+   
+   /**
+    *
+    * iOS UI Management
+    * 
+    */
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      // Building View
+      if segue.identifier == chooseBuildingForAddEditLocationVC {
+         let navViewController = segue.destinationViewController
+            as! UINavigationController
+         let viewController = navViewController.viewControllers.first
+            as! ChooseBuildingRoomViewController
+         viewController.identifier = segueToChooseBuildingFromMapViewController
+      }
+      else if segue.identifier == segueToFloorPlanPagedScrollViewController {
+         let viewController = segue.destinationViewController
+            as! FloorPlanPagedScrollViewController
+         viewController.setPages(selectedBuilding)
+      }
    }
    
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {
@@ -177,24 +221,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       }
    }
    
-   func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-      if status == .AuthorizedWhenInUse {
-         
-         locationManager.startUpdatingLocation()
-         
-         if(mapView != nil) {
-            mapView.myLocationEnabled = true
-            mapView.settings.myLocationButton = true
-            
-            // make location button move past bottom bar
-            mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
-         }
-         else {
-//            NSLog(TAG + "MapView is nil");
-         }
-      }
-   }
-   
    @IBAction func mapTypeButtonPressed(sender: AnyObject) {
       self.presentMapTypeOptionsActionSheet()
    }
@@ -216,18 +242,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       mapTypesActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
       
       presentViewController(mapTypesActionSheet, animated:true, completion:nil)
-   }
-   
-   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-      if let location = locations.first as? CLLocation {
-         if(mapView != nil) {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            locationManager.stopUpdatingLocation()
-         }
-         else {
-//            NSLog(TAG + "MapView is nil");
-         }
-      }
    }
 }
 
