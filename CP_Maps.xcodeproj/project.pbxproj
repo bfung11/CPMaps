@@ -235,12 +235,12 @@
 				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
 				B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
+				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
 				B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
-				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
