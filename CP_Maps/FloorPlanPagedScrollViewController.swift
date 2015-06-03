@@ -16,10 +16,6 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      self.navigationItem.rightBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Done,
-            target: self, action: "doneButtonPressed:")
-      
       // initialize the pages
       let pageCount = pageImages.count
       pageControl.currentPage = 0
@@ -36,10 +32,6 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       
       // 5
       loadVisiblePages()
-   }
-   
-   @IBAction func doneButtonPressed(sender: AnyObject) {
-      println("Done")
    }
 
    func setPages(building : Building) {
