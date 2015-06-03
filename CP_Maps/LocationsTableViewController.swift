@@ -85,9 +85,6 @@ UITableViewDataSource, UITableViewDelegate {
          mainVC.segmentedControl.selectedSegmentIndex = 0
          mainVC.segmentedControl.sendActionsForControlEvents(.ValueChanged)
          tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-         
-//         performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
    func tableView(tableView: UITableView,
