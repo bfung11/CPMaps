@@ -63,7 +63,6 @@ class MainViewController: UIViewController {
       navVC.pushViewController(vc, animated: false)
       vc.identifier = segueToChooseBuildingVCFromMainVC
       self.presentViewController(navVC, animated: true, completion: nil)
-//      self.showViewController(vc, sender: self)
    }
    
    @IBAction func editButtonPressed(sender: AnyObject) {
@@ -75,10 +74,7 @@ class MainViewController: UIViewController {
       let navVC = locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationNCStoryboardID) as! UINavigationController
       let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
       navVC.pushViewController(vc, animated: false)
-      
-//      self.showViewController(vc, sender: self)
       self.presentViewController(navVC, animated: true, completion: nil)
-      println("right button for location")
    }
    
    @IBAction func chooseBuildingForMapViewController(segue: UIStoryboardSegue) {
@@ -89,7 +85,6 @@ class MainViewController: UIViewController {
    
    @IBAction func chooseBuildingFromMapViewController(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! ChooseBuildingRoomViewController
-//      let viewController = navVC.viewControllers.first as! MapViewController
       (currentDetailViewController as! MapViewController).showSelectedBuilding(viewController.selectedBuilding)
    }
 
