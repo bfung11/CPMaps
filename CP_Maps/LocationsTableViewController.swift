@@ -21,7 +21,6 @@ UITableViewDataSource, UITableViewDelegate {
    var selectedLocation: Location?
    var selectedLocationIndexPath: NSIndexPath?
    var isEditLocation: Bool!
-   let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
    override func viewDidLoad() {
       super.viewDidLoad()
