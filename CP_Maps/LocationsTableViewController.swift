@@ -80,7 +80,8 @@ UITableViewDataSource, UITableViewDelegate {
          
          self.selectedLocation = self.locations.getLocation(indexPath)
          let mapVC = mainVC.mapViewController
-         mapVC.chooseLocation(self.selectedLocation!)
+         let building = locations.getBuilding(self.selectedLocation!.getBuildingNumber())
+         mapVC.showSelectedBuilding(building)
          mainVC.segmentedControl.selectedSegmentIndex = 0
          mainVC.segmentedControl.sendActionsForControlEvents(.ValueChanged)
          tableView.deselectRowAtIndexPath(indexPath, animated: true)
