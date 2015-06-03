@@ -29,6 +29,9 @@ class ChooseBuildingRoomViewController: UITableViewController {
       if identifier == segueToChooseBuildingVCFromMainVC {
          self.dismissViewControllerAnimated(true, completion: nil)
       }
+      else if identifier == chooseBuildingForAddEditLocationVC {
+         self.performSegueWithIdentifier(cancelToAddEditLocationViewController, sender: self)
+      }
    }
    
    @IBAction func chooseBuildingFromMapViewController(sender: AnyObject) {
