@@ -67,7 +67,8 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    @IBAction func cancelButtonPressed(sender: AnyObject) {
-      self.performSegueWithIdentifier(cancelToLocationsTVC, sender: self)
+      self.dismissViewControllerAnimated(true, completion: nil)
+//      self.performSegueWithIdentifier(cancelToLocationsTVC, sender: self)
    }
    
    @IBAction func saveButtonPressed(sender: AnyObject) {
