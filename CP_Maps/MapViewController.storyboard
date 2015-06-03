@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="UsT-8v-nXh">
+            <objects>
+                <viewController id="tpp-EX-CLz" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UNy-op-sA0"/>
+                        <viewControllerLayoutGuide type="bottom" id="C22-la-Y8S"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fiu-BK-YWs">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkv-3V-AGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="283"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="tme-ws-edr">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="GbW-tf-7j9" customClass="MapViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y4X-Mb-FNj"/>
+                        <viewControllerLayoutGuide type="bottom" id="CKH-fj-lfH"/>
+                    </layoutGuides>
+                    <view key="view" tag="100" contentMode="scaleToFill" id="Kzc-Y7-aUS">
+                        <rect key="frame" x="0.0" y="64" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Abx-Dm-JLa" customClass="GMSMapView">
+                                <rect key="frame" x="104" y="102" width="207" height="437"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CS5-SS-r7I">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="6AN-Gf-bEw"/>
+                                    <barButtonItem title="See Me" style="plain" id="b64-qY-cOH">
+                                        <view key="customView" contentMode="scaleToFill" id="18N-WU-7X9">
+                                            <rect key="frame" x="0.0" y="0.0" width="251" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CP Maps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrM-iV-H7G">
+                                                    <rect key="frame" x="24" y="6" width="212" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="g0w-1I-CX9"/>
+                                    <barButtonItem style="plain" id="5Dc-u8-yIc">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="c8m-KL-7Zl">
+                                            <rect key="frame" x="352" y="7" width="22" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CKH-fj-lfH" firstAttribute="bottom" secondItem="Abx-Dm-JLa" secondAttribute="bottom" id="1k0-xj-IOt"/>
+                            <constraint firstItem="CS5-SS-r7I" firstAttribute="leading" secondItem="Kzc-Y7-aUS" secondAttribute="leadingMargin" constant="-16" id="2vx-aB-hSf"/>
+                            <constraint firstItem="CKH-fj-lfH" firstAttribute="top" secondItem="CS5-SS-r7I" secondAttribute="bottom" id="3AD-eI-K88"/>
+                            <constraint firstItem="Y4X-Mb-FNj" firstAttribute="top" secondItem="Abx-Dm-JLa" secondAttribute="top" id="LDK-oo-YSg"/>
+                            <constraint firstAttribute="trailing" secondItem="Abx-Dm-JLa" secondAttribute="trailing" id="MJD-TD-I38"/>
+                            <constraint firstItem="Abx-Dm-JLa" firstAttribute="leading" secondItem="Kzc-Y7-aUS" secondAttribute="leading" id="eQD-Aw-mhR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CS5-SS-r7I" secondAttribute="trailing" constant="-16" id="jFv-Kl-yqV"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="locationTitle" destination="qrM-iV-H7G" id="bAE-nJ-sj3"/>
+                        <outlet property="mapTypeButton" destination="c8m-KL-7Zl" id="rN2-ky-J6F"/>
+                        <outlet property="mapView" destination="Abx-Dm-JLa" id="0uo-yE-MDc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uZ9-XJ-Gud" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-253" y="254"/>
+        </scene>
+        <!--Floor Plan Paged Scroll View Controller-->
+        <scene sceneID="McL-QM-8bQ">
+            <objects>
+                <viewController modalTransitionStyle="flipHorizontal" id="7ee-Oe-EzI" customClass="FloorPlanPagedScrollViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7al-bd-m4s"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hz0-oR-eg5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yly-HM-M2R">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1f-fV-pLM">
+                                <rect key="frame" x="0.0" y="64" width="600" height="619"/>
+                                <connections>
+                                    <outlet property="delegate" destination="7ee-Oe-EzI" id="Kcp-Lx-gX3"/>
+                                </connections>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="CwP-xe-AQF">
+                                <rect key="frame" x="3" y="691" width="408" height="37"/>
+                            </pageControl>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-Sr-5QO">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <items>
+                                    <navigationItem title="Floor Plans" prompt="" id="Wux-np-aZh">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="0Q4-B2-h5X">
+                                            <connections>
+                                                <segue destination="GkA-QW-tUh" kind="unwind" unwindAction="cancelToMapViewController:" id="coG-f7-kru"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EUD-Sr-5QO" firstAttribute="centerX" secondItem="CwP-xe-AQF" secondAttribute="centerX" id="48j-Zd-z2L"/>
+                            <constraint firstItem="EUD-Sr-5QO" firstAttribute="top" secondItem="yly-HM-M2R" secondAttribute="top" id="Jbe-zz-0Cb"/>
+                            <constraint firstItem="EUD-Sr-5QO" firstAttribute="leading" secondItem="yly-HM-M2R" secondAttribute="leading" id="tpA-1b-EGN"/>
+                            <constraint firstItem="EUD-Sr-5QO" firstAttribute="leading" secondItem="Z1f-fV-pLM" secondAttribute="leading" id="vSE-oH-gRL"/>
+                            <constraint firstAttribute="trailing" secondItem="EUD-Sr-5QO" secondAttribute="trailing" id="x9P-27-yVV"/>
+                            <constraint firstItem="EUD-Sr-5QO" firstAttribute="trailing" secondItem="Z1f-fV-pLM" secondAttribute="trailing" id="yIu-eL-pjx"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="pageControl" destination="CwP-xe-AQF" id="rs9-kO-nzU"/>
+                        <outlet property="scrollView" destination="Z1f-fV-pLM" id="ZIo-T1-PAD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="orh-o3-gal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GkA-QW-tUh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1020" y="1057"/>
+        </scene>
+    </scenes>
+</document>

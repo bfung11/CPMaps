@@ -12,7 +12,7 @@ import UIKit
     view controller. After user finishes, returns the selected days as a string.
 */
 class ChooseDaysViewController: UITableViewController {
-   var days: [String]!                // days data
+   var days: [Day]!                // days data
    var selectedDaysAsBool: [Bool]! // toggles for selecting and deselecting days
    var selectedDays: String!
    

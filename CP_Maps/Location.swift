@@ -21,13 +21,13 @@ class Location: NSManagedObject {
    class func createInManagedObjectContext(name: String?, buildingNumber: String!, roomNumber: String?,
       startTime: String?, endTime: String?, days: String?,
       insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-      let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: context!) as! Location
-      location.setValue(name, forKey: "name")
-      location.setValue(buildingNumber, forKey: "buildingNumber")
-      location.setValue(roomNumber, forKey: "roomNumber")
-      location.setValue(startTime, forKey: "startTime")
-      location.setValue(endTime, forKey: "endTime")
-      location.setValue(days, forKey: "days")
+         let location = NSEntityDescription.insertNewObjectForEntityForName("Location", inManagedObjectContext: context!) as! Location
+         location.setValue(name, forKey: "name")
+         location.setValue(buildingNumber, forKey: "buildingNumber")
+         location.setValue(roomNumber, forKey: "roomNumber")
+         location.setValue(startTime, forKey: "startTime")
+         location.setValue(endTime, forKey: "endTime")
+         location.setValue(days, forKey: "days")
    }
    
    func updateBuilding(buildingNumber: String) {

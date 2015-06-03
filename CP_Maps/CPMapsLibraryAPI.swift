@@ -16,7 +16,7 @@ class CPMapsLibraryAPI: NSObject {
    private let locationsPersistencyManager: LocationsPersistencyManager
    private let buildingsPersistencyManager: BuildingsPersistencyManager
    private let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-
+   
    static let sharedInstance = CPMapsLibraryAPI()
    
    override init() {

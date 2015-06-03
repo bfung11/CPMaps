@@ -19,7 +19,7 @@ class AddEditLocationViewController: UITableViewController {
    @IBOutlet weak var endTimeDatePicker: StartEndDatePicker!
    @IBOutlet weak var chooseDaysCell: UITableViewCell!
    @IBOutlet weak var daysLabel: UILabel!
-
+   
    // exclamation point - does not instantiate, but must do so before use
    var locations: CPMapsLibraryAPI!    // location as sharedInstance
    var selectedLocation: Location!
@@ -51,55 +51,74 @@ class AddEditLocationViewController: UITableViewController {
          
          self.navigationItem.title = addLocationViewControllerTitle
       }
-      // This may need to be moved in or out depending on whether or not it is edited
+      self.setupNavigationItems()
       setupDatePickerAndLabel()
       // for some reason, code removes default selection style for days
       chooseDaysCell.selectionStyle = .Default;
    }
    
-   /*! Hides the cell of the datePicker if not selected 
-       by making the height of the cell equal to 0
+   private func setupNavigationItems() {
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Cancel,
+            target: self, action: "cancelButtonPressed:")
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Save,
+            target: self, action: "saveButtonPressed:")
+   }
+   
+   @IBAction func cancelButtonPressed(sender: AnyObject) {
+      self.dismissViewControllerAnimated(true, completion: nil)
+//      self.performSegueWithIdentifier(cancelToLocationsTVC, sender: self)
+   }
+   
+   @IBAction func saveButtonPressed(sender: AnyObject) {
+      self.performSegueWithIdentifier(saveLocation, sender: self)
+   }
+   
+   /*! Hides the cell of the datePicker if not selected
+   by making the height of the cell equal to 0
    
    */
    override func tableView(tableView: UITableView,
       heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
          
-      // sections and cell numbers start counting at 0
-      let firstDatePickerIndex = 1 // cell index where the datePicker is
-      let secondDatePickerIndex = 3
-      let kDatePickerCellHeight = 163
-      var height = self.tableView.rowHeight
-      
-      if (indexPath.section == sectionWithUIDatePickers) {
-         if (indexPath.row == firstDatePickerIndex ||
-            indexPath.row == secondDatePickerIndex) {
-               // need to keep inside or else affects regular cells in section
-               let datePicker = chooseDatePickerUsingIndex(indexPath.row)
-               if (datePicker.isShowing()) {
-                  height = CGFloat(kDatePickerCellHeight)
-               }
-               else {
-                  height = 0
-               }
+         // sections and cell numbers start counting at 0
+         let firstDatePickerIndex = 1 // cell index where the datePicker is
+         let secondDatePickerIndex = 3
+         let kDatePickerCellHeight = 163
+         var height = self.tableView.rowHeight
+         
+         if (indexPath.section == sectionWithUIDatePickers) {
+            if (indexPath.row == firstDatePickerIndex ||
+               indexPath.row == secondDatePickerIndex) {
+                  // need to keep inside or else affects regular cells in section
+                  let datePicker = chooseDatePickerUsingIndex(indexPath.row)
+                  if (datePicker.isShowing()) {
+                     height = CGFloat(kDatePickerCellHeight)
+                  }
+                  else {
+                     height = 0
+                  }
+            }
          }
-      }
-      
-      return height
+         
+         return height
    }
-
+   
    override func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
-      if (indexPath.section == sectionWithUIDatePickers
-         && indexPath.row < indexOfDaysCell) {
-         let datePicker = chooseDatePickerUsingIndex(indexPath.row)
-         if (datePicker.isShowing()) {
-            self.hideDatePickerCell(datePicker)
+         if (indexPath.section == sectionWithUIDatePickers) {
+            if (indexPath.row < indexOfDaysCell) {
+               let datePicker = chooseDatePickerUsingIndex(indexPath.row)
+               if (datePicker.isShowing()) {
+                  self.hideDatePickerCell(datePicker)
+               }
+               else {
+                  self.showDatePickerCell(datePicker)
+               }
+               self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            }
          }
-         else {
-            self.showDatePickerCell(datePicker)
-         }
-         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
-      }
    }
    
    /*! Save display selected building */
@@ -138,18 +157,22 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == segueToChooseBuildingViewController {
+      println("prepare for segue")
+      println(segue.identifier)
+      println(cancelToLocationsTVC)
+      if segue.identifier == chooseBuildingForAddEditLocationVC {
          let navViewController = segue.destinationViewController
             as! UINavigationController
          let viewController = navViewController.viewControllers.first as! ChooseBuildingRoomViewController
-         viewController.identifier = segueToChooseBuildingFromAddEditLocationViewController
+         viewController.identifier = chooseBuildingForAddEditLocationVC
+         println(viewController.identifier)
          viewController.selectedBuilding = self.selectedBuilding
       }
-      if segue.identifier == segueToChooseDaysViewController {
+      else if segue.identifier == chooseDays {
          let viewController = segue.destinationViewController as! ChooseDaysViewController
          viewController.selectedDays = self.selectedDays
       }
-      if segue.identifier == saveLocationSegueIdentifer {
+      else if segue.identifier == saveLocationSegueIdentifer {
          self.name = self.nameTextField.text
          self.selectedRoom = "Please select a room"
          self.startTime =
@@ -188,7 +211,7 @@ class AddEditLocationViewController: UITableViewController {
       }
    }
    /* ----End of setting label functions---- */
-
+   
    /* ----Start of DatePicker helper functions---- */
    private func setupDatePickerAndLabel() {
       var startTime = ""

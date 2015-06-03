@@ -8,5 +8,7 @@
 
 import Foundation
 
-var daysData = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday",
-   "Friday", "Saturday"]
+var daysData = [Day(name: "Sunday"), Day(name: "Monday"), Day(name: "Tuesday") , Day(name: "Wednesday"),
+   Day(name: "Thursday"), Day(name: "Friday"), Day(name: "Saturday")]
+
+let mapTypeData = ["Normal", "Satellite", "Hybrid", "Map"]

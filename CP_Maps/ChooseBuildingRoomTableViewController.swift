@@ -11,7 +11,7 @@
 import UIKit
 
 class ChooseBuildingRoomViewController: UITableViewController {
-   var identifier: String?      // determines whether to display building or room data 
+   var identifier: String?      // determines whether to display building or room data
    var data: CPMapsLibraryAPI!       // building data or room data
    var selectedBuilding: Building!
    
@@ -19,10 +19,29 @@ class ChooseBuildingRoomViewController: UITableViewController {
       super.viewDidLoad()
       
       data = CPMapsLibraryAPI.sharedInstance
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Cancel,
+            target: self, action: "cancelButtonPressed:")
       self.navigationItem.title = chooseBuildingViewControllerTitle
    }
+   
+   @IBAction func cancelButtonPressed(sender: AnyObject) {
+      if identifier == segueToChooseBuildingVCFromMainVC {
+         performSegueWithIdentifier(cancelToMainViewController, sender: self)
+      }
+   }
+   
+   @IBAction func chooseBuildingFromMapViewController(sender: AnyObject) {
+      
+   }
+   
+   @IBAction func chooseBuildingFromMainViewController(sender: AnyObject) {
+      self.identifier = segueToChooseBuildingVCFromMainVC
+      println(identifier)
+   }
+   
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
-      if identifier == segueToChooseBuildingFromAddEditLocationViewController {
+      if identifier == chooseBuildingForAddEditLocationVC {
          performSegueWithIdentifier(cancelToAddEditLocationViewController, sender: self)
       }
       else if identifier == segueToChooseBuildingFromMapViewController {
@@ -57,12 +76,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       self.selectedBuilding = data.getBuildingAtIndex(indexPath)
+      
+      if identifier == segueToChooseBuildingVCFromMainVC {
+         performSegueWithIdentifier(chooseBuildingForMapViewController, sender: self)
+      }
+      else if identifier == chooseBuildingForAddEditLocationVC {
+         performSegueWithIdentifier(chooseBuildingForAddEditLocationVC, sender: self)
+      }
 
-      if identifier == segueToChooseBuildingFromAddEditLocationViewController {
-         performSegueWithIdentifier(segueToChooseBuildingFromAddEditLocationViewController, sender: self)
-      }
-      else if identifier == segueToChooseBuildingFromMapViewController {
-         performSegueWithIdentifier(segueToChooseBuildingFromMapViewController, sender: self)
-      }
    }
 }
