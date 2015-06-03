@@ -72,7 +72,16 @@ class AddEditLocationViewController: UITableViewController {
    }
    
    @IBAction func saveButtonPressed(sender: AnyObject) {
-      self.performSegueWithIdentifier(saveLocation, sender: self)
+      // if they have not selected a building, send UIAlertView
+      if selectedBuilding == nil {
+         let alert = UIAlertView(title: saveNewLocationTitle,
+            message: saveNewLocationMessage, delegate: self,
+            cancelButtonTitle: cancelButtonTitleOK)
+         alert.show()
+      }
+      else {
+         self.performSegueWithIdentifier(saveLocation, sender: self)
+      }
    }
    
    /*! Hides the cell of the datePicker if not selected
@@ -140,21 +149,21 @@ class AddEditLocationViewController: UITableViewController {
    @IBAction func cancelToAddEditLocationViewController(segue:UIStoryboardSegue) {
    }
    
-   override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-      
-      var shouldPerform = true
-      
-      // if they have not selected a building, send UIAlertView
-      if identifier == saveLocationSegueIdentifer && selectedBuilding == nil {
-         let alert = UIAlertView(title: saveNewLocationTitle,
-            message: saveNewLocationMessage, delegate: self,
-            cancelButtonTitle: cancelButtonTitleOK)
-         alert.show()
-         shouldPerform = false
-      }
-      
-      return shouldPerform
-   }
+//   override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+//      
+//      var shouldPerform = true
+//      
+//      // if they have not selected a building, send UIAlertView
+//      if identifier == saveLocationSegueIdentifer && selectedBuilding == nil {
+//         let alert = UIAlertView(title: saveNewLocationTitle,
+//            message: saveNewLocationMessage, delegate: self,
+//            cancelButtonTitle: cancelButtonTitleOK)
+//         alert.show()
+//         shouldPerform = false
+//      }
+//      
+//      return shouldPerform
+//   }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == chooseBuildingForAddEditLocationVC {
