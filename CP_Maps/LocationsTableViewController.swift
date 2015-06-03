@@ -19,7 +19,7 @@ UITableViewDataSource, UITableViewDelegate {
    var fetchedResultsController: CPMapsLibraryAPI!
    var selectedLocation: Location?
    var selectedLocationIndexPath: NSIndexPath?
-   var isEditLocation: Bool?
+   var isEditLocation: Bool!
    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
    
    override func viewDidLoad() {
@@ -31,6 +31,8 @@ UITableViewDataSource, UITableViewDelegate {
       
       self.locationsTableView.delegate = self
       self.locationsTableView.dataSource = self
+      
+      isEditLocation = false
       
       var swipeRight = UISwipeGestureRecognizer(target: self, action: "respondToSwipeGesture:")
       swipeRight.direction = UISwipeGestureRecognizerDirection.Right
@@ -96,7 +98,7 @@ UITableViewDataSource, UITableViewDelegate {
          var editAction = UITableViewRowAction(style: .Default, title: "Edit",
             handler: { (action: UITableViewRowAction!, indexPath: NSIndexPath!) in
                self.selectedLocation = self.locations.getLocation(indexPath)
-               self.performSegueWithIdentifier(editLocation, sender: self)
+               self.editLocation()
             }
          )
          editAction.backgroundColor = UIColor.lightGrayColor()
@@ -133,18 +135,18 @@ UITableViewDataSource, UITableViewDelegate {
    }
    
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      println(segue.identifier)
-      if segue.identifier == editLocation {
-         let navViewController = segue.destinationViewController
-            as! UINavigationController
-         let viewController = navViewController.viewControllers.first
-            as! AddEditLocationViewController
-         viewController.selectedLocation = self.selectedLocation
-         isEditLocation = true
-      }
-      else {
-         isEditLocation = false
-      }
+//      println(segue.identifier)
+//      if segue.identifier == segueIdentifierEditLocation {
+//         let navViewController = segue.destinationViewController
+//            as! UINavigationController
+//         let viewController = navViewController.viewControllers.first
+//            as! AddEditLocationViewController
+//         viewController.selectedLocation = self.selectedLocation
+//         isEditLocation = true
+//      }
+//      else {
+//         isEditLocation = false
+//      }
    }
    
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
@@ -268,6 +270,15 @@ UITableViewDataSource, UITableViewDelegate {
       return shortName
    }
    
+   private func editLocation() {
+      let navVC = self.storyboard!.instantiateViewControllerWithIdentifier(addEditLocationNCStoryboardID) as! UINavigationController
+      let vc = self.storyboard!.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
+      navVC.pushViewController(vc, animated: false)
+      vc.selectedLocation = self.selectedLocation
+      self.isEditLocation = !self.isEditLocation
+      self.presentViewController(navVC, animated: true, completion: nil)
+   }
+   
    /* ----Start of UIActionSheet functions---- */
    private func presentAllOptionsActionSheet(indexPath: NSIndexPath) {
       let allOptionsActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
@@ -275,7 +286,7 @@ UITableViewDataSource, UITableViewDelegate {
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Edit", style:UIAlertActionStyle.Default, handler:{ action in
          self.selectedLocation = self.locations.getLocation(indexPath)
-         self.performSegueWithIdentifier(editLocation, sender: self)
+         self.editLocation()
       }))
       allOptionsActionSheet.addAction(UIAlertAction(title:"Delete", style:UIAlertActionStyle.Default, handler:{ action in
          self.deleteLocation(indexPath)

@@ -29,7 +29,7 @@ let savedLocationsTVCStoryboardID = "savedLocationsTableViewController"
 let addEditLocationTVCStoryboardID = "addEditLocationTableViewController"
 let addEditLocationNCStoryboardID = "addEditLocationNavigationController"
 let saveLocation = "saveLocation"
-let editLocation = "editLocation"
+let segueIdentifierEditLocation = "editLocation"
 let cancelToLocationsTVC = "cancelToLocationsTableViewController"
 
 let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
