@@ -42,8 +42,6 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       println("Done")
    }
 
-   
-   
    func setPages(building : Building) {
       pageImages.removeAll(keepCapacity: false)
       
