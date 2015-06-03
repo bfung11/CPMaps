@@ -42,11 +42,7 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CS5-SS-r7I">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <items>
-                                    <barButtonItem enabled="NO" systemItem="organize" id="ke8-Rk-H2J">
-                                        <connections>
-                                            <segue destination="7ee-Oe-EzI" kind="showDetail" id="rP1-6L-3oh"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem enabled="NO" systemItem="organize" id="ke8-Rk-H2J"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6AN-Gf-bEw"/>
                                     <barButtonItem title="See Me" style="plain" id="b64-qY-cOH">
                                         <view key="customView" contentMode="scaleToFill" id="18N-WU-7X9">
@@ -91,7 +87,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="floorPlanButton" destination="ke8-Rk-H2J" id="x5i-7R-H8b"/>
+                        <outlet property="floorPlansButton" destination="ke8-Rk-H2J" id="o9y-Gl-cI7"/>
                         <outlet property="locationTitle" destination="qrM-iV-H7G" id="bAE-nJ-sj3"/>
                         <outlet property="mapTypeButton" destination="c8m-KL-7Zl" id="rN2-ky-J6F"/>
                         <outlet property="mapView" destination="Abx-Dm-JLa" id="0uo-yE-MDc"/>
@@ -104,17 +100,17 @@
         <!--Floor Plan Paged Scroll View Controller-->
         <scene sceneID="McL-QM-8bQ">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" id="7ee-Oe-EzI" customClass="FloorPlanPagedScrollViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="floorPlanPagedScrollViewController" modalTransitionStyle="flipHorizontal" id="7ee-Oe-EzI" customClass="FloorPlanPagedScrollViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7al-bd-m4s"/>
                         <viewControllerLayoutGuide type="bottom" id="Hz0-oR-eg5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yly-HM-M2R">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1f-fV-pLM">
-                                <rect key="frame" x="0.0" y="64" width="414" height="619"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="619"/>
                                 <connections>
                                     <outlet property="delegate" destination="7ee-Oe-EzI" id="Kcp-Lx-gX3"/>
                                 </connections>
@@ -123,7 +119,7 @@
                                 <rect key="frame" x="3" y="691" width="408" height="37"/>
                             </pageControl>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-Sr-5QO">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <items>
                                     <navigationItem title="Floor Plans" prompt="" id="Wux-np-aZh">
@@ -146,6 +142,7 @@
                             <constraint firstItem="EUD-Sr-5QO" firstAttribute="trailing" secondItem="Z1f-fV-pLM" secondAttribute="trailing" id="yIu-eL-pjx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="C3x-Vq-R1L"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="pageControl" destination="CwP-xe-AQF" id="rs9-kO-nzU"/>
@@ -154,6 +151,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="orh-o3-gal" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="GkA-QW-tUh" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-1020" y="1940"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hVT-EV-kfy">
+            <objects>
+                <navigationController storyboardIdentifier="floorPlanPagedScrollNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="tkn-4S-5or" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DvU-Gp-xT2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7ee-Oe-EzI" kind="relationship" relationship="rootViewController" id="yS9-9a-0mp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wA-jF-xPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1020" y="1057"/>
         </scene>

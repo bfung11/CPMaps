@@ -14,7 +14,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
    
    @IBOutlet weak var mapView: GMSMapView!
    @IBOutlet weak var locationTitle: UILabel!
-   @IBOutlet weak var floorPlanButton: UIBarButtonItem!
+   @IBOutlet weak var floorPlansButton: UIBarButtonItem!
    @IBOutlet weak var mapTypeButton: UIButton!
    
    var locationsTableView: UITableView?
@@ -57,6 +57,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       locationManager.requestWhenInUseAuthorization()
       
       mapTypeButton.addTarget(self, action: "mapTypeButtonPressed:", forControlEvents: .TouchUpInside)
+      self.floorPlansButton.target = self
+      self.floorPlansButton.action = "floorPlansButtonPressed:"
+   }
+   
+   @IBAction func floorPlansButtonPressed(sender: AnyObject) {
+      let navVC = self.storyboard!.instantiateViewControllerWithIdentifier(floorPlansNCStoryboardID) as! UINavigationController
+      let vc = self.storyboard!.instantiateViewControllerWithIdentifier(floorPlansPSVCStoryboardID) as! FloorPlanPagedScrollViewController
+      navVC.pushViewController(vc, animated: false)
+      self.presentViewController(navVC, animated: true, completion: nil)
    }
    
    
@@ -125,7 +134,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       }
       
       //enable floor plan button and load images
-      floorPlanButton.enabled = true
+      floorPlansButton.enabled = true
       
    }
    
@@ -145,7 +154,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       line.map = nil
       
       locationTitle.text = "CP Maps"
-      floorPlanButton.enabled = false
+      floorPlansButton.enabled = false
    }
 
    // maps to a specified location if current location exists

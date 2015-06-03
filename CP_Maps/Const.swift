@@ -18,8 +18,13 @@ let segueToChooseBuildingVCFromMainVC = "segueToChooseBuildingFromMainViewContro
 let cancelToMainViewController = "cancelToMainViewController"
 let chooseBuildingForMapViewController = "chooseBuildingForMapViewController"
 
-// Segues for MapViewController
+// MapViewController Storyboard
 let showSelectedBuilding = "showSelectedBuilding"
+
+let floorPlansNCStoryboardID = "floorPlanPagedScrollNavigationController"
+let floorPlansPSVCStoryboardID = "floorPlanPagedScrollViewController"
+
+
 
 
 // Saved Locations Storyboard
