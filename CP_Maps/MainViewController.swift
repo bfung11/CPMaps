@@ -102,10 +102,6 @@ class MainViewController: UIViewController {
          self.showMapView()
       }
    }
-   
-   @IBAction func cancelToMainViewController(segue: UIStoryboardSegue) {
-      
-   }
 
    private func presentDetailController(detailVC: UIViewController) {
       
