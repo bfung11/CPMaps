@@ -134,21 +134,6 @@ UITableViewDataSource, UITableViewDelegate {
       self.locationsTableView.reloadData()
    }
    
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//      println(segue.identifier)
-//      if segue.identifier == segueIdentifierEditLocation {
-//         let navViewController = segue.destinationViewController
-//            as! UINavigationController
-//         let viewController = navViewController.viewControllers.first
-//            as! AddEditLocationViewController
-//         viewController.selectedLocation = self.selectedLocation
-//         isEditLocation = true
-//      }
-//      else {
-//         isEditLocation = false
-//      }
-   }
-   
    @IBAction func saveLocation(segue:UIStoryboardSegue) {
       let viewController = segue.sourceViewController as! AddEditLocationViewController
       let buildingNumber = viewController.selectedBuilding.getNumber()
