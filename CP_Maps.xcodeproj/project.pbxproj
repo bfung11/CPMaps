@@ -48,7 +48,6 @@
 		B208DACC1B16AF8A00FB1288 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B208DACB1B16AF8A00FB1288 /* MainViewController.swift */; };
 		B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536E11A709D7500E4391B /* AppDelegate.swift */; };
 		B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */; };
-		B23536EA1A709D7500E4391B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23536E81A709D7500E4391B /* Main.storyboard */; };
 		B23536EC1A709D7500E4391B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23536EB1A709D7500E4391B /* Images.xcassets */; };
 		B23536FB1A709D7500E4391B /* CP_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536FA1A709D7500E4391B /* CP_MapsTests.swift */; };
 		B23573541A92BC090065DF25 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23573531A92BC090065DF25 /* Day.swift */; };
@@ -130,7 +129,6 @@
 		B23536E01A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536E11A709D7500E4391B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23536E41A709D7500E4391B /* CP_Maps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CP_Maps.xcdatamodel; sourceTree = "<group>"; };
-		B23536E91A709D7500E4391B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B23536EB1A709D7500E4391B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B23536F41A709D7500E4391B /* CP_MapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP_MapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536F91A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -306,7 +304,6 @@
 		B23536DE1A709D7500E4391B /* CP_Maps */ = {
 			isa = PBXGroup;
 			children = (
-				B23536E81A709D7500E4391B /* Main.storyboard */,
 				B23536E11A709D7500E4391B /* AppDelegate.swift */,
 				B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */,
 				B2485FCF1ADF678800430CD9 /* API */,
@@ -455,7 +452,6 @@
 				118C896B1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx in Resources */,
 				1185CBB51A797B1900987018 /* .gitignore in Resources */,
 				1171B44E1AF0AE0E00564ABE /* Building_Info.csv in Resources */,
-				B23536EA1A709D7500E4391B /* Main.storyboard in Resources */,
 				113A94141B04986900C082C6 /* 1-1.png in Resources */,
 				11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */,
 				113A94151B04986900C082C6 /* 1-2.png in Resources */,
@@ -546,14 +542,6 @@
 				11EEA6731AF5FFA500053ADA /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		B23536E81A709D7500E4391B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B23536E91A709D7500E4391B /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
