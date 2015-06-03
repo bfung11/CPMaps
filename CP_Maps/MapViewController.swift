@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLLocationManagerDelegate, GMSMapViewDelegate {
    
    let TAG = "MapViewController: "
    
@@ -28,9 +28,11 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    var line = GMSPolyline(path: nil)
    var selectedBuilding = Building()
    
+   
+   // view did load
    override func viewDidLoad() {
       super.viewDidLoad()
-      // Do any additional setup after loading the view, typically from a nib.
+      mapView.delegate = self
       
       if(mapView == nil) {
          NSLog("MapView starts off nil");
@@ -91,33 +93,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
          marker.appearAnimation = kGMSMarkerAnimationPop
          marker.map = mapView
          
-         // animate to marker
-         println(mapView)
-         println(position)
+         mapToLocation(position)
          mapView.animateToLocation(position)
-         
-         
-         // INITIAL MAPPING
-         if(locationManager.location != nil) {
-            dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: position) {optionalRoute in
-               if let encodedRoute = optionalRoute {
-                  
-                  let path = GMSPath(fromEncodedPath: encodedRoute)
-                  self.line = GMSPolyline(path: path)
-                  
-                  self.line.strokeWidth = 4.0
-                  self.line.tappable = true
-                  self.line.zIndex = 1;         // draw over overlay
-                  self.line.map = self.mapView
-                  
-                  // 5
-                  //self.mapView.selectedMarker = nil
-               }
-            }
-         }
-         else {
-            NSLog(TAG + "Location is not shared - cannot map directions")
-         }
       }
       
       //enable floor plan button and load images
@@ -125,49 +102,61 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       
    }
    
+   func mapView(mapView: GMSMapView!, didLongPressAtCoordinate coordinate: CLLocationCoordinate2D) {
+      self.marker.map = nil
+      self.marker = GMSMarker(position: coordinate)
+      self.marker.map = self.mapView
+      
+      //directions and animate
+      mapToLocation(coordinate)
+      mapView.animateToLocation(coordinate)
+   }
+   
+   //remove marker and directional line from map
+   func mapView(mapView: GMSMapView!, didTapAtCoordinate coordinate: CLLocationCoordinate2D) {
+      marker.map = nil
+      line.map = nil
+      
+      locationTitle.text = "CP Maps"
+//      floorPlanButton.enabled = false
+   }
+
+   
+   func mapToLocation(destinationLocation : CLLocationCoordinate2D) {
+      self.line.map = nil
+      var currentLocation = locationManager.location
+      
+      if(currentLocation != nil) {
+         dataProvider.fetchDirectionsFrom(mapView.myLocation.coordinate, to: destinationLocation) {optionalRoute in
+            if let encodedRoute = optionalRoute {
+               
+               let path = GMSPath(fromEncodedPath: encodedRoute)
+               self.line.path = path
+               
+               self.line.strokeWidth = 4.0
+               self.line.tappable = true
+               self.line.zIndex = 1;         // draw over overlay
+               self.line.map = self.mapView
+            }
+         }
+      }
+      else {
+         NSLog(TAG + "Location is not shared - cannot map directions")
+      }
+   }
+   
    func chooseLocation(location: Location) {
       let building = locationLibraryAPI.getBuilding(location.getBuildingNumber())
       locationTitle.text = building.getNumber() + " " + building.getName()
    }
    
-   @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
-      //      let viewController = segue.sourceViewController as! LocationsTableViewController
-      //      let location = locationLibraryAPI.getLocation(viewController.selectedLocation!.row)
-      //      locationTitle.text = location.getBuildingNumber()
-   }
-   
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {
       dismissViewControllerAnimated(true, completion: nil)
-      //performSegueWithIdentifier("cancelToMyLocations", sender: self)
    }
    
    // MARK: - Types Controller Delegate
    func typesController(controller: TypesTableViewController, didSelectTypes types: [String]) {
       dismissViewControllerAnimated(true, completion: nil)
-   }
-   
-   @IBAction func mapTypeSegmentPressed(sender: AnyObject) {
-      let segmentedControl = sender as! UISegmentedControl
-      overlay.map = nil
-      
-      switch segmentedControl.selectedSegmentIndex {
-      case 0:
-         mapView.mapType = kGMSTypeNormal
-      case 1:
-         let viewController =
-         self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
-            as! LocationsTableViewController
-         let locationsTableView = viewController.view as! UITableView
-         locationsTableView.hidden = false
-//         mapView.hidden = true
-      case 2:
-         mapView.mapType = kGMSTypeHybrid
-      case 3:
-         // overlay cal polys map
-         overlay.map = mapView
-      default:
-         mapView.mapType = mapView.mapType
-      }
    }
    
    private func changeMapType(selectedType: Int) {
