@@ -97,11 +97,9 @@ class MainViewController: UIViewController {
       case 0:
          self.createButtonsForMapView()
          self.swapCurrentControllerWith(mapViewController)
-         println("Map")
       case 1:
          self.createButtonsForLocationsView()
          self.swapCurrentControllerWith(locationsViewController)
-         println("Locations")
       default:
          self.showMapView()
       }
@@ -182,7 +180,6 @@ class MainViewController: UIViewController {
    }
    
    private func frameForDetailController() -> CGRect {
-      println(self.detailView)
       let detailFrame = self.detailView.bounds
       
       return detailFrame
