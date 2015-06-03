@@ -44,7 +44,7 @@
                                 <items>
                                     <barButtonItem enabled="NO" systemItem="organize" id="ke8-Rk-H2J">
                                         <connections>
-                                            <segue destination="7ee-Oe-EzI" kind="show" id="rP1-6L-3oh"/>
+                                            <segue destination="7ee-Oe-EzI" kind="showDetail" id="rP1-6L-3oh"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6AN-Gf-bEw"/>
