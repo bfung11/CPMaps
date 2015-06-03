@@ -126,7 +126,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
    }
    
    func chooseLocation(location: Location) {
-      locationTitle.text = location.getName()
+      let building = locationLibraryAPI.getBuilding(location.getBuildingNumber())
+      locationTitle.text = building.getNumber() + " " + building.getName()
    }
    
    @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
