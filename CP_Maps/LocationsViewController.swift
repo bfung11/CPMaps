@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class LocationsTableViewController: UIViewController, NSFetchedResultsControllerDelegate,
+class LocationsViewController: UIViewController, NSFetchedResultsControllerDelegate,
 UITableViewDataSource, UITableViewDelegate {
       
    @IBOutlet var locationsTableView: UITableView!

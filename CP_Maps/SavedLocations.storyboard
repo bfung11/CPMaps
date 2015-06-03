@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="1072" y="-24"/>
         </scene>
-        <!--Locations Table View Controller-->
+        <!--Locations View Controller-->
         <scene sceneID="jnf-b3-n8b">
             <objects>
-                <viewController storyboardIdentifier="savedLocationsTableViewController" id="Yn3-6z-xuj" customClass="LocationsTableViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="savedLocationsViewController" id="Yn3-6z-xuj" customClass="LocationsViewController" customModule="CP_Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bmy-Nj-hsJ"/>
                         <viewControllerLayoutGuide type="bottom" id="NQw-Zs-KVe"/>
@@ -334,7 +334,7 @@
                         <outlet property="roomTextField" destination="BJS-xL-Imh" id="UYb-2L-m0o"/>
                         <outlet property="startTimeDatePicker" destination="TaT-qd-lqA" id="3iF-s6-0cV"/>
                         <outlet property="startTimeLabel" destination="IIY-1q-CCF" id="nrs-ly-G4P"/>
-                        <segue destination="o04-fa-ue0" kind="unwind" identifier="cancelToLocationsTableViewController" unwindAction="cancelToLocationsTableViewController:" id="ZDt-SL-8GH"/>
+                        <segue destination="o04-fa-ue0" kind="unwind" identifier="cancelToLocationsViewController" unwindAction="cancelToLocationsViewController:" id="ZDt-SL-8GH"/>
                         <segue destination="o04-fa-ue0" kind="unwind" identifier="saveLocation" unwindAction="saveLocation:" id="b0M-ym-CPb"/>
                     </connections>
                 </tableViewController>

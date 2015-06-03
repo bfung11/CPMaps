@@ -50,7 +50,7 @@
 		B23536EC1A709D7500E4391B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23536EB1A709D7500E4391B /* Images.xcassets */; };
 		B23536FB1A709D7500E4391B /* CP_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536FA1A709D7500E4391B /* CP_MapsTests.swift */; };
 		B23573541A92BC090065DF25 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23573531A92BC090065DF25 /* Day.swift */; };
-		B2372FA51A8C5B3F006EA3C9 /* LocationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */; };
+		B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */; };
 		B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */; };
 		B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */; };
 		B2485FCE1ADF677E00430CD9 /* CPMapsLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */; };
@@ -131,7 +131,7 @@
 		B23536F91A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536FA1A709D7500E4391B /* CP_MapsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CP_MapsTests.swift; sourceTree = "<group>"; };
 		B23573531A92BC090065DF25 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
-		B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsTableViewController.swift; sourceTree = "<group>"; };
+		B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMapsLibraryAPI.swift; sourceTree = "<group>"; };
@@ -237,7 +237,7 @@
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
 				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
 				B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */,
-				B2372FA41A8C5B3F006EA3C9 /* LocationsTableViewController.swift */,
+				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
@@ -502,7 +502,7 @@
 				B24DD8511B13994E00F2EE55 /* MapViewTypeTableViewCell.swift in Sources */,
 				B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
-				B2372FA51A8C5B3F006EA3C9 /* LocationsTableViewController.swift in Sources */,
+				B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,
 				B2748F461AB9337D00411FAA /* Const.swift in Sources */,
 				B2485FD11ADF6C4200430CD9 /* LocationsPersistencyManager.swift in Sources */,

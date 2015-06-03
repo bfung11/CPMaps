@@ -29,13 +29,13 @@ let floorPlansPSVCStoryboardID = "floorPlanPagedScrollViewController"
 
 // Saved Locations Storyboard
 let savedLocationsStoryboard = "SavedLocations"
-let savedLocationsTVCStoryboardID = "savedLocationsTableViewController"
+let savedLocationsTVCStoryboardID = "savedLocationsViewController"
 
 let addEditLocationTVCStoryboardID = "addEditLocationTableViewController"
 let addEditLocationNCStoryboardID = "addEditLocationNavigationController"
 let saveLocation = "saveLocation"
 let segueIdentifierEditLocation = "editLocation"
-let cancelToLocationsTVC = "cancelToLocationsTableViewController"
+let cancelToLocationsTVC = "cancelToLocationsViewController"
 
 let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
 
