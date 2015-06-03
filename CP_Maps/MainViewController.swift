@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
       let mapStoryboard = UIStoryboard(name: "MapViewController", bundle: nil)
       self.mapViewController = mapStoryboard.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
+      self.mapViewController.mainVC = self
       
       self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
       self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController

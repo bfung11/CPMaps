@@ -18,6 +18,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
    @IBOutlet weak var mapTypeButton: UIButton!
    
    var locationsTableView: UITableView?
+   var mainVC: MainViewController!
    
    let locationManager = CLLocationManager()
    let locationLibraryAPI = CPMapsLibraryAPI.sharedInstance
