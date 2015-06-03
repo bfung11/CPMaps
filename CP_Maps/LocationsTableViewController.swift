@@ -78,10 +78,14 @@ UITableViewDataSource, UITableViewDelegate {
    func tableView(tableView: UITableView,
       didSelectRowAtIndexPath indexPath: NSIndexPath) {
          
-         tableView.deselectRowAtIndexPath(indexPath, animated: true)
          self.selectedLocation = self.locations.getLocation(indexPath)
          let mapVC = mainVC.mapViewController
          mapVC.chooseLocation(self.selectedLocation!)
+         mainVC.segmentedControl.selectedSegmentIndex = 0
+         mainVC.segmentedControl.sendActionsForControlEvents(.ValueChanged)
+         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+         
 //         performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    

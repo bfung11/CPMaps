@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
    
    var currentDetailViewController: UIViewController!
    
+   var segmentedControl: UISegmentedControl!
    var mapViewController: MapViewController!
    var locationsStoryboard: UIStoryboard!
    var locationsViewController: LocationsTableViewController!
@@ -24,7 +25,7 @@ class MainViewController: UIViewController {
       super.viewDidLoad()
       self.instantiateStoryboardsAndControllers()
       self.presentDetailController(mapViewController)
-      self.navigationItem.titleView = self.instantiateSegmentedControl()
+      self.createUISegmentedControl()
       self.createButtonsForMapView()
    }
    
@@ -38,7 +39,7 @@ class MainViewController: UIViewController {
       self.locationsViewController.mainVC = self
    }
    
-   private func instantiateSegmentedControl() -> UISegmentedControl {
+   private func createUISegmentedControl() {
       let segmentedControl = UISegmentedControl(items: ["Map", "Locations"])
       
       segmentedControl.setWidth(standardUISegmentedControlWidth - 5, forSegmentAtIndex: 0)
@@ -48,7 +49,8 @@ class MainViewController: UIViewController {
       
       segmentedControl.selectedSegmentIndex = 0
       
-      return segmentedControl
+      self.segmentedControl = segmentedControl
+      self.navigationItem.titleView = self.segmentedControl
    }
 
    @IBAction func mapTypesButtonPressed(sender: AnyObject) {
