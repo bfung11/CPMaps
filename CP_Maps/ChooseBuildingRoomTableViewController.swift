@@ -27,7 +27,9 @@ class ChooseBuildingRoomViewController: UITableViewController {
    
    @IBAction func cancelButtonPressed(sender: AnyObject) {
       if identifier == segueToChooseBuildingVCFromMainVC {
-         performSegueWithIdentifier(cancelToMainViewController, sender: self)
+         println("here")
+         self.dismissViewControllerAnimated(true, completion: nil)
+//         performSegueWithIdentifier(cancelToMainViewController, sender: self)
       }
    }
    
