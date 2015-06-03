@@ -148,23 +148,7 @@ class AddEditLocationViewController: UITableViewController {
    
    @IBAction func cancelToAddEditLocationViewController(segue:UIStoryboardSegue) {
    }
-   
-//   override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-//      
-//      var shouldPerform = true
-//      
-//      // if they have not selected a building, send UIAlertView
-//      if identifier == saveLocationSegueIdentifer && selectedBuilding == nil {
-//         let alert = UIAlertView(title: saveNewLocationTitle,
-//            message: saveNewLocationMessage, delegate: self,
-//            cancelButtonTitle: cancelButtonTitleOK)
-//         alert.show()
-//         shouldPerform = false
-//      }
-//      
-//      return shouldPerform
-//   }
-   
+      
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if segue.identifier == chooseBuildingForAddEditLocationVC {
          let navViewController = segue.destinationViewController
