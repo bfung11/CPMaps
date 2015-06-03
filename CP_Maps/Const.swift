@@ -39,7 +39,7 @@ let cancelToLocationsTVC = "cancelToLocationsTableViewController"
 
 let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
 
-let chooseBuildingRoomNCStoryboardID = "chooseBuildingRoomNCStoryboardID"
+let chooseBuildingRoomNCStoryboardID = "chooseBuildingRoomNavigationController"
 let chooseBuildingRoomVCStoryboardID = "chooseBuildingRoomViewController"
 let chooseBuildingForAddEditLocationVC = "chooseBuildingForAddEditLocationViewController"
 

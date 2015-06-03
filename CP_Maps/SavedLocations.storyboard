@@ -42,7 +42,7 @@
         <!--Navigation Controller-->
         <scene sceneID="YNe-go-eQC">
             <objects>
-                <navigationController storyboardIdentifier="chooseBuildingRoomNCStoryboardID" automaticallyAdjustsScrollViewInsets="NO" id="WL9-FD-WnL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="chooseBuildingRoomNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="WL9-FD-WnL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OCN-yc-aJe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
