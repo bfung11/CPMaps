@@ -125,7 +125,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       }
       
       //enable floor plan button and load images
-//      floorPlanButton.enabled = true
+      floorPlanButton.enabled = true
       
    }
    
@@ -145,7 +145,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       line.map = nil
       
       locationTitle.text = "CP Maps"
-//      floorPlanButton.enabled = false
+      floorPlanButton.enabled = false
    }
 
    // maps to a specified location if current location exists

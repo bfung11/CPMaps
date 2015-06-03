@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -42,6 +42,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CS5-SS-r7I">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <items>
+                                    <barButtonItem enabled="NO" systemItem="organize" id="ke8-Rk-H2J">
+                                        <connections>
+                                            <segue destination="7ee-Oe-EzI" kind="show" id="rP1-6L-3oh"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6AN-Gf-bEw"/>
                                     <barButtonItem title="See Me" style="plain" id="b64-qY-cOH">
                                         <view key="customView" contentMode="scaleToFill" id="18N-WU-7X9">
@@ -86,6 +91,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="floorPlanButton" destination="ke8-Rk-H2J" id="x5i-7R-H8b"/>
                         <outlet property="locationTitle" destination="qrM-iV-H7G" id="bAE-nJ-sj3"/>
                         <outlet property="mapTypeButton" destination="c8m-KL-7Zl" id="rN2-ky-J6F"/>
                         <outlet property="mapView" destination="Abx-Dm-JLa" id="0uo-yE-MDc"/>
@@ -104,11 +110,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Hz0-oR-eg5"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yly-HM-M2R">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1f-fV-pLM">
-                                <rect key="frame" x="0.0" y="64" width="600" height="619"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="619"/>
                                 <connections>
                                     <outlet property="delegate" destination="7ee-Oe-EzI" id="Kcp-Lx-gX3"/>
                                 </connections>
@@ -117,13 +123,13 @@
                                 <rect key="frame" x="3" y="691" width="408" height="37"/>
                             </pageControl>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUD-Sr-5QO">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="74"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <items>
                                     <navigationItem title="Floor Plans" prompt="" id="Wux-np-aZh">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="0Q4-B2-h5X">
                                             <connections>
-                                                <segue destination="GkA-QW-tUh" kind="unwind" unwindAction="cancelToMapViewController:" id="coG-f7-kru"/>
+                                                <segue destination="GkA-QW-tUh" kind="unwind" unwindAction="cancelToMainViewController:" id="vL6-oh-U5x"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
