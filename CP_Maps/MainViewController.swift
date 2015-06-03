@@ -24,7 +24,8 @@ class MainViewController: UIViewController {
       super.viewDidLoad()
       self.instantiateStoryboardsAndControllers()
       self.presentDetailController(mapViewController)
-      self.instantiateNavigationItem()
+      self.navigationItem.titleView = self.instantiateSegmentedControl()
+      self.createButtonsForMapView()
    }
    
    private func instantiateStoryboardsAndControllers() {
@@ -34,16 +35,6 @@ class MainViewController: UIViewController {
       
       self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
       self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
-   }
-   
-   private func instantiateNavigationItem() {
-      self.navigationItem.rightBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Search,
-            target: self, action: "searchBuildingsButtonPressed:")
-      self.navigationItem.titleView = self.instantiateSegmentedControl()
-      self.navigationItem.leftBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
-            target: self, action: "mapTypesButtonPressed:")
    }
    
    private func instantiateSegmentedControl() -> UISegmentedControl {
@@ -101,11 +92,11 @@ class MainViewController: UIViewController {
       
       switch segmentedControl.selectedSegmentIndex {
       case 0:
-         self.swapButtonsForMapView()
+         self.createButtonsForMapView()
          self.swapCurrentControllerWith(mapViewController)
          println("Map")
       case 1:
-         self.swapButtonsForLocationsView()
+         self.createButtonsForLocationsView()
          self.swapCurrentControllerWith(locationsViewController)
          println("Locations")
       default:
@@ -194,16 +185,15 @@ class MainViewController: UIViewController {
       return detailFrame
    }
    
-   private func swapButtonsForMapView() {
+   private func createButtonsForMapView() {
       self.navigationItem.rightBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Search,
             target: self, action: "searchBuildingsButtonPressed:")
       self.navigationItem.leftBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Bookmarks,
-            target: self, action: "mapTypesButtonPressed:")
+         UIBarButtonItem()
    }
    
-   private func swapButtonsForLocationsView() {
+   private func createButtonsForLocationsView() {
       self.navigationItem.leftBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Edit,
             target: self, action: "editButtonPressed:")
