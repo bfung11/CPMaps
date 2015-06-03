@@ -50,7 +50,7 @@ class OldMainViewController: UIViewController {
          as! MapViewController
       
       self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
-      //      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID)
+      //      self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID)
       //         as! LocationsTableViewController
    }
    
@@ -73,7 +73,7 @@ class OldMainViewController: UIViewController {
    }
    
    @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
-      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID) as! ChooseBuildingRoomViewController
+      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
       println("before prepare")
       self.showViewController(vc, sender: self)
       self.performSegueWithIdentifier("segueToChooseBuildingFromMapViewController", sender: self)

@@ -62,9 +62,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
    }
    
    @IBAction func floorPlansButtonPressed(sender: AnyObject) {
-      let navVC = self.storyboard!.instantiateViewControllerWithIdentifier(floorPlansNCStoryboardID) as! UINavigationController
-      let vc = self.storyboard!.instantiateViewControllerWithIdentifier(floorPlansPSVCStoryboardID) as! FloorPlanPagedScrollViewController
-      navVC.pushViewController(vc, animated: false)
+      let navVC = self.storyboard!.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID) as! UINavigationController
+      let vc = self.storyboard!.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID)
+      println(vc)
+//      navVC.pushViewController(vc, animated: false)
       self.presentViewController(navVC, animated: true, completion: nil)
    }
    

@@ -58,8 +58,8 @@ class MainViewController: UIViewController {
    }
    
    @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
-      let navVC = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingNCStoryboardID) as! UINavigationController
-      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseRoomBuildingVCStoryboardID) as! ChooseBuildingRoomViewController
+      let navVC = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID) as! UINavigationController
+      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
       navVC.pushViewController(vc, animated: false)
       vc.identifier = segueToChooseBuildingVCFromMainVC
       self.presentViewController(navVC, animated: true, completion: nil)
