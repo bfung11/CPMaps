@@ -35,6 +35,7 @@ class MainViewController: UIViewController {
       
       self.locationsStoryboard = UIStoryboard(name: savedLocationsStoryboard, bundle: nil)
       self.locationsViewController = locationsStoryboard.instantiateViewControllerWithIdentifier(savedLocationsTVCStoryboardID) as! LocationsTableViewController
+      self.locationsViewController.mainVC = self
    }
    
    private func instantiateSegmentedControl() -> UISegmentedControl {

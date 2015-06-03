@@ -125,10 +125,8 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       
    }
    
-   @IBAction func chooseLocation(segue:UIStoryboardSegue) {
-      let viewController = segue.sourceViewController as! LocationsTableViewController
-      let location = viewController.selectedLocation
-      locationTitle.text = location!.getName()
+   func chooseLocation(location: Location) {
+      locationTitle.text = location.getName()
    }
    
    @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {

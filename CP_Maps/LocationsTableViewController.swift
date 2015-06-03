@@ -14,7 +14,8 @@ UITableViewDataSource, UITableViewDelegate {
       
    @IBOutlet var locationsTableView: UITableView!
    @IBOutlet weak var locationsToolbar: UIToolbar!
-      
+   
+   var mainVC: MainViewController!
    var locations: CPMapsLibraryAPI!
    var fetchedResultsController: CPMapsLibraryAPI!
    var selectedLocation: Location?
@@ -79,7 +80,9 @@ UITableViewDataSource, UITableViewDelegate {
          
          tableView.deselectRowAtIndexPath(indexPath, animated: true)
          self.selectedLocation = self.locations.getLocation(indexPath)
-         performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
+         let mapVC = mainVC.mapViewController
+         mapVC.chooseLocation(self.selectedLocation!)
+//         performSegueWithIdentifier(chooseLocationSegueIdentifier, sender: self)
    }
    
    func tableView(tableView: UITableView,
