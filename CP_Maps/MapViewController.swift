@@ -118,7 +118,7 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       line.map = nil
       
       locationTitle.text = "CP Maps"
-      floorPlanButton.enabled = false
+//      floorPlanButton.enabled = false
    }
 
    
@@ -150,44 +150,13 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
       locationTitle.text = building.getNumber() + " " + building.getName()
    }
    
-   @IBAction func cancelToMapViewController(segue:UIStoryboardSegue) {
-      //      let viewController = segue.sourceViewController as! LocationsTableViewController
-      //      let location = locationLibraryAPI.getLocation(viewController.selectedLocation!.row)
-      //      locationTitle.text = location.getBuildingNumber()
-   }
-   
    @IBAction func clickBackToMaps(segue:UIStoryboardSegue) {
       dismissViewControllerAnimated(true, completion: nil)
-      //performSegueWithIdentifier("cancelToMyLocations", sender: self)
    }
    
    // MARK: - Types Controller Delegate
    func typesController(controller: TypesTableViewController, didSelectTypes types: [String]) {
       dismissViewControllerAnimated(true, completion: nil)
-   }
-   
-   @IBAction func mapTypeSegmentPressed(sender: AnyObject) {
-      let segmentedControl = sender as! UISegmentedControl
-      overlay.map = nil
-      
-      switch segmentedControl.selectedSegmentIndex {
-      case 0:
-         mapView.mapType = kGMSTypeNormal
-      case 1:
-         let viewController =
-         self.storyboard!.instantiateViewControllerWithIdentifier("LocationsTableViewController")
-            as! LocationsTableViewController
-         let locationsTableView = viewController.view as! UITableView
-         locationsTableView.hidden = false
-//         mapView.hidden = true
-      case 2:
-         mapView.mapType = kGMSTypeHybrid
-      case 3:
-         // overlay cal polys map
-         overlay.map = mapView
-      default:
-         mapView.mapType = mapView.mapType
-      }
    }
    
    private func changeMapType(selectedType: Int) {
