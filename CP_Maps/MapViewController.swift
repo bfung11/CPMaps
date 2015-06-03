@@ -65,18 +65,6 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
     * Location Manager
     *
     */
-   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-      if let location = locations.first as? CLLocation {
-         if(mapView != nil) {
-            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
-            locationManager.stopUpdatingLocation()
-         }
-         else {
-            //            NSLog(TAG + "MapView is nil");
-         }
-      }
-   }
-   
    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
       if status == .AuthorizedWhenInUse {
          
@@ -88,6 +76,18 @@ class MapViewController: UIViewController, TypesTableViewControllerDelegate, CLL
             
             // make location button move past bottom bar
             mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: 50, right: 0)
+         }
+         else {
+            NSLog(TAG + "MapView is nil");
+         }
+      }
+   }
+   
+   func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+      if let location = locations.first as? CLLocation {
+         if(mapView != nil) {
+            mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            locationManager.stopUpdatingLocation()
          }
          else {
             NSLog(TAG + "MapView is nil");
