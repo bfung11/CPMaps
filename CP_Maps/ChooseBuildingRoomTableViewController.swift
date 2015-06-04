@@ -88,6 +88,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
          let navVC = destinationStoryboard!.instantiateViewControllerWithIdentifier(floorPlansNCStoryboardID) as! UINavigationController
          let vc = destinationStoryboard!.instantiateViewControllerWithIdentifier(floorPlansPSVCStoryboardID) as! FloorPlanPagedScrollViewController
          navVC.pushViewController(vc, animated: false)
+         vc.setPages(self.selectedBuilding)
          self.presentViewController(navVC, animated: true, completion: nil)
       }
       else if identifier == chooseBuildingForAddEditLocationVC {
