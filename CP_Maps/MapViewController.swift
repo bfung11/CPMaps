@@ -234,6 +234,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       self.presentMapTypeOptionsActionSheet()
    }
    
+   private func presentMapOptionsActionSheet() {
+      
+   }
+   
    private func presentMapTypeOptionsActionSheet() {
       let mapTypesActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
       mapTypesActionSheet.addAction(UIAlertAction(title:"Normal", style:UIAlertActionStyle.Default, handler:{ action in

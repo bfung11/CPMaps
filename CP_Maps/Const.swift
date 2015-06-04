@@ -40,6 +40,8 @@ let cancelToLocationsTVC = "cancelToLocationsViewController"
 
 let cancelToAddEditLocationViewController = "cancelToAddEditLocationViewController"
 
+let chooseBuildingsTitle = "Buildings"
+let chooseFloorPlansTitle = "Floor Plans"
 let chooseBuildingRoomNCStoryboardID = "chooseBuildingRoomNavigationController"
 let chooseBuildingRoomVCStoryboardID = "chooseBuildingRoomViewController"
 let chooseBuildingForAddEditLocationVC = "chooseBuildingForAddEditLocationViewController"
@@ -68,7 +70,6 @@ let mapTypeCellReuseIdentifier = "MapTypeCell"
 // View Controller Titles
 let editLocationViewControllerTitle = "Edit Location"
 let addLocationViewControllerTitle = "Add Location"
-let chooseBuildingViewControllerTitle = "Building"
 let chooseRoomViewControllerTitle = "Room"
 let choooseMapTypeTableViewControllerTitle = "Map Type"
 

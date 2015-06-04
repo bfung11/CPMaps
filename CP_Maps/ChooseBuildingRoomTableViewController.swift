@@ -23,7 +23,13 @@ class ChooseBuildingRoomViewController: UITableViewController {
       self.navigationItem.leftBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Cancel,
             target: self, action: "cancelButtonPressed:")
-      self.navigationItem.title = chooseBuildingViewControllerTitle
+      if identifier == chooseBuildingForFloorPlanPSVC {
+         self.navigationItem.title = chooseFloorPlansTitle
+      }
+      else {
+         self.navigationItem.title = chooseBuildingsTitle
+   
+      }
    }
    
    @IBAction func cancelButtonPressed(sender: AnyObject) {
