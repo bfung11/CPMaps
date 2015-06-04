@@ -33,6 +33,10 @@ class BuildingsPersistencyManager: NSObject {
       return buildings.count
    }
    
+   func getAllBuildings() -> [Building] {
+      return buildings
+   }
+   
    private func calculateIndex(buildingNumber: String) -> Int {
       var index = 0
       var hasIndex = false

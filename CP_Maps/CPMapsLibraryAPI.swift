@@ -71,4 +71,16 @@ class CPMapsLibraryAPI: NSObject {
    func getNumberOfBuildings() -> Int {
       return buildingsPersistencyManager.getNumberOfBuildings()
    }
+   
+   // filters out all buildings based on search text
+   func filterBuildings(searchText : String) -> [Building] {
+      var filteredBuildings : [Building]
+      filteredBuildings = buildingsPersistencyManager.getAllBuildings().filter({( building: Building) -> Bool in
+         let numberMatch = building.number.rangeOfString(searchText)
+         let nameMatch = building.name.rangeOfString(searchText)
+         return (numberMatch != nil) || (nameMatch != nil)
+      })
+      
+      return filteredBuildings
+   }
 }
