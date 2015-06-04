@@ -14,6 +14,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    var identifier: String?      // determines whether to display building or room data
    var data: CPMapsLibraryAPI!       // building data or room data
    var selectedBuilding: Building!
+   var destinationStoryboard: UIStoryboard?
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -84,7 +85,10 @@ class ChooseBuildingRoomViewController: UITableViewController {
          performSegueWithIdentifier(chooseBuildingForMapViewController, sender: self)
       }
       else if identifier == chooseBuildingForFloorPlanPSVC {
-         println("present floor plan paged scroll view controller")
+         let navVC = destinationStoryboard!.instantiateViewControllerWithIdentifier(floorPlansNCStoryboardID) as! UINavigationController
+         let vc = destinationStoryboard!.instantiateViewControllerWithIdentifier(floorPlansPSVCStoryboardID) as! FloorPlanPagedScrollViewController
+         navVC.pushViewController(vc, animated: false)
+         self.presentViewController(navVC, animated: true, completion: nil)
       }
       else if identifier == chooseBuildingForAddEditLocationVC {
          performSegueWithIdentifier(chooseBuildingForAddEditLocationVC, sender: self)
