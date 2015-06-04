@@ -83,6 +83,9 @@ class ChooseBuildingRoomViewController: UITableViewController {
       if identifier == chooseBuildingForMainVC {
          performSegueWithIdentifier(chooseBuildingForMapViewController, sender: self)
       }
+      else if identifier == chooseBuildingForFloorPlanPSVC {
+         println("present floor plan paged scroll view controller")
+      }
       else if identifier == chooseBuildingForAddEditLocationVC {
          performSegueWithIdentifier(chooseBuildingForAddEditLocationVC, sender: self)
       }
