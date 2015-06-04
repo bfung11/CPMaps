@@ -46,7 +46,7 @@ class AddEditLocationViewController: UITableViewController {
       }
       else {
          // disable room selection if building not selected
-         chooseRoomCell.userInteractionEnabled = false;
+         chooseRoomCell.userInteractionEnabled = true;
          chooseRoomCell.textLabel!.textColor = UIColor.grayColor();
          
          self.navigationItem.title = addLocationViewControllerTitle
@@ -163,7 +163,7 @@ class AddEditLocationViewController: UITableViewController {
       }
       else if segue.identifier == saveLocationSegueIdentifer {
          self.name = self.nameTextField.text
-         self.selectedRoom = "Please select a room"
+         self.selectedRoom = self.roomTextField.text
          self.startTime =
             self.dateFormatter.stringFromDate(startTimeDatePicker.date)
          self.endTime =
