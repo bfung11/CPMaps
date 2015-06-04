@@ -60,13 +60,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       mapTypeButton.addTarget(self, action: "mapTypeButtonPressed:", forControlEvents: .TouchUpInside)
       self.floorPlansButton.target = self
       self.floorPlansButton.action = "floorPlansButtonPressed:"
+      self.floorPlansButton.enabled = true
    }
    
    @IBAction func floorPlansButtonPressed(sender: AnyObject) {
       let navVC = mainVC.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID) as! UINavigationController
-      let vc = mainVC.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID)
+      let vc = mainVC.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
       println(vc)
-//      navVC.pushViewController(vc, animated: false)
+      vc.identifier = chooseBuildingForFloorPlanPSVC
+      navVC.pushViewController(vc, animated: false)
       self.presentViewController(navVC, animated: true, completion: nil)
    }
    
@@ -136,7 +138,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       }
       
       //enable floor plan button and load images
-      floorPlansButton.enabled = true
+//      floorPlansButton.enabled = true
       
    }
    
@@ -156,7 +158,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       line.map = nil
       
       locationTitle.text = "CP Maps"
-      floorPlansButton.enabled = false
+//      floorPlansButton.enabled = false
    }
 
    // maps to a specified location if current location exists
