@@ -42,13 +42,21 @@ class LocationsPersistencyManager: NSObject {
       return sectionInfo.numberOfObjects
    }
    
-   func addLocation(name: String?, buildingNumber: String!, roomNumber: String?, startTime: String?, endTime: String?, days: String?,
+   func addLocation(name: String?, buildingNumber: String!, roomNumber: String?,
+      startTime: String?, endTime: String?, days: String?,
       context: NSManagedObjectContext?) {
-         Location.createInManagedObjectContext(name, buildingNumber: buildingNumber, roomNumber: roomNumber, startTime: startTime, endTime: endTime, days: days, insertIntoManagedObjectContext: context)
+         Location.createInManagedObjectContext(name,
+            buildingNumber: buildingNumber, roomNumber: roomNumber,
+            startTime: startTime, endTime: endTime, days: days,
+            insertIntoManagedObjectContext: context)
    }
    
    func getLocation(indexPath: NSIndexPath) -> Location {
       return fetchedResultsController.objectAtIndexPath(indexPath) as! Location
+   }
+   
+   func deleteLocation(location: Location) {
+      managedObjectContext?.deleteObject(location)
    }
    
    private func getFetchedResultController() -> NSFetchedResultsController {

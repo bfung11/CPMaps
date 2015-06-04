@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		113A94141B04986900C082C6 /* 1-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 113A940F1B04986900C082C6 /* 1-1.png */; };
+		113A94151B04986900C082C6 /* 1-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 113A94101B04986900C082C6 /* 1-2.png */; };
+		113A94161B04986900C082C6 /* 1-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 113A94111B04986900C082C6 /* 1-3.png */; };
+		113A94171B04986900C082C6 /* 1-4.png in Resources */ = {isa = PBXBuildFile; fileRef = 113A94121B04986900C082C6 /* 1-4.png */; };
+		113A94181B04986900C082C6 /* 1-5.png in Resources */ = {isa = PBXBuildFile; fileRef = 113A94131B04986900C082C6 /* 1-5.png */; };
 		1157A9EC1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */; };
-		1157A9F01AFAAAFE004CA294 /* 0140-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9ED1AFAAAFE004CA294 /* 0140-1.png */; };
-		1157A9F11AFAAAFE004CA294 /* 0140-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EE1AFAAAFE004CA294 /* 0140-2.png */; };
-		1157A9F21AFAAAFE004CA294 /* 0140-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EF1AFAAAFE004CA294 /* 0140-3.png */; };
+		1157A9F01AFAAAFE004CA294 /* 14-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9ED1AFAAAFE004CA294 /* 14-1.png */; };
+		1157A9F11AFAAAFE004CA294 /* 14-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EE1AFAAAFE004CA294 /* 14-2.png */; };
+		1157A9F21AFAAAFE004CA294 /* 14-3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1157A9EF1AFAAAFE004CA294 /* 14-3.png */; };
 		1167C1CE1A783FB600E6C780 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1CD1A783FB600E6C780 /* UIKit.framework */; };
 		1167C1CF1A783FC600E6C780 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C81A783EF200E6C780 /* CoreGraphics.framework */; };
 		1167C1D01A783FD000E6C780 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1167C1C91A783EF200E6C780 /* CoreLocation.framework */; };
@@ -30,7 +35,6 @@
 		11E139BD1A9AE5800074B985 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139BC1A9AE5800074B985 /* SystemConfiguration.framework */; };
 		11E139BF1A9BA6310074B985 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139B01A9AE5580074B985 /* ImageIO.framework */; };
 		11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C31A9BB1040074B985 /* MapViewController.swift */; };
-		11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */; };
 		11E139CA1A9BB1660074B985 /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C71A9BB1660074B985 /* MarkerInfoView.swift */; };
 		11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E139C81A9BB1660074B985 /* MarkerInfoView.xib */; };
 		11E139CC1A9BB1660074B985 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E139C91A9BB1660074B985 /* UIViewExtension.swift */; };
@@ -40,9 +44,9 @@
 		11E139D51A9BB4AD0074B985 /* GoogleMaps.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */; };
 		11E139D61A9BB4AF0074B985 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 11E139D11A9BB47A0074B985 /* GoogleMaps.framework */; };
 		11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11EEA6721AF5FFA500053ADA /* LaunchScreen.xib */; };
+		B208DACC1B16AF8A00FB1288 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B208DACB1B16AF8A00FB1288 /* MainViewController.swift */; };
 		B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536E11A709D7500E4391B /* AppDelegate.swift */; };
 		B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B23536E31A709D7500E4391B /* CP_Maps.xcdatamodeld */; };
-		B23536EA1A709D7500E4391B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B23536E81A709D7500E4391B /* Main.storyboard */; };
 		B23536EC1A709D7500E4391B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B23536EB1A709D7500E4391B /* Images.xcassets */; };
 		B23536FB1A709D7500E4391B /* CP_MapsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23536FA1A709D7500E4391B /* CP_MapsTests.swift */; };
 		B23573541A92BC090065DF25 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23573531A92BC090065DF25 /* Day.swift */; };
@@ -51,14 +55,20 @@
 		B2372FB31A8C76C7006EA3C9 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */; };
 		B2485FCE1ADF677E00430CD9 /* CPMapsLibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */; };
 		B2485FD11ADF6C4200430CD9 /* LocationsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */; };
+		B24DD8511B13994E00F2EE55 /* MapViewTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24DD8501B13994E00F2EE55 /* MapViewTypeTableViewCell.swift */; };
 		B25647351AA0179000315E46 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25647341AA0179000315E46 /* Room.swift */; };
 		B2644D361A990A9300513903 /* Building.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D351A990A9300513903 /* Building.swift */; };
 		B2644D381A990C4800513903 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2644D371A990C4800513903 /* Course.swift */; };
 		B2748F461AB9337D00411FAA /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F451AB9337D00411FAA /* Const.swift */; };
 		B2748F501AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */; };
+		B28064891B0DD27100122A48 /* StartEndDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28064881B0DD27100122A48 /* StartEndDatePicker.swift */; };
 		B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */; };
 		B29C14CE1A831E7B000759CC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B29C14CC1A831E26000759CC /* CoreData.framework */; };
 		B2CB2AA91A91AC1200FDF096 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2CB2AA81A91AC1200FDF096 /* Location.swift */; };
+		B2E728F21B1AB41B00B7A0D6 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */; };
+		B2E728F41B1AB6B200B7A0D6 /* SavedLocations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */; };
+		B2E728F71B1AC92E00B7A0D6 /* OldMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */; };
+		B2E728F91B1B045B00B7A0D6 /* MapViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */; };
 		B2E763B41A903496000D93E5 /* ChooseDaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */; };
 		B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */; };
 /* End PBXBuildFile section */
@@ -74,10 +84,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		113A940F1B04986900C082C6 /* 1-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-1.png"; sourceTree = "<group>"; };
+		113A94101B04986900C082C6 /* 1-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-2.png"; sourceTree = "<group>"; };
+		113A94111B04986900C082C6 /* 1-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-3.png"; sourceTree = "<group>"; };
+		113A94121B04986900C082C6 /* 1-4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-4.png"; sourceTree = "<group>"; };
+		113A94131B04986900C082C6 /* 1-5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1-5.png"; sourceTree = "<group>"; };
 		1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorPlanPagedScrollViewController.swift; sourceTree = "<group>"; };
-		1157A9ED1AFAAAFE004CA294 /* 0140-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-1.png"; sourceTree = "<group>"; };
-		1157A9EE1AFAAAFE004CA294 /* 0140-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-2.png"; sourceTree = "<group>"; };
-		1157A9EF1AFAAAFE004CA294 /* 0140-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0140-3.png"; sourceTree = "<group>"; };
+		1157A9ED1AFAAAFE004CA294 /* 14-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-1.png"; sourceTree = "<group>"; };
+		1157A9EE1AFAAAFE004CA294 /* 14-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-2.png"; sourceTree = "<group>"; };
+		1157A9EF1AFAAAFE004CA294 /* 14-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-3.png"; sourceTree = "<group>"; };
 		1167C1C81A783EF200E6C780 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1167C1C91A783EF200E6C780 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1167C1CD1A783FB600E6C780 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -98,7 +113,6 @@
 		11E139BC1A9AE5800074B985 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		11E139C01A9BAB450074B985 /* CP_Maps-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CP_Maps-Bridging-Header.h"; sourceTree = "<group>"; };
 		11E139C31A9BB1040074B985 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypesTableViewController.swift; sourceTree = "<group>"; };
 		11E139C71A9BB1660074B985 /* MarkerInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
 		11E139C81A9BB1660074B985 /* MarkerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
 		11E139C91A9BB1660074B985 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
@@ -107,11 +121,11 @@
 		11E139D11A9BB47A0074B985 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		11E139D31A9BB48E0074B985 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		11EEA6731AF5FFA500053ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B208DACB1B16AF8A00FB1288 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B23536DC1A709D7500E4391B /* CP_Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CP_Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536E01A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B23536E11A709D7500E4391B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B23536E41A709D7500E4391B /* CP_Maps.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CP_Maps.xcdatamodel; sourceTree = "<group>"; };
-		B23536E91A709D7500E4391B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B23536EB1A709D7500E4391B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B23536F41A709D7500E4391B /* CP_MapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CP_MapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B23536F91A709D7500E4391B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,14 +136,20 @@
 		B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMapsLibraryAPI.swift; sourceTree = "<group>"; };
 		B2485FD01ADF6C4200430CD9 /* LocationsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsPersistencyManager.swift; sourceTree = "<group>"; };
+		B24DD8501B13994E00F2EE55 /* MapViewTypeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewTypeTableViewCell.swift; sourceTree = "<group>"; };
 		B25647341AA0179000315E46 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		B2644D351A990A9300513903 /* Building.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Building.swift; sourceTree = "<group>"; };
 		B2644D371A990C4800513903 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		B2748F451AB9337D00411FAA /* Const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBuildingRoomTableViewController.swift; sourceTree = "<group>"; };
+		B28064881B0DD27100122A48 /* StartEndDatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartEndDatePicker.swift; sourceTree = "<group>"; };
 		B28088931AE8D08100A4656E /* BuildingsPersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BuildingsPersistencyManager.swift; sourceTree = "<group>"; };
 		B29C14CC1A831E26000759CC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B2CB2AA81A91AC1200FDF096 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainViewController.storyboard; sourceTree = "<group>"; };
+		B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SavedLocations.storyboard; sourceTree = "<group>"; };
+		B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldMainViewController.swift; sourceTree = "<group>"; };
+		B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MapViewController.storyboard; sourceTree = "<group>"; };
 		B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDaysViewController.swift; sourceTree = "<group>"; };
 		B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,9 +191,14 @@
 		1157A9F31AFAAB0A004CA294 /* FloorPlans */ = {
 			isa = PBXGroup;
 			children = (
-				1157A9ED1AFAAAFE004CA294 /* 0140-1.png */,
-				1157A9EE1AFAAAFE004CA294 /* 0140-2.png */,
-				1157A9EF1AFAAAFE004CA294 /* 0140-3.png */,
+				113A940F1B04986900C082C6 /* 1-1.png */,
+				113A94101B04986900C082C6 /* 1-2.png */,
+				113A94111B04986900C082C6 /* 1-3.png */,
+				113A94121B04986900C082C6 /* 1-4.png */,
+				113A94131B04986900C082C6 /* 1-5.png */,
+				1157A9ED1AFAAAFE004CA294 /* 14-1.png */,
+				1157A9EE1AFAAAFE004CA294 /* 14-2.png */,
+				1157A9EF1AFAAAFE004CA294 /* 14-3.png */,
 			);
 			name = FloorPlans;
 			sourceTree = "<group>";
@@ -205,13 +230,17 @@
 		11FFA9F91A79D1AA007BBBF1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B2E728F51B1AC8F100B7A0D6 /* Controllers with useful code */,
+				B2E728F11B1AB41B00B7A0D6 /* MainViewController.storyboard */,
+				B208DACB1B16AF8A00FB1288 /* MainViewController.swift */,
+				B2E728F81B1B045B00B7A0D6 /* MapViewController.storyboard */,
 				11E139C31A9BB1040074B985 /* MapViewController.swift */,
-				11E139C51A9BB13E0074B985 /* TypesTableViewController.swift */,
+				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
+				B2E728F31B1AB6B200B7A0D6 /* SavedLocations.storyboard */,
 				B2372FA41A8C5B3F006EA3C9 /* LocationsViewController.swift */,
 				B2E763BD1A9049D5000D93E5 /* AddEditLocationViewController.swift */,
 				B2748F4F1AB9528100411FAA /* ChooseBuildingRoomTableViewController.swift */,
 				B2E763B31A903496000D93E5 /* ChooseDaysViewController.swift */,
-				1157A9EB1AFAA56A004CA294 /* FloorPlanPagedScrollViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -236,7 +265,9 @@
 				B2644D371A990C4800513903 /* Course.swift */,
 				B2CB2AA81A91AC1200FDF096 /* Location.swift */,
 				B2372FB21A8C76C7006EA3C9 /* LocationCell.swift */,
+				B24DD8501B13994E00F2EE55 /* MapViewTypeTableViewCell.swift */,
 				1171B44B1AF0AD2400564ABE /* StreamReader.swift */,
+				B28064881B0DD27100122A48 /* StartEndDatePicker.swift */,
 				11E139CD1A9BB2B30074B985 /* GoogleDataProvider.swift */,
 				11E139CE1A9BB2B30074B985 /* GooglePlace.swift */,
 			);
@@ -267,7 +298,6 @@
 		B23536DE1A709D7500E4391B /* CP_Maps */ = {
 			isa = PBXGroup;
 			children = (
-				B23536E81A709D7500E4391B /* Main.storyboard */,
 				B23536E11A709D7500E4391B /* AppDelegate.swift */,
 				B2372FAA1A8C5D29006EA3C9 /* SampleData.swift */,
 				B2485FCF1ADF678800430CD9 /* API */,
@@ -321,6 +351,14 @@
 				B2485FCD1ADF677E00430CD9 /* CPMapsLibraryAPI.swift */,
 			);
 			name = API;
+			sourceTree = "<group>";
+		};
+		B2E728F51B1AC8F100B7A0D6 /* Controllers with useful code */ = {
+			isa = PBXGroup;
+			children = (
+				B2E728F61B1AC92E00B7A0D6 /* OldMainViewController.swift */,
+			);
+			name = "Controllers with useful code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -404,18 +442,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2E728F91B1B045B00B7A0D6 /* MapViewController.storyboard in Resources */,
 				118C896B1AB1416B00E8847B /* CalPoly_Bldg14_Location.gpx in Resources */,
 				1185CBB51A797B1900987018 /* .gitignore in Resources */,
 				1171B44E1AF0AE0E00564ABE /* Building_Info.csv in Resources */,
-				B23536EA1A709D7500E4391B /* Main.storyboard in Resources */,
+				113A94141B04986900C082C6 /* 1-1.png in Resources */,
 				11E139D41A9BB48E0074B985 /* GoogleMaps.bundle in Resources */,
+				113A94151B04986900C082C6 /* 1-2.png in Resources */,
 				118C896D1AB16C6200E8847B /* PolyMap_Extended.jpg in Resources */,
-				1157A9F21AFAAAFE004CA294 /* 0140-3.png in Resources */,
-				1157A9F01AFAAAFE004CA294 /* 0140-1.png in Resources */,
+				1157A9F21AFAAAFE004CA294 /* 14-3.png in Resources */,
+				113A94161B04986900C082C6 /* 1-3.png in Resources */,
+				B2E728F21B1AB41B00B7A0D6 /* MainViewController.storyboard in Resources */,
+				1157A9F01AFAAAFE004CA294 /* 14-1.png in Resources */,
 				11E139CB1A9BB1660074B985 /* MarkerInfoView.xib in Resources */,
+				113A94181B04986900C082C6 /* 1-5.png in Resources */,
+				113A94171B04986900C082C6 /* 1-4.png in Resources */,
 				11EEA6741AF5FFA500053ADA /* LaunchScreen.xib in Resources */,
-				1157A9F11AFAAAFE004CA294 /* 0140-2.png in Resources */,
+				1157A9F11AFAAAFE004CA294 /* 14-2.png in Resources */,
 				B23536EC1A709D7500E4391B /* Images.xcassets in Resources */,
+				B2E728F41B1AB6B200B7A0D6 /* SavedLocations.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,14 +491,17 @@
 				B2372FAB1A8C5D29006EA3C9 /* SampleData.swift in Sources */,
 				B23536E21A709D7500E4391B /* AppDelegate.swift in Sources */,
 				11E139CC1A9BB1660074B985 /* UIViewExtension.swift in Sources */,
+				B208DACC1B16AF8A00FB1288 /* MainViewController.swift in Sources */,
 				1171B44C1AF0AD2400564ABE /* StreamReader.swift in Sources */,
+				B2E728F71B1AC92E00B7A0D6 /* OldMainViewController.swift in Sources */,
 				11E139CA1A9BB1660074B985 /* MarkerInfoView.swift in Sources */,
 				B2644D361A990A9300513903 /* Building.swift in Sources */,
 				B23536E51A709D7500E4391B /* CP_Maps.xcdatamodeld in Sources */,
 				B25647351AA0179000315E46 /* Room.swift in Sources */,
+				B28064891B0DD27100122A48 /* StartEndDatePicker.swift in Sources */,
+				B24DD8511B13994E00F2EE55 /* MapViewTypeTableViewCell.swift in Sources */,
 				B28088941AE8D08100A4656E /* BuildingsPersistencyManager.swift in Sources */,
 				B2E763BE1A9049D5000D93E5 /* AddEditLocationViewController.swift in Sources */,
-				11E139C61A9BB13E0074B985 /* TypesTableViewController.swift in Sources */,
 				B2372FA51A8C5B3F006EA3C9 /* LocationsViewController.swift in Sources */,
 				11E139C41A9BB1040074B985 /* MapViewController.swift in Sources */,
 				B2748F461AB9337D00411FAA /* Const.swift in Sources */,
@@ -486,14 +534,6 @@
 				11EEA6731AF5FFA500053ADA /* Base */,
 			);
 			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-		B23536E81A709D7500E4391B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B23536E91A709D7500E4391B /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

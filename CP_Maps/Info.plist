@@ -27,7 +27,7 @@
 	<key>UILaunchImageFile</key>
 	<string>LaunchImage</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>MainViewController</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

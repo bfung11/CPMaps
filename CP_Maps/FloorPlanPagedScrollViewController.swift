@@ -1,5 +1,5 @@
 //
-//  Paged scroll view to display room flor plans
+//  Paged scroll view to display room floor plans
 //
 //
 
@@ -8,22 +8,18 @@ import UIKit
 class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate {
    
    @IBOutlet var scrollView: UIScrollView!
-   @IBOutlet var pageControl: UIPageControl!
+   @IBOutlet weak var pageControl: UIPageControl!
    
+   var mainVC: MainViewController?
+   var selectedBuilding: Building?
    var pageImages: [UIImage] = []
    var pageViews: [UIImageView?] = []
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // 1
-      pageImages = [UIImage(named:"0140-1.png")!,
-         UIImage(named:"0140-2.png")!,
-         UIImage(named:"0140-1.png")!]
-      
+      // initialize the pages
       let pageCount = pageImages.count
-      
-      // 2
       pageControl.currentPage = 0
       pageControl.numberOfPages = pageCount
       
@@ -32,13 +28,45 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
          pageViews.append(nil)
       }
       
-      // 4
+      // size page
       let pagesScrollViewSize = scrollView.frame.size
       scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height)
       
       // 5
       loadVisiblePages()
+      
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Cancel,
+            target: self, action: "cancelButtonPressed:")
+      self.navigationItem.title = selectedBuilding!.getNumber() + " - " + selectedBuilding!.getName()
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Done,
+            target: self, action: "doneButtonPressed:")
    }
+   
+   @IBAction func cancelButtonPressed(sender: AnyObject) {
+      self.dismissViewControllerAnimated(true, completion: nil)
+      //      self.performSegueWithIdentifier(cancelToLocationsTVC, sender: self)
+   }
+   
+   @IBAction func doneButtonPressed(sender: AnyObject) {
+      self.presentDoneActionSheet()
+   }
+
+   func setPages(building : Building) {
+      self.selectedBuilding = building
+      pageImages.removeAll(keepCapacity: false)
+      
+      for var floor = 1; floor <= building.numberOfFloors; ++floor {
+         var fileName: String! = building.number + "-" + String(floor) + ".png"
+         var image: UIImage? = UIImage(named:fileName)
+         // only add the image if it exists
+         if(image != nil) {
+            pageImages.append(image!)
+         }
+      }
+   }
+   
    
    func loadPage(page: Int) {
       
@@ -116,6 +144,20 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    func scrollViewDidScroll(scrollView: UIScrollView!) {
       // Load the pages that are now on screen
       loadVisiblePages()
+   }
+   
+   private func presentDoneActionSheet() {
+      let mapTypesActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Set as current location", style:UIAlertActionStyle.Default, handler:{ action in
+         self.mainVC!.mapViewController.showSelectedBuilding(self.selectedBuilding!)
+         self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Don't set as current location", style:UIAlertActionStyle.Default, handler:{ action in
+         self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      
+      presentViewController(mapTypesActionSheet, animated:true, completion:nil)
    }
    
    override func didReceiveMemoryWarning() {

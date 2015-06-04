@@ -12,99 +12,100 @@
 11,Agricultural Sciences,3,35.30284597486158,-120.66294506192207
 13,Engineering,2,35.30155884755303,-120.66529467701912
 14,Frank E. Pilling Building,3,35.30017650898093,-120.66224366426468
-15,Cal Poly Corporation Administration,,,
-16,Beef Unit,,,
-17,Crops Unit,,,
-18,Dairy Science Milking Parlor,,,
-18A,Leprino Foods Dairy Innovation Institute,,,
-19,Dining Complex,,,
-20,Engineering East,,,
-21,Engineering West,,,
-22,English,,,
-24,Food Processing,,,
-25,Faculty Offices East,,,
-26,Graphic Arts,,,
-26M,Modular,,,
-27,Health Center,,,
-28,Albert B. Smith Alumni and Conference Center,,,
-31,Housing Administration Building,,,
-32,Cal Poly Equine Center,,,
-33,Clyde P. Fisher Science Hall,,,
-34,Walter F. Dexter Building,,,
-35,Robert E. Kennedy Library,,,
-36,University Police,,,
-38,Mathematics and Science,,,
-40,Engineering South,,,
-41,Engineering III,,,
-42,Robert E. Mott Physical Education,,,
-43,Recreation Center,,,
-43A,Kinesiology,,,
-44,Alex and Fay Spanos Theatre,,,
-45,H.P. Davidson Music Center,,,
-46,Old Natatorium,,,
-47,Faculty Offices North,,,
-48,Environmental Horticultural Science,,,
-50,"Bishop Warehouse, Rose Float, ITS Storage",,,
-52,Science,,,
-53,Science North,,,
-55A,Beef Cattle Evaluation Center,,,
-56,Swine Unit,,,
-57,Veterinary Hospital,,,
-58,Welding,,,
-60,Crandall Gymnasium & Old Natatorium,,,
-61,Alex G. Spanos Stadium,,,
-65,Julian A. McPhee University Union,,,
-70,Facilities,,,
-71,Transportation Services,,,
-74M,Modular,,,
-80,Housing Warehouse - Environmental Health & Safety,,,
-81,Hillcrest,,,
-82,Corporation Warehouse,,,
-83,Technology Park,,,
-92M,Modular,,,
-100,Shasta Hall,,,
-101,Diablo Hall,,,
-102,Palomar Hall,,,
-103,Whitney Hall,,,
-104,Lassen Hall,,,
-105,Trinity Hall,,,
-106,Santa Lucia Hall,,,
-107,Muir Hall,,,
-108,Sequoia Hall,,,
-109,Fremont Hall,,,
-110,Tenaya Hall,,,
-112,Vista Grande,,,
-113,Sierra Madre Hall,,,
-114,Yosemite Hall,,,
-115,Chase Hall,,,
-116,Jespersen Hall,,,
-117,Heron Hall,,,
-121,Cheda Ranch,,,
-122,Parker Ranch,,,
-123,Peterson Ranch,,,
-124,Student Services,,,
-125,Serrano Ranch,,,
-126,Chorro Creek Ranch,,,
-127,Escuela Beef Center,,,
-130,Grand Avenue Parking Structure,,,
-133,Orfalea Family and ASI Children’s Center,,,
-150,Poultry Science Instructional Center,,,
-154,Animal Nutrition Center,,,
-155,J & G Lau Family Meat Processing Center,,,
-160,Sports Complex,,,
-170,Cerro Vista Room Number Map,,,
-170A,Cerro Morro,,,
-170B,Cerro Cabrillo,,,
-170C,Cerro Hollister,,,
-170D,Cerro Romauldo,,,
-170E,Cerro Bishop,,,
-170F,Cerro Islay,,,
-170G,Cerro San Luis,,,
-171,Poly Canyon Village,,,
-180,Warren J. Baker Center for Science and Mathematics,,,
-186,Construction Innovations Center,,,
-192,Engineering IV,,,
-197,Bonderson Engineering Projet Center,,,
-271,Village Drive Parking Structure,,,
-371,Canyon Circle Parking Structure,,,
-371B,Housing Depot,,,
+15,Cal Poly Corporation Administration,1,35.30314530726215,-120.66034466028214
+16,Beef Unit,1,35.30726243846058,-120.66321462392807
+17,Crops Unit,1,35.30265619053521,-120.66832154989243
+18,Dairy Science Milking Parlor,2,35.30722529234884,-120.67248433828354
+18A,Leprino Foods Dairy Innovation Institute,1,35.307553415745964,-120.67186743021011
+19,Dining Complex,2,35.299628118200935,-120.65971434116364
+20,Engineering East,3,35.30041617656178,-120.66161334514618
+21,Engineering West,4,35.30011846652745,-120.66336214542389
+22,English,2,35.302386288887476,-120.66100180149078
+24,Food Processing,1,35.30363837979059,-120.66306173801422
+25,Faculty Offices East,3,35.30117024816635,-120.65930932760239
+26,Graphic Arts,4,35.299337548330314,-120.66180378198624
+26M,Modular,1,35.29901558326196,-120.66163748502731
+27,Health Center,2,35.29802491347873,-120.6610956788063
+28,Albert B. Smith Alumni and Conference Center,1,35.29767817618949,-120.66219538450241
+31,Housing Administration Building,2,35.30204943403091,-120.65757662057877
+32,Cal Poly Equine Center,1,35.30938592949212,-120.66427677869797
+33,Clyde P. Fisher Science Hall,4,35.30204324261457,-120.6592932343483
+34,Walter F. Dexter Building,2,35.300996886445816,-120.6634721159935
+35,Robert E. Kennedy Library,5,35.30195656273591,-120.66351503133774
+36,University Police,1,35.30393779391051,-120.66168576478958
+38,Mathematics and Science,2,35.30153554486159,-120.6622651219368
+40,Engineering South,1,35.29929420695343,-120.66076844930649
+41,Engineering III,3,35.30241472675712,-120.6658324599266
+42,Robert E. Mott Physical Education,2,35.298935091794704,-120.65894991159439
+43,Recreation Center,2,35.298551208311075,-120.6600496172905
+43A,Kinesiology,4,35.29892270848497,-120.65980285406113
+44,Alex and Fay Spanos Theatre,3,35.299845259873905,-120.6577804684639
+45,H.P. Davidson Music Center,2,35.29941803939726,-120.65807551145554
+46,Old Natatorium,1,35.29915179940875,-120.66410511732101
+47,Faculty Offices North,3,35.30260665956256,-120.66009789705276
+48,Environmental Horticultural Science,1,35.30910734055102,-120.66369205713272
+50,"Bishop Warehouse, Rose Float, ITS Storage",2,35.30407400177149,-120.67112177610397
+52,Science,1,35.300272478095074,-120.66011399030685
+53,Science North,3,35.302513788907106,-120.6598350405693
+55A,Beef Cattle Evaluation Center,1,35.30947260141143,-120.67912548780441
+56,Swine Unit,1,35.31201699994883,-120.67241460084915
+57,Veterinary Hospital,1,35.305906594331155,-120.67034929990768
+58,Welding,1,35.303584890658556,-120.66135853528976
+60,Crandall Gymnasium & Old Natatorium,1,35.29954806325936,-120.66404610872269
+61,Alex G. Spanos Stadium,2,35.29852644157217,-120.6650385260582
+65,Julian A. McPhee University Union,2,35.3003282020446,-120.65872997045517
+70,Facilities,1,35.30391302882022,-120.65956145524979
+71,Transportation Services,2,35.304043045459565,-120.6587353348732
+74M,Modular,1,35.303089585252614,-120.66094547510147
+80,Housing Warehouse - Environmental Health & Safety,1,35.30364680362111,-120.66077381372452
+81,Hillcrest,1,35.30207419969158,-120.65822571516037
+82,Corporation Warehouse,1,35.30534939152577,-120.67086428403854
+83,Technology Park,2,35.30549797931576,-120.67180305719376
+92M,Modular,1,35.301207397058135,-120.6659397482872
+100,Shasta Hall,2,35.30297194977315,-120.65874069929123
+101,Diablo Hall,2,35.3031638812568,-120.65822035074234
+102,Palomar Hall,2,35.30315149859417,-120.65765172243118
+103,Whitney Hall,2,35.30258808544,-120.65796822309494
+104,Lassen Hall,2,35.302519980287464,-120.65844565629959
+105,Trinity Hall,3,35.30185749990374,-120.65720647573471
+106,Santa Lucia Hall,3,35.30162222519125,-120.65776437520981
+107,Muir Hall,3,35.30096592895663,-120.65673977136612
+108,Sequoia Hall,3,35.300699694060775,-120.65745323896408
+109,Fremont Hall,3,35.30032201049656,-120.65590292215347
+110,Tenaya Hall,3,35.30002481563293,-120.65654665231705
+112,Vista Grande,1,35.29936231482098,-120.65584391355515
+113,Sierra Madre Hall,3,35.2989412834489,-120.65474420785904
+114,Yosemite Hall,3,35.29769675143906,-120.65371423959732
+115,Chase Hall,2,35.298006338304454,-120.66375106573105
+116,Jespersen Hall,2,35.29784535328224,-120.66447526216507
+117,Heron Hall,2,35.297331437414634,-120.66431432962418
+121,Cheda Ranch,2,35.31208509710683,-120.68350285291672
+122,Parker Ranch,1,35.30699003324494,-120.67902356386185
+123,Peterson Ranch,1,35.3144948590494,-120.65072894096375
+124,Student Services,2,35.29855984905914,-120.66397368907928
+125,Serrano Ranch,1,35.31240247357492,-120.68062484264374
+126,Chorro Creek Ranch,1,35.32865862234438,-120.75218081474304
+127,Escuela Beef Center,1,35.347029300147845,-120.72330415248871
+130,Grand Avenue Parking Structure,5,35.298227106610085,-120.6571501493454
+133,Orfalea Family and ASI Children’s Center,1,35.29747384816267,-120.66275328397751
+150,Poultry Science Instructional Center,1,35.31140441290078,-120.67972362041473
+154,Animal Nutrition Center,1,35.311990993911806,-120.6780606508255
+155,J & G Lau Family Meat Processing Center,1,35.31441893777734,-120.68075627088547
+160,Sports Complex,1,35.30610470995938,-120.66596657037735
+170,Cerro Vista Room Number Map,1,35.30409876681249,-120.65730303525925
+170A,Cerro Morro,7,35.304327843082376,-120.65677732229233
+170B,Cerro Cabrillo,7,35.30453834502881,-120.65717965364456
+170C,Cerro Hollister,7,35.30495934727867,-120.6574210524559
+170D,Cerro Romauldo,7,35.30555369966665,-120.6572225689888
+170E,Cerro Bishop,4,35.30554131736979,-120.65676122903824
+170F,Cerro Islay,4,35.30484790571984,-120.65640717744827
+170G,Cerro San Luis,1,35.304117340588256,-120.65726548433304
+171,Poly Canyon Village,5,35.307268629477576,-120.65900892019272
+180,Warren J. Baker Center for Science and Mathematics,6,35.30142409858699,-120.66048413515091
+186,Construction Innovations Center,3,35.299300398580115,-120.66275328397751
+187,Simpson Strong-Tie Materials Demonstration Lab,1,35.299541871651606,-120.662662088871
+192,Engineering IV,3,35.302860505476936,-120.66495269536972
+197,Bonderson Engineering Projet Center,2,35.302495214763226,-120.66419631242752
+271,Village Drive Parking Structure,5,35.306457602220426,-120.65982967615128
+371,Canyon Circle Parking Structure,6,35.30946021971439,-120.65985649824142
+371B,Housing Depot,1,35.30939831120056,-120.66075772047043
