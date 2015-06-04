@@ -26,7 +26,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    @IBAction func cancelButtonPressed(sender: AnyObject) {
-      if (identifier == chooseBuildingVCFromMainVC ||
+      if (identifier == chooseBuildingForMainVC ||
          identifier == chooseBuildingForFloorPlanPSVC) {
          self.dismissViewControllerAnimated(true, completion: nil)
       }
@@ -40,7 +40,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    @IBAction func chooseBuildingFromMainViewController(sender: AnyObject) {
-      self.identifier = chooseBuildingVCFromMainVC
+      self.identifier = chooseBuildingForMainVC
    }
    
    @IBAction func cancelFromChooseBuildingRoomViewController(sender: AnyObject) {
@@ -80,7 +80,7 @@ class ChooseBuildingRoomViewController: UITableViewController {
    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
       self.selectedBuilding = data.getBuildingAtIndex(indexPath)
       
-      if identifier == chooseBuildingVCFromMainVC {
+      if identifier == chooseBuildingForMainVC {
          performSegueWithIdentifier(chooseBuildingForMapViewController, sender: self)
       }
       else if identifier == chooseBuildingForAddEditLocationVC {

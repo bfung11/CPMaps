@@ -14,7 +14,7 @@ import UIKit
 
 /* ---- MainViewController Storyboard ---- */
 // Segues for ChooseBuildingVC
-let chooseBuildingVCFromMainVC = "segueToChooseBuildingFromMainViewController"
+let chooseBuildingForMainVC = "segueToChooseBuildingFromMainViewController"
 let cancelToMainViewController = "cancelToMainViewController"
 let chooseBuildingForMapViewController = "chooseBuildingForMapViewController"
 let chooseBuildingForFloorPlanPSVC = "chooseBuildingForFloorPlanPagedScrollViewController"

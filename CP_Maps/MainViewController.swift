@@ -62,7 +62,7 @@ class MainViewController: UIViewController {
       let navVC = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID) as! UINavigationController
       let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
       navVC.pushViewController(vc, animated: false)
-      vc.identifier = chooseBuildingVCFromMainVC
+      vc.identifier = chooseBuildingForMainVC
       self.presentViewController(navVC, animated: true, completion: nil)
    }
    
