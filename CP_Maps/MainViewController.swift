@@ -60,10 +60,7 @@ class MainViewController: UIViewController {
    }
    
    @IBAction func searchBuildingsButtonPressed(sender: AnyObject) {
-      let navVC = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID) as! UINavigationController
-      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
-      navVC.pushViewController(vc, animated: false)
-      vc.identifier = chooseBuildingForMainVC
+      let navVC = self.createChooseBuildingRoomViewController(chooseBuildingForMainVC)
       self.presentViewController(navVC, animated: true, completion: nil)
    }
    
@@ -208,11 +205,11 @@ class MainViewController: UIViewController {
       self.view.viewWithTag(locationsTableViewTag)?.hidden = false
    }
    
-   func createChooseBuildingRoomViewController() -> UINavigationController {
+   func createChooseBuildingRoomViewController(identifier: String) -> UINavigationController {
       let navVC = self.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID) as! UINavigationController
       let vc = self.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
       vc.mainVC = self
-      vc.identifier = chooseBuildingForFloorPlanPSVC
+      vc.identifier = identifier
       navVC.pushViewController(vc, animated: false)
       
       return navVC
