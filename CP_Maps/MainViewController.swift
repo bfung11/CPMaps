@@ -185,9 +185,9 @@ class MainViewController: UIViewController {
    }
    
    private func createButtonsForLocationsView() {
-      self.navigationItem.leftBarButtonItem =
-         UIBarButtonItem(barButtonSystemItem: .Edit,
-            target: self, action: "editButtonPressed:")
+//      self.navigationItem.leftBarButtonItem =
+//         UIBarButtonItem(barButtonSystemItem: .Edit,
+//            target: self, action: "editButtonPressed:")
       self.navigationItem.rightBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Add,
             target: self, action: "addLocationButtonPressed:")
