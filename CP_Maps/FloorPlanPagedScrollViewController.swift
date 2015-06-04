@@ -32,6 +32,14 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       
       // 5
       loadVisiblePages()
+      
+      self.navigationItem.rightBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Done,
+            target: self, action: "doneButtonPressed:")
+   }
+   
+   @IBAction func doneButtonPressed(sender: AnyObject) {
+      println("Done pressed")
    }
 
    func setPages(building : Building) {
