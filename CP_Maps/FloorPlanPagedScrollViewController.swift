@@ -33,9 +33,17 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       // 5
       loadVisiblePages()
       
+      self.navigationItem.leftBarButtonItem =
+         UIBarButtonItem(barButtonSystemItem: .Cancel,
+            target: self, action: "cancelButtonPressed:")
       self.navigationItem.rightBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Done,
             target: self, action: "doneButtonPressed:")
+   }
+   
+   @IBAction func cancelButtonPressed(sender: AnyObject) {
+      self.dismissViewControllerAnimated(true, completion: nil)
+      //      self.performSegueWithIdentifier(cancelToLocationsTVC, sender: self)
    }
    
    @IBAction func doneButtonPressed(sender: AnyObject) {
