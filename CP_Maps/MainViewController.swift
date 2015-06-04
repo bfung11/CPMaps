@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
    var currentDetailViewController: UIViewController!
    
    var segmentedControl: UISegmentedControl!
+   var mapStoryboard: UIStoryboard!
    var mapViewController: MapViewController!
    var locationsStoryboard: UIStoryboard!
    var locationsViewController: LocationsViewController!
@@ -30,7 +31,7 @@ class MainViewController: UIViewController {
    }
    
    private func instantiateStoryboardsAndControllers() {
-      let mapStoryboard = UIStoryboard(name: "MapViewController", bundle: nil)
+      self.mapStoryboard = UIStoryboard(name: "MapViewController", bundle: nil)
       self.mapViewController = mapStoryboard.instantiateViewControllerWithIdentifier("MapViewController")
          as! MapViewController
       self.mapViewController.mainVC = self

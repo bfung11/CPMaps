@@ -10,6 +10,8 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    @IBOutlet var scrollView: UIScrollView!
    @IBOutlet weak var pageControl: UIPageControl!
    
+   var mainVC: MainViewController?
+   var selectedBuilding: Building?
    var pageImages: [UIImage] = []
    var pageViews: [UIImageView?] = []
    
@@ -51,6 +53,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    }
 
    func setPages(building : Building) {
+      self.selectedBuilding = building
       pageImages.removeAll(keepCapacity: false)
       
       for var floor = 1; floor <= building.numberOfFloors; ++floor {
@@ -145,10 +148,10 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    private func presentDoneActionSheet() {
       let mapTypesActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
       mapTypesActionSheet.addAction(UIAlertAction(title:"Set as current location", style:UIAlertActionStyle.Default, handler:{ action in
-//         self.
+         self.mainVC!.mapViewController.showSelectedBuilding(self.selectedBuilding!)
+         self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
       }))
       mapTypesActionSheet.addAction(UIAlertAction(title:"Don't set as current location", style:UIAlertActionStyle.Default, handler:{ action in
-         let navVC = self.navigationController
          self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
       }))
       mapTypesActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))

@@ -68,7 +68,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
       let vc = mainVC.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
       println(vc)
       vc.identifier = chooseBuildingForFloorPlanPSVC
-      vc.destinationStoryboard = self.storyboard
+      vc.mainVC = self.mainVC
       navVC.pushViewController(vc, animated: false)
       self.presentViewController(navVC, animated: true, completion: nil)
    }
