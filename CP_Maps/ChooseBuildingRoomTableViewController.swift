@@ -92,7 +92,6 @@ class ChooseBuildingRoomViewController: UITableViewController {
       }
       else if identifier == chooseBuildingForFloorPlanPSVC {
          let navVC = mainVC?.mapStoryboard.instantiateViewControllerWithIdentifier(floorPlansNCStoryboardID) as! UINavigationController
-         println("here")
          let vc = mainVC?.mapStoryboard.instantiateViewControllerWithIdentifier(floorPlansPSVCStoryboardID) as! FloorPlanPagedScrollViewController
          navVC.pushViewController(vc, animated: false)
 
