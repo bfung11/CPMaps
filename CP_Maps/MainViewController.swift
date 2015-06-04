@@ -208,6 +208,16 @@ class MainViewController: UIViewController {
       self.view.viewWithTag(locationsTableViewTag)?.hidden = false
    }
    
+   func createChooseBuildingRoomViewController() -> UINavigationController {
+      let navVC = self.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomNCStoryboardID) as! UINavigationController
+      let vc = self.locationsStoryboard.instantiateViewControllerWithIdentifier(chooseBuildingRoomVCStoryboardID) as! ChooseBuildingRoomViewController
+      vc.mainVC = self
+      vc.identifier = chooseBuildingForFloorPlanPSVC
+      navVC.pushViewController(vc, animated: false)
+      
+      return navVC
+   }
+   
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if (segue.identifier == segueToChooseBuildingFromMapViewController) {
          let vc = segue.destinationViewController as! ChooseBuildingRoomViewController
