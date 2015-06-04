@@ -14,7 +14,7 @@ import UIKit
 
 /* ---- MainViewController Storyboard ---- */
 // Segues for ChooseBuildingVC
-let segueToChooseBuildingVCFromMainVC = "segueToChooseBuildingFromMainViewController"
+let chooseBuildingVCFromMainVC = "segueToChooseBuildingFromMainViewController"
 let cancelToMainViewController = "cancelToMainViewController"
 let chooseBuildingForMapViewController = "chooseBuildingForMapViewController"
 
