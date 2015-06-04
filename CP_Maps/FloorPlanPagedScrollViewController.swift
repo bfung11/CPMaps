@@ -8,7 +8,7 @@ import UIKit
 class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate {
    
    @IBOutlet var scrollView: UIScrollView!
-   @IBOutlet var pageControl: UIPageControl!
+   @IBOutlet weak var pageControl: UIPageControl!
    
    var pageImages: [UIImage] = []
    var pageViews: [UIImageView?] = []
