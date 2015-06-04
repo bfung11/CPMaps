@@ -26,7 +26,8 @@ class ChooseBuildingRoomViewController: UITableViewController {
    }
    
    @IBAction func cancelButtonPressed(sender: AnyObject) {
-      if identifier == chooseBuildingVCFromMainVC {
+      if (identifier == chooseBuildingVCFromMainVC ||
+         identifier == chooseBuildingForFloorPlanPSVC) {
          self.dismissViewControllerAnimated(true, completion: nil)
       }
       else if identifier == chooseBuildingForAddEditLocationVC {
