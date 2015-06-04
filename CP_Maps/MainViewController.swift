@@ -215,6 +215,15 @@ class MainViewController: UIViewController {
       return navVC
    }
    
+   func createAddEditLocationViewController(location: Location) -> UINavigationController {
+      let navVC = self.locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationNCStoryboardID) as! UINavigationController
+      let vc = self.locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
+      navVC.pushViewController(vc, animated: false)
+      vc.selectedLocation = location
+      
+      return navVC
+   }
+   
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
       if (segue.identifier == segueToChooseBuildingFromMapViewController) {
          let vc = segue.destinationViewController as! ChooseBuildingRoomViewController

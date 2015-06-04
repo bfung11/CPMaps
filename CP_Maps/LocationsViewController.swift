@@ -261,10 +261,7 @@ UITableViewDataSource, UITableViewDelegate {
    }
    
    private func editLocation() {
-      let navVC = self.storyboard!.instantiateViewControllerWithIdentifier(addEditLocationNCStoryboardID) as! UINavigationController
-      let vc = self.storyboard!.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
-      navVC.pushViewController(vc, animated: false)
-      vc.selectedLocation = self.selectedLocation
+      let navVC = mainVC.createAddEditLocationViewController(self.selectedLocation!)
       self.isEditLocation = true
       self.presentViewController(navVC, animated: true, completion: nil)
    }
