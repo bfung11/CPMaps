@@ -38,6 +38,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       self.navigationItem.leftBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Cancel,
             target: self, action: "cancelButtonPressed:")
+      self.navigationItem.title = selectedBuilding!.getNumber() + " - " + selectedBuilding!.getName()
       self.navigationItem.rightBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Done,
             target: self, action: "doneButtonPressed:")
