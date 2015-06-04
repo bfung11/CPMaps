@@ -25,7 +25,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
          pageViews.append(nil)
       }
       
-      // size scroll view
+      // size scroll to how many pages exist
       let pagesScrollViewSize = scrollView.frame.size
       scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height)
       
@@ -40,7 +40,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
       let minScale = min(scaleWidth, scaleHeight);
       scrollView.minimumZoomScale = minScale;
-      scrollView.maximumZoomScale = 1.0
+      scrollView.maximumZoomScale = 2.0
       scrollView.zoomScale = minScale;
       
       // Load pages
@@ -100,7 +100,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
          // 3
          let newPageView = UIImageView(image: pageImages[page])
          newPageView.contentMode = .ScaleAspectFit
-         newPageView.frame = CGRect(origin: CGPointMake(0.0, 0.0), size:pageImages[page].size)
+         newPageView.frame = frame
          scrollView.addSubview(newPageView)
          
          // 4
@@ -123,7 +123,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    
    func loadVisiblePages() {
       
-      // First, determine which page is currently visible
+      // First, determine which page is currentl visible
       let pageWidth = scrollView.frame.size.width
       let page = Int(floor((scrollView.contentOffset.x * 2.0 + pageWidth) / (pageWidth * 2.0)))
       
@@ -151,11 +151,11 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       }
    }
    
-   
    func scrollViewDidScroll(scrollView: UIScrollView) {
       // Load the pages that are now on screen
       loadVisiblePages()
    }
+   
    
    // Zooming
    func centerScrollViewContents() {
