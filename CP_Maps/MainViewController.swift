@@ -70,9 +70,7 @@ class MainViewController: UIViewController {
    }
    
    @IBAction func addLocationButtonPressed(sender: AnyObject) {
-      let navVC = locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationNCStoryboardID) as! UINavigationController
-      let vc = locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
-      navVC.pushViewController(vc, animated: false)
+      let navVC = self.createAddEditLocationViewController(nil)
       self.presentViewController(navVC, animated: true, completion: nil)
    }
    
@@ -215,7 +213,7 @@ class MainViewController: UIViewController {
       return navVC
    }
    
-   func createAddEditLocationViewController(location: Location) -> UINavigationController {
+   func createAddEditLocationViewController(location: Location?) -> UINavigationController {
       let navVC = self.locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationNCStoryboardID) as! UINavigationController
       let vc = self.locationsStoryboard.instantiateViewControllerWithIdentifier(addEditLocationTVCStoryboardID) as! AddEditLocationViewController
       navVC.pushViewController(vc, animated: false)
