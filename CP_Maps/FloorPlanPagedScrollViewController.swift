@@ -21,18 +21,33 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       pageControl.currentPage = 0
       pageControl.numberOfPages = pageCount
       
-      // 3
       for _ in 0..<pageCount {
          pageViews.append(nil)
       }
       
-      // size page
+      // size scroll view
       let pagesScrollViewSize = scrollView.frame.size
       scrollView.contentSize = CGSizeMake(pagesScrollViewSize.width * CGFloat(pageImages.count), pagesScrollViewSize.height)
       
-      // 5
-      loadVisiblePages()
+      // Zooming abilities
+      var doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "scrollViewDoubleTapped:")
+      doubleTapRecognizer.numberOfTapsRequired = 2
+      doubleTapRecognizer.numberOfTouchesRequired = 1
+      scrollView.addGestureRecognizer(doubleTapRecognizer)
       
+      let scrollViewFrame = scrollView.frame
+      let scaleWidth = scrollViewFrame.size.width / scrollView.contentSize.width
+      let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
+      let minScale = min(scaleWidth, scaleHeight);
+      scrollView.minimumZoomScale = minScale;
+      scrollView.maximumZoomScale = 1.0
+      scrollView.zoomScale = minScale;
+      
+      // Load pages
+      loadVisiblePages()
+      centerScrollViewContents()
+      
+      //UI management
       self.navigationItem.leftBarButtonItem =
          UIBarButtonItem(barButtonSystemItem: .Cancel,
             target: self, action: "cancelButtonPressed:")
@@ -41,6 +56,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
             target: self, action: "doneButtonPressed:")
    }
    
+   //UI management
    @IBAction func cancelButtonPressed(sender: AnyObject) {
       self.dismissViewControllerAnimated(true, completion: nil)
       //      self.performSegueWithIdentifier(cancelToLocationsTVC, sender: self)
@@ -50,6 +66,8 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
       println("Done pressed")
    }
 
+   
+   // set pages to building
    func setPages(building : Building) {
       pageImages.removeAll(keepCapacity: false)
       
@@ -64,8 +82,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    }
    
    
-   func loadPage(page: Int) {
-      
+   func loadPage(page: Int) {      
       if page < 0 || page >= pageImages.count {
          // If it's outside the range of what you have to display, then do nothing
          return
@@ -83,7 +100,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
          // 3
          let newPageView = UIImageView(image: pageImages[page])
          newPageView.contentMode = .ScaleAspectFit
-         newPageView.frame = frame
+         newPageView.frame = CGRect(origin: CGPointMake(0.0, 0.0), size:pageImages[page].size)
          scrollView.addSubview(newPageView)
          
          // 4
@@ -92,7 +109,6 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    }
    
    func purgePage(page: Int) {
-      
       if page < 0 || page >= pageImages.count {
          // If it's outside the range of what you have to display, then do nothing
          return
@@ -103,7 +119,6 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
          pageView.removeFromSuperview()
          pageViews[page] = nil
       }
-      
    }
    
    func loadVisiblePages() {
@@ -137,15 +152,64 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    }
    
    
-   func scrollViewDidScroll(scrollView: UIScrollView!) {
+   func scrollViewDidScroll(scrollView: UIScrollView) {
       // Load the pages that are now on screen
       loadVisiblePages()
+   }
+   
+   // Zooming
+   func centerScrollViewContents() {
+      let boundsSize = scrollView.bounds.size
+      var contentsFrame = pageViews[pageControl.currentPage]!.frame
+      
+      if contentsFrame.size.width < boundsSize.width {
+         contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
+      } else {
+         contentsFrame.origin.x = 0.0
+      }
+      
+      if contentsFrame.size.height < boundsSize.height {
+         contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
+      } else {
+         contentsFrame.origin.y = 0.0
+      }
+      
+      pageViews[pageControl.currentPage]!.frame = contentsFrame
+      
+   }
+
+   func scrollViewDoubleTapped(recognizer: UITapGestureRecognizer) {
+      println("here")
+      // 1
+      let pointInView = recognizer.locationInView(pageViews[pageControl.currentPage])
+      
+      // 2
+      var newZoomScale = scrollView.zoomScale * 1.5
+      newZoomScale = min(newZoomScale, scrollView.maximumZoomScale)
+      
+      // 3
+      let scrollViewSize = scrollView.bounds.size
+      let w = scrollViewSize.width / newZoomScale
+      let h = scrollViewSize.height / newZoomScale
+      let x = pointInView.x - (w / 2.0)
+      let y = pointInView.y - (h / 2.0)
+      
+      let rectToZoomTo = CGRectMake(x, y, w, h);
+      
+      // 4
+      scrollView.zoomToRect(rectToZoomTo, animated: true)
+   }
+   
+   func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+      return pageViews[pageControl.currentPage]
+   }
+   
+   func scrollViewDidZoom(scrollView: UIScrollView) {
+      centerScrollViewContents()
    }
    
    override func didReceiveMemoryWarning() {
       super.didReceiveMemoryWarning()
       // Dispose of any resources that can be recreated.
    }
-   
-   
 }
