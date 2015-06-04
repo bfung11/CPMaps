@@ -47,7 +47,7 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    }
    
    @IBAction func doneButtonPressed(sender: AnyObject) {
-      println("Done pressed")
+      self.presentDoneActionSheet()
    }
 
    func setPages(building : Building) {
@@ -140,6 +140,20 @@ class FloorPlanPagedScrollViewController: UIViewController, UIScrollViewDelegate
    func scrollViewDidScroll(scrollView: UIScrollView!) {
       // Load the pages that are now on screen
       loadVisiblePages()
+   }
+   
+   private func presentDoneActionSheet() {
+      let mapTypesActionSheet: UIAlertController = UIAlertController(title:nil, message:nil, preferredStyle:UIAlertControllerStyle.ActionSheet)
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Set as current location", style:UIAlertActionStyle.Default, handler:{ action in
+//         self.
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Don't set as current location", style:UIAlertActionStyle.Default, handler:{ action in
+         let navVC = self.navigationController
+         self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+      }))
+      mapTypesActionSheet.addAction(UIAlertAction(title:"Cancel", style:UIAlertActionStyle.Cancel, handler:nil))
+      
+      presentViewController(mapTypesActionSheet, animated:true, completion:nil)
    }
    
    override func didReceiveMemoryWarning() {
